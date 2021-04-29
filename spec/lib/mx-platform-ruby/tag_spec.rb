@@ -123,15 +123,9 @@ RSpec.describe ::MxPlatformRuby::Tag do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
-      expect(response.first.guid).to eq(
-        tag_attributes['guid']
-      )
-      expect(response.first.name).to eq(
-        tag_attributes['name']
-      )
-      expect(response.first.user_guid).to eq(
-        tag_attributes['user_guid']
-      )
+      expect(response.first.guid).to eq(tag_attributes['guid'])
+      expect(response.first.name).to eq(tag_attributes['name'])
+      expect(response.first.user_guid).to eq(tag_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -161,15 +155,9 @@ RSpec.describe ::MxPlatformRuby::Tag do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
-      expect(response.first.guid).to eq(
-        tag_attributes['guid']
-      )
-      expect(response.first.name).to eq(
-        tag_attributes['name']
-      )
-      expect(response.first.user_guid).to eq(
-        tag_attributes['user_guid']
-      )
+      expect(response.first.guid).to eq(tag_attributes['guid'])
+      expect(response.first.name).to eq(tag_attributes['name'])
+      expect(response.first.user_guid).to eq(tag_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

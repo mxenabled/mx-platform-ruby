@@ -48,27 +48,13 @@ RSpec.describe ::MxPlatformRuby::Challenge do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
-      expect(response.first.field_name).to eq(
-        challenge_attributes['field_name']
-      )
-      expect(response.first.guid).to eq(
-        challenge_attributes['guid']
-      )
-      expect(response.first.image_data).to eq(
-        challenge_attributes['image_data']
-      )
-      expect(response.first.image_options).to eq(
-        challenge_attributes['image_options']
-      )
-      expect(response.first.label).to eq(
-        challenge_attributes['label']
-      )
-      expect(response.first.options).to eq(
-        challenge_attributes['options']
-      )
-      expect(response.first.type).to eq(
-        challenge_attributes['type']
-      )
+      expect(response.first.field_name).to eq(challenge_attributes['field_name'])
+      expect(response.first.guid).to eq(challenge_attributes['guid'])
+      expect(response.first.image_data).to eq(challenge_attributes['image_data'])
+      expect(response.first.image_options).to eq(challenge_attributes['image_options'])
+      expect(response.first.label).to eq(challenge_attributes['label'])
+      expect(response.first.options).to eq(challenge_attributes['options'])
+      expect(response.first.type).to eq(challenge_attributes['type'])
       expect(response.length).to eq(1)
     end
   end
@@ -102,27 +88,13 @@ RSpec.describe ::MxPlatformRuby::Challenge do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
-      expect(response.first.field_name).to eq(
-        challenge_attributes['field_name']
-      )
-      expect(response.first.guid).to eq(
-        challenge_attributes['guid']
-      )
-      expect(response.first.image_data).to eq(
-        challenge_attributes['image_data']
-      )
-      expect(response.first.image_options).to eq(
-        challenge_attributes['image_options']
-      )
-      expect(response.first.label).to eq(
-        challenge_attributes['label']
-      )
-      expect(response.first.options).to eq(
-        challenge_attributes['options']
-      )
-      expect(response.first.type).to eq(
-        challenge_attributes['type']
-      )
+      expect(response.first.field_name).to eq(challenge_attributes['field_name'])
+      expect(response.first.guid).to eq(challenge_attributes['guid'])
+      expect(response.first.image_data).to eq(challenge_attributes['image_data'])
+      expect(response.first.image_options).to eq(challenge_attributes['image_options'])
+      expect(response.first.label).to eq(challenge_attributes['label'])
+      expect(response.first.options).to eq(challenge_attributes['options'])
+      expect(response.first.type).to eq(challenge_attributes['type'])
       expect(response.length).to eq(1)
     end
   end

@@ -320,39 +320,17 @@ RSpec.describe ::MxPlatformRuby::Member do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
-      expect(response.first.aggregated_at).to eq(
-        member_attributes['aggregated_at']
-      )
-      expect(response.first.connection_status).to eq(
-        member_attributes['connection_status']
-      )
-      expect(response.first.guid).to eq(
-        member_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        member_attributes['id']
-      )
-      expect(response.first.institution_code).to eq(
-        member_attributes['institution_code']
-      )
-      expect(response.first.is_being_aggregated).to eq(
-        member_attributes['is_being_aggregated']
-      )
-      expect(response.first.is_oauth).to eq(
-        member_attributes['is_oauth']
-      )
-      expect(response.first.metadata).to eq(
-        member_attributes['metadata']
-      )
-      expect(response.first.name).to eq(
-        member_attributes['name']
-      )
-      expect(response.first.successfully_aggregated_at).to eq(
-        member_attributes['successfully_aggregated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        member_attributes['user_guid']
-      )
+      expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
+      expect(response.first.connection_status).to eq(member_attributes['connection_status'])
+      expect(response.first.guid).to eq(member_attributes['guid'])
+      expect(response.first.id).to eq(member_attributes['id'])
+      expect(response.first.institution_code).to eq(member_attributes['institution_code'])
+      expect(response.first.is_being_aggregated).to eq(member_attributes['is_being_aggregated'])
+      expect(response.first.is_oauth).to eq(member_attributes['is_oauth'])
+      expect(response.first.metadata).to eq(member_attributes['metadata'])
+      expect(response.first.name).to eq(member_attributes['name'])
+      expect(response.first.successfully_aggregated_at).to eq(member_attributes['successfully_aggregated_at'])
+      expect(response.first.user_guid).to eq(member_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -390,39 +368,17 @@ RSpec.describe ::MxPlatformRuby::Member do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
-      expect(response.first.aggregated_at).to eq(
-        member_attributes['aggregated_at']
-      )
-      expect(response.first.connection_status).to eq(
-        member_attributes['connection_status']
-      )
-      expect(response.first.guid).to eq(
-        member_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        member_attributes['id']
-      )
-      expect(response.first.institution_code).to eq(
-        member_attributes['institution_code']
-      )
-      expect(response.first.is_being_aggregated).to eq(
-        member_attributes['is_being_aggregated']
-      )
-      expect(response.first.is_oauth).to eq(
-        member_attributes['is_oauth']
-      )
-      expect(response.first.metadata).to eq(
-        member_attributes['metadata']
-      )
-      expect(response.first.name).to eq(
-        member_attributes['name']
-      )
-      expect(response.first.successfully_aggregated_at).to eq(
-        member_attributes['successfully_aggregated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        member_attributes['user_guid']
-      )
+      expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
+      expect(response.first.connection_status).to eq(member_attributes['connection_status'])
+      expect(response.first.guid).to eq(member_attributes['guid'])
+      expect(response.first.id).to eq(member_attributes['id'])
+      expect(response.first.institution_code).to eq(member_attributes['institution_code'])
+      expect(response.first.is_being_aggregated).to eq(member_attributes['is_being_aggregated'])
+      expect(response.first.is_oauth).to eq(member_attributes['is_oauth'])
+      expect(response.first.metadata).to eq(member_attributes['metadata'])
+      expect(response.first.name).to eq(member_attributes['name'])
+      expect(response.first.successfully_aggregated_at).to eq(member_attributes['successfully_aggregated_at'])
+      expect(response.first.user_guid).to eq(member_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

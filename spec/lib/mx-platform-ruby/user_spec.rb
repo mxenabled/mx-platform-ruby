@@ -126,21 +126,11 @@ RSpec.describe ::MxPlatformRuby::User do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.first.email).to eq(
-        user_attributes['email']
-      )
-      expect(response.first.guid).to eq(
-        user_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        user_attributes['id']
-      )
-      expect(response.first.is_disabled).to eq(
-        user_attributes['is_disabled']
-      )
-      expect(response.first.metadata).to eq(
-        user_attributes['metadata']
-      )
+      expect(response.first.email).to eq(user_attributes['email'])
+      expect(response.first.guid).to eq(user_attributes['guid'])
+      expect(response.first.id).to eq(user_attributes['id'])
+      expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
+      expect(response.first.metadata).to eq(user_attributes['metadata'])
       expect(response.length).to eq(1)
     end
   end
@@ -172,21 +162,11 @@ RSpec.describe ::MxPlatformRuby::User do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.first.email).to eq(
-        user_attributes['email']
-      )
-      expect(response.first.guid).to eq(
-        user_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        user_attributes['id']
-      )
-      expect(response.first.is_disabled).to eq(
-        user_attributes['is_disabled']
-      )
-      expect(response.first.metadata).to eq(
-        user_attributes['metadata']
-      )
+      expect(response.first.email).to eq(user_attributes['email'])
+      expect(response.first.guid).to eq(user_attributes['guid'])
+      expect(response.first.id).to eq(user_attributes['id'])
+      expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
+      expect(response.first.metadata).to eq(user_attributes['metadata'])
       expect(response.length).to eq(1)
     end
   end

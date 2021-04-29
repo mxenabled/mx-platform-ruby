@@ -82,108 +82,40 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
-      expect(response.first.account_guid).to eq(
-        transaction_attributes['account_guid']
-      )
-      expect(response.first.amount).to eq(
-        transaction_attributes['amount']
-      )
-      expect(response.first.category).to eq(
-        transaction_attributes['category']
-      )
-      expect(response.first.check_number_string).to eq(
-        transaction_attributes['check_number_string']
-      )
-      expect(response.first.created_at).to eq(
-        transaction_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        transaction_attributes['currency_code']
-      )
-      expect(response.first.date).to eq(
-        transaction_attributes['date']
-      )
-      expect(response.first.description).to eq(
-        transaction_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        transaction_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        transaction_attributes['id']
-      )
-      expect(response.first.is_bill_pay).to eq(
-        transaction_attributes['is_bill_pay']
-      )
-      expect(response.first.is_direct_deposit).to eq(
-        transaction_attributes['is_direct_deposit']
-      )
-      expect(response.first.is_expense).to eq(
-        transaction_attributes['is_expense']
-      )
-      expect(response.first.is_fee).to eq(
-        transaction_attributes['is_fee']
-      )
-      expect(response.first.is_income).to eq(
-        transaction_attributes['is_income']
-      )
-      expect(response.first.is_international).to eq(
-        transaction_attributes['is_international']
-      )
-      expect(response.first.is_overdraft_fee).to eq(
-        transaction_attributes['is_overdraft_fee']
-      )
-      expect(response.first.is_payroll_advance).to eq(
-        transaction_attributes['is_payroll_advance']
-      )
-      expect(response.first.latitude).to eq(
-        transaction_attributes['latitude']
-      )
-      expect(response.first.localized_description).to eq(
-        transaction_attributes['localized_description']
-      )
-      expect(response.first.localized_memo).to eq(
-        transaction_attributes['localized_memo']
-      )
-      expect(response.first.longitude).to eq(
-        transaction_attributes['longitude']
-      )
-      expect(response.first.member_guid).to eq(
-        transaction_attributes['member_guid']
-      )
-      expect(response.first.memo).to eq(
-        transaction_attributes['memo']
-      )
-      expect(response.first.merchant_category_code).to eq(
-        transaction_attributes['merchant_category_code']
-      )
-      expect(response.first.merchant_guid).to eq(
-        transaction_attributes['merchant_guid']
-      )
-      expect(response.first.original_description).to eq(
-        transaction_attributes['original_description']
-      )
-      expect(response.first.posted_at).to eq(
-        transaction_attributes['posted_at']
-      )
-      expect(response.first.status).to eq(
-        transaction_attributes['status']
-      )
-      expect(response.first.top_level_category).to eq(
-        transaction_attributes['top_level_category']
-      )
-      expect(response.first.transacted_at).to eq(
-        transaction_attributes['transacted_at']
-      )
-      expect(response.first.type).to eq(
-        transaction_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        transaction_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        transaction_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
+      expect(response.first.amount).to eq(transaction_attributes['amount'])
+      expect(response.first.category).to eq(transaction_attributes['category'])
+      expect(response.first.check_number_string).to eq(transaction_attributes['check_number_string'])
+      expect(response.first.created_at).to eq(transaction_attributes['created_at'])
+      expect(response.first.currency_code).to eq(transaction_attributes['currency_code'])
+      expect(response.first.date).to eq(transaction_attributes['date'])
+      expect(response.first.description).to eq(transaction_attributes['description'])
+      expect(response.first.guid).to eq(transaction_attributes['guid'])
+      expect(response.first.id).to eq(transaction_attributes['id'])
+      expect(response.first.is_bill_pay).to eq(transaction_attributes['is_bill_pay'])
+      expect(response.first.is_direct_deposit).to eq(transaction_attributes['is_direct_deposit'])
+      expect(response.first.is_expense).to eq(transaction_attributes['is_expense'])
+      expect(response.first.is_fee).to eq(transaction_attributes['is_fee'])
+      expect(response.first.is_income).to eq(transaction_attributes['is_income'])
+      expect(response.first.is_international).to eq(transaction_attributes['is_international'])
+      expect(response.first.is_overdraft_fee).to eq(transaction_attributes['is_overdraft_fee'])
+      expect(response.first.is_payroll_advance).to eq(transaction_attributes['is_payroll_advance'])
+      expect(response.first.latitude).to eq(transaction_attributes['latitude'])
+      expect(response.first.localized_description).to eq(transaction_attributes['localized_description'])
+      expect(response.first.localized_memo).to eq(transaction_attributes['localized_memo'])
+      expect(response.first.longitude).to eq(transaction_attributes['longitude'])
+      expect(response.first.member_guid).to eq(transaction_attributes['member_guid'])
+      expect(response.first.memo).to eq(transaction_attributes['memo'])
+      expect(response.first.merchant_category_code).to eq(transaction_attributes['merchant_category_code'])
+      expect(response.first.merchant_guid).to eq(transaction_attributes['merchant_guid'])
+      expect(response.first.original_description).to eq(transaction_attributes['original_description'])
+      expect(response.first.posted_at).to eq(transaction_attributes['posted_at'])
+      expect(response.first.status).to eq(transaction_attributes['status'])
+      expect(response.first.top_level_category).to eq(transaction_attributes['top_level_category'])
+      expect(response.first.transacted_at).to eq(transaction_attributes['transacted_at'])
+      expect(response.first.type).to eq(transaction_attributes['type'])
+      expect(response.first.updated_at).to eq(transaction_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(transaction_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -244,108 +176,40 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
-      expect(response.first.account_guid).to eq(
-        transaction_attributes['account_guid']
-      )
-      expect(response.first.amount).to eq(
-        transaction_attributes['amount']
-      )
-      expect(response.first.category).to eq(
-        transaction_attributes['category']
-      )
-      expect(response.first.check_number_string).to eq(
-        transaction_attributes['check_number_string']
-      )
-      expect(response.first.created_at).to eq(
-        transaction_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        transaction_attributes['currency_code']
-      )
-      expect(response.first.date).to eq(
-        transaction_attributes['date']
-      )
-      expect(response.first.description).to eq(
-        transaction_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        transaction_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        transaction_attributes['id']
-      )
-      expect(response.first.is_bill_pay).to eq(
-        transaction_attributes['is_bill_pay']
-      )
-      expect(response.first.is_direct_deposit).to eq(
-        transaction_attributes['is_direct_deposit']
-      )
-      expect(response.first.is_expense).to eq(
-        transaction_attributes['is_expense']
-      )
-      expect(response.first.is_fee).to eq(
-        transaction_attributes['is_fee']
-      )
-      expect(response.first.is_income).to eq(
-        transaction_attributes['is_income']
-      )
-      expect(response.first.is_international).to eq(
-        transaction_attributes['is_international']
-      )
-      expect(response.first.is_overdraft_fee).to eq(
-        transaction_attributes['is_overdraft_fee']
-      )
-      expect(response.first.is_payroll_advance).to eq(
-        transaction_attributes['is_payroll_advance']
-      )
-      expect(response.first.latitude).to eq(
-        transaction_attributes['latitude']
-      )
-      expect(response.first.localized_description).to eq(
-        transaction_attributes['localized_description']
-      )
-      expect(response.first.localized_memo).to eq(
-        transaction_attributes['localized_memo']
-      )
-      expect(response.first.longitude).to eq(
-        transaction_attributes['longitude']
-      )
-      expect(response.first.member_guid).to eq(
-        transaction_attributes['member_guid']
-      )
-      expect(response.first.memo).to eq(
-        transaction_attributes['memo']
-      )
-      expect(response.first.merchant_category_code).to eq(
-        transaction_attributes['merchant_category_code']
-      )
-      expect(response.first.merchant_guid).to eq(
-        transaction_attributes['merchant_guid']
-      )
-      expect(response.first.original_description).to eq(
-        transaction_attributes['original_description']
-      )
-      expect(response.first.posted_at).to eq(
-        transaction_attributes['posted_at']
-      )
-      expect(response.first.status).to eq(
-        transaction_attributes['status']
-      )
-      expect(response.first.top_level_category).to eq(
-        transaction_attributes['top_level_category']
-      )
-      expect(response.first.transacted_at).to eq(
-        transaction_attributes['transacted_at']
-      )
-      expect(response.first.type).to eq(
-        transaction_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        transaction_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        transaction_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
+      expect(response.first.amount).to eq(transaction_attributes['amount'])
+      expect(response.first.category).to eq(transaction_attributes['category'])
+      expect(response.first.check_number_string).to eq(transaction_attributes['check_number_string'])
+      expect(response.first.created_at).to eq(transaction_attributes['created_at'])
+      expect(response.first.currency_code).to eq(transaction_attributes['currency_code'])
+      expect(response.first.date).to eq(transaction_attributes['date'])
+      expect(response.first.description).to eq(transaction_attributes['description'])
+      expect(response.first.guid).to eq(transaction_attributes['guid'])
+      expect(response.first.id).to eq(transaction_attributes['id'])
+      expect(response.first.is_bill_pay).to eq(transaction_attributes['is_bill_pay'])
+      expect(response.first.is_direct_deposit).to eq(transaction_attributes['is_direct_deposit'])
+      expect(response.first.is_expense).to eq(transaction_attributes['is_expense'])
+      expect(response.first.is_fee).to eq(transaction_attributes['is_fee'])
+      expect(response.first.is_income).to eq(transaction_attributes['is_income'])
+      expect(response.first.is_international).to eq(transaction_attributes['is_international'])
+      expect(response.first.is_overdraft_fee).to eq(transaction_attributes['is_overdraft_fee'])
+      expect(response.first.is_payroll_advance).to eq(transaction_attributes['is_payroll_advance'])
+      expect(response.first.latitude).to eq(transaction_attributes['latitude'])
+      expect(response.first.localized_description).to eq(transaction_attributes['localized_description'])
+      expect(response.first.localized_memo).to eq(transaction_attributes['localized_memo'])
+      expect(response.first.longitude).to eq(transaction_attributes['longitude'])
+      expect(response.first.member_guid).to eq(transaction_attributes['member_guid'])
+      expect(response.first.memo).to eq(transaction_attributes['memo'])
+      expect(response.first.merchant_category_code).to eq(transaction_attributes['merchant_category_code'])
+      expect(response.first.merchant_guid).to eq(transaction_attributes['merchant_guid'])
+      expect(response.first.original_description).to eq(transaction_attributes['original_description'])
+      expect(response.first.posted_at).to eq(transaction_attributes['posted_at'])
+      expect(response.first.status).to eq(transaction_attributes['status'])
+      expect(response.first.top_level_category).to eq(transaction_attributes['top_level_category'])
+      expect(response.first.transacted_at).to eq(transaction_attributes['transacted_at'])
+      expect(response.first.type).to eq(transaction_attributes['type'])
+      expect(response.first.updated_at).to eq(transaction_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(transaction_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -356,108 +220,40 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
-      expect(response.first.account_guid).to eq(
-        transaction_attributes['account_guid']
-      )
-      expect(response.first.amount).to eq(
-        transaction_attributes['amount']
-      )
-      expect(response.first.category).to eq(
-        transaction_attributes['category']
-      )
-      expect(response.first.check_number_string).to eq(
-        transaction_attributes['check_number_string']
-      )
-      expect(response.first.created_at).to eq(
-        transaction_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        transaction_attributes['currency_code']
-      )
-      expect(response.first.date).to eq(
-        transaction_attributes['date']
-      )
-      expect(response.first.description).to eq(
-        transaction_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        transaction_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        transaction_attributes['id']
-      )
-      expect(response.first.is_bill_pay).to eq(
-        transaction_attributes['is_bill_pay']
-      )
-      expect(response.first.is_direct_deposit).to eq(
-        transaction_attributes['is_direct_deposit']
-      )
-      expect(response.first.is_expense).to eq(
-        transaction_attributes['is_expense']
-      )
-      expect(response.first.is_fee).to eq(
-        transaction_attributes['is_fee']
-      )
-      expect(response.first.is_income).to eq(
-        transaction_attributes['is_income']
-      )
-      expect(response.first.is_international).to eq(
-        transaction_attributes['is_international']
-      )
-      expect(response.first.is_overdraft_fee).to eq(
-        transaction_attributes['is_overdraft_fee']
-      )
-      expect(response.first.is_payroll_advance).to eq(
-        transaction_attributes['is_payroll_advance']
-      )
-      expect(response.first.latitude).to eq(
-        transaction_attributes['latitude']
-      )
-      expect(response.first.localized_description).to eq(
-        transaction_attributes['localized_description']
-      )
-      expect(response.first.localized_memo).to eq(
-        transaction_attributes['localized_memo']
-      )
-      expect(response.first.longitude).to eq(
-        transaction_attributes['longitude']
-      )
-      expect(response.first.member_guid).to eq(
-        transaction_attributes['member_guid']
-      )
-      expect(response.first.memo).to eq(
-        transaction_attributes['memo']
-      )
-      expect(response.first.merchant_category_code).to eq(
-        transaction_attributes['merchant_category_code']
-      )
-      expect(response.first.merchant_guid).to eq(
-        transaction_attributes['merchant_guid']
-      )
-      expect(response.first.original_description).to eq(
-        transaction_attributes['original_description']
-      )
-      expect(response.first.posted_at).to eq(
-        transaction_attributes['posted_at']
-      )
-      expect(response.first.status).to eq(
-        transaction_attributes['status']
-      )
-      expect(response.first.top_level_category).to eq(
-        transaction_attributes['top_level_category']
-      )
-      expect(response.first.transacted_at).to eq(
-        transaction_attributes['transacted_at']
-      )
-      expect(response.first.type).to eq(
-        transaction_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        transaction_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        transaction_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
+      expect(response.first.amount).to eq(transaction_attributes['amount'])
+      expect(response.first.category).to eq(transaction_attributes['category'])
+      expect(response.first.check_number_string).to eq(transaction_attributes['check_number_string'])
+      expect(response.first.created_at).to eq(transaction_attributes['created_at'])
+      expect(response.first.currency_code).to eq(transaction_attributes['currency_code'])
+      expect(response.first.date).to eq(transaction_attributes['date'])
+      expect(response.first.description).to eq(transaction_attributes['description'])
+      expect(response.first.guid).to eq(transaction_attributes['guid'])
+      expect(response.first.id).to eq(transaction_attributes['id'])
+      expect(response.first.is_bill_pay).to eq(transaction_attributes['is_bill_pay'])
+      expect(response.first.is_direct_deposit).to eq(transaction_attributes['is_direct_deposit'])
+      expect(response.first.is_expense).to eq(transaction_attributes['is_expense'])
+      expect(response.first.is_fee).to eq(transaction_attributes['is_fee'])
+      expect(response.first.is_income).to eq(transaction_attributes['is_income'])
+      expect(response.first.is_international).to eq(transaction_attributes['is_international'])
+      expect(response.first.is_overdraft_fee).to eq(transaction_attributes['is_overdraft_fee'])
+      expect(response.first.is_payroll_advance).to eq(transaction_attributes['is_payroll_advance'])
+      expect(response.first.latitude).to eq(transaction_attributes['latitude'])
+      expect(response.first.localized_description).to eq(transaction_attributes['localized_description'])
+      expect(response.first.localized_memo).to eq(transaction_attributes['localized_memo'])
+      expect(response.first.longitude).to eq(transaction_attributes['longitude'])
+      expect(response.first.member_guid).to eq(transaction_attributes['member_guid'])
+      expect(response.first.memo).to eq(transaction_attributes['memo'])
+      expect(response.first.merchant_category_code).to eq(transaction_attributes['merchant_category_code'])
+      expect(response.first.merchant_guid).to eq(transaction_attributes['merchant_guid'])
+      expect(response.first.original_description).to eq(transaction_attributes['original_description'])
+      expect(response.first.posted_at).to eq(transaction_attributes['posted_at'])
+      expect(response.first.status).to eq(transaction_attributes['status'])
+      expect(response.first.top_level_category).to eq(transaction_attributes['top_level_category'])
+      expect(response.first.transacted_at).to eq(transaction_attributes['transacted_at'])
+      expect(response.first.type).to eq(transaction_attributes['type'])
+      expect(response.first.updated_at).to eq(transaction_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(transaction_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -518,108 +314,40 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
-      expect(response.first.account_guid).to eq(
-        transaction_attributes['account_guid']
-      )
-      expect(response.first.amount).to eq(
-        transaction_attributes['amount']
-      )
-      expect(response.first.category).to eq(
-        transaction_attributes['category']
-      )
-      expect(response.first.check_number_string).to eq(
-        transaction_attributes['check_number_string']
-      )
-      expect(response.first.created_at).to eq(
-        transaction_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        transaction_attributes['currency_code']
-      )
-      expect(response.first.date).to eq(
-        transaction_attributes['date']
-      )
-      expect(response.first.description).to eq(
-        transaction_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        transaction_attributes['guid']
-      )
-      expect(response.first.id).to eq(
-        transaction_attributes['id']
-      )
-      expect(response.first.is_bill_pay).to eq(
-        transaction_attributes['is_bill_pay']
-      )
-      expect(response.first.is_direct_deposit).to eq(
-        transaction_attributes['is_direct_deposit']
-      )
-      expect(response.first.is_expense).to eq(
-        transaction_attributes['is_expense']
-      )
-      expect(response.first.is_fee).to eq(
-        transaction_attributes['is_fee']
-      )
-      expect(response.first.is_income).to eq(
-        transaction_attributes['is_income']
-      )
-      expect(response.first.is_international).to eq(
-        transaction_attributes['is_international']
-      )
-      expect(response.first.is_overdraft_fee).to eq(
-        transaction_attributes['is_overdraft_fee']
-      )
-      expect(response.first.is_payroll_advance).to eq(
-        transaction_attributes['is_payroll_advance']
-      )
-      expect(response.first.latitude).to eq(
-        transaction_attributes['latitude']
-      )
-      expect(response.first.localized_description).to eq(
-        transaction_attributes['localized_description']
-      )
-      expect(response.first.localized_memo).to eq(
-        transaction_attributes['localized_memo']
-      )
-      expect(response.first.longitude).to eq(
-        transaction_attributes['longitude']
-      )
-      expect(response.first.member_guid).to eq(
-        transaction_attributes['member_guid']
-      )
-      expect(response.first.memo).to eq(
-        transaction_attributes['memo']
-      )
-      expect(response.first.merchant_category_code).to eq(
-        transaction_attributes['merchant_category_code']
-      )
-      expect(response.first.merchant_guid).to eq(
-        transaction_attributes['merchant_guid']
-      )
-      expect(response.first.original_description).to eq(
-        transaction_attributes['original_description']
-      )
-      expect(response.first.posted_at).to eq(
-        transaction_attributes['posted_at']
-      )
-      expect(response.first.status).to eq(
-        transaction_attributes['status']
-      )
-      expect(response.first.top_level_category).to eq(
-        transaction_attributes['top_level_category']
-      )
-      expect(response.first.transacted_at).to eq(
-        transaction_attributes['transacted_at']
-      )
-      expect(response.first.type).to eq(
-        transaction_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        transaction_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        transaction_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
+      expect(response.first.amount).to eq(transaction_attributes['amount'])
+      expect(response.first.category).to eq(transaction_attributes['category'])
+      expect(response.first.check_number_string).to eq(transaction_attributes['check_number_string'])
+      expect(response.first.created_at).to eq(transaction_attributes['created_at'])
+      expect(response.first.currency_code).to eq(transaction_attributes['currency_code'])
+      expect(response.first.date).to eq(transaction_attributes['date'])
+      expect(response.first.description).to eq(transaction_attributes['description'])
+      expect(response.first.guid).to eq(transaction_attributes['guid'])
+      expect(response.first.id).to eq(transaction_attributes['id'])
+      expect(response.first.is_bill_pay).to eq(transaction_attributes['is_bill_pay'])
+      expect(response.first.is_direct_deposit).to eq(transaction_attributes['is_direct_deposit'])
+      expect(response.first.is_expense).to eq(transaction_attributes['is_expense'])
+      expect(response.first.is_fee).to eq(transaction_attributes['is_fee'])
+      expect(response.first.is_income).to eq(transaction_attributes['is_income'])
+      expect(response.first.is_international).to eq(transaction_attributes['is_international'])
+      expect(response.first.is_overdraft_fee).to eq(transaction_attributes['is_overdraft_fee'])
+      expect(response.first.is_payroll_advance).to eq(transaction_attributes['is_payroll_advance'])
+      expect(response.first.latitude).to eq(transaction_attributes['latitude'])
+      expect(response.first.localized_description).to eq(transaction_attributes['localized_description'])
+      expect(response.first.localized_memo).to eq(transaction_attributes['localized_memo'])
+      expect(response.first.longitude).to eq(transaction_attributes['longitude'])
+      expect(response.first.member_guid).to eq(transaction_attributes['member_guid'])
+      expect(response.first.memo).to eq(transaction_attributes['memo'])
+      expect(response.first.merchant_category_code).to eq(transaction_attributes['merchant_category_code'])
+      expect(response.first.merchant_guid).to eq(transaction_attributes['merchant_guid'])
+      expect(response.first.original_description).to eq(transaction_attributes['original_description'])
+      expect(response.first.posted_at).to eq(transaction_attributes['posted_at'])
+      expect(response.first.status).to eq(transaction_attributes['status'])
+      expect(response.first.top_level_category).to eq(transaction_attributes['top_level_category'])
+      expect(response.first.transacted_at).to eq(transaction_attributes['transacted_at'])
+      expect(response.first.type).to eq(transaction_attributes['type'])
+      expect(response.first.updated_at).to eq(transaction_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(transaction_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

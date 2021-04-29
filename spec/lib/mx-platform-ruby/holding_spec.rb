@@ -66,60 +66,24 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
-      expect(response.first.account_guid).to eq(
-        holding_attributes['account_guid']
-      )
-      expect(response.first.cost_basis).to eq(
-        holding_attributes['cost_basis']
-      )
-      expect(response.first.created_at).to eq(
-        holding_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        holding_attributes['currency_code']
-      )
-      expect(response.first.cusip).to eq(
-        holding_attributes['cusip']
-      )
-      expect(response.first.daily_change).to eq(
-        holding_attributes['daily_change']
-      )
-      expect(response.first.description).to eq(
-        holding_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        holding_attributes['guid']
-      )
-      expect(response.first.holding_type).to eq(
-        holding_attributes['holding_type']
-      )
-      expect(response.first.id).to eq(
-        holding_attributes['id']
-      )
-      expect(response.first.market_value).to eq(
-        holding_attributes['market_value']
-      )
-      expect(response.first.member_guid).to eq(
-        holding_attributes['member_guid']
-      )
-      expect(response.first.metadata).to eq(
-        holding_attributes['metadata']
-      )
-      expect(response.first.purchase_price).to eq(
-        holding_attributes['purchase_price']
-      )
-      expect(response.first.shares).to eq(
-        holding_attributes['shares']
-      )
-      expect(response.first.symbol).to eq(
-        holding_attributes['symbol']
-      )
-      expect(response.first.updated_at).to eq(
-        holding_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        holding_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
+      expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
+      expect(response.first.created_at).to eq(holding_attributes['created_at'])
+      expect(response.first.currency_code).to eq(holding_attributes['currency_code'])
+      expect(response.first.cusip).to eq(holding_attributes['cusip'])
+      expect(response.first.daily_change).to eq(holding_attributes['daily_change'])
+      expect(response.first.description).to eq(holding_attributes['description'])
+      expect(response.first.guid).to eq(holding_attributes['guid'])
+      expect(response.first.holding_type).to eq(holding_attributes['holding_type'])
+      expect(response.first.id).to eq(holding_attributes['id'])
+      expect(response.first.market_value).to eq(holding_attributes['market_value'])
+      expect(response.first.member_guid).to eq(holding_attributes['member_guid'])
+      expect(response.first.metadata).to eq(holding_attributes['metadata'])
+      expect(response.first.purchase_price).to eq(holding_attributes['purchase_price'])
+      expect(response.first.shares).to eq(holding_attributes['shares'])
+      expect(response.first.symbol).to eq(holding_attributes['symbol'])
+      expect(response.first.updated_at).to eq(holding_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(holding_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -164,60 +128,24 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
-      expect(response.first.account_guid).to eq(
-        holding_attributes['account_guid']
-      )
-      expect(response.first.cost_basis).to eq(
-        holding_attributes['cost_basis']
-      )
-      expect(response.first.created_at).to eq(
-        holding_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        holding_attributes['currency_code']
-      )
-      expect(response.first.cusip).to eq(
-        holding_attributes['cusip']
-      )
-      expect(response.first.daily_change).to eq(
-        holding_attributes['daily_change']
-      )
-      expect(response.first.description).to eq(
-        holding_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        holding_attributes['guid']
-      )
-      expect(response.first.holding_type).to eq(
-        holding_attributes['holding_type']
-      )
-      expect(response.first.id).to eq(
-        holding_attributes['id']
-      )
-      expect(response.first.market_value).to eq(
-        holding_attributes['market_value']
-      )
-      expect(response.first.member_guid).to eq(
-        holding_attributes['member_guid']
-      )
-      expect(response.first.metadata).to eq(
-        holding_attributes['metadata']
-      )
-      expect(response.first.purchase_price).to eq(
-        holding_attributes['purchase_price']
-      )
-      expect(response.first.shares).to eq(
-        holding_attributes['shares']
-      )
-      expect(response.first.symbol).to eq(
-        holding_attributes['symbol']
-      )
-      expect(response.first.updated_at).to eq(
-        holding_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        holding_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
+      expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
+      expect(response.first.created_at).to eq(holding_attributes['created_at'])
+      expect(response.first.currency_code).to eq(holding_attributes['currency_code'])
+      expect(response.first.cusip).to eq(holding_attributes['cusip'])
+      expect(response.first.daily_change).to eq(holding_attributes['daily_change'])
+      expect(response.first.description).to eq(holding_attributes['description'])
+      expect(response.first.guid).to eq(holding_attributes['guid'])
+      expect(response.first.holding_type).to eq(holding_attributes['holding_type'])
+      expect(response.first.id).to eq(holding_attributes['id'])
+      expect(response.first.market_value).to eq(holding_attributes['market_value'])
+      expect(response.first.member_guid).to eq(holding_attributes['member_guid'])
+      expect(response.first.metadata).to eq(holding_attributes['metadata'])
+      expect(response.first.purchase_price).to eq(holding_attributes['purchase_price'])
+      expect(response.first.shares).to eq(holding_attributes['shares'])
+      expect(response.first.symbol).to eq(holding_attributes['symbol'])
+      expect(response.first.updated_at).to eq(holding_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(holding_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -228,60 +156,24 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
-      expect(response.first.account_guid).to eq(
-        holding_attributes['account_guid']
-      )
-      expect(response.first.cost_basis).to eq(
-        holding_attributes['cost_basis']
-      )
-      expect(response.first.created_at).to eq(
-        holding_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        holding_attributes['currency_code']
-      )
-      expect(response.first.cusip).to eq(
-        holding_attributes['cusip']
-      )
-      expect(response.first.daily_change).to eq(
-        holding_attributes['daily_change']
-      )
-      expect(response.first.description).to eq(
-        holding_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        holding_attributes['guid']
-      )
-      expect(response.first.holding_type).to eq(
-        holding_attributes['holding_type']
-      )
-      expect(response.first.id).to eq(
-        holding_attributes['id']
-      )
-      expect(response.first.market_value).to eq(
-        holding_attributes['market_value']
-      )
-      expect(response.first.member_guid).to eq(
-        holding_attributes['member_guid']
-      )
-      expect(response.first.metadata).to eq(
-        holding_attributes['metadata']
-      )
-      expect(response.first.purchase_price).to eq(
-        holding_attributes['purchase_price']
-      )
-      expect(response.first.shares).to eq(
-        holding_attributes['shares']
-      )
-      expect(response.first.symbol).to eq(
-        holding_attributes['symbol']
-      )
-      expect(response.first.updated_at).to eq(
-        holding_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        holding_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
+      expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
+      expect(response.first.created_at).to eq(holding_attributes['created_at'])
+      expect(response.first.currency_code).to eq(holding_attributes['currency_code'])
+      expect(response.first.cusip).to eq(holding_attributes['cusip'])
+      expect(response.first.daily_change).to eq(holding_attributes['daily_change'])
+      expect(response.first.description).to eq(holding_attributes['description'])
+      expect(response.first.guid).to eq(holding_attributes['guid'])
+      expect(response.first.holding_type).to eq(holding_attributes['holding_type'])
+      expect(response.first.id).to eq(holding_attributes['id'])
+      expect(response.first.market_value).to eq(holding_attributes['market_value'])
+      expect(response.first.member_guid).to eq(holding_attributes['member_guid'])
+      expect(response.first.metadata).to eq(holding_attributes['metadata'])
+      expect(response.first.purchase_price).to eq(holding_attributes['purchase_price'])
+      expect(response.first.shares).to eq(holding_attributes['shares'])
+      expect(response.first.symbol).to eq(holding_attributes['symbol'])
+      expect(response.first.updated_at).to eq(holding_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(holding_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -326,60 +218,24 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
-      expect(response.first.account_guid).to eq(
-        holding_attributes['account_guid']
-      )
-      expect(response.first.cost_basis).to eq(
-        holding_attributes['cost_basis']
-      )
-      expect(response.first.created_at).to eq(
-        holding_attributes['created_at']
-      )
-      expect(response.first.currency_code).to eq(
-        holding_attributes['currency_code']
-      )
-      expect(response.first.cusip).to eq(
-        holding_attributes['cusip']
-      )
-      expect(response.first.daily_change).to eq(
-        holding_attributes['daily_change']
-      )
-      expect(response.first.description).to eq(
-        holding_attributes['description']
-      )
-      expect(response.first.guid).to eq(
-        holding_attributes['guid']
-      )
-      expect(response.first.holding_type).to eq(
-        holding_attributes['holding_type']
-      )
-      expect(response.first.id).to eq(
-        holding_attributes['id']
-      )
-      expect(response.first.market_value).to eq(
-        holding_attributes['market_value']
-      )
-      expect(response.first.member_guid).to eq(
-        holding_attributes['member_guid']
-      )
-      expect(response.first.metadata).to eq(
-        holding_attributes['metadata']
-      )
-      expect(response.first.purchase_price).to eq(
-        holding_attributes['purchase_price']
-      )
-      expect(response.first.shares).to eq(
-        holding_attributes['shares']
-      )
-      expect(response.first.symbol).to eq(
-        holding_attributes['symbol']
-      )
-      expect(response.first.updated_at).to eq(
-        holding_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        holding_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
+      expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
+      expect(response.first.created_at).to eq(holding_attributes['created_at'])
+      expect(response.first.currency_code).to eq(holding_attributes['currency_code'])
+      expect(response.first.cusip).to eq(holding_attributes['cusip'])
+      expect(response.first.daily_change).to eq(holding_attributes['daily_change'])
+      expect(response.first.description).to eq(holding_attributes['description'])
+      expect(response.first.guid).to eq(holding_attributes['guid'])
+      expect(response.first.holding_type).to eq(holding_attributes['holding_type'])
+      expect(response.first.id).to eq(holding_attributes['id'])
+      expect(response.first.market_value).to eq(holding_attributes['market_value'])
+      expect(response.first.member_guid).to eq(holding_attributes['member_guid'])
+      expect(response.first.metadata).to eq(holding_attributes['metadata'])
+      expect(response.first.purchase_price).to eq(holding_attributes['purchase_price'])
+      expect(response.first.shares).to eq(holding_attributes['shares'])
+      expect(response.first.symbol).to eq(holding_attributes['symbol'])
+      expect(response.first.updated_at).to eq(holding_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(holding_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
