@@ -18,31 +18,37 @@ module MxPlatformRuby
 
     def self.list_favorites(options = {})
       options = list_favorites_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_favorites_each(options = {}, &block)
       options = list_favorites_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_favorites_in_batches(options = {}, &block)
       options = list_favorites_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 
     def self.list_institutions(options = {})
       options = list_institutions_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_institutions_each(options = {}, &block)
       options = list_institutions_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_institutions_in_batches(options = {}, &block)
       options = list_institutions_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 

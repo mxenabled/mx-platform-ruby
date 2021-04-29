@@ -27,16 +27,19 @@ module MxPlatformRuby
 
     def self.list_tags(options = {})
       options = list_tags_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_tags_each(options = {}, &block)
       options = list_tags_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_tags_in_batches(options = {}, &block)
       options = list_tags_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 

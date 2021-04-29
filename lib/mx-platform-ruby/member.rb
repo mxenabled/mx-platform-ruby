@@ -71,16 +71,19 @@ module MxPlatformRuby
 
     def self.list_members(options = {})
       options = list_members_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_members_each(options = {}, &block)
       options = list_members_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_members_in_batches(options = {}, &block)
       options = list_members_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 

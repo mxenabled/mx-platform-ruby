@@ -15,16 +15,19 @@ module MxPlatformRuby
 
     def self.list_member_challenges(options = {})
       options = list_member_challenges_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_member_challenges_each(options = {}, &block)
       options = list_member_challenges_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_member_challenges_in_batches(options = {}, &block)
       options = list_member_challenges_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 
