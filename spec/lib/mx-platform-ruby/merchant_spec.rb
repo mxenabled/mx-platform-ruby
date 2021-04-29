@@ -42,24 +42,12 @@ RSpec.describe ::MxPlatformRuby::Merchant do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
-      expect(response.first.created_at).to eq(
-        merchant_attributes['created_at']
-      )
-      expect(response.first.guid).to eq(
-        merchant_attributes['guid']
-      )
-      expect(response.first.logo_url).to eq(
-        merchant_attributes['logo_url']
-      )
-      expect(response.first.name).to eq(
-        merchant_attributes['name']
-      )
-      expect(response.first.updated_at).to eq(
-        merchant_attributes['updated_at']
-      )
-      expect(response.first.website_url).to eq(
-        merchant_attributes['website_url']
-      )
+      expect(response.first.created_at).to eq(merchant_attributes['created_at'])
+      expect(response.first.guid).to eq(merchant_attributes['guid'])
+      expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
+      expect(response.first.name).to eq(merchant_attributes['name'])
+      expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
+      expect(response.first.website_url).to eq(merchant_attributes['website_url'])
       expect(response.length).to eq(1)
     end
   end
@@ -92,24 +80,12 @@ RSpec.describe ::MxPlatformRuby::Merchant do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
-      expect(response.first.created_at).to eq(
-        merchant_attributes['created_at']
-      )
-      expect(response.first.guid).to eq(
-        merchant_attributes['guid']
-      )
-      expect(response.first.logo_url).to eq(
-        merchant_attributes['logo_url']
-      )
-      expect(response.first.name).to eq(
-        merchant_attributes['name']
-      )
-      expect(response.first.updated_at).to eq(
-        merchant_attributes['updated_at']
-      )
-      expect(response.first.website_url).to eq(
-        merchant_attributes['website_url']
-      )
+      expect(response.first.created_at).to eq(merchant_attributes['created_at'])
+      expect(response.first.guid).to eq(merchant_attributes['guid'])
+      expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
+      expect(response.first.name).to eq(merchant_attributes['name'])
+      expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
+      expect(response.first.website_url).to eq(merchant_attributes['website_url'])
       expect(response.length).to eq(1)
     end
   end

@@ -38,30 +38,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(
-        account_number_attributes['account_guid']
-      )
-      expect(response.first.account_number).to eq(
-        account_number_attributes['account_number']
-      )
-      expect(response.first.guid).to eq(
-        account_number_attributes['guid']
-      )
-      expect(response.first.institution_number).to eq(
-        account_number_attributes['institution_number']
-      )
-      expect(response.first.member_guid).to eq(
-        account_number_attributes['member_guid']
-      )
-      expect(response.first.routing_number).to eq(
-        account_number_attributes['routing_number']
-      )
-      expect(response.first.transit_number).to eq(
-        account_number_attributes['transit_number']
-      )
-      expect(response.first.user_guid).to eq(
-        account_number_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+      expect(response.first.guid).to eq(account_number_attributes['guid'])
+      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -96,30 +80,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(
-        account_number_attributes['account_guid']
-      )
-      expect(response.first.account_number).to eq(
-        account_number_attributes['account_number']
-      )
-      expect(response.first.guid).to eq(
-        account_number_attributes['guid']
-      )
-      expect(response.first.institution_number).to eq(
-        account_number_attributes['institution_number']
-      )
-      expect(response.first.member_guid).to eq(
-        account_number_attributes['member_guid']
-      )
-      expect(response.first.routing_number).to eq(
-        account_number_attributes['routing_number']
-      )
-      expect(response.first.transit_number).to eq(
-        account_number_attributes['transit_number']
-      )
-      expect(response.first.user_guid).to eq(
-        account_number_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+      expect(response.first.guid).to eq(account_number_attributes['guid'])
+      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -130,30 +98,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(
-        account_number_attributes['account_guid']
-      )
-      expect(response.first.account_number).to eq(
-        account_number_attributes['account_number']
-      )
-      expect(response.first.guid).to eq(
-        account_number_attributes['guid']
-      )
-      expect(response.first.institution_number).to eq(
-        account_number_attributes['institution_number']
-      )
-      expect(response.first.member_guid).to eq(
-        account_number_attributes['member_guid']
-      )
-      expect(response.first.routing_number).to eq(
-        account_number_attributes['routing_number']
-      )
-      expect(response.first.transit_number).to eq(
-        account_number_attributes['transit_number']
-      )
-      expect(response.first.user_guid).to eq(
-        account_number_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+      expect(response.first.guid).to eq(account_number_attributes['guid'])
+      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -188,30 +140,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(
-        account_number_attributes['account_guid']
-      )
-      expect(response.first.account_number).to eq(
-        account_number_attributes['account_number']
-      )
-      expect(response.first.guid).to eq(
-        account_number_attributes['guid']
-      )
-      expect(response.first.institution_number).to eq(
-        account_number_attributes['institution_number']
-      )
-      expect(response.first.member_guid).to eq(
-        account_number_attributes['member_guid']
-      )
-      expect(response.first.routing_number).to eq(
-        account_number_attributes['routing_number']
-      )
-      expect(response.first.transit_number).to eq(
-        account_number_attributes['transit_number']
-      )
-      expect(response.first.user_guid).to eq(
-        account_number_attributes['user_guid']
-      )
+      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+      expect(response.first.guid).to eq(account_number_attributes['guid'])
+      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

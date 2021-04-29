@@ -129,21 +129,11 @@ RSpec.describe ::MxPlatformRuby::Tagging do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
-      expect(response.first.guid).to eq(
-        tagging_attributes['guid']
-      )
-      expect(response.first.member_is_managed_by_user).to eq(
-        tagging_attributes['member_is_managed_by_user']
-      )
-      expect(response.first.tag_guid).to eq(
-        tagging_attributes['tag_guid']
-      )
-      expect(response.first.transaction_guid).to eq(
-        tagging_attributes['transaction_guid']
-      )
-      expect(response.first.user_guid).to eq(
-        tagging_attributes['user_guid']
-      )
+      expect(response.first.guid).to eq(tagging_attributes['guid'])
+      expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
+      expect(response.first.tag_guid).to eq(tagging_attributes['tag_guid'])
+      expect(response.first.transaction_guid).to eq(tagging_attributes['transaction_guid'])
+      expect(response.first.user_guid).to eq(tagging_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -175,21 +165,11 @@ RSpec.describe ::MxPlatformRuby::Tagging do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
-      expect(response.first.guid).to eq(
-        tagging_attributes['guid']
-      )
-      expect(response.first.member_is_managed_by_user).to eq(
-        tagging_attributes['member_is_managed_by_user']
-      )
-      expect(response.first.tag_guid).to eq(
-        tagging_attributes['tag_guid']
-      )
-      expect(response.first.transaction_guid).to eq(
-        tagging_attributes['transaction_guid']
-      )
-      expect(response.first.user_guid).to eq(
-        tagging_attributes['user_guid']
-      )
+      expect(response.first.guid).to eq(tagging_attributes['guid'])
+      expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
+      expect(response.first.tag_guid).to eq(tagging_attributes['tag_guid'])
+      expect(response.first.transaction_guid).to eq(tagging_attributes['transaction_guid'])
+      expect(response.first.user_guid).to eq(tagging_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

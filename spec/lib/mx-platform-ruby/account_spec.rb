@@ -102,126 +102,46 @@ RSpec.describe ::MxPlatformRuby::Account do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Account)
-      expect(response.first.account_number).to eq(
-        account_attributes['account_number']
-      )
-      expect(response.first.apr).to eq(
-        account_attributes['apr']
-      )
-      expect(response.first.apy).to eq(
-        account_attributes['apy']
-      )
-      expect(response.first.available_balance).to eq(
-        account_attributes['available_balance']
-      )
-      expect(response.first.available_credit).to eq(
-        account_attributes['available_credit']
-      )
-      expect(response.first.balance).to eq(
-        account_attributes['balance']
-      )
-      expect(response.first.cash_balance).to eq(
-        account_attributes['cash_balance']
-      )
-      expect(response.first.cash_surrender_value).to eq(
-        account_attributes['cash_surrender_value']
-      )
-      expect(response.first.created_at).to eq(
-        account_attributes['created_at']
-      )
-      expect(response.first.credit_limit).to eq(
-        account_attributes['credit_limit']
-      )
-      expect(response.first.currency_code).to eq(
-        account_attributes['currency_code']
-      )
-      expect(response.first.day_payment_is_due).to eq(
-        account_attributes['day_payment_is_due']
-      )
-      expect(response.first.death_benefit).to eq(
-        account_attributes['death_benefit']
-      )
-      expect(response.first.guid).to eq(
-        account_attributes['guid']
-      )
-      expect(response.first.holdings_value).to eq(
-        account_attributes['holdings_value']
-      )
-      expect(response.first.id).to eq(
-        account_attributes['id']
-      )
-      expect(response.first.institution_code).to eq(
-        account_attributes['institution_code']
-      )
-      expect(response.first.insured_name).to eq(
-        account_attributes['insured_name']
-      )
-      expect(response.first.interest_rate).to eq(
-        account_attributes['interest_rate']
-      )
-      expect(response.first.is_closed).to eq(
-        account_attributes['is_closed']
-      )
-      expect(response.first.is_hidden).to eq(
-        account_attributes['is_hidden']
-      )
-      expect(response.first.last_payment).to eq(
-        account_attributes['last_payment']
-      )
-      expect(response.first.last_payment_at).to eq(
-        account_attributes['last_payment_at']
-      )
-      expect(response.first.loan_amount).to eq(
-        account_attributes['loan_amount']
-      )
-      expect(response.first.matures_on).to eq(
-        account_attributes['matures_on']
-      )
-      expect(response.first.member_guid).to eq(
-        account_attributes['member_guid']
-      )
-      expect(response.first.minimum_balance).to eq(
-        account_attributes['minimum_balance']
-      )
-      expect(response.first.minimum_payment).to eq(
-        account_attributes['minimum_payment']
-      )
-      expect(response.first.name).to eq(
-        account_attributes['name']
-      )
-      expect(response.first.original_balance).to eq(
-        account_attributes['original_balance']
-      )
-      expect(response.first.pay_out_amount).to eq(
-        account_attributes['pay_out_amount']
-      )
-      expect(response.first.payment_due_at).to eq(
-        account_attributes['payment_due_at']
-      )
-      expect(response.first.payoff_balance).to eq(
-        account_attributes['payoff_balance']
-      )
-      expect(response.first.premium_amount).to eq(
-        account_attributes['premium_amount']
-      )
-      expect(response.first.started_on).to eq(
-        account_attributes['started_on']
-      )
-      expect(response.first.subtype).to eq(
-        account_attributes['subtype']
-      )
-      expect(response.first.total_account_value).to eq(
-        account_attributes['total_account_value']
-      )
-      expect(response.first.type).to eq(
-        account_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        account_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        account_attributes['user_guid']
-      )
+      expect(response.first.account_number).to eq(account_attributes['account_number'])
+      expect(response.first.apr).to eq(account_attributes['apr'])
+      expect(response.first.apy).to eq(account_attributes['apy'])
+      expect(response.first.available_balance).to eq(account_attributes['available_balance'])
+      expect(response.first.available_credit).to eq(account_attributes['available_credit'])
+      expect(response.first.balance).to eq(account_attributes['balance'])
+      expect(response.first.cash_balance).to eq(account_attributes['cash_balance'])
+      expect(response.first.cash_surrender_value).to eq(account_attributes['cash_surrender_value'])
+      expect(response.first.created_at).to eq(account_attributes['created_at'])
+      expect(response.first.credit_limit).to eq(account_attributes['credit_limit'])
+      expect(response.first.currency_code).to eq(account_attributes['currency_code'])
+      expect(response.first.day_payment_is_due).to eq(account_attributes['day_payment_is_due'])
+      expect(response.first.death_benefit).to eq(account_attributes['death_benefit'])
+      expect(response.first.guid).to eq(account_attributes['guid'])
+      expect(response.first.holdings_value).to eq(account_attributes['holdings_value'])
+      expect(response.first.id).to eq(account_attributes['id'])
+      expect(response.first.institution_code).to eq(account_attributes['institution_code'])
+      expect(response.first.insured_name).to eq(account_attributes['insured_name'])
+      expect(response.first.interest_rate).to eq(account_attributes['interest_rate'])
+      expect(response.first.is_closed).to eq(account_attributes['is_closed'])
+      expect(response.first.is_hidden).to eq(account_attributes['is_hidden'])
+      expect(response.first.last_payment).to eq(account_attributes['last_payment'])
+      expect(response.first.last_payment_at).to eq(account_attributes['last_payment_at'])
+      expect(response.first.loan_amount).to eq(account_attributes['loan_amount'])
+      expect(response.first.matures_on).to eq(account_attributes['matures_on'])
+      expect(response.first.member_guid).to eq(account_attributes['member_guid'])
+      expect(response.first.minimum_balance).to eq(account_attributes['minimum_balance'])
+      expect(response.first.minimum_payment).to eq(account_attributes['minimum_payment'])
+      expect(response.first.name).to eq(account_attributes['name'])
+      expect(response.first.original_balance).to eq(account_attributes['original_balance'])
+      expect(response.first.pay_out_amount).to eq(account_attributes['pay_out_amount'])
+      expect(response.first.payment_due_at).to eq(account_attributes['payment_due_at'])
+      expect(response.first.payoff_balance).to eq(account_attributes['payoff_balance'])
+      expect(response.first.premium_amount).to eq(account_attributes['premium_amount'])
+      expect(response.first.started_on).to eq(account_attributes['started_on'])
+      expect(response.first.subtype).to eq(account_attributes['subtype'])
+      expect(response.first.total_account_value).to eq(account_attributes['total_account_value'])
+      expect(response.first.type).to eq(account_attributes['type'])
+      expect(response.first.updated_at).to eq(account_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(account_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end
@@ -288,126 +208,46 @@ RSpec.describe ::MxPlatformRuby::Account do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Account)
-      expect(response.first.account_number).to eq(
-        account_attributes['account_number']
-      )
-      expect(response.first.apr).to eq(
-        account_attributes['apr']
-      )
-      expect(response.first.apy).to eq(
-        account_attributes['apy']
-      )
-      expect(response.first.available_balance).to eq(
-        account_attributes['available_balance']
-      )
-      expect(response.first.available_credit).to eq(
-        account_attributes['available_credit']
-      )
-      expect(response.first.balance).to eq(
-        account_attributes['balance']
-      )
-      expect(response.first.cash_balance).to eq(
-        account_attributes['cash_balance']
-      )
-      expect(response.first.cash_surrender_value).to eq(
-        account_attributes['cash_surrender_value']
-      )
-      expect(response.first.created_at).to eq(
-        account_attributes['created_at']
-      )
-      expect(response.first.credit_limit).to eq(
-        account_attributes['credit_limit']
-      )
-      expect(response.first.currency_code).to eq(
-        account_attributes['currency_code']
-      )
-      expect(response.first.day_payment_is_due).to eq(
-        account_attributes['day_payment_is_due']
-      )
-      expect(response.first.death_benefit).to eq(
-        account_attributes['death_benefit']
-      )
-      expect(response.first.guid).to eq(
-        account_attributes['guid']
-      )
-      expect(response.first.holdings_value).to eq(
-        account_attributes['holdings_value']
-      )
-      expect(response.first.id).to eq(
-        account_attributes['id']
-      )
-      expect(response.first.institution_code).to eq(
-        account_attributes['institution_code']
-      )
-      expect(response.first.insured_name).to eq(
-        account_attributes['insured_name']
-      )
-      expect(response.first.interest_rate).to eq(
-        account_attributes['interest_rate']
-      )
-      expect(response.first.is_closed).to eq(
-        account_attributes['is_closed']
-      )
-      expect(response.first.is_hidden).to eq(
-        account_attributes['is_hidden']
-      )
-      expect(response.first.last_payment).to eq(
-        account_attributes['last_payment']
-      )
-      expect(response.first.last_payment_at).to eq(
-        account_attributes['last_payment_at']
-      )
-      expect(response.first.loan_amount).to eq(
-        account_attributes['loan_amount']
-      )
-      expect(response.first.matures_on).to eq(
-        account_attributes['matures_on']
-      )
-      expect(response.first.member_guid).to eq(
-        account_attributes['member_guid']
-      )
-      expect(response.first.minimum_balance).to eq(
-        account_attributes['minimum_balance']
-      )
-      expect(response.first.minimum_payment).to eq(
-        account_attributes['minimum_payment']
-      )
-      expect(response.first.name).to eq(
-        account_attributes['name']
-      )
-      expect(response.first.original_balance).to eq(
-        account_attributes['original_balance']
-      )
-      expect(response.first.pay_out_amount).to eq(
-        account_attributes['pay_out_amount']
-      )
-      expect(response.first.payment_due_at).to eq(
-        account_attributes['payment_due_at']
-      )
-      expect(response.first.payoff_balance).to eq(
-        account_attributes['payoff_balance']
-      )
-      expect(response.first.premium_amount).to eq(
-        account_attributes['premium_amount']
-      )
-      expect(response.first.started_on).to eq(
-        account_attributes['started_on']
-      )
-      expect(response.first.subtype).to eq(
-        account_attributes['subtype']
-      )
-      expect(response.first.total_account_value).to eq(
-        account_attributes['total_account_value']
-      )
-      expect(response.first.type).to eq(
-        account_attributes['type']
-      )
-      expect(response.first.updated_at).to eq(
-        account_attributes['updated_at']
-      )
-      expect(response.first.user_guid).to eq(
-        account_attributes['user_guid']
-      )
+      expect(response.first.account_number).to eq(account_attributes['account_number'])
+      expect(response.first.apr).to eq(account_attributes['apr'])
+      expect(response.first.apy).to eq(account_attributes['apy'])
+      expect(response.first.available_balance).to eq(account_attributes['available_balance'])
+      expect(response.first.available_credit).to eq(account_attributes['available_credit'])
+      expect(response.first.balance).to eq(account_attributes['balance'])
+      expect(response.first.cash_balance).to eq(account_attributes['cash_balance'])
+      expect(response.first.cash_surrender_value).to eq(account_attributes['cash_surrender_value'])
+      expect(response.first.created_at).to eq(account_attributes['created_at'])
+      expect(response.first.credit_limit).to eq(account_attributes['credit_limit'])
+      expect(response.first.currency_code).to eq(account_attributes['currency_code'])
+      expect(response.first.day_payment_is_due).to eq(account_attributes['day_payment_is_due'])
+      expect(response.first.death_benefit).to eq(account_attributes['death_benefit'])
+      expect(response.first.guid).to eq(account_attributes['guid'])
+      expect(response.first.holdings_value).to eq(account_attributes['holdings_value'])
+      expect(response.first.id).to eq(account_attributes['id'])
+      expect(response.first.institution_code).to eq(account_attributes['institution_code'])
+      expect(response.first.insured_name).to eq(account_attributes['insured_name'])
+      expect(response.first.interest_rate).to eq(account_attributes['interest_rate'])
+      expect(response.first.is_closed).to eq(account_attributes['is_closed'])
+      expect(response.first.is_hidden).to eq(account_attributes['is_hidden'])
+      expect(response.first.last_payment).to eq(account_attributes['last_payment'])
+      expect(response.first.last_payment_at).to eq(account_attributes['last_payment_at'])
+      expect(response.first.loan_amount).to eq(account_attributes['loan_amount'])
+      expect(response.first.matures_on).to eq(account_attributes['matures_on'])
+      expect(response.first.member_guid).to eq(account_attributes['member_guid'])
+      expect(response.first.minimum_balance).to eq(account_attributes['minimum_balance'])
+      expect(response.first.minimum_payment).to eq(account_attributes['minimum_payment'])
+      expect(response.first.name).to eq(account_attributes['name'])
+      expect(response.first.original_balance).to eq(account_attributes['original_balance'])
+      expect(response.first.pay_out_amount).to eq(account_attributes['pay_out_amount'])
+      expect(response.first.payment_due_at).to eq(account_attributes['payment_due_at'])
+      expect(response.first.payoff_balance).to eq(account_attributes['payoff_balance'])
+      expect(response.first.premium_amount).to eq(account_attributes['premium_amount'])
+      expect(response.first.started_on).to eq(account_attributes['started_on'])
+      expect(response.first.subtype).to eq(account_attributes['subtype'])
+      expect(response.first.total_account_value).to eq(account_attributes['total_account_value'])
+      expect(response.first.type).to eq(account_attributes['type'])
+      expect(response.first.updated_at).to eq(account_attributes['updated_at'])
+      expect(response.first.user_guid).to eq(account_attributes['user_guid'])
       expect(response.length).to eq(1)
     end
   end

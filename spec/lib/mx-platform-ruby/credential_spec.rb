@@ -35,21 +35,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(
-        credential_attributes['display_order']
-      )
-      expect(response.first.field_name).to eq(
-        credential_attributes['field_name']
-      )
-      expect(response.first.field_type).to eq(
-        credential_attributes['field_type']
-      )
-      expect(response.first.guid).to eq(
-        credential_attributes['guid']
-      )
-      expect(response.first.label).to eq(
-        credential_attributes['label']
-      )
+      expect(response.first.display_order).to eq(credential_attributes['display_order'])
+      expect(response.first.field_name).to eq(credential_attributes['field_name'])
+      expect(response.first.field_type).to eq(credential_attributes['field_type'])
+      expect(response.first.guid).to eq(credential_attributes['guid'])
+      expect(response.first.label).to eq(credential_attributes['label'])
       expect(response.length).to eq(1)
     end
   end
@@ -81,21 +71,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(
-        credential_attributes['display_order']
-      )
-      expect(response.first.field_name).to eq(
-        credential_attributes['field_name']
-      )
-      expect(response.first.field_type).to eq(
-        credential_attributes['field_type']
-      )
-      expect(response.first.guid).to eq(
-        credential_attributes['guid']
-      )
-      expect(response.first.label).to eq(
-        credential_attributes['label']
-      )
+      expect(response.first.display_order).to eq(credential_attributes['display_order'])
+      expect(response.first.field_name).to eq(credential_attributes['field_name'])
+      expect(response.first.field_type).to eq(credential_attributes['field_type'])
+      expect(response.first.guid).to eq(credential_attributes['guid'])
+      expect(response.first.label).to eq(credential_attributes['label'])
       expect(response.length).to eq(1)
     end
   end
@@ -106,21 +86,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(
-        credential_attributes['display_order']
-      )
-      expect(response.first.field_name).to eq(
-        credential_attributes['field_name']
-      )
-      expect(response.first.field_type).to eq(
-        credential_attributes['field_type']
-      )
-      expect(response.first.guid).to eq(
-        credential_attributes['guid']
-      )
-      expect(response.first.label).to eq(
-        credential_attributes['label']
-      )
+      expect(response.first.display_order).to eq(credential_attributes['display_order'])
+      expect(response.first.field_name).to eq(credential_attributes['field_name'])
+      expect(response.first.field_type).to eq(credential_attributes['field_type'])
+      expect(response.first.guid).to eq(credential_attributes['guid'])
+      expect(response.first.label).to eq(credential_attributes['label'])
       expect(response.length).to eq(1)
     end
   end
@@ -152,21 +122,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
 
       expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(
-        credential_attributes['display_order']
-      )
-      expect(response.first.field_name).to eq(
-        credential_attributes['field_name']
-      )
-      expect(response.first.field_type).to eq(
-        credential_attributes['field_type']
-      )
-      expect(response.first.guid).to eq(
-        credential_attributes['guid']
-      )
-      expect(response.first.label).to eq(
-        credential_attributes['label']
-      )
+      expect(response.first.display_order).to eq(credential_attributes['display_order'])
+      expect(response.first.field_name).to eq(credential_attributes['field_name'])
+      expect(response.first.field_type).to eq(credential_attributes['field_type'])
+      expect(response.first.guid).to eq(credential_attributes['guid'])
+      expect(response.first.label).to eq(credential_attributes['label'])
       expect(response.length).to eq(1)
     end
   end
