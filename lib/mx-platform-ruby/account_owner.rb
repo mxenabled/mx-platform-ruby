@@ -20,16 +20,19 @@ module MxPlatformRuby
 
     def self.list_account_owners(options = {})
       options = list_account_owners_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_account_owners_each(options = {}, &block)
       options = list_account_owners_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_account_owners_in_batches(options = {}, &block)
       options = list_account_owners_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 

@@ -13,31 +13,37 @@ module MxPlatformRuby
 
     def self.list_institution_required_credentials(options = {})
       options = list_institution_required_credentials_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_institution_required_credentials_each(options = {}, &block)
       options = list_institution_required_credentials_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_institution_required_credentials_in_batches(options = {}, &block)
       options = list_institution_required_credentials_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 
     def self.list_member_credentials(options = {})
       options = list_member_credentials_pagination_options(options)
+
       paginate(options)
     end
 
     def self.list_member_credentials_each(options = {}, &block)
       options = list_member_credentials_pagination_options(options)
+
       paginate_each(options, &block)
     end
 
     def self.list_member_credentials_in_batches(options = {}, &block)
       options = list_member_credentials_pagination_options(options)
+
       paginate_in_batches(options, &block)
     end
 
