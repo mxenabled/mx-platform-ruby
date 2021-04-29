@@ -1,12 +1,12 @@
 # MX Platform API Ruby Library
 ### Version 0.1.0
 
-The MX Platform API Ruby library is a wrapper for the [MX Platform API](https://dashboard.mx.com). In order to make requests, you will need to [sign up for the MX Platform API](https://dashboard.mx.com/sign_up) and
+A Ruby library for the [MX Platform API](https://dashboard.mx.com). In order to make API requests, you will need to [sign up for the MX Platform API](https://dashboard.mx.com/sign_up) and
 get a `Client ID` and `API Key`.
 
 ## Documentation
 
-See the [MX Platform API docs](https://docs.mx.com)
+See the [MX Platform API docs](https://docs.mx.com/api)
 
 ## Installation
 
@@ -31,7 +31,7 @@ We provide a development environment that will allow you to create and test your
 production. In order to test against the development environment, use `https://int-api.mx.com` as the `base_url`
 in your configuration.
 
-Once you have production access, update your `base_url` to `https://api.mx.com`.
+Once you have access to the production environment, you can update your `base_url` to `https://api.mx.com`.
 
 ```ruby
 ::MxPlatformRuby.configure do |config|
@@ -81,4 +81,4 @@ puts response.total_pages
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mxenabled/mx-platform-api-ruby.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mxenabled/mx-platform-ruby
