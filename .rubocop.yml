@@ -1,0 +1,43 @@
+AllCops:
+  NewCops: disable # Disabling pending cops
+  SuggestExtensions: false # Disabling extension suggestions
+  TargetRubyVersion: 2.6
+
+Metrics/AbcSize:
+  Description: Checks that the ABC size of methods is not higher than the configured maximum
+  Exclude:
+    - "lib/mx-platform-ruby/pageable.rb" # Disabling because clarity > brevity
+
+Metrics/MethodLength:
+  Description: Checks if the length a method exceeds some maximum value
+  Enabled: false # Disabling to allow class methods to grow with number of attributes
+
+Metrics/BlockLength:
+  Description: Checks if the length of a block exceeds some maximum value
+  Exclude:
+    - 'spec/**/*' # Excluding to allow rspec tests to grow with number of attributes
+
+Metrics/ClassLength:
+  Description: Checks if the length a class exceeds some maximum value
+  Enabled: false # Disabling because clarity > brevity
+
+Layout/LineLength:
+  Description: Checks the length of lines in the source code
+  Exclude:
+    - "spec/lib/**/*.rb" # Excluding since the endpoints may requrie longer lines
+  Max: 120
+
+Naming/FileName:
+  Description: Checks that Ruby source files have snake_case names
+  Exclude:
+    - 'spec/lib/mx-platform-ruby_spec.rb' # Excluding since gems may have `-` in their name
+    - 'lib/mx-platform-ruby.rb' # Excluding since gems may have `-` in their name
+
+Style/Documentation:
+  Description: Checks for missing top-level documentation of classes and modules
+  Enabled: false # Disabling because Rails models should be self-explanatory
+
+Style/SignalException:
+  Description: Checks for uses of fail and raise
+  Exclude:
+    - "lib/mx-platform-ruby/pageable.rb" # Allow fail if block isn't provided

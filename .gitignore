@@ -1,0 +1,13 @@
+*.gem
+*.swp
+.DS_Store
+.bundle
+.config
+.ruby-*
+.rvmrc
+.yardoc
+.idea
+Gemfile.lock
+coverage
+pkg/*
+tmp
