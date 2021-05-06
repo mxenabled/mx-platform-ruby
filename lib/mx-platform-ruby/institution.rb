@@ -16,7 +16,7 @@ module MxPlatformRuby
     attribute :supports_transaction_history
     attribute :url
 
-    def self.list_favorites(options = {})
+    def self.list_favorites_page(options = {})
       options = list_favorites_pagination_options(options)
 
       paginate(options)
@@ -28,13 +28,12 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_favorites_in_batches(options = {}, &block)
+    def self.list_favorites_pages_each(options = {}, &block)
       options = list_favorites_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
-    def self.list_institutions(options = {})
+    def self.list_institutions_page(options = {})
       options = list_institutions_pagination_options(options)
 
       paginate(options)
@@ -46,10 +45,9 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_institutions_in_batches(options = {}, &block)
+    def self.list_institutions_pages_each(options = {}, &block)
       options = list_institutions_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
     def self.read_institution(options = {})

@@ -1,12 +1,11 @@
 # MX Platform API Ruby Library
-### Version 0.1.0
+#### Version 0.1.0
 
-A Ruby library for the [MX Platform API](https://dashboard.mx.com). In order to make API requests, you will need to [sign up for the MX Platform API](https://dashboard.mx.com/sign_up) and
-get a `Client ID` and `API Key`.
+A Ruby library for the [MX Platform API](https://www.mx.com/products/platform-api).
 
 ## Documentation
 
-See the [MX Platform API docs](https://docs.mx.com/api)
+See the [MX Platform API docs](https://docs.mx.com/api).
 
 ## Installation
 
@@ -27,30 +26,18 @@ $ gem install mx-platform-ruby
 
 ## Configuration
 
-We provide a development environment that will allow you to create and test your changes before they go to
-production. In order to test against the development environment, use `https://int-api.mx.com` as the `base_url`
-in your configuration.
-
-Once you have access to the production environment, you can update your `base_url` to `https://api.mx.com`.
-
+In order to make API requests, you will need to [sign up for the MX Platform API](https://dashboard.mx.com/sign_up) and get a `Client ID` and `API Key`.
 ```ruby
 ::MxPlatformRuby.configure do |config|
-  config.username = "Client ID"
-  config.password = "API Key"
-  config.base_url = "https://int-api.mx.com"
+  config.username = 'Client ID'
+  config.password = 'API Key'
+  config.base_url = 'https://int-api.mx.com' # in production, use 'https://api.mx.com'
 end
 ```
 
-## Examples
+## List endpoints
 
-### Pagination
-
-The following demonstrates how you can read data back from the API in a memory efficient way using built-in pagination
-helpers.
-
-```ruby
-::MxPlatformRuby::User.list_users
-```
+The simplest way to read back all objects from the list endpoints is through the "_each" methods. These methods yield one object at a time.
 
 ```ruby
 ::MxPlatformRuby::User.list_users_each do |user|
@@ -58,25 +45,36 @@ helpers.
 end
 ```
 
+#### Additional control
+
+For additional control when working with the `page` and `records_per_page` parameters, we've also surfaced "pagination" endpoints.
+
+To retrieve a single page,
 ```ruby
-::MxPlatformRuby::User.list_users_in_batches do |user_batch|
-  user_batch.each do |user|
-    p user
-  end
+page = ::MxPlatformRuby::User.list_users_page(page: 1, records_per_page: 10)
+
+puts page.current_page
+puts page.records_per_page
+puts page.total_entries
+puts page.total_pages
+
+page.each do |user|
+  p user
 end
 ```
 
-### Pagination methods
-
-We also provide these built-in pagination methods that you can call on the response for all of our list endpoints.
-
+To retrieve multiple pages,
 ```ruby
-response = ::MxPlatformRuby::User.list_users
+::MxPlatformRuby::User.list_users_pages_each(page: 1, records_per_page: 10) do |page|
+  puts page.current_page
+  puts page.records_per_page
+  puts page.total_entries
+  puts page.total_pages
 
-puts response.current_page
-puts response.records_per_page
-puts response.total_entries
-puts response.total_pages
+  page.each do |user|
+    p user
+  end
+end
 ```
 
 ## Contributing

@@ -42,11 +42,11 @@ RSpec.describe ::MxPlatformRuby::Challenge do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(challenges_response) }
 
-  describe 'list_member_challenges' do
+  describe 'list_member_challenges_page' do
     it 'returns a list of challenges' do
-      response = described_class.list_member_challenges
+      response = described_class.list_member_challenges_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
       expect(response.first.field_name).to eq(challenge_attributes['field_name'])
       expect(response.first.guid).to eq(challenge_attributes['guid'])
@@ -78,15 +78,15 @@ RSpec.describe ::MxPlatformRuby::Challenge do
     end
   end
 
-  describe 'list_member_challenges_in_batches' do
-    it 'yields a batch of challenges' do
+  describe 'list_member_challenges_pages_each' do
+    it 'yields a page of challenges' do
       response = nil
 
-      described_class.list_member_challenges_in_batches do |batch|
-        response = batch
+      described_class.list_member_challenges_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
       expect(response.first.field_name).to eq(challenge_attributes['field_name'])
       expect(response.first.guid).to eq(challenge_attributes['guid'])

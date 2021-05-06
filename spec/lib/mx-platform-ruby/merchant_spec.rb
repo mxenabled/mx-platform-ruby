@@ -36,11 +36,11 @@ RSpec.describe ::MxPlatformRuby::Merchant do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(merchants_response) }
 
-  describe 'list_merchants' do
+  describe 'list_merchants_page' do
     it 'returns a list of merchants' do
-      response = described_class.list_merchants
+      response = described_class.list_merchants_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
       expect(response.first.created_at).to eq(merchant_attributes['created_at'])
       expect(response.first.guid).to eq(merchant_attributes['guid'])
@@ -70,15 +70,15 @@ RSpec.describe ::MxPlatformRuby::Merchant do
     end
   end
 
-  describe 'list_merchants_in_batches' do
-    it 'yields a batch of merchants' do
+  describe 'list_merchants_pages_each' do
+    it 'yields a page of merchants' do
       response = nil
 
-      described_class.list_merchants_in_batches do |batch|
-        response = batch
+      described_class.list_merchants_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
       expect(response.first.created_at).to eq(merchant_attributes['created_at'])
       expect(response.first.guid).to eq(merchant_attributes['guid'])

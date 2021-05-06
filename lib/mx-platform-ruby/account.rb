@@ -46,7 +46,7 @@ module MxPlatformRuby
     attribute :updated_at
     attribute :user_guid
 
-    def self.list_user_accounts(options = {})
+    def self.list_user_accounts_page(options = {})
       options = list_user_accounts_pagination_options(options)
 
       paginate(options)
@@ -58,10 +58,9 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_user_accounts_in_batches(options = {}, &block)
+    def self.list_user_accounts_pages_each(options = {}, &block)
       options = list_user_accounts_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
     def self.read_account(options = {})

@@ -25,7 +25,7 @@ module MxPlatformRuby
       ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, accept_header)
     end
 
-    def self.list_tags(options = {})
+    def self.list_tags_page(options = {})
       options = list_tags_pagination_options(options)
 
       paginate(options)
@@ -37,10 +37,9 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_tags_in_batches(options = {}, &block)
+    def self.list_tags_pages_each(options = {}, &block)
       options = list_tags_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
     def self.read_tag(options = {})

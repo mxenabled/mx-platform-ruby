@@ -23,26 +23,26 @@ RSpec.describe ::MxPlatformRuby::Pageable do
       }
     }
   end
-  let(:first_pagination_batch) { ::MxPlatformRuby::PaginationBatch.new(2, record) }
-  let(:first_page) { 1 }
+  let(:first) { 1 }
+  let(:first_page) { ::MxPlatformRuby::Page.new(2, record) }
   let(:first_page_response) do
     {
       'records' => ::Array.new(2, record_response),
       'pagination' => {
-        'current_page' => first_page,
+        'current_page' => first,
         'records_per_page' => records_per_page,
         'total_entries' => total_entries,
         'total_pages' => total_pages
       }
     }
   end
-  let(:last_page) { 2 }
-  let(:last_pagination_batch) { ::MxPlatformRuby::PaginationBatch.new(1, record) }
+  let(:last) { 2 }
+  let(:last_page) { ::MxPlatformRuby::Page.new(1, record) }
   let(:last_page_response) do
     {
       'records' => ::Array.new(1, record_response),
       'pagination' => {
-        'current_page' => last_page,
+        'current_page' => last,
         'records_per_page' => records_per_page,
         'total_entries' => total_entries,
         'total_pages' => total_pages
@@ -73,20 +73,20 @@ RSpec.describe ::MxPlatformRuby::Pageable do
   end
 
   describe '.paginate' do
-    it 'returns the first PaginationBatch' do
-      pagination_batch = subject.paginate(options)
-      expect(pagination_batch).to eq(first_pagination_batch)
-      expect(pagination_batch.current_page).to eq(first_page)
-      expect(pagination_batch.records_per_page).to eq(records_per_page)
-      expect(pagination_batch.total_entries).to eq(total_entries)
-      expect(pagination_batch.total_pages).to eq(total_pages)
+    it 'returns the first Page' do
+      page = subject.paginate(options)
+      expect(page).to eq(first_page)
+      expect(page.current_page).to eq(first)
+      expect(page.records_per_page).to eq(records_per_page)
+      expect(page.total_entries).to eq(total_entries)
+      expect(page.total_pages).to eq(total_pages)
     end
 
     context 'with no results' do
-      it 'returns an empty PaginationBatch' do
+      it 'returns an empty Page' do
         allow(::MxPlatformRuby.client).to receive(:make_request).and_return(empty_response)
-        pagination_batch = subject.paginate(options)
-        expect(pagination_batch).to eq(::MxPlatformRuby::PaginationBatch.new)
+        page = subject.paginate(options)
+        expect(page).to eq(::MxPlatformRuby::Page.new)
       end
     end
   end
@@ -99,42 +99,42 @@ RSpec.describe ::MxPlatformRuby::Pageable do
     end
   end
 
-  describe '.paginate_in_batches' do
+  describe '.paginate_pages' do
     it 'fails unless a block is given' do
-      expect { subject.paginate_in_batches }.to raise_error(::ArgumentError)
+      expect { subject.paginate_pages }.to raise_error(::ArgumentError)
     end
 
     context 'with a single page response' do
       let(:total_entries) { 2 }
       let(:total_pages) { 1 }
 
-      it 'yields one PaginationBatch' do
-        pagination_batch = []
-        subject.paginate_in_batches(options) { |batch| pagination_batch << batch }
-        expect(pagination_batch.first).to eq(first_pagination_batch)
-        expect(pagination_batch.first.current_page).to eq(first_page)
-        expect(pagination_batch.first.records_per_page).to eq(records_per_page)
-        expect(pagination_batch.first.total_entries).to eq(total_entries)
-        expect(pagination_batch.first.total_pages).to eq(total_pages)
-        expect(pagination_batch.size).to eq(1)
+      it 'yields one Page' do
+        pages = []
+        subject.paginate_pages(options) { |page| pages << page }
+        expect(pages.first).to eq(first_page)
+        expect(pages.first.current_page).to eq(first)
+        expect(pages.first.records_per_page).to eq(records_per_page)
+        expect(pages.first.total_entries).to eq(total_entries)
+        expect(pages.first.total_pages).to eq(total_pages)
+        expect(pages.size).to eq(1)
       end
     end
 
     context 'with multiple pages' do
-      it 'yields two PaginationBatches' do
-        pagination_batches = []
-        subject.paginate_in_batches(options) { |batch| pagination_batches << batch }
-        expect(pagination_batches.first).to eq(first_pagination_batch)
-        expect(pagination_batches.first.current_page).to eq(first_page)
-        expect(pagination_batches.first.records_per_page).to eq(records_per_page)
-        expect(pagination_batches.first.total_entries).to eq(total_entries)
-        expect(pagination_batches.first.total_pages).to eq(total_pages)
-        expect(pagination_batches.last).to eq(last_pagination_batch)
-        expect(pagination_batches.last.current_page).to eq(last_page)
-        expect(pagination_batches.last.records_per_page).to eq(records_per_page)
-        expect(pagination_batches.last.total_entries).to eq(total_entries)
-        expect(pagination_batches.last.total_pages).to eq(total_pages)
-        expect(pagination_batches.size).to eq(2)
+      it 'yields two Pages' do
+        pages = []
+        subject.paginate_pages(options) { |page| pages << page }
+        expect(pages.first).to eq(first_page)
+        expect(pages.first.current_page).to eq(first)
+        expect(pages.first.records_per_page).to eq(records_per_page)
+        expect(pages.first.total_entries).to eq(total_entries)
+        expect(pages.first.total_pages).to eq(total_pages)
+        expect(pages.last).to eq(last_page)
+        expect(pages.last.current_page).to eq(last)
+        expect(pages.last.records_per_page).to eq(records_per_page)
+        expect(pages.last.total_entries).to eq(total_entries)
+        expect(pages.last.total_pages).to eq(total_pages)
+        expect(pages.size).to eq(2)
       end
     end
 
@@ -155,7 +155,7 @@ RSpec.describe ::MxPlatformRuby::Pageable do
           nil,
           accept_header
         ).and_return(first_page_response)
-        subject.paginate_in_batches(options.merge(query_params)) {}
+        subject.paginate_pages(options.merge(query_params)) {}
       end
     end
   end

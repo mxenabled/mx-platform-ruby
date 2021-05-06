@@ -40,11 +40,11 @@ RSpec.describe ::MxPlatformRuby::Institution do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(institutions_response) }
 
-  describe 'list_favorites' do
+  describe 'list_favorites_page' do
     it 'returns a list of institutions' do
-      response = described_class.list_favorites
+      response = described_class.list_favorites_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
       expect(response.first.code).to eq(institution_attributes['code'])
       expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
@@ -82,15 +82,15 @@ RSpec.describe ::MxPlatformRuby::Institution do
     end
   end
 
-  describe 'list_favorites_in_batches' do
-    it 'yields a batch of institutions' do
+  describe 'list_favorites_pages_each' do
+    it 'yields a page of institutions' do
       response = nil
 
-      described_class.list_favorites_in_batches do |batch|
-        response = batch
+      described_class.list_favorites_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
       expect(response.first.code).to eq(institution_attributes['code'])
       expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
@@ -106,11 +106,11 @@ RSpec.describe ::MxPlatformRuby::Institution do
     end
   end
 
-  describe 'list_institutions' do
+  describe 'list_institutions_page' do
     it 'returns a list of institutions' do
-      response = described_class.list_institutions
+      response = described_class.list_institutions_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
       expect(response.first.code).to eq(institution_attributes['code'])
       expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
@@ -148,15 +148,15 @@ RSpec.describe ::MxPlatformRuby::Institution do
     end
   end
 
-  describe 'list_institutions_in_batches' do
-    it 'yields a batch of institutions' do
+  describe 'list_institutions_pages_each' do
+    it 'yields a page of institutions' do
       response = nil
 
-      described_class.list_institutions_in_batches do |batch|
-        response = batch
+      described_class.list_institutions_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
       expect(response.first.code).to eq(institution_attributes['code'])
       expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])

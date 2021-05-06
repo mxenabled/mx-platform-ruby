@@ -60,11 +60,11 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(holdings_response) }
 
-  describe 'list_holdings_by_member' do
+  describe 'list_holdings_by_member_page' do
     it 'returns a list of holdings' do
-      response = described_class.list_holdings_by_member
+      response = described_class.list_holdings_by_member_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
       expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
       expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
@@ -118,15 +118,15 @@ RSpec.describe ::MxPlatformRuby::Holding do
     end
   end
 
-  describe 'list_holdings_by_member_in_batches' do
-    it 'yields a batch of holdings' do
+  describe 'list_holdings_by_member_pages_each' do
+    it 'yields a page of holdings' do
       response = nil
 
-      described_class.list_holdings_by_member_in_batches do |batch|
-        response = batch
+      described_class.list_holdings_by_member_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
       expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
       expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
@@ -150,11 +150,11 @@ RSpec.describe ::MxPlatformRuby::Holding do
     end
   end
 
-  describe 'list_holdings_by_user' do
+  describe 'list_holdings_by_user_page' do
     it 'returns a list of holdings' do
-      response = described_class.list_holdings_by_user
+      response = described_class.list_holdings_by_user_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
       expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
       expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
@@ -208,15 +208,15 @@ RSpec.describe ::MxPlatformRuby::Holding do
     end
   end
 
-  describe 'list_holdings_by_user_in_batches' do
-    it 'yields a batch of holdings' do
+  describe 'list_holdings_by_user_pages_each' do
+    it 'yields a page of holdings' do
       response = nil
 
-      described_class.list_holdings_by_user_in_batches do |batch|
-        response = batch
+      described_class.list_holdings_by_user_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
       expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
       expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])

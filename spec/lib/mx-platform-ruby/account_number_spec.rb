@@ -32,11 +32,11 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(account_numbers_response) }
 
-  describe 'list_account_numbers_by_account' do
+  describe 'list_account_numbers_by_account_page' do
     it 'returns a list of account_numbers' do
-      response = described_class.list_account_numbers_by_account
+      response = described_class.list_account_numbers_by_account_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
       expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
       expect(response.first.account_number).to eq(account_number_attributes['account_number'])
@@ -70,15 +70,15 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
     end
   end
 
-  describe 'list_account_numbers_by_account_in_batches' do
-    it 'yields a batch of account_numbers' do
+  describe 'list_account_numbers_by_account_pages_each' do
+    it 'yields a page of account_numbers' do
       response = nil
 
-      described_class.list_account_numbers_by_account_in_batches do |batch|
-        response = batch
+      described_class.list_account_numbers_by_account_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
       expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
       expect(response.first.account_number).to eq(account_number_attributes['account_number'])
@@ -92,11 +92,11 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
     end
   end
 
-  describe 'list_account_numbers_by_member' do
+  describe 'list_account_numbers_by_member_page' do
     it 'returns a list of account_numbers' do
-      response = described_class.list_account_numbers_by_member
+      response = described_class.list_account_numbers_by_member_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
       expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
       expect(response.first.account_number).to eq(account_number_attributes['account_number'])
@@ -130,15 +130,15 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
     end
   end
 
-  describe 'list_account_numbers_by_member_in_batches' do
-    it 'yields a batch of account_numbers' do
+  describe 'list_account_numbers_by_member_pages_each' do
+    it 'yields a page of account_numbers' do
       response = nil
 
-      described_class.list_account_numbers_by_member_in_batches do |batch|
-        response = batch
+      described_class.list_account_numbers_by_member_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
       expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
       expect(response.first.account_number).to eq(account_number_attributes['account_number'])

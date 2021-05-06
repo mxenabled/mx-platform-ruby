@@ -123,11 +123,11 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
   end
 
-  describe 'list_taggings' do
+  describe 'list_taggings_page' do
     it 'returns a list of taggings' do
-      response = described_class.list_taggings
+      response = described_class.list_taggings_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
       expect(response.first.guid).to eq(tagging_attributes['guid'])
       expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
@@ -155,15 +155,15 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
   end
 
-  describe 'list_taggings_in_batches' do
-    it 'yields a batch of taggings' do
+  describe 'list_taggings_pages_each' do
+    it 'yields a page of taggings' do
       response = nil
 
-      described_class.list_taggings_in_batches do |batch|
-        response = batch
+      described_class.list_taggings_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
       expect(response.first.guid).to eq(tagging_attributes['guid'])
       expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
