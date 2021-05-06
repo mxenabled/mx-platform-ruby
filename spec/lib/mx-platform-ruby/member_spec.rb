@@ -47,8 +47,7 @@ RSpec.describe ::MxPlatformRuby::Member do
   end
   let(:create_member_request_body) do
     {
-      member:
-      {
+      member: {
         background_aggregation_is_disabled: false,
         credentials: [
           {
@@ -108,8 +107,7 @@ RSpec.describe ::MxPlatformRuby::Member do
   end
   let(:resume_aggregation_request_body) do
     {
-      member:
-      {
+      member: {
         challenges: [
           {
             guid: 'CRD-2378634-33ub5bhk54kjb',
@@ -142,8 +140,7 @@ RSpec.describe ::MxPlatformRuby::Member do
   end
   let(:update_member_request_body) do
     {
-      member:
-      {
+      member: {
         background_aggregation_is_disabled: false,
         credentials: [
           {

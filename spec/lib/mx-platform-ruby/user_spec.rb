@@ -23,8 +23,7 @@ RSpec.describe ::MxPlatformRuby::User do
   end
   let(:create_user_request_body) do
     {
-      user:
-      {
+      user: {
         email: 'email@provider.com',
         id: 'My-Unique-ID',
         is_disabled: false,
@@ -52,8 +51,7 @@ RSpec.describe ::MxPlatformRuby::User do
   end
   let(:update_user_request_body) do
     {
-      user:
-      {
+      user: {
         email: 'email@provider.com',
         id: 'My-Unique-ID',
         is_disabled: false,

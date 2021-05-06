@@ -27,8 +27,7 @@ RSpec.describe ::MxPlatformRuby::ConnectWidget do
   end
   let(:get_connect_widget_request_body) do
     {
-      config:
-      {
+      config: {
         color_scheme: 'light',
         current_institution_code: 'chase',
         current_member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',

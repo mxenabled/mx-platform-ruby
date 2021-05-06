@@ -18,8 +18,7 @@ RSpec.describe ::MxPlatformRuby::Tag do
   end
   let(:create_tag_request_body) do
     {
-      tag:
-      {
+      tag: {
         name: 'MY TAG'
       }
     }
@@ -53,8 +52,7 @@ RSpec.describe ::MxPlatformRuby::Tag do
   end
   let(:update_tag_request_body) do
     {
-      tag:
-      {
+      tag: {
         name: 'MY TAG'
       }
     }

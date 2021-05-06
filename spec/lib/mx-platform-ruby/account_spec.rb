@@ -66,8 +66,7 @@ RSpec.describe ::MxPlatformRuby::Account do
   end
   let(:update_account_request_body) do
     {
-      account:
-      {
+      account: {
         is_hidden: false
       }
     }
