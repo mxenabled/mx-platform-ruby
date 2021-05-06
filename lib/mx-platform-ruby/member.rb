@@ -69,7 +69,7 @@ module MxPlatformRuby
       ::MxPlatformRuby::Member.new(member_params)
     end
 
-    def self.list_members(options = {})
+    def self.list_members_page(options = {})
       options = list_members_pagination_options(options)
 
       paginate(options)
@@ -81,10 +81,9 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_members_in_batches(options = {}, &block)
+    def self.list_members_pages_each(options = {}, &block)
       options = list_members_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
     def self.read_member(options = {})

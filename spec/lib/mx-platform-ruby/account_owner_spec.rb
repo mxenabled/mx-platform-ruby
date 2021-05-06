@@ -36,11 +36,11 @@ RSpec.describe ::MxPlatformRuby::AccountOwner do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(account_owners_response) }
 
-  describe 'list_account_owners' do
+  describe 'list_account_owners_page' do
     it 'returns a list of account_owners' do
-      response = described_class.list_account_owners
+      response = described_class.list_account_owners_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountOwner)
       expect(response.first.account_guid).to eq(account_owner_attributes['account_guid'])
       expect(response.first.address).to eq(account_owner_attributes['address'])
@@ -82,15 +82,15 @@ RSpec.describe ::MxPlatformRuby::AccountOwner do
     end
   end
 
-  describe 'list_account_owners_in_batches' do
-    it 'yields a batch of account_owners' do
+  describe 'list_account_owners_pages_each' do
+    it 'yields a page of account_owners' do
       response = nil
 
-      described_class.list_account_owners_in_batches do |batch|
-        response = batch
+      described_class.list_account_owners_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::AccountOwner)
       expect(response.first.account_guid).to eq(account_owner_attributes['account_guid'])
       expect(response.first.address).to eq(account_owner_attributes['address'])

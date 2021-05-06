@@ -314,11 +314,11 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
   end
 
-  describe 'list_members' do
+  describe 'list_members_page' do
     it 'returns a list of members' do
-      response = described_class.list_members
+      response = described_class.list_members_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
       expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.first.connection_status).to eq(member_attributes['connection_status'])
@@ -358,15 +358,15 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
   end
 
-  describe 'list_members_in_batches' do
-    it 'yields a batch of members' do
+  describe 'list_members_pages_each' do
+    it 'yields a page of members' do
       response = nil
 
-      described_class.list_members_in_batches do |batch|
-        response = batch
+      described_class.list_members_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
       expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.first.connection_status).to eq(member_attributes['connection_status'])

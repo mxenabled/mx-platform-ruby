@@ -12,7 +12,7 @@ module MxPlatformRuby
     attribute :updated_at
     attribute :website_url
 
-    def self.list_merchants(options = {})
+    def self.list_merchants_page(options = {})
       options = list_merchants_pagination_options(options)
 
       paginate(options)
@@ -24,10 +24,9 @@ module MxPlatformRuby
       paginate_each(options, &block)
     end
 
-    def self.list_merchants_in_batches(options = {}, &block)
+    def self.list_merchants_pages_each(options = {}, &block)
       options = list_merchants_pagination_options(options)
-
-      paginate_in_batches(options, &block)
+      paginate_pages(options, &block)
     end
 
     def self.read_merchant(options = {})

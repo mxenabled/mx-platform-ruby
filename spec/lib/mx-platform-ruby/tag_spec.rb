@@ -117,11 +117,11 @@ RSpec.describe ::MxPlatformRuby::Tag do
     end
   end
 
-  describe 'list_tags' do
+  describe 'list_tags_page' do
     it 'returns a list of tags' do
-      response = described_class.list_tags
+      response = described_class.list_tags_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
       expect(response.first.guid).to eq(tag_attributes['guid'])
       expect(response.first.name).to eq(tag_attributes['name'])
@@ -145,15 +145,15 @@ RSpec.describe ::MxPlatformRuby::Tag do
     end
   end
 
-  describe 'list_tags_in_batches' do
-    it 'yields a batch of tags' do
+  describe 'list_tags_pages_each' do
+    it 'yields a page of tags' do
       response = nil
 
-      described_class.list_tags_in_batches do |batch|
-        response = batch
+      described_class.list_tags_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
       expect(response.first.guid).to eq(tag_attributes['guid'])
       expect(response.first.name).to eq(tag_attributes['name'])

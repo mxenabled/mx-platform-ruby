@@ -120,11 +120,11 @@ RSpec.describe ::MxPlatformRuby::User do
     end
   end
 
-  describe 'list_users' do
+  describe 'list_users_page' do
     it 'returns a list of users' do
-      response = described_class.list_users
+      response = described_class.list_users_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::User)
       expect(response.first.email).to eq(user_attributes['email'])
       expect(response.first.guid).to eq(user_attributes['guid'])
@@ -152,15 +152,15 @@ RSpec.describe ::MxPlatformRuby::User do
     end
   end
 
-  describe 'list_users_in_batches' do
-    it 'yields a batch of users' do
+  describe 'list_users_pages_each' do
+    it 'yields a page of users' do
       response = nil
 
-      described_class.list_users_in_batches do |batch|
-        response = batch
+      described_class.list_users_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::User)
       expect(response.first.email).to eq(user_attributes['email'])
       expect(response.first.guid).to eq(user_attributes['guid'])

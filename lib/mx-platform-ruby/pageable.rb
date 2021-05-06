@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MxPlatformRuby
-  class PaginationBatch < ::Array
+  class Page < ::Array
     attr_accessor :current_page, :records_per_page, :total_entries, :total_pages
   end
 
@@ -13,18 +13,18 @@ module MxPlatformRuby
     end
 
     def paginate(options = {})
-      paginate_in_batches(options) do |pagination_batch|
-        return pagination_batch
+      paginate_pages(options) do |page|
+        return page
       end
     end
 
     def paginate_each(options = {}, &block)
-      paginate_in_batches(options) do |pagination_batch|
-        pagination_batch.each(&block)
+      paginate_pages(options) do |page|
+        page.each(&block)
       end
     end
 
-    def paginate_in_batches(options = {})
+    def paginate_pages(options = {})
       fail ::ArgumentError, 'A block is required' unless block_given?
 
       accept_header = options.fetch(:accept_header)
@@ -45,12 +45,12 @@ module MxPlatformRuby
 
         records = response[resource].map { |attributes| klass.new(attributes) }
 
-        pagination_batch = ::MxPlatformRuby::PaginationBatch.new(records)
-        pagination_batch.current_page = current_page
-        pagination_batch.records_per_page = records_per_page
-        pagination_batch.total_entries = total_entries
-        pagination_batch.total_pages = total_pages
-        yield pagination_batch
+        page = ::MxPlatformRuby::Page.new(records)
+        page.current_page = current_page
+        page.records_per_page = records_per_page
+        page.total_entries = total_entries
+        page.total_pages = total_pages
+        yield page
 
         current_page += 1
       end

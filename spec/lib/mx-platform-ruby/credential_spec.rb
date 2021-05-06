@@ -29,11 +29,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(credentials_response) }
 
-  describe 'list_institution_required_credentials' do
+  describe 'list_institution_required_credentials_page' do
     it 'returns a list of credentials' do
-      response = described_class.list_institution_required_credentials
+      response = described_class.list_institution_required_credentials_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
       expect(response.first.display_order).to eq(credential_attributes['display_order'])
       expect(response.first.field_name).to eq(credential_attributes['field_name'])
@@ -61,15 +61,15 @@ RSpec.describe ::MxPlatformRuby::Credential do
     end
   end
 
-  describe 'list_institution_required_credentials_in_batches' do
-    it 'yields a batch of credentials' do
+  describe 'list_institution_required_credentials_pages_each' do
+    it 'yields a page of credentials' do
       response = nil
 
-      described_class.list_institution_required_credentials_in_batches do |batch|
-        response = batch
+      described_class.list_institution_required_credentials_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
       expect(response.first.display_order).to eq(credential_attributes['display_order'])
       expect(response.first.field_name).to eq(credential_attributes['field_name'])
@@ -80,11 +80,11 @@ RSpec.describe ::MxPlatformRuby::Credential do
     end
   end
 
-  describe 'list_member_credentials' do
+  describe 'list_member_credentials_page' do
     it 'returns a list of credentials' do
-      response = described_class.list_member_credentials
+      response = described_class.list_member_credentials_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
       expect(response.first.display_order).to eq(credential_attributes['display_order'])
       expect(response.first.field_name).to eq(credential_attributes['field_name'])
@@ -112,15 +112,15 @@ RSpec.describe ::MxPlatformRuby::Credential do
     end
   end
 
-  describe 'list_member_credentials_in_batches' do
-    it 'yields a batch of credentials' do
+  describe 'list_member_credentials_pages_each' do
+    it 'yields a page of credentials' do
       response = nil
 
-      described_class.list_member_credentials_in_batches do |batch|
-        response = batch
+      described_class.list_member_credentials_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
       expect(response.first.display_order).to eq(credential_attributes['display_order'])
       expect(response.first.field_name).to eq(credential_attributes['field_name'])

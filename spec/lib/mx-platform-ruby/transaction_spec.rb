@@ -76,11 +76,11 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
   before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(transactions_response) }
 
-  describe 'list_transactions_by_member' do
+  describe 'list_transactions_by_member_page' do
     it 'returns a list of transactions' do
-      response = described_class.list_transactions_by_member
+      response = described_class.list_transactions_by_member_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
       expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.first.amount).to eq(transaction_attributes['amount'])
@@ -166,15 +166,15 @@ RSpec.describe ::MxPlatformRuby::Transaction do
     end
   end
 
-  describe 'list_transactions_by_member_in_batches' do
-    it 'yields a batch of transactions' do
+  describe 'list_transactions_by_member_pages_each' do
+    it 'yields a page of transactions' do
       response = nil
 
-      described_class.list_transactions_by_member_in_batches do |batch|
-        response = batch
+      described_class.list_transactions_by_member_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
       expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.first.amount).to eq(transaction_attributes['amount'])
@@ -214,11 +214,11 @@ RSpec.describe ::MxPlatformRuby::Transaction do
     end
   end
 
-  describe 'list_transactions_by_user' do
+  describe 'list_transactions_by_user_page' do
     it 'returns a list of transactions' do
-      response = described_class.list_transactions_by_user
+      response = described_class.list_transactions_by_user_page
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
       expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.first.amount).to eq(transaction_attributes['amount'])
@@ -304,15 +304,15 @@ RSpec.describe ::MxPlatformRuby::Transaction do
     end
   end
 
-  describe 'list_transactions_by_user_in_batches' do
-    it 'yields a batch of transactions' do
+  describe 'list_transactions_by_user_pages_each' do
+    it 'yields a page of transactions' do
       response = nil
 
-      described_class.list_transactions_by_user_in_batches do |batch|
-        response = batch
+      described_class.list_transactions_by_user_pages_each do |page|
+        response = page
       end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::PaginationBatch)
+      expect(response).to be_kind_of(::MxPlatformRuby::Page)
       expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
       expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.first.amount).to eq(transaction_attributes['amount'])
