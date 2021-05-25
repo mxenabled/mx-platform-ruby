@@ -18,6 +18,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = create_category_body(options)
       endpoint = "/users/#{options[:user_guid]}/categories"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
@@ -30,6 +31,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/categories/#{options[:category_guid]}"
       ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
@@ -48,6 +50,7 @@ module MxPlatformRuby
 
     def self.list_categories_pages_each(options = {}, &block)
       options = list_categories_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -65,6 +68,7 @@ module MxPlatformRuby
 
     def self.list_default_categories_pages_each(options = {}, &block)
       options = list_default_categories_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -72,6 +76,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/categories/#{options[:category_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
@@ -83,6 +88,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = update_category_body(options)
       endpoint = "/users/#{options[:user_guid]}/categories"
       response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)

@@ -32,6 +32,7 @@ module MxPlatformRuby
 
     def self.list_account_owners_pages_each(options = {}, &block)
       options = list_account_owners_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 

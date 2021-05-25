@@ -60,6 +60,7 @@ module MxPlatformRuby
 
     def self.list_user_accounts_pages_each(options = {}, &block)
       options = list_user_accounts_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -67,6 +68,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
@@ -78,6 +80,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = update_account_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/accounts/#{options[:account_guid]}"
       response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)

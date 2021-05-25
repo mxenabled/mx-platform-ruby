@@ -30,6 +30,7 @@ module MxPlatformRuby
 
     def self.list_favorites_pages_each(options = {}, &block)
       options = list_favorites_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -47,6 +48,7 @@ module MxPlatformRuby
 
     def self.list_institutions_pages_each(options = {}, &block)
       options = list_institutions_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -54,6 +56,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/institutions/#{options[:institution_code]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 

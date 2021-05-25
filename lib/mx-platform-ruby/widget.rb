@@ -13,6 +13,7 @@ module MxPlatformRuby
         'Accept' => 'application/vnd.mx.api.v1+json',
         'Accept-Language' => options[:accept_language]
       }.compact
+
       body = request_widget_url_body(options)
       endpoint = "/users/#{options[:user_guid]}/widget_urls"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)

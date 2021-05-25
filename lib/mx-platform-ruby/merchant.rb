@@ -26,6 +26,7 @@ module MxPlatformRuby
 
     def self.list_merchants_pages_each(options = {}, &block)
       options = list_merchants_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -33,6 +34,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/merchants/#{options[:merchant_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 

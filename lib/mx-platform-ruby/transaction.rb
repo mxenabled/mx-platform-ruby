@@ -56,6 +56,7 @@ module MxPlatformRuby
 
     def self.list_transactions_by_account_pages_each(options = {}, &block)
       options = list_transactions_by_account_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -73,6 +74,7 @@ module MxPlatformRuby
 
     def self.list_transactions_by_member_pages_each(options = {}, &block)
       options = list_transactions_by_member_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -90,6 +92,7 @@ module MxPlatformRuby
 
     def self.list_transactions_by_tag_pages_each(options = {}, &block)
       options = list_transactions_by_tag_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -107,6 +110,7 @@ module MxPlatformRuby
 
     def self.list_transactions_by_user_pages_each(options = {}, &block)
       options = list_transactions_by_user_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -114,6 +118,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
@@ -125,6 +130,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = update_transaction_body(options)
       endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
       response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
