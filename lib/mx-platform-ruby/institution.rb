@@ -51,9 +51,11 @@ module MxPlatformRuby
     end
 
     def self.read_institution(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/institutions/#{options[:institution_code]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       institution_params = response['institution']
       ::MxPlatformRuby::Institution.new(institution_params)
@@ -69,7 +71,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_favorites_pagination_options
@@ -85,7 +87,7 @@ module MxPlatformRuby
           supports_account_statement: options[:supports_account_statement],
           supports_account_verification: options[:supports_account_verification],
           supports_transaction_history: options[:supports_transaction_history]
-        }
+        }.compact
       }
     end
     private_class_method :list_institutions_pagination_options

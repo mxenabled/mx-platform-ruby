@@ -13,16 +13,9 @@ RSpec.describe ::MxPlatformRuby::Merchant do
       'website_url' => 'https://www.xfinity.com'
     }
   end
-  let(:merchant_response) { { 'merchant' => merchant_attributes } }
   let(:read_merchant_path_parameters) do
     {
       merchant_guid: 'MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b'
-    }
-  end
-  let(:merchants_response) do
-    {
-      'merchants' => [merchant_attributes],
-      'pagination' => pagination_attributes
     }
   end
   let(:pagination_attributes) do
@@ -34,64 +27,74 @@ RSpec.describe ::MxPlatformRuby::Merchant do
     }
   end
 
-  before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(merchants_response) }
-
-  describe 'list_merchants_page' do
-    it 'returns a list of merchants' do
-      response = described_class.list_merchants_page
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
-      expect(response.first.created_at).to eq(merchant_attributes['created_at'])
-      expect(response.first.guid).to eq(merchant_attributes['guid'])
-      expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
-      expect(response.first.name).to eq(merchant_attributes['name'])
-      expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
-      expect(response.first.website_url).to eq(merchant_attributes['website_url'])
-      expect(response.length).to eq(1)
+  context 'list_merchants endpoints' do
+    let(:list_merchants_response) do
+      {
+        'merchants' => [merchant_attributes],
+        'pagination' => pagination_attributes
+      }
     end
-  end
 
-  describe 'list_merchants_each' do
-    it 'yields a merchant' do
-      response = nil
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_merchants_response) }
 
-      described_class.list_merchants_each do |merchant|
-        response = merchant
+    describe 'list_merchants_page' do
+      it 'returns a list of merchants' do
+        response = described_class.list_merchants_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
+        expect(response.first.created_at).to eq(merchant_attributes['created_at'])
+        expect(response.first.guid).to eq(merchant_attributes['guid'])
+        expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
+        expect(response.first.name).to eq(merchant_attributes['name'])
+        expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
+        expect(response.first.website_url).to eq(merchant_attributes['website_url'])
+        expect(response.length).to eq(1)
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Merchant)
-      expect(response.created_at).to eq(merchant_attributes['created_at'])
-      expect(response.guid).to eq(merchant_attributes['guid'])
-      expect(response.logo_url).to eq(merchant_attributes['logo_url'])
-      expect(response.name).to eq(merchant_attributes['name'])
-      expect(response.updated_at).to eq(merchant_attributes['updated_at'])
-      expect(response.website_url).to eq(merchant_attributes['website_url'])
     end
-  end
 
-  describe 'list_merchants_pages_each' do
-    it 'yields a page of merchants' do
-      response = nil
+    describe 'list_merchants_each' do
+      it 'yields a merchant' do
+        response = nil
 
-      described_class.list_merchants_pages_each do |page|
-        response = page
+        described_class.list_merchants_each do |merchant|
+          response = merchant
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Merchant)
+        expect(response.created_at).to eq(merchant_attributes['created_at'])
+        expect(response.guid).to eq(merchant_attributes['guid'])
+        expect(response.logo_url).to eq(merchant_attributes['logo_url'])
+        expect(response.name).to eq(merchant_attributes['name'])
+        expect(response.updated_at).to eq(merchant_attributes['updated_at'])
+        expect(response.website_url).to eq(merchant_attributes['website_url'])
       end
+    end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
-      expect(response.first.created_at).to eq(merchant_attributes['created_at'])
-      expect(response.first.guid).to eq(merchant_attributes['guid'])
-      expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
-      expect(response.first.name).to eq(merchant_attributes['name'])
-      expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
-      expect(response.first.website_url).to eq(merchant_attributes['website_url'])
-      expect(response.length).to eq(1)
+    describe 'list_merchants_pages_each' do
+      it 'yields a page of merchants' do
+        response = nil
+
+        described_class.list_merchants_pages_each do |page|
+          response = page
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Merchant)
+        expect(response.first.created_at).to eq(merchant_attributes['created_at'])
+        expect(response.first.guid).to eq(merchant_attributes['guid'])
+        expect(response.first.logo_url).to eq(merchant_attributes['logo_url'])
+        expect(response.first.name).to eq(merchant_attributes['name'])
+        expect(response.first.updated_at).to eq(merchant_attributes['updated_at'])
+        expect(response.first.website_url).to eq(merchant_attributes['website_url'])
+        expect(response.length).to eq(1)
+      end
     end
   end
 
   describe 'read_merchant' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(merchant_response) }
+    let(:read_merchant_response) { { 'merchant' => merchant_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_merchant_response) }
 
     it 'returns merchant' do
       response = described_class.read_merchant
@@ -103,6 +106,18 @@ RSpec.describe ::MxPlatformRuby::Merchant do
       expect(response.name).to eq(merchant_attributes['name'])
       expect(response.updated_at).to eq(merchant_attributes['updated_at'])
       expect(response.website_url).to eq(merchant_attributes['website_url'])
+    end
+
+    it 'makes a client request with the expected params' do
+      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        :get,
+        '/merchants/MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b',
+        nil,
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      )
+      described_class.read_merchant(
+        read_merchant_path_parameters
+      )
     end
   end
 end

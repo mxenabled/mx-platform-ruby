@@ -15,10 +15,16 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
       'user_guid' => 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:account_numbers_response) do
+  let(:list_account_numbers_by_account_path_parameters) do
     {
-      'account_numbers' => [account_number_attributes],
-      'pagination' => pagination_attributes
+      account_guid: 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
+      user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
+    }
+  end
+  let(:list_account_numbers_by_member_path_parameters) do
+    {
+      member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
+      user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
   let(:pagination_attributes) do
@@ -30,125 +36,145 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
     }
   end
 
-  before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(account_numbers_response) }
-
-  describe 'list_account_numbers_by_account_page' do
-    it 'returns a list of account_numbers' do
-      response = described_class.list_account_numbers_by_account_page
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.first.guid).to eq(account_number_attributes['guid'])
-      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
-      expect(response.length).to eq(1)
+  context 'list_account_numbers_by_account endpoints' do
+    let(:list_account_numbers_by_account_response) do
+      {
+        'account_numbers' => [account_number_attributes],
+        'pagination' => pagination_attributes
+      }
     end
-  end
 
-  describe 'list_account_numbers_by_account_each' do
-    it 'yields a account_number' do
-      response = nil
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_account_response) }
 
-      described_class.list_account_numbers_by_account_each do |account_number|
-        response = account_number
+    describe 'list_account_numbers_by_account_page' do
+      it 'returns a list of account_numbers' do
+        response = described_class.list_account_numbers_by_account_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.first.guid).to eq(account_number_attributes['guid'])
+        expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
+        expect(response.length).to eq(1)
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.guid).to eq(account_number_attributes['guid'])
-      expect(response.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.user_guid).to eq(account_number_attributes['user_guid'])
     end
-  end
 
-  describe 'list_account_numbers_by_account_pages_each' do
-    it 'yields a page of account_numbers' do
-      response = nil
+    describe 'list_account_numbers_by_account_each' do
+      it 'yields a account_number' do
+        response = nil
 
-      described_class.list_account_numbers_by_account_pages_each do |page|
-        response = page
+        described_class.list_account_numbers_by_account_each do |account_number|
+          response = account_number
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.guid).to eq(account_number_attributes['guid'])
+        expect(response.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.user_guid).to eq(account_number_attributes['user_guid'])
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.first.guid).to eq(account_number_attributes['guid'])
-      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
-      expect(response.length).to eq(1)
     end
-  end
 
-  describe 'list_account_numbers_by_member_page' do
-    it 'returns a list of account_numbers' do
-      response = described_class.list_account_numbers_by_member_page
+    describe 'list_account_numbers_by_account_pages_each' do
+      it 'yields a page of account_numbers' do
+        response = nil
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.first.guid).to eq(account_number_attributes['guid'])
-      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
-      expect(response.length).to eq(1)
-    end
-  end
+        described_class.list_account_numbers_by_account_pages_each do |page|
+          response = page
+        end
 
-  describe 'list_account_numbers_by_member_each' do
-    it 'yields a account_number' do
-      response = nil
-
-      described_class.list_account_numbers_by_member_each do |account_number|
-        response = account_number
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.first.guid).to eq(account_number_attributes['guid'])
+        expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
+        expect(response.length).to eq(1)
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.guid).to eq(account_number_attributes['guid'])
-      expect(response.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.user_guid).to eq(account_number_attributes['user_guid'])
     end
   end
 
-  describe 'list_account_numbers_by_member_pages_each' do
-    it 'yields a page of account_numbers' do
-      response = nil
+  context 'list_account_numbers_by_member endpoints' do
+    let(:list_account_numbers_by_member_response) do
+      {
+        'account_numbers' => [account_number_attributes],
+        'pagination' => pagination_attributes
+      }
+    end
 
-      described_class.list_account_numbers_by_member_pages_each do |page|
-        response = page
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_member_response) }
+
+    describe 'list_account_numbers_by_member_page' do
+      it 'returns a list of account_numbers' do
+        response = described_class.list_account_numbers_by_member_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.first.guid).to eq(account_number_attributes['guid'])
+        expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
+        expect(response.length).to eq(1)
       end
+    end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
-      expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
-      expect(response.first.account_number).to eq(account_number_attributes['account_number'])
-      expect(response.first.guid).to eq(account_number_attributes['guid'])
-      expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
-      expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
-      expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
-      expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
-      expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
-      expect(response.length).to eq(1)
+    describe 'list_account_numbers_by_member_each' do
+      it 'yields a account_number' do
+        response = nil
+
+        described_class.list_account_numbers_by_member_each do |account_number|
+          response = account_number
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.guid).to eq(account_number_attributes['guid'])
+        expect(response.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.user_guid).to eq(account_number_attributes['user_guid'])
+      end
+    end
+
+    describe 'list_account_numbers_by_member_pages_each' do
+      it 'yields a page of account_numbers' do
+        response = nil
+
+        described_class.list_account_numbers_by_member_pages_each do |page|
+          response = page
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
+        expect(response.first.account_number).to eq(account_number_attributes['account_number'])
+        expect(response.first.guid).to eq(account_number_attributes['guid'])
+        expect(response.first.institution_number).to eq(account_number_attributes['institution_number'])
+        expect(response.first.member_guid).to eq(account_number_attributes['member_guid'])
+        expect(response.first.routing_number).to eq(account_number_attributes['routing_number'])
+        expect(response.first.transit_number).to eq(account_number_attributes['transit_number'])
+        expect(response.first.user_guid).to eq(account_number_attributes['user_guid'])
+        expect(response.length).to eq(1)
+      end
     end
   end
 end

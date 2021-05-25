@@ -37,7 +37,6 @@ RSpec.describe ::MxPlatformRuby::MemberStatus do
       'successfully_aggregated_at' => '2016-10-13T17:57:38.000Z'
     }
   end
-  let(:member_status_response) { { 'member' => member_status_attributes } }
   let(:read_member_status_path_parameters) do
     {
       member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
@@ -46,7 +45,8 @@ RSpec.describe ::MxPlatformRuby::MemberStatus do
   end
 
   describe 'read_member_status' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(member_status_response) }
+    let(:read_member_status_response) { { 'member' => member_status_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_member_status_response) }
 
     it 'returns member_status' do
       response = described_class.read_member_status
@@ -61,6 +61,18 @@ RSpec.describe ::MxPlatformRuby::MemberStatus do
       expect(response.is_authenticated).to eq(member_status_attributes['is_authenticated'])
       expect(response.is_being_aggregated).to eq(member_status_attributes['is_being_aggregated'])
       expect(response.successfully_aggregated_at).to eq(member_status_attributes['successfully_aggregated_at'])
+    end
+
+    it 'makes a client request with the expected params' do
+      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        :get,
+        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/status',
+        nil,
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      )
+      described_class.read_member_status(
+        read_member_status_path_parameters
+      )
     end
   end
 end

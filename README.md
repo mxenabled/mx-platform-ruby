@@ -40,8 +40,8 @@ end
 The simplest way to read back all objects from the list endpoints is through the "_each" methods. These methods yield one object at a time.
 
 ```ruby
-::MxPlatformRuby::User.list_users_each do |user|
-  p user
+::MxPlatformRuby::Institution.list_institutions_each do |institution|
+  p institution
 end
 ```
 
@@ -51,28 +51,28 @@ For additional control when working with the `page` and `records_per_page` param
 
 To retrieve a single page,
 ```ruby
-page = ::MxPlatformRuby::User.list_users_page(page: 1, records_per_page: 10)
+page = ::MxPlatformRuby::Institution.list_institutions_page(page: 1, records_per_page: 10)
 
 puts page.current_page
 puts page.records_per_page
 puts page.total_entries
 puts page.total_pages
 
-page.each do |user|
-  p user
+page.each do |institution|
+  p institution
 end
 ```
 
 To retrieve multiple pages,
 ```ruby
-::MxPlatformRuby::User.list_users_pages_each(page: 1, records_per_page: 10) do |page|
+::MxPlatformRuby::Institution.list_institutions_pages_each(page: 1, records_per_page: 10) do |page|
   puts page.current_page
   puts page.records_per_page
   puts page.total_entries
   puts page.total_pages
 
-  page.each do |user|
-    p user
+  page.each do |institution|
+    p institution
   end
 end
 ```

@@ -14,56 +14,80 @@ module MxPlatformRuby
     attribute :is_oauth
     attribute :metadata
     attribute :name
+    attribute :oauth_window_uri
     attribute :successfully_aggregated_at
     attribute :user_guid
 
     def self.aggregate_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/aggregate"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.check_balances(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/check_balance"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.create_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = create_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.delete_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, accept_header)
+      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.extend_history(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/extend_history"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+
+      member_params = response['member']
+      ::MxPlatformRuby::Member.new(member_params)
+    end
+
+    def self.fetch_statements_by_member(options = {})
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
+      endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/fetch_statements"
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.identify_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/identify"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
@@ -87,38 +111,46 @@ module MxPlatformRuby
     end
 
     def self.read_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.resume_aggregation(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = resume_aggregation_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/resume"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.update_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = update_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
     end
 
     def self.verify_member(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/verify"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::Member.new(member_params)
@@ -133,8 +165,12 @@ module MxPlatformRuby
           credentials: options[:credentials],
           id: options[:id],
           institution_code: options[:institution_code],
-          metadata: options[:metadata]
-        }
+          is_oauth: options[:is_oauth],
+          metadata: options[:metadata],
+          referral_source: options[:referral_source],
+          skip_aggregation: options[:skip_aggregation],
+          ui_message_webview_url_scheme: options[:ui_message_webview_url_scheme]
+        }.compact
       }
     end
     private_class_method :create_member_body
@@ -147,7 +183,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_members_pagination_options
@@ -156,7 +192,7 @@ module MxPlatformRuby
       {
         member: {
           challenges: options[:challenges]
-        }
+        }.compact
       }
     end
     private_class_method :resume_aggregation_body
@@ -169,8 +205,9 @@ module MxPlatformRuby
           id: options[:id],
           institution_code: options[:institution_code],
           is_oauth: options[:is_oauth],
-          metadata: options[:metadata]
-        }
+          metadata: options[:metadata],
+          skip_aggregation: options[:skip_aggregation]
+        }.compact
       }
     end
     private_class_method :update_member_body

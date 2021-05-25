@@ -12,10 +12,15 @@ RSpec.describe ::MxPlatformRuby::Credential do
       'label' => 'Username'
     }
   end
-  let(:credentials_response) do
+  let(:list_institution_required_credentials_path_parameters) do
     {
-      'credentials' => [credential_attributes],
-      'pagination' => pagination_attributes
+      institution_code: 'chase'
+    }
+  end
+  let(:list_member_credentials_path_parameters) do
+    {
+      member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
+      user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
   let(:pagination_attributes) do
@@ -27,107 +32,127 @@ RSpec.describe ::MxPlatformRuby::Credential do
     }
   end
 
-  before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(credentials_response) }
-
-  describe 'list_institution_required_credentials_page' do
-    it 'returns a list of credentials' do
-      response = described_class.list_institution_required_credentials_page
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(credential_attributes['display_order'])
-      expect(response.first.field_name).to eq(credential_attributes['field_name'])
-      expect(response.first.field_type).to eq(credential_attributes['field_type'])
-      expect(response.first.guid).to eq(credential_attributes['guid'])
-      expect(response.first.label).to eq(credential_attributes['label'])
-      expect(response.length).to eq(1)
+  context 'list_institution_required_credentials endpoints' do
+    let(:list_institution_required_credentials_response) do
+      {
+        'credentials' => [credential_attributes],
+        'pagination' => pagination_attributes
+      }
     end
-  end
 
-  describe 'list_institution_required_credentials_each' do
-    it 'yields a credential' do
-      response = nil
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_institution_required_credentials_response) }
 
-      described_class.list_institution_required_credentials_each do |credential|
-        response = credential
+    describe 'list_institution_required_credentials_page' do
+      it 'returns a list of credentials' do
+        response = described_class.list_institution_required_credentials_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.first.display_order).to eq(credential_attributes['display_order'])
+        expect(response.first.field_name).to eq(credential_attributes['field_name'])
+        expect(response.first.field_type).to eq(credential_attributes['field_type'])
+        expect(response.first.guid).to eq(credential_attributes['guid'])
+        expect(response.first.label).to eq(credential_attributes['label'])
+        expect(response.length).to eq(1)
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.display_order).to eq(credential_attributes['display_order'])
-      expect(response.field_name).to eq(credential_attributes['field_name'])
-      expect(response.field_type).to eq(credential_attributes['field_type'])
-      expect(response.guid).to eq(credential_attributes['guid'])
-      expect(response.label).to eq(credential_attributes['label'])
     end
-  end
 
-  describe 'list_institution_required_credentials_pages_each' do
-    it 'yields a page of credentials' do
-      response = nil
+    describe 'list_institution_required_credentials_each' do
+      it 'yields a credential' do
+        response = nil
 
-      described_class.list_institution_required_credentials_pages_each do |page|
-        response = page
+        described_class.list_institution_required_credentials_each do |credential|
+          response = credential
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.display_order).to eq(credential_attributes['display_order'])
+        expect(response.field_name).to eq(credential_attributes['field_name'])
+        expect(response.field_type).to eq(credential_attributes['field_type'])
+        expect(response.guid).to eq(credential_attributes['guid'])
+        expect(response.label).to eq(credential_attributes['label'])
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(credential_attributes['display_order'])
-      expect(response.first.field_name).to eq(credential_attributes['field_name'])
-      expect(response.first.field_type).to eq(credential_attributes['field_type'])
-      expect(response.first.guid).to eq(credential_attributes['guid'])
-      expect(response.first.label).to eq(credential_attributes['label'])
-      expect(response.length).to eq(1)
     end
-  end
 
-  describe 'list_member_credentials_page' do
-    it 'returns a list of credentials' do
-      response = described_class.list_member_credentials_page
+    describe 'list_institution_required_credentials_pages_each' do
+      it 'yields a page of credentials' do
+        response = nil
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(credential_attributes['display_order'])
-      expect(response.first.field_name).to eq(credential_attributes['field_name'])
-      expect(response.first.field_type).to eq(credential_attributes['field_type'])
-      expect(response.first.guid).to eq(credential_attributes['guid'])
-      expect(response.first.label).to eq(credential_attributes['label'])
-      expect(response.length).to eq(1)
-    end
-  end
+        described_class.list_institution_required_credentials_pages_each do |page|
+          response = page
+        end
 
-  describe 'list_member_credentials_each' do
-    it 'yields a credential' do
-      response = nil
-
-      described_class.list_member_credentials_each do |credential|
-        response = credential
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.first.display_order).to eq(credential_attributes['display_order'])
+        expect(response.first.field_name).to eq(credential_attributes['field_name'])
+        expect(response.first.field_type).to eq(credential_attributes['field_type'])
+        expect(response.first.guid).to eq(credential_attributes['guid'])
+        expect(response.first.label).to eq(credential_attributes['label'])
+        expect(response.length).to eq(1)
       end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.display_order).to eq(credential_attributes['display_order'])
-      expect(response.field_name).to eq(credential_attributes['field_name'])
-      expect(response.field_type).to eq(credential_attributes['field_type'])
-      expect(response.guid).to eq(credential_attributes['guid'])
-      expect(response.label).to eq(credential_attributes['label'])
     end
   end
 
-  describe 'list_member_credentials_pages_each' do
-    it 'yields a page of credentials' do
-      response = nil
+  context 'list_member_credentials endpoints' do
+    let(:list_member_credentials_response) do
+      {
+        'credentials' => [credential_attributes],
+        'pagination' => pagination_attributes
+      }
+    end
 
-      described_class.list_member_credentials_pages_each do |page|
-        response = page
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_member_credentials_response) }
+
+    describe 'list_member_credentials_page' do
+      it 'returns a list of credentials' do
+        response = described_class.list_member_credentials_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.first.display_order).to eq(credential_attributes['display_order'])
+        expect(response.first.field_name).to eq(credential_attributes['field_name'])
+        expect(response.first.field_type).to eq(credential_attributes['field_type'])
+        expect(response.first.guid).to eq(credential_attributes['guid'])
+        expect(response.first.label).to eq(credential_attributes['label'])
+        expect(response.length).to eq(1)
       end
+    end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
-      expect(response.first.display_order).to eq(credential_attributes['display_order'])
-      expect(response.first.field_name).to eq(credential_attributes['field_name'])
-      expect(response.first.field_type).to eq(credential_attributes['field_type'])
-      expect(response.first.guid).to eq(credential_attributes['guid'])
-      expect(response.first.label).to eq(credential_attributes['label'])
-      expect(response.length).to eq(1)
+    describe 'list_member_credentials_each' do
+      it 'yields a credential' do
+        response = nil
+
+        described_class.list_member_credentials_each do |credential|
+          response = credential
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.display_order).to eq(credential_attributes['display_order'])
+        expect(response.field_name).to eq(credential_attributes['field_name'])
+        expect(response.field_type).to eq(credential_attributes['field_type'])
+        expect(response.guid).to eq(credential_attributes['guid'])
+        expect(response.label).to eq(credential_attributes['label'])
+      end
+    end
+
+    describe 'list_member_credentials_pages_each' do
+      it 'yields a page of credentials' do
+        response = nil
+
+        described_class.list_member_credentials_pages_each do |page|
+          response = page
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response.first.display_order).to eq(credential_attributes['display_order'])
+        expect(response.first.field_name).to eq(credential_attributes['field_name'])
+        expect(response.first.field_type).to eq(credential_attributes['field_type'])
+        expect(response.first.guid).to eq(credential_attributes['guid'])
+        expect(response.first.label).to eq(credential_attributes['label'])
+        expect(response.length).to eq(1)
+      end
     end
   end
 end

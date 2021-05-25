@@ -59,9 +59,11 @@ module MxPlatformRuby
     end
 
     def self.read_holding(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/holdings/#{options[:holding_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       holding_params = response['holding']
       ::MxPlatformRuby::Holding.new(holding_params)
@@ -79,7 +81,7 @@ module MxPlatformRuby
           page: options[:page],
           records_per_page: options[:records_per_page],
           to_date: options[:to_date]
-        }
+        }.compact
       }
     end
     private_class_method :list_holdings_by_member_pagination_options
@@ -90,9 +92,11 @@ module MxPlatformRuby
         endpoint: "/users/#{options[:user_guid]}/holdings",
         resource: 'holdings',
         query_params: {
+          from_date: options[:from_date],
           page: options[:page],
-          records_per_page: options[:records_per_page]
-        }
+          records_per_page: options[:records_per_page],
+          to_date: options[:to_date]
+        }.compact
       }
     end
     private_class_method :list_holdings_by_user_pagination_options

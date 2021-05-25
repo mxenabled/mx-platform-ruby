@@ -10,11 +10,12 @@ RSpec.describe ::MxPlatformRuby::Widget do
       'user_id' => 'U-jeff-201709221210'
     }
   end
-  let(:widget_response) { { 'widget_url' => widget_attributes } }
+  let(:request_widget_url_request_body) { { widget_url: request_widget_url_request_body_parameters } }
   let(:request_widget_url_request_body_parameters) do
     {
       color_scheme: 'light',
       current_institution_code: 'chase',
+      current_institution_guid: 'INS-f1a3285d-e855-b61f-6aa7-8ae575c0e0e9',
       current_member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
       disable_institution_search: false,
       include_transactions: true,
@@ -27,24 +28,6 @@ RSpec.describe ::MxPlatformRuby::Widget do
       widget_type: 'connect_widget'
     }
   end
-  let(:request_widget_url_request_body) do
-    {
-      widget_url: {
-        color_scheme: 'light',
-        current_institution_code: 'chase',
-        current_member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
-        disable_institution_search: false,
-        include_transactions: true,
-        is_mobile_webview: true,
-        mode: 'aggregation',
-        ui_message_version: 4,
-        ui_message_webview_url_scheme: 'mx',
-        update_credentials: false,
-        wait_for_full_aggregation: false,
-        widget_type: 'connect_widget'
-      }
-    }
-  end
   let(:request_widget_url_path_parameters) do
     {
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
@@ -52,7 +35,17 @@ RSpec.describe ::MxPlatformRuby::Widget do
   end
 
   describe 'request_widget_url' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(widget_response) }
+    let(:request_widget_url_response) { { 'widget_url' => widget_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(request_widget_url_response) }
+
+    it 'returns widget' do
+      response = described_class.request_widget_url
+
+      expect(response).to be_kind_of(::MxPlatformRuby::Widget)
+      expect(response.type).to eq(widget_attributes['type'])
+      expect(response.url).to eq(widget_attributes['url'])
+      expect(response.user_id).to eq(widget_attributes['user_id'])
+    end
 
     it 'makes a client request with the expected params' do
       expect(::MxPlatformRuby.client).to receive(:make_request).with(
@@ -64,15 +57,6 @@ RSpec.describe ::MxPlatformRuby::Widget do
       described_class.request_widget_url(
         request_widget_url_request_body_parameters.merge(request_widget_url_path_parameters)
       )
-    end
-
-    it 'returns widget' do
-      response = described_class.request_widget_url
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Widget)
-      expect(response.type).to eq(widget_attributes['type'])
-      expect(response.url).to eq(widget_attributes['url'])
-      expect(response.user_id).to eq(widget_attributes['user_id'])
     end
   end
 end
