@@ -15,9 +15,11 @@ module MxPlatformRuby
     attribute :successfully_aggregated_at
 
     def self.read_member_status(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/status"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       member_params = response['member']
       ::MxPlatformRuby::MemberStatus.new(member_params)

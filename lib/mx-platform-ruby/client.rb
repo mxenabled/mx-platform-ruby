@@ -36,11 +36,22 @@ module MxPlatformRuby
       }
     end
 
+    def format_response_body(body)
+      ::JSON.parse(body)
+    rescue JSON::ParserError
+      file = ::Tempfile.new
+      file.write(body)
+      file.close
+      file
+    end
+
     def handle_response(response)
       # Handle 200-206 responses as acceptable
       raise ::MxPlatformRuby::Error, "#{response.status}: #{response.body}" unless response.status.between?(200, 206)
 
-      ::JSON.parse(response.body) unless response.body.empty?
+      return if response.body.empty?
+
+      format_response_body(response.body)
     end
   end
 end

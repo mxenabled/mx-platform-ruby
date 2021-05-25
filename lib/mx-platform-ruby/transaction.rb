@@ -23,6 +23,8 @@ module MxPlatformRuby
     attribute :is_international
     attribute :is_overdraft_fee
     attribute :is_payroll_advance
+    attribute :is_recurring
+    attribute :is_subscription
     attribute :latitude
     attribute :localized_description
     attribute :localized_memo
@@ -40,6 +42,23 @@ module MxPlatformRuby
     attribute :updated_at
     attribute :user_guid
 
+    def self.list_transactions_by_account_page(options = {})
+      options = list_transactions_by_account_pagination_options(options)
+
+      paginate(options)
+    end
+
+    def self.list_transactions_by_account_each(options = {}, &block)
+      options = list_transactions_by_account_pagination_options(options)
+
+      paginate_each(options, &block)
+    end
+
+    def self.list_transactions_by_account_pages_each(options = {}, &block)
+      options = list_transactions_by_account_pagination_options(options)
+      paginate_pages(options, &block)
+    end
+
     def self.list_transactions_by_member_page(options = {})
       options = list_transactions_by_member_pagination_options(options)
 
@@ -54,6 +73,23 @@ module MxPlatformRuby
 
     def self.list_transactions_by_member_pages_each(options = {}, &block)
       options = list_transactions_by_member_pagination_options(options)
+      paginate_pages(options, &block)
+    end
+
+    def self.list_transactions_by_tag_page(options = {})
+      options = list_transactions_by_tag_pagination_options(options)
+
+      paginate(options)
+    end
+
+    def self.list_transactions_by_tag_each(options = {}, &block)
+      options = list_transactions_by_tag_pagination_options(options)
+
+      paginate_each(options, &block)
+    end
+
+    def self.list_transactions_by_tag_pages_each(options = {}, &block)
+      options = list_transactions_by_tag_pagination_options(options)
       paginate_pages(options, &block)
     end
 
@@ -75,15 +111,44 @@ module MxPlatformRuby
     end
 
     def self.read_transaction(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+
+      transaction_params = response['transaction']
+      ::MxPlatformRuby::Transaction.new(transaction_params)
+    end
+
+    def self.update_transaction(options = {})
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
+      body = update_transaction_body(options)
+      endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       transaction_params = response['transaction']
       ::MxPlatformRuby::Transaction.new(transaction_params)
     end
 
     # Private class methods
+
+    def self.list_transactions_by_account_pagination_options(options)
+      {
+        accept_header: 'application/vnd.mx.api.v1+json',
+        endpoint: "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}/transactions",
+        resource: 'transactions',
+        query_params: {
+          from_date: options[:from_date],
+          page: options[:page],
+          records_per_page: options[:records_per_page],
+          to_date: options[:to_date]
+        }.compact
+      }
+    end
+    private_class_method :list_transactions_by_account_pagination_options
 
     def self.list_transactions_by_member_pagination_options(options)
       {
@@ -95,10 +160,19 @@ module MxPlatformRuby
           page: options[:page],
           records_per_page: options[:records_per_page],
           to_date: options[:to_date]
-        }
+        }.compact
       }
     end
     private_class_method :list_transactions_by_member_pagination_options
+
+    def self.list_transactions_by_tag_pagination_options(options)
+      {
+        accept_header: 'application/vnd.mx.api.v1+json',
+        endpoint: "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}/transactions",
+        resource: 'transactions'
+      }
+    end
+    private_class_method :list_transactions_by_tag_pagination_options
 
     def self.list_transactions_by_user_pagination_options(options)
       {
@@ -110,9 +184,18 @@ module MxPlatformRuby
           page: options[:page],
           records_per_page: options[:records_per_page],
           to_date: options[:to_date]
-        }
+        }.compact
       }
     end
     private_class_method :list_transactions_by_user_pagination_options
+
+    def self.update_transaction_body(options)
+      {
+        transaction: {
+          description: options[:description]
+        }.compact
+      }
+    end
+    private_class_method :update_transaction_body
   end
 end

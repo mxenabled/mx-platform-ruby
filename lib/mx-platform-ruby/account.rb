@@ -64,19 +64,23 @@ module MxPlatformRuby
     end
 
     def self.read_account(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       account_params = response['account']
       ::MxPlatformRuby::Account.new(account_params)
     end
 
     def self.update_account(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = update_account_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       account_params = response['account']
       ::MxPlatformRuby::Account.new(account_params)
@@ -92,7 +96,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_user_accounts_pagination_options
@@ -101,7 +105,7 @@ module MxPlatformRuby
       {
         account: {
           is_hidden: options[:is_hidden]
-        }
+        }.compact
       }
     end
     private_class_method :update_account_body

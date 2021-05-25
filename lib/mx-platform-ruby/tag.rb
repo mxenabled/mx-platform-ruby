@@ -10,19 +10,23 @@ module MxPlatformRuby
     attribute :user_guid
 
     def self.create_tag(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = create_tag_body(options)
       endpoint = "/users/#{options[:user_guid]}/tags"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       tag_params = response['tag']
       ::MxPlatformRuby::Tag.new(tag_params)
     end
 
     def self.delete_tag(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, accept_header)
+      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_tags_page(options = {})
@@ -43,19 +47,23 @@ module MxPlatformRuby
     end
 
     def self.read_tag(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       tag_params = response['tag']
       ::MxPlatformRuby::Tag.new(tag_params)
     end
 
     def self.update_tag(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = update_tag_body(options)
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       tag_params = response['tag']
       ::MxPlatformRuby::Tag.new(tag_params)
@@ -67,7 +75,7 @@ module MxPlatformRuby
       {
         tag: {
           name: options[:name]
-        }
+        }.compact
       }
     end
     private_class_method :create_tag_body
@@ -80,7 +88,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_tags_pagination_options
@@ -89,7 +97,7 @@ module MxPlatformRuby
       {
         tag: {
           name: options[:name]
-        }
+        }.compact
       }
     end
     private_class_method :update_tag_body

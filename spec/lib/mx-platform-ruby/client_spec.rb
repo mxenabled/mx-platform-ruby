@@ -6,7 +6,10 @@ RSpec.describe ::MxPlatformRuby::Client do
   let(:client_custom_params) { described_class.new('base_url', 'password', 'username') }
   let(:client_default_params) { described_class.new }
   let(:error_response) { ::OpenStruct.new('status' => 500, 'body' => 'error_message') }
+  let(:file_response) { ::OpenStruct.new('status' => 200, 'body' => sample_pdf_binary) }
   let(:ok_response) { ::OpenStruct.new('status' => 200, 'body' => '{ "key": "value" }') }
+  let(:sample_pdf) { ::File.open('spec/sample.pdf') }
+  let(:sample_pdf_binary) { ::IO.binread(sample_pdf) }
 
   describe '#http_client' do
     it 'returns a HTTPClient' do
@@ -68,10 +71,22 @@ RSpec.describe ::MxPlatformRuby::Client do
       client_custom_params.make_request(:get, '/endpoint', key: :value)
     end
 
-    it 'parses the json response' do
-      allow(client_custom_params.http_client).to receive(:get).and_return(ok_response)
-      parsed_response = client_custom_params.make_request(:get, '/endpoint', key: :value)
-      expect(parsed_response['key']).to eq('value')
+    context 'when the response is json' do
+      it 'parses the json response' do
+        allow(client_custom_params.http_client).to receive(:get).and_return(ok_response)
+        parsed_response = client_custom_params.make_request(:get, '/endpoint', key: :value)
+        expect(parsed_response['key']).to eq('value')
+      end
+    end
+
+    context 'when the response is not json' do
+      it 'formats the response as a ::TempFile' do
+        allow(client_custom_params.http_client).to receive(:get).and_return(file_response)
+        temp_file = client_custom_params.make_request(:get, '/endpoint', key: :value)
+
+        expect(temp_file).to be_kind_of(::Tempfile)
+        expect(::IO.read(temp_file)).to eq(::IO.read(sample_pdf))
+      end
     end
 
     context 'with error' do

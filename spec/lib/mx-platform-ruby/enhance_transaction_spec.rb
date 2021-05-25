@@ -23,21 +23,7 @@ RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
       'type' => 'DEBIT'
     }
   end
-  let(:enhance_transaction_response) { { 'transactions' => enhance_transaction_attributes } }
   let(:enhance_transactions_request_body_parameters) do
-    {
-      transactions: [
-        {
-          amount: 21.33,
-          description: 'IN-N-OUT BURGER',
-          id: 'ID-123',
-          merchant_category_code: 123,
-          type: 'DEBIT'
-        }
-      ]
-    }
-  end
-  let(:enhance_transactions_request_body) do
     {
       transactions: [
         {
@@ -52,19 +38,8 @@ RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
   end
 
   describe 'enhance_transactions' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(enhance_transaction_response) }
-
-    it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
-        :post,
-        '/transactions/enhance',
-        enhance_transactions_request_body,
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      )
-      described_class.enhance_transactions(
-        enhance_transactions_request_body_parameters
-      )
-    end
+    let(:enhance_transactions_response) { { 'transactions' => enhance_transaction_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(enhance_transactions_response) }
 
     it 'returns enhance_transaction' do
       response = described_class.enhance_transactions
@@ -86,6 +61,18 @@ RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
       expect(response.merchant_guid).to eq(enhance_transaction_attributes['merchant_guid'])
       expect(response.original_description).to eq(enhance_transaction_attributes['original_description'])
       expect(response.type).to eq(enhance_transaction_attributes['type'])
+    end
+
+    it 'makes a client request with the expected params' do
+      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        :post,
+        '/transactions/enhance',
+        enhance_transactions_request_body_parameters,
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      )
+      described_class.enhance_transactions(
+        enhance_transactions_request_body_parameters
+      )
     end
   end
 end

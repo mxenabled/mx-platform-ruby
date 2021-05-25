@@ -55,7 +55,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_institution_required_credentials_pagination_options
@@ -68,7 +68,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_member_credentials_pagination_options

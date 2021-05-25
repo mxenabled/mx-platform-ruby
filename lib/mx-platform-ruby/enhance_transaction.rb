@@ -22,10 +22,12 @@ module MxPlatformRuby
     attribute :type
 
     def self.enhance_transactions(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = enhance_transactions_body(options)
       endpoint = '/transactions/enhance'
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       transactions_params = response['transactions']
       ::MxPlatformRuby::EnhanceTransaction.new(transactions_params)

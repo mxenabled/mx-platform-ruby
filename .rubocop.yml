@@ -6,7 +6,7 @@ AllCops:
 Metrics/AbcSize:
   Description: Checks that the ABC size of methods is not higher than the configured maximum
   Exclude:
-    - "lib/mx-platform-ruby/pageable.rb" # Disabling because clarity > brevity
+    - 'lib/mx-platform-ruby/pageable.rb' # Disabling because clarity > brevity
 
 Metrics/MethodLength:
   Description: Checks if the length a method exceeds some maximum value
@@ -24,7 +24,8 @@ Metrics/ClassLength:
 Layout/LineLength:
   Description: Checks the length of lines in the source code
   Exclude:
-    - "spec/lib/**/*.rb" # Excluding since the endpoints may requrie longer lines
+    - 'spec/lib/**/*.rb' # Excluding to avoid multiline expect statements
+  IgnoredPatterns: ['^      endpoint =.*'] # Excluding since the endpoints may requrie longer lines
   Max: 120
 
 Naming/FileName:
@@ -40,4 +41,4 @@ Style/Documentation:
 Style/SignalException:
   Description: Checks for uses of fail and raise
   Exclude:
-    - "lib/mx-platform-ruby/pageable.rb" # Allow fail if block isn't provided
+    - 'lib/mx-platform-ruby/pageable.rb' # Allow fail if block isn't provided

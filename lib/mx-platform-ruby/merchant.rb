@@ -30,9 +30,11 @@ module MxPlatformRuby
     end
 
     def self.read_merchant(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/merchants/#{options[:merchant_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       merchant_params = response['merchant']
       ::MxPlatformRuby::Merchant.new(merchant_params)
@@ -48,7 +50,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_merchants_pagination_options

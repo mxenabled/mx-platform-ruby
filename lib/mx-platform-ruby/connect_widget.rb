@@ -7,11 +7,13 @@ module MxPlatformRuby
     attribute :connect_widget_url
     attribute :guid
 
-    def self.get_connect_widget(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
-      body = get_connect_widget_body(options)
+    def self.request_connect_widget_url(options = {})
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
+      body = request_connect_widget_url_body(options)
       endpoint = "/users/#{options[:user_guid]}/connect_widget_url"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       user_params = response['user']
       ::MxPlatformRuby::ConnectWidget.new(user_params)
@@ -19,7 +21,7 @@ module MxPlatformRuby
 
     # Private class methods
 
-    def self.get_connect_widget_body(options)
+    def self.request_connect_widget_url_body(options)
       {
         config: {
           color_scheme: options[:color_scheme],
@@ -33,9 +35,9 @@ module MxPlatformRuby
           ui_message_webview_url_scheme: options[:ui_message_webview_url_scheme],
           update_credentials: options[:update_credentials],
           wait_for_full_aggregation: options[:wait_for_full_aggregation]
-        }
+        }.compact
       }
     end
-    private_class_method :get_connect_widget_body
+    private_class_method :request_connect_widget_url_body
   end
 end

@@ -12,19 +12,23 @@ module MxPlatformRuby
     attribute :metadata
 
     def self.create_user(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = create_user_body(options)
       endpoint = '/users'
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       user_params = response['user']
       ::MxPlatformRuby::User.new(user_params)
     end
 
     def self.delete_user(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, accept_header)
+      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_users_page(options = {})
@@ -45,19 +49,23 @@ module MxPlatformRuby
     end
 
     def self.read_user(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       endpoint = "/users/#{options[:user_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       user_params = response['user']
       ::MxPlatformRuby::User.new(user_params)
     end
 
     def self.update_user(options = {})
-      accept_header = { 'Accept' => 'application/vnd.mx.api.v1+json' }
+      headers = {
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      }
       body = update_user_body(options)
       endpoint = "/users/#{options[:user_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, accept_header)
+      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       user_params = response['user']
       ::MxPlatformRuby::User.new(user_params)
@@ -72,7 +80,7 @@ module MxPlatformRuby
           id: options[:id],
           is_disabled: options[:is_disabled],
           metadata: options[:metadata]
-        }
+        }.compact
       }
     end
     private_class_method :create_user_body
@@ -85,7 +93,7 @@ module MxPlatformRuby
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }
+        }.compact
       }
     end
     private_class_method :list_users_pagination_options
@@ -97,7 +105,7 @@ module MxPlatformRuby
           id: options[:id],
           is_disabled: options[:is_disabled],
           metadata: options[:metadata]
-        }
+        }.compact
       }
     end
     private_class_method :update_user_body

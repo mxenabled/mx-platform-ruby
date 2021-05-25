@@ -12,23 +12,13 @@ RSpec.describe ::MxPlatformRuby::User do
       'metadata' => '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
     }
   end
-  let(:user_response) { { 'user' => user_attributes } }
+  let(:create_user_request_body) { { user: create_user_request_body_parameters } }
   let(:create_user_request_body_parameters) do
     {
       email: 'email@provider.com',
       id: 'My-Unique-ID',
       is_disabled: false,
       metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
-    }
-  end
-  let(:create_user_request_body) do
-    {
-      user: {
-        email: 'email@provider.com',
-        id: 'My-Unique-ID',
-        is_disabled: false,
-        metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
-      }
     }
   end
   let(:delete_user_path_parameters) do
@@ -41,6 +31,7 @@ RSpec.describe ::MxPlatformRuby::User do
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
+  let(:update_user_request_body) { { user: update_user_request_body_parameters } }
   let(:update_user_request_body_parameters) do
     {
       email: 'email@provider.com',
@@ -49,25 +40,9 @@ RSpec.describe ::MxPlatformRuby::User do
       metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
     }
   end
-  let(:update_user_request_body) do
-    {
-      user: {
-        email: 'email@provider.com',
-        id: 'My-Unique-ID',
-        is_disabled: false,
-        metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
-      }
-    }
-  end
   let(:update_user_path_parameters) do
     {
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
-    }
-  end
-  let(:users_response) do
-    {
-      'users' => [user_attributes],
-      'pagination' => pagination_attributes
     }
   end
   let(:pagination_attributes) do
@@ -79,10 +54,20 @@ RSpec.describe ::MxPlatformRuby::User do
     }
   end
 
-  before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(users_response) }
-
   describe 'create_user' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(user_response) }
+    let(:create_user_response) { { 'user' => user_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_user_response) }
+
+    it 'returns user' do
+      response = described_class.create_user
+
+      expect(response).to be_kind_of(::MxPlatformRuby::User)
+      expect(response.email).to eq(user_attributes['email'])
+      expect(response.guid).to eq(user_attributes['guid'])
+      expect(response.id).to eq(user_attributes['id'])
+      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
+      expect(response.metadata).to eq(user_attributes['metadata'])
+    end
 
     it 'makes a client request with the expected params' do
       expect(::MxPlatformRuby.client).to receive(:make_request).with(
@@ -95,17 +80,6 @@ RSpec.describe ::MxPlatformRuby::User do
         create_user_request_body_parameters
       )
     end
-
-    it 'returns user' do
-      response = described_class.create_user
-
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
-    end
   end
 
   describe 'delete_user' do
@@ -116,61 +90,85 @@ RSpec.describe ::MxPlatformRuby::User do
 
       expect(response).to be(nil)
     end
-  end
 
-  describe 'list_users_page' do
-    it 'returns a list of users' do
-      response = described_class.list_users_page
-
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.first.email).to eq(user_attributes['email'])
-      expect(response.first.guid).to eq(user_attributes['guid'])
-      expect(response.first.id).to eq(user_attributes['id'])
-      expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.first.metadata).to eq(user_attributes['metadata'])
-      expect(response.length).to eq(1)
+    it 'makes a client request with the expected params' do
+      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        :delete,
+        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
+        nil,
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      )
+      described_class.delete_user(
+        delete_user_path_parameters
+      )
     end
   end
 
-  describe 'list_users_each' do
-    it 'yields a user' do
-      response = nil
-
-      described_class.list_users_each do |user|
-        response = user
-      end
-
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
+  context 'list_users endpoints' do
+    let(:list_users_response) do
+      {
+        'users' => [user_attributes],
+        'pagination' => pagination_attributes
+      }
     end
-  end
 
-  describe 'list_users_pages_each' do
-    it 'yields a page of users' do
-      response = nil
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_users_response) }
 
-      described_class.list_users_pages_each do |page|
-        response = page
+    describe 'list_users_page' do
+      it 'returns a list of users' do
+        response = described_class.list_users_page
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::User)
+        expect(response.first.email).to eq(user_attributes['email'])
+        expect(response.first.guid).to eq(user_attributes['guid'])
+        expect(response.first.id).to eq(user_attributes['id'])
+        expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
+        expect(response.first.metadata).to eq(user_attributes['metadata'])
+        expect(response.length).to eq(1)
       end
+    end
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Page)
-      expect(response.first).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.first.email).to eq(user_attributes['email'])
-      expect(response.first.guid).to eq(user_attributes['guid'])
-      expect(response.first.id).to eq(user_attributes['id'])
-      expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.first.metadata).to eq(user_attributes['metadata'])
-      expect(response.length).to eq(1)
+    describe 'list_users_each' do
+      it 'yields a user' do
+        response = nil
+
+        described_class.list_users_each do |user|
+          response = user
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::User)
+        expect(response.email).to eq(user_attributes['email'])
+        expect(response.guid).to eq(user_attributes['guid'])
+        expect(response.id).to eq(user_attributes['id'])
+        expect(response.is_disabled).to eq(user_attributes['is_disabled'])
+        expect(response.metadata).to eq(user_attributes['metadata'])
+      end
+    end
+
+    describe 'list_users_pages_each' do
+      it 'yields a page of users' do
+        response = nil
+
+        described_class.list_users_pages_each do |page|
+          response = page
+        end
+
+        expect(response).to be_kind_of(::MxPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MxPlatformRuby::User)
+        expect(response.first.email).to eq(user_attributes['email'])
+        expect(response.first.guid).to eq(user_attributes['guid'])
+        expect(response.first.id).to eq(user_attributes['id'])
+        expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
+        expect(response.first.metadata).to eq(user_attributes['metadata'])
+        expect(response.length).to eq(1)
+      end
     end
   end
 
   describe 'read_user' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(user_response) }
+    let(:read_user_response) { { 'user' => user_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_user_response) }
 
     it 'returns user' do
       response = described_class.read_user
@@ -182,10 +180,34 @@ RSpec.describe ::MxPlatformRuby::User do
       expect(response.is_disabled).to eq(user_attributes['is_disabled'])
       expect(response.metadata).to eq(user_attributes['metadata'])
     end
+
+    it 'makes a client request with the expected params' do
+      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        :get,
+        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
+        nil,
+        'Accept' => 'application/vnd.mx.api.v1+json'
+      )
+      described_class.read_user(
+        read_user_path_parameters
+      )
+    end
   end
 
   describe 'update_user' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(user_response) }
+    let(:update_user_response) { { 'user' => user_attributes } }
+    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_user_response) }
+
+    it 'returns user' do
+      response = described_class.update_user
+
+      expect(response).to be_kind_of(::MxPlatformRuby::User)
+      expect(response.email).to eq(user_attributes['email'])
+      expect(response.guid).to eq(user_attributes['guid'])
+      expect(response.id).to eq(user_attributes['id'])
+      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
+      expect(response.metadata).to eq(user_attributes['metadata'])
+    end
 
     it 'makes a client request with the expected params' do
       expect(::MxPlatformRuby.client).to receive(:make_request).with(
@@ -197,17 +219,6 @@ RSpec.describe ::MxPlatformRuby::User do
       described_class.update_user(
         update_user_request_body_parameters.merge(update_user_path_parameters)
       )
-    end
-
-    it 'returns user' do
-      response = described_class.update_user
-
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
     end
   end
 end
