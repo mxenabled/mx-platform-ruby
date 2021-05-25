@@ -22,6 +22,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/aggregate"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
@@ -33,6 +34,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/check_balance"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
@@ -44,6 +46,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = create_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
@@ -56,6 +59,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
       ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
@@ -64,6 +68,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/extend_history"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
@@ -75,6 +80,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/fetch_statements"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
@@ -86,6 +92,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/identify"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
@@ -107,6 +114,7 @@ module MxPlatformRuby
 
     def self.list_members_pages_each(options = {}, &block)
       options = list_members_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -114,6 +122,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
@@ -125,6 +134,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = resume_aggregation_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/resume"
       response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
@@ -137,6 +147,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = update_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
       response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
@@ -149,6 +160,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/verify"
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 

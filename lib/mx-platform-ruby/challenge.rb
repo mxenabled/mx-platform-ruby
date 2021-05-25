@@ -27,6 +27,7 @@ module MxPlatformRuby
 
     def self.list_member_challenges_pages_each(options = {}, &block)
       options = list_member_challenges_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 

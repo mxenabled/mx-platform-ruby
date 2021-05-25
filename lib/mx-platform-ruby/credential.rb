@@ -25,6 +25,7 @@ module MxPlatformRuby
 
     def self.list_institution_required_credentials_pages_each(options = {}, &block)
       options = list_institution_required_credentials_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -42,6 +43,7 @@ module MxPlatformRuby
 
     def self.list_member_credentials_pages_each(options = {}, &block)
       options = list_member_credentials_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 

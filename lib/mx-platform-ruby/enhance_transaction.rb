@@ -25,6 +25,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       body = enhance_transactions_body(options)
       endpoint = '/transactions/enhance'
       response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)

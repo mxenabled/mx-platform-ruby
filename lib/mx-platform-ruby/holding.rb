@@ -38,6 +38,7 @@ module MxPlatformRuby
 
     def self.list_holdings_by_member_pages_each(options = {}, &block)
       options = list_holdings_by_member_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -55,6 +56,7 @@ module MxPlatformRuby
 
     def self.list_holdings_by_user_pages_each(options = {}, &block)
       options = list_holdings_by_user_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -62,6 +64,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/holdings/#{options[:holding_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 

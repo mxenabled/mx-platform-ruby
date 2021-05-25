@@ -18,6 +18,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+pdf'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/statements/#{options[:statement_guid]}.pdf"
       ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
     end
@@ -36,6 +37,7 @@ module MxPlatformRuby
 
     def self.list_statements_by_member_pages_each(options = {}, &block)
       options = list_statements_by_member_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -43,6 +45,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/statements/#{options[:statement_guid]}"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 

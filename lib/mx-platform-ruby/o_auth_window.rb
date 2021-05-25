@@ -11,6 +11,7 @@ module MxPlatformRuby
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
+
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/oauth_window_uri"
       response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 

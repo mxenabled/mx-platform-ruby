@@ -28,6 +28,7 @@ module MxPlatformRuby
 
     def self.list_account_numbers_by_account_pages_each(options = {}, &block)
       options = list_account_numbers_by_account_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
@@ -45,6 +46,7 @@ module MxPlatformRuby
 
     def self.list_account_numbers_by_member_pages_each(options = {}, &block)
       options = list_account_numbers_by_member_pagination_options(options)
+
       paginate_pages(options, &block)
     end
 
