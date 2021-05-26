@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Holding
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :account_guid
@@ -66,10 +66,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/holdings/#{options[:holding_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       holding_params = response['holding']
-      ::MxPlatformRuby::Holding.new(holding_params)
+      ::MXPlatformRuby::Holding.new(holding_params)
     end
 
     # Private class methods

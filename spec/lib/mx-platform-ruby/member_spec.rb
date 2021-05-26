@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Member do
+RSpec.describe ::MXPlatformRuby::Member do
   let(:member_attributes) do
     {
       'aggregated_at' => '2016-10-13T18:07:57.000Z',
@@ -147,12 +147,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'aggregate_member' do
     let(:aggregate_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(aggregate_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(aggregate_member_response) }
 
     it 'returns member' do
       response = described_class.aggregate_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -168,7 +168,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/aggregate',
         nil,
@@ -182,12 +182,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'check_balances' do
     let(:check_balances_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(check_balances_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(check_balances_response) }
 
     it 'returns member' do
       response = described_class.check_balances
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -203,7 +203,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/check_balance',
         nil,
@@ -217,12 +217,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'create_member' do
     let(:create_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_member_response) }
 
     it 'returns member' do
       response = described_class.create_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -238,7 +238,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members',
         create_member_request_body,
@@ -251,7 +251,7 @@ RSpec.describe ::MxPlatformRuby::Member do
   end
 
   describe 'delete_member' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_member
@@ -260,7 +260,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
         nil,
@@ -274,12 +274,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'extend_history' do
     let(:extend_history_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(extend_history_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(extend_history_response) }
 
     it 'returns member' do
       response = described_class.extend_history
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -295,7 +295,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/extend_history',
         nil,
@@ -309,12 +309,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'fetch_statements_by_member' do
     let(:fetch_statements_by_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(fetch_statements_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(fetch_statements_by_member_response) }
 
     it 'returns member' do
       response = described_class.fetch_statements_by_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -330,7 +330,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/fetch_statements',
         nil,
@@ -344,12 +344,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'identify_member' do
     let(:identify_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(identify_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(identify_member_response) }
 
     it 'returns member' do
       response = described_class.identify_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -365,7 +365,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/identify',
         nil,
@@ -385,14 +385,14 @@ RSpec.describe ::MxPlatformRuby::Member do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_members_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_members_response) }
 
     describe 'list_members_page' do
       it 'returns a list of members' do
         response = described_class.list_members_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Member)
         expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
         expect(response.first.connection_status).to eq(member_attributes['connection_status'])
         expect(response.first.guid).to eq(member_attributes['guid'])
@@ -417,7 +417,7 @@ RSpec.describe ::MxPlatformRuby::Member do
           response = member
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Member)
+        expect(response).to be_kind_of(::MXPlatformRuby::Member)
         expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
         expect(response.connection_status).to eq(member_attributes['connection_status'])
         expect(response.guid).to eq(member_attributes['guid'])
@@ -441,8 +441,8 @@ RSpec.describe ::MxPlatformRuby::Member do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Member)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Member)
         expect(response.first.aggregated_at).to eq(member_attributes['aggregated_at'])
         expect(response.first.connection_status).to eq(member_attributes['connection_status'])
         expect(response.first.guid).to eq(member_attributes['guid'])
@@ -462,12 +462,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'read_member' do
     let(:read_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_member_response) }
 
     it 'returns member' do
       response = described_class.read_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -483,7 +483,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
         nil,
@@ -497,12 +497,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'resume_aggregation' do
     let(:resume_aggregation_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(resume_aggregation_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(resume_aggregation_response) }
 
     it 'returns member' do
       response = described_class.resume_aggregation
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -518,7 +518,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/resume',
         resume_aggregation_request_body,
@@ -532,12 +532,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'update_member' do
     let(:update_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_member_response) }
 
     it 'returns member' do
       response = described_class.update_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -553,7 +553,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
         update_member_request_body,
@@ -567,12 +567,12 @@ RSpec.describe ::MxPlatformRuby::Member do
 
   describe 'verify_member' do
     let(:verify_member_response) { { 'member' => member_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(verify_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(verify_member_response) }
 
     it 'returns member' do
       response = described_class.verify_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Member)
+      expect(response).to be_kind_of(::MXPlatformRuby::Member)
       expect(response.aggregated_at).to eq(member_attributes['aggregated_at'])
       expect(response.connection_status).to eq(member_attributes['connection_status'])
       expect(response.guid).to eq(member_attributes['guid'])
@@ -588,7 +588,7 @@ RSpec.describe ::MxPlatformRuby::Member do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/verify',
         nil,

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Transaction
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :account_guid
@@ -120,10 +120,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       transaction_params = response['transaction']
-      ::MxPlatformRuby::Transaction.new(transaction_params)
+      ::MXPlatformRuby::Transaction.new(transaction_params)
     end
 
     def self.update_transaction(options = {})
@@ -133,10 +133,10 @@ module MxPlatformRuby
 
       body = update_transaction_body(options)
       endpoint = "/users/#{options[:user_guid]}/transactions/#{options[:transaction_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       transaction_params = response['transaction']
-      ::MxPlatformRuby::Transaction.new(transaction_params)
+      ::MXPlatformRuby::Transaction.new(transaction_params)
     end
 
     # Private class methods

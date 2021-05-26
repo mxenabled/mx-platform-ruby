@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Credential do
+RSpec.describe ::MXPlatformRuby::Credential do
   let(:credential_attributes) do
     {
       'display_order' => 1,
@@ -40,14 +40,14 @@ RSpec.describe ::MxPlatformRuby::Credential do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_institution_required_credentials_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_institution_required_credentials_response) }
 
     describe 'list_institution_required_credentials_page' do
       it 'returns a list of credentials' do
         response = described_class.list_institution_required_credentials_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.first.display_order).to eq(credential_attributes['display_order'])
         expect(response.first.field_name).to eq(credential_attributes['field_name'])
         expect(response.first.field_type).to eq(credential_attributes['field_type'])
@@ -65,7 +65,7 @@ RSpec.describe ::MxPlatformRuby::Credential do
           response = credential
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.display_order).to eq(credential_attributes['display_order'])
         expect(response.field_name).to eq(credential_attributes['field_name'])
         expect(response.field_type).to eq(credential_attributes['field_type'])
@@ -82,8 +82,8 @@ RSpec.describe ::MxPlatformRuby::Credential do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.first.display_order).to eq(credential_attributes['display_order'])
         expect(response.first.field_name).to eq(credential_attributes['field_name'])
         expect(response.first.field_type).to eq(credential_attributes['field_type'])
@@ -102,14 +102,14 @@ RSpec.describe ::MxPlatformRuby::Credential do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_member_credentials_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_member_credentials_response) }
 
     describe 'list_member_credentials_page' do
       it 'returns a list of credentials' do
         response = described_class.list_member_credentials_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.first.display_order).to eq(credential_attributes['display_order'])
         expect(response.first.field_name).to eq(credential_attributes['field_name'])
         expect(response.first.field_type).to eq(credential_attributes['field_type'])
@@ -127,7 +127,7 @@ RSpec.describe ::MxPlatformRuby::Credential do
           response = credential
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.display_order).to eq(credential_attributes['display_order'])
         expect(response.field_name).to eq(credential_attributes['field_name'])
         expect(response.field_type).to eq(credential_attributes['field_type'])
@@ -144,8 +144,8 @@ RSpec.describe ::MxPlatformRuby::Credential do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Credential)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Credential)
         expect(response.first.display_order).to eq(credential_attributes['display_order'])
         expect(response.first.field_name).to eq(credential_attributes['field_name'])
         expect(response.first.field_type).to eq(credential_attributes['field_type'])

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Member
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :aggregated_at
@@ -24,10 +24,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/aggregate"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.check_balances(options = {})
@@ -36,10 +36,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/check_balance"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.create_member(options = {})
@@ -49,10 +49,10 @@ module MxPlatformRuby
 
       body = create_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.delete_member(options = {})
@@ -61,7 +61,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.extend_history(options = {})
@@ -70,10 +70,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/extend_history"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.fetch_statements_by_member(options = {})
@@ -82,10 +82,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/fetch_statements"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.identify_member(options = {})
@@ -94,10 +94,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/identify"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.list_members_page(options = {})
@@ -124,10 +124,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.resume_aggregation(options = {})
@@ -137,10 +137,10 @@ module MxPlatformRuby
 
       body = resume_aggregation_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/resume"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.update_member(options = {})
@@ -150,10 +150,10 @@ module MxPlatformRuby
 
       body = update_member_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     def self.verify_member(options = {})
@@ -162,10 +162,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/verify"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::Member.new(member_params)
+      ::MXPlatformRuby::Member.new(member_params)
     end
 
     # Private class methods

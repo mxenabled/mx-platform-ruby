@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Credential
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :display_order

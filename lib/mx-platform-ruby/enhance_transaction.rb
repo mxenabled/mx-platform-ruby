@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class EnhanceTransaction
     include ::ActiveAttr::Model
 
@@ -28,10 +28,10 @@ module MxPlatformRuby
 
       body = enhance_transactions_body(options)
       endpoint = '/transactions/enhance'
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       transactions_params = response['transactions']
-      ::MxPlatformRuby::EnhanceTransaction.new(transactions_params)
+      ::MXPlatformRuby::EnhanceTransaction.new(transactions_params)
     end
 
     # Private class methods

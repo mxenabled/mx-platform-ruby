@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Statement do
+RSpec.describe ::MXPlatformRuby::Statement do
   let(:statement_attributes) do
     {
       'account_guid' => 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
@@ -46,7 +46,7 @@ RSpec.describe ::MxPlatformRuby::Statement do
 
   describe 'download_statement_pdf' do
     let(:statement_file) { ::Tempfile.new('spec/sample.pdf') }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(statement_file) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(statement_file) }
 
     it 'returns statement file' do
       response = described_class.download_statement_pdf
@@ -55,7 +55,7 @@ RSpec.describe ::MxPlatformRuby::Statement do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1.pdf',
         nil,
@@ -75,14 +75,14 @@ RSpec.describe ::MxPlatformRuby::Statement do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_statements_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_statements_by_member_response) }
 
     describe 'list_statements_by_member_page' do
       it 'returns a list of statements' do
         response = described_class.list_statements_by_member_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Statement)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)
         expect(response.first.account_guid).to eq(statement_attributes['account_guid'])
         expect(response.first.content_hash).to eq(statement_attributes['content_hash'])
         expect(response.first.created_at).to eq(statement_attributes['created_at'])
@@ -103,7 +103,7 @@ RSpec.describe ::MxPlatformRuby::Statement do
           response = statement
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Statement)
+        expect(response).to be_kind_of(::MXPlatformRuby::Statement)
         expect(response.account_guid).to eq(statement_attributes['account_guid'])
         expect(response.content_hash).to eq(statement_attributes['content_hash'])
         expect(response.created_at).to eq(statement_attributes['created_at'])
@@ -123,8 +123,8 @@ RSpec.describe ::MxPlatformRuby::Statement do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Statement)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)
         expect(response.first.account_guid).to eq(statement_attributes['account_guid'])
         expect(response.first.content_hash).to eq(statement_attributes['content_hash'])
         expect(response.first.created_at).to eq(statement_attributes['created_at'])
@@ -140,12 +140,12 @@ RSpec.describe ::MxPlatformRuby::Statement do
 
   describe 'read_statement_by_member' do
     let(:read_statement_by_member_response) { { 'statement' => statement_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_statement_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_statement_by_member_response) }
 
     it 'returns statement' do
       response = described_class.read_statement_by_member
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Statement)
+      expect(response).to be_kind_of(::MXPlatformRuby::Statement)
       expect(response.account_guid).to eq(statement_attributes['account_guid'])
       expect(response.content_hash).to eq(statement_attributes['content_hash'])
       expect(response.created_at).to eq(statement_attributes['created_at'])
@@ -157,7 +157,7 @@ RSpec.describe ::MxPlatformRuby::Statement do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
         nil,

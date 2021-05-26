@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class AccountOwner
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :account_guid

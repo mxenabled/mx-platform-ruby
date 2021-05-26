@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class ConnectWidget
     include ::ActiveAttr::Model
 
@@ -14,10 +14,10 @@ module MxPlatformRuby
 
       body = request_connect_widget_url_body(options)
       endpoint = "/users/#{options[:user_guid]}/connect_widget_url"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       user_params = response['user']
-      ::MxPlatformRuby::ConnectWidget.new(user_params)
+      ::MXPlatformRuby::ConnectWidget.new(user_params)
     end
 
     # Private class methods

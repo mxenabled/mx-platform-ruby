@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Holding do
+RSpec.describe ::MXPlatformRuby::Holding do
   let(:holding_attributes) do
     {
       'account_guid' => 'HOL-d65683e8-9eab-26bb-bcfd-ced159c9abe2',
@@ -59,14 +59,14 @@ RSpec.describe ::MxPlatformRuby::Holding do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_member_response) }
 
     describe 'list_holdings_by_member_page' do
       it 'returns a list of holdings' do
         response = described_class.list_holdings_by_member_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.first.created_at).to eq(holding_attributes['created_at'])
@@ -97,7 +97,7 @@ RSpec.describe ::MxPlatformRuby::Holding do
           response = holding
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.created_at).to eq(holding_attributes['created_at'])
@@ -127,8 +127,8 @@ RSpec.describe ::MxPlatformRuby::Holding do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.first.created_at).to eq(holding_attributes['created_at'])
@@ -160,14 +160,14 @@ RSpec.describe ::MxPlatformRuby::Holding do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_user_response) }
 
     describe 'list_holdings_by_user_page' do
       it 'returns a list of holdings' do
         response = described_class.list_holdings_by_user_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.first.created_at).to eq(holding_attributes['created_at'])
@@ -198,7 +198,7 @@ RSpec.describe ::MxPlatformRuby::Holding do
           response = holding
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.created_at).to eq(holding_attributes['created_at'])
@@ -228,8 +228,8 @@ RSpec.describe ::MxPlatformRuby::Holding do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Holding)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
         expect(response.first.account_guid).to eq(holding_attributes['account_guid'])
         expect(response.first.cost_basis).to eq(holding_attributes['cost_basis'])
         expect(response.first.created_at).to eq(holding_attributes['created_at'])
@@ -255,12 +255,12 @@ RSpec.describe ::MxPlatformRuby::Holding do
 
   describe 'read_holding' do
     let(:read_holding_response) { { 'holding' => holding_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_holding_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_holding_response) }
 
     it 'returns holding' do
       response = described_class.read_holding
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Holding)
+      expect(response).to be_kind_of(::MXPlatformRuby::Holding)
       expect(response.account_guid).to eq(holding_attributes['account_guid'])
       expect(response.cost_basis).to eq(holding_attributes['cost_basis'])
       expect(response.created_at).to eq(holding_attributes['created_at'])
@@ -282,7 +282,7 @@ RSpec.describe ::MxPlatformRuby::Holding do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/holdings/HOL-d65683e8-9eab-26bb-bcfd-ced159c9abe2',
         nil,

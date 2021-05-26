@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Institution do
+RSpec.describe ::MXPlatformRuby::Institution do
   let(:institution_attributes) do
     {
       'code' => 'chase',
@@ -39,14 +39,14 @@ RSpec.describe ::MxPlatformRuby::Institution do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_favorites_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_favorites_response) }
 
     describe 'list_favorites_page' do
       it 'returns a list of institutions' do
         response = described_class.list_favorites_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.first.code).to eq(institution_attributes['code'])
         expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.first.name).to eq(institution_attributes['name'])
@@ -69,7 +69,7 @@ RSpec.describe ::MxPlatformRuby::Institution do
           response = institution
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.code).to eq(institution_attributes['code'])
         expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.name).to eq(institution_attributes['name'])
@@ -91,8 +91,8 @@ RSpec.describe ::MxPlatformRuby::Institution do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.first.code).to eq(institution_attributes['code'])
         expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.first.name).to eq(institution_attributes['name'])
@@ -116,14 +116,14 @@ RSpec.describe ::MxPlatformRuby::Institution do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_institutions_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_institutions_response) }
 
     describe 'list_institutions_page' do
       it 'returns a list of institutions' do
         response = described_class.list_institutions_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.first.code).to eq(institution_attributes['code'])
         expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.first.name).to eq(institution_attributes['name'])
@@ -146,7 +146,7 @@ RSpec.describe ::MxPlatformRuby::Institution do
           response = institution
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.code).to eq(institution_attributes['code'])
         expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.name).to eq(institution_attributes['name'])
@@ -168,8 +168,8 @@ RSpec.describe ::MxPlatformRuby::Institution do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Institution)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
         expect(response.first.code).to eq(institution_attributes['code'])
         expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
         expect(response.first.name).to eq(institution_attributes['name'])
@@ -187,12 +187,12 @@ RSpec.describe ::MxPlatformRuby::Institution do
 
   describe 'read_institution' do
     let(:read_institution_response) { { 'institution' => institution_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_institution_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_institution_response) }
 
     it 'returns institution' do
       response = described_class.read_institution
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Institution)
+      expect(response).to be_kind_of(::MXPlatformRuby::Institution)
       expect(response.code).to eq(institution_attributes['code'])
       expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
       expect(response.name).to eq(institution_attributes['name'])
@@ -206,7 +206,7 @@ RSpec.describe ::MxPlatformRuby::Institution do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/institutions/chase',
         nil,

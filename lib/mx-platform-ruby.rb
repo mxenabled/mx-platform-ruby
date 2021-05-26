@@ -23,7 +23,7 @@ require 'mx-platform-ruby/institution'
 require 'mx-platform-ruby/member'
 require 'mx-platform-ruby/member_status'
 require 'mx-platform-ruby/merchant'
-require 'mx-platform-ruby/o_auth_window'
+require 'mx-platform-ruby/oauth_window'
 require 'mx-platform-ruby/statement'
 require 'mx-platform-ruby/tag'
 require 'mx-platform-ruby/tagging'
@@ -32,12 +32,12 @@ require 'mx-platform-ruby/transaction_rule'
 require 'mx-platform-ruby/user'
 require 'mx-platform-ruby/widget'
 
-module MxPlatformRuby
+module MXPlatformRuby
   class << self
     attr_reader :client
 
     def configure
-      @client = ::MxPlatformRuby::Client.new
+      @client = ::MXPlatformRuby::Client.new
       yield @client
     end
   end

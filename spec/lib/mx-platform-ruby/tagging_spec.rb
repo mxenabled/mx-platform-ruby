@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Tagging do
+RSpec.describe ::MXPlatformRuby::Tagging do
   let(:tagging_attributes) do
     {
       'guid' => 'TGN-007f5486-17e1-45fc-8b87-8f03984430fe',
@@ -64,12 +64,12 @@ RSpec.describe ::MxPlatformRuby::Tagging do
 
   describe 'create_tagging' do
     let(:create_tagging_response) { { 'tagging' => tagging_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_tagging_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_tagging_response) }
 
     it 'returns tagging' do
       response = described_class.create_tagging
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tagging)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tagging)
       expect(response.guid).to eq(tagging_attributes['guid'])
       expect(response.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
       expect(response.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -78,7 +78,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/taggings',
         create_tagging_request_body,
@@ -91,7 +91,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
   end
 
   describe 'delete_tagging' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_tagging
@@ -100,7 +100,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/taggings/TGN-007f5486-17e1-45fc-8b87-8f03984430fe',
         nil,
@@ -120,14 +120,14 @@ RSpec.describe ::MxPlatformRuby::Tagging do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_taggings_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_taggings_response) }
 
     describe 'list_taggings_page' do
       it 'returns a list of taggings' do
         response = described_class.list_taggings_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Tagging)
         expect(response.first.guid).to eq(tagging_attributes['guid'])
         expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
         expect(response.first.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -145,7 +145,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
           response = tagging
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Tagging)
+        expect(response).to be_kind_of(::MXPlatformRuby::Tagging)
         expect(response.guid).to eq(tagging_attributes['guid'])
         expect(response.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
         expect(response.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -162,8 +162,8 @@ RSpec.describe ::MxPlatformRuby::Tagging do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Tagging)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Tagging)
         expect(response.first.guid).to eq(tagging_attributes['guid'])
         expect(response.first.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
         expect(response.first.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -176,12 +176,12 @@ RSpec.describe ::MxPlatformRuby::Tagging do
 
   describe 'read_tagging' do
     let(:read_tagging_response) { { 'tagging' => tagging_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_tagging_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_tagging_response) }
 
     it 'returns tagging' do
       response = described_class.read_tagging
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tagging)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tagging)
       expect(response.guid).to eq(tagging_attributes['guid'])
       expect(response.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
       expect(response.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -190,7 +190,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/taggings/TGN-007f5486-17e1-45fc-8b87-8f03984430fe',
         nil,
@@ -204,12 +204,12 @@ RSpec.describe ::MxPlatformRuby::Tagging do
 
   describe 'update_tagging' do
     let(:update_tagging_response) { { 'tagging' => tagging_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_tagging_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_tagging_response) }
 
     it 'returns tagging' do
       response = described_class.update_tagging
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tagging)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tagging)
       expect(response.guid).to eq(tagging_attributes['guid'])
       expect(response.member_is_managed_by_user).to eq(tagging_attributes['member_is_managed_by_user'])
       expect(response.tag_guid).to eq(tagging_attributes['tag_guid'])
@@ -218,7 +218,7 @@ RSpec.describe ::MxPlatformRuby::Tagging do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/taggings/TGN-007f5486-17e1-45fc-8b87-8f03984430fe',
         update_tagging_request_body,

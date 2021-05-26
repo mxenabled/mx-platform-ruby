@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Merchant
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :created_at
@@ -36,10 +36,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/merchants/#{options[:merchant_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       merchant_params = response['merchant']
-      ::MxPlatformRuby::Merchant.new(merchant_params)
+      ::MXPlatformRuby::Merchant.new(merchant_params)
     end
 
     # Private class methods

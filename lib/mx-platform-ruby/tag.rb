@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Tag
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :guid
@@ -16,10 +16,10 @@ module MxPlatformRuby
 
       body = create_tag_body(options)
       endpoint = "/users/#{options[:user_guid]}/tags"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       tag_params = response['tag']
-      ::MxPlatformRuby::Tag.new(tag_params)
+      ::MXPlatformRuby::Tag.new(tag_params)
     end
 
     def self.delete_tag(options = {})
@@ -28,7 +28,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_tags_page(options = {})
@@ -55,10 +55,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       tag_params = response['tag']
-      ::MxPlatformRuby::Tag.new(tag_params)
+      ::MXPlatformRuby::Tag.new(tag_params)
     end
 
     def self.update_tag(options = {})
@@ -68,10 +68,10 @@ module MxPlatformRuby
 
       body = update_tag_body(options)
       endpoint = "/users/#{options[:user_guid]}/tags/#{options[:tag_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       tag_params = response['tag']
-      ::MxPlatformRuby::Tag.new(tag_params)
+      ::MXPlatformRuby::Tag.new(tag_params)
     end
 
     # Private class methods

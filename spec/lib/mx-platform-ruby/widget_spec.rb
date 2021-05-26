@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Widget do
+RSpec.describe ::MXPlatformRuby::Widget do
   let(:widget_attributes) do
     {
       'type' => 'connect_widget',
@@ -36,19 +36,19 @@ RSpec.describe ::MxPlatformRuby::Widget do
 
   describe 'request_widget_url' do
     let(:request_widget_url_response) { { 'widget_url' => widget_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(request_widget_url_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(request_widget_url_response) }
 
     it 'returns widget' do
       response = described_class.request_widget_url
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Widget)
+      expect(response).to be_kind_of(::MXPlatformRuby::Widget)
       expect(response.type).to eq(widget_attributes['type'])
       expect(response.url).to eq(widget_attributes['url'])
       expect(response.user_id).to eq(widget_attributes['user_id'])
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/widget_urls',
         request_widget_url_request_body,

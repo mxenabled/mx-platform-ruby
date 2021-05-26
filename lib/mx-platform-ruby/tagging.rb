@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Tagging
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :guid
@@ -18,10 +18,10 @@ module MxPlatformRuby
 
       body = create_tagging_body(options)
       endpoint = "/users/#{options[:user_guid]}/taggings"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       tagging_params = response['tagging']
-      ::MxPlatformRuby::Tagging.new(tagging_params)
+      ::MXPlatformRuby::Tagging.new(tagging_params)
     end
 
     def self.delete_tagging(options = {})
@@ -30,7 +30,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/taggings/#{options[:tagging_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_taggings_page(options = {})
@@ -57,10 +57,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/taggings/#{options[:tagging_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       tagging_params = response['tagging']
-      ::MxPlatformRuby::Tagging.new(tagging_params)
+      ::MXPlatformRuby::Tagging.new(tagging_params)
     end
 
     def self.update_tagging(options = {})
@@ -70,10 +70,10 @@ module MxPlatformRuby
 
       body = update_tagging_body(options)
       endpoint = "/users/#{options[:user_guid]}/taggings/#{options[:tagging_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       tagging_params = response['tagging']
-      ::MxPlatformRuby::Tagging.new(tagging_params)
+      ::MXPlatformRuby::Tagging.new(tagging_params)
     end
 
     # Private class methods

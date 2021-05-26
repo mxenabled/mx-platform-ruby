@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Challenge do
+RSpec.describe ::MXPlatformRuby::Challenge do
   let(:challenge_attributes) do
     {
       'field_name' => 'Who is this guy?',
@@ -48,14 +48,14 @@ RSpec.describe ::MxPlatformRuby::Challenge do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_member_challenges_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_member_challenges_response) }
 
     describe 'list_member_challenges_page' do
       it 'returns a list of challenges' do
         response = described_class.list_member_challenges_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Challenge)
         expect(response.first.field_name).to eq(challenge_attributes['field_name'])
         expect(response.first.guid).to eq(challenge_attributes['guid'])
         expect(response.first.image_data).to eq(challenge_attributes['image_data'])
@@ -75,7 +75,7 @@ RSpec.describe ::MxPlatformRuby::Challenge do
           response = challenge
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Challenge)
+        expect(response).to be_kind_of(::MXPlatformRuby::Challenge)
         expect(response.field_name).to eq(challenge_attributes['field_name'])
         expect(response.guid).to eq(challenge_attributes['guid'])
         expect(response.image_data).to eq(challenge_attributes['image_data'])
@@ -94,8 +94,8 @@ RSpec.describe ::MxPlatformRuby::Challenge do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Challenge)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Challenge)
         expect(response.first.field_name).to eq(challenge_attributes['field_name'])
         expect(response.first.guid).to eq(challenge_attributes['guid'])
         expect(response.first.image_data).to eq(challenge_attributes['image_data'])

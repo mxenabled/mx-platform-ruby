@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class User
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :email
@@ -18,10 +18,10 @@ module MxPlatformRuby
 
       body = create_user_body(options)
       endpoint = '/users'
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       user_params = response['user']
-      ::MxPlatformRuby::User.new(user_params)
+      ::MXPlatformRuby::User.new(user_params)
     end
 
     def self.delete_user(options = {})
@@ -30,7 +30,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_users_page(options = {})
@@ -57,10 +57,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       user_params = response['user']
-      ::MxPlatformRuby::User.new(user_params)
+      ::MXPlatformRuby::User.new(user_params)
     end
 
     def self.update_user(options = {})
@@ -70,10 +70,10 @@ module MxPlatformRuby
 
       body = update_user_body(options)
       endpoint = "/users/#{options[:user_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       user_params = response['user']
-      ::MxPlatformRuby::User.new(user_params)
+      ::MXPlatformRuby::User.new(user_params)
     end
 
     # Private class methods

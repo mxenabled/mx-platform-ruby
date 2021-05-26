@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
+RSpec.describe ::MXPlatformRuby::EnhanceTransaction do
   let(:enhance_transaction_attributes) do
     {
       'amount' => 21.33,
@@ -39,12 +39,12 @@ RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
 
   describe 'enhance_transactions' do
     let(:enhance_transactions_response) { { 'transactions' => enhance_transaction_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(enhance_transactions_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(enhance_transactions_response) }
 
     it 'returns enhance_transaction' do
       response = described_class.enhance_transactions
 
-      expect(response).to be_kind_of(::MxPlatformRuby::EnhanceTransaction)
+      expect(response).to be_kind_of(::MXPlatformRuby::EnhanceTransaction)
       expect(response.amount).to eq(enhance_transaction_attributes['amount'])
       expect(response.category).to eq(enhance_transaction_attributes['category'])
       expect(response.description).to eq(enhance_transaction_attributes['description'])
@@ -64,7 +64,7 @@ RSpec.describe ::MxPlatformRuby::EnhanceTransaction do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/transactions/enhance',
         enhance_transactions_request_body_parameters,

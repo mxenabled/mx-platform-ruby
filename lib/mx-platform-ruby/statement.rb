@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Statement
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :account_guid
@@ -20,7 +20,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/statements/#{options[:statement_guid]}.pdf"
-      ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
     end
 
     def self.list_statements_by_member_page(options = {})
@@ -47,10 +47,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/statements/#{options[:statement_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       statement_params = response['statement']
-      ::MxPlatformRuby::Statement.new(statement_params)
+      ::MXPlatformRuby::Statement.new(statement_params)
     end
 
     # Private class methods
