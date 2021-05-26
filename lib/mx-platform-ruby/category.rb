@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Category
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :created_at
@@ -21,10 +21,10 @@ module MxPlatformRuby
 
       body = create_category_body(options)
       endpoint = "/users/#{options[:user_guid]}/categories"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       category_params = response['category']
-      ::MxPlatformRuby::Category.new(category_params)
+      ::MXPlatformRuby::Category.new(category_params)
     end
 
     def self.delete_category(options = {})
@@ -33,7 +33,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/categories/#{options[:category_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_categories_page(options = {})
@@ -78,10 +78,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/categories/#{options[:category_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       category_params = response['category']
-      ::MxPlatformRuby::Category.new(category_params)
+      ::MXPlatformRuby::Category.new(category_params)
     end
 
     def self.update_category(options = {})
@@ -91,10 +91,10 @@ module MxPlatformRuby
 
       body = update_category_body(options)
       endpoint = "/users/#{options[:user_guid]}/categories"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       category_params = response['category']
-      ::MxPlatformRuby::Category.new(category_params)
+      ::MXPlatformRuby::Category.new(category_params)
     end
 
     # Private class methods

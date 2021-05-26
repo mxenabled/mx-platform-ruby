@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Page < ::Array
     attr_accessor :current_page, :records_per_page, :total_entries, :total_pages
   end
@@ -9,7 +9,7 @@ module MxPlatformRuby
     def make_get_request(accept_header, endpoint, query_params)
       uri = "#{endpoint}?#{::URI.encode_www_form(query_params.compact)}"
 
-      ::MxPlatformRuby.client.make_request(:get, uri, nil, 'Accept' => accept_header)
+      ::MXPlatformRuby.client.make_request(:get, uri, nil, 'Accept' => accept_header)
     end
 
     def paginate(options = {})
@@ -45,7 +45,7 @@ module MxPlatformRuby
 
         records = response[resource].map { |attributes| klass.new(attributes) }
 
-        page = ::MxPlatformRuby::Page.new(records)
+        page = ::MXPlatformRuby::Page.new(records)
         page.current_page = current_page
         page.records_per_page = records_per_page
         page.total_entries = total_entries

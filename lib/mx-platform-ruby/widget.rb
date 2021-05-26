@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Widget
     include ::ActiveAttr::Model
 
@@ -16,10 +16,10 @@ module MxPlatformRuby
 
       body = request_widget_url_body(options)
       endpoint = "/users/#{options[:user_guid]}/widget_urls"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       widget_url_params = response['widget_url']
-      ::MxPlatformRuby::Widget.new(widget_url_params)
+      ::MXPlatformRuby::Widget.new(widget_url_params)
     end
 
     # Private class methods

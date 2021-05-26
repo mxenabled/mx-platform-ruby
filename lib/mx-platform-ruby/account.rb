@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Account
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :account_number
@@ -70,10 +70,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       account_params = response['account']
-      ::MxPlatformRuby::Account.new(account_params)
+      ::MXPlatformRuby::Account.new(account_params)
     end
 
     def self.update_account(options = {})
@@ -83,10 +83,10 @@ module MxPlatformRuby
 
       body = update_account_body(options)
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       account_params = response['account']
-      ::MxPlatformRuby::Account.new(account_params)
+      ::MXPlatformRuby::Account.new(account_params)
     end
 
     # Private class methods

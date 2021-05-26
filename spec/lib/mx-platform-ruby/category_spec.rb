@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Category do
+RSpec.describe ::MXPlatformRuby::Category do
   let(:category_attributes) do
     {
       'created_at' => '2015-04-13T18:01:23.000Z',
@@ -73,12 +73,12 @@ RSpec.describe ::MxPlatformRuby::Category do
 
   describe 'create_category' do
     let(:create_category_response) { { 'category' => category_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_category_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_category_response) }
 
     it 'returns category' do
       response = described_class.create_category
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Category)
+      expect(response).to be_kind_of(::MXPlatformRuby::Category)
       expect(response.created_at).to eq(category_attributes['created_at'])
       expect(response.guid).to eq(category_attributes['guid'])
       expect(response.is_default).to eq(category_attributes['is_default'])
@@ -90,7 +90,7 @@ RSpec.describe ::MxPlatformRuby::Category do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/categories',
         create_category_request_body,
@@ -103,7 +103,7 @@ RSpec.describe ::MxPlatformRuby::Category do
   end
 
   describe 'delete_category' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_category
@@ -112,7 +112,7 @@ RSpec.describe ::MxPlatformRuby::Category do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/categories/CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874',
         nil,
@@ -132,14 +132,14 @@ RSpec.describe ::MxPlatformRuby::Category do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_categories_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_categories_response) }
 
     describe 'list_categories_page' do
       it 'returns a list of categorys' do
         response = described_class.list_categories_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.first.created_at).to eq(category_attributes['created_at'])
         expect(response.first.guid).to eq(category_attributes['guid'])
         expect(response.first.is_default).to eq(category_attributes['is_default'])
@@ -160,7 +160,7 @@ RSpec.describe ::MxPlatformRuby::Category do
           response = category
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.created_at).to eq(category_attributes['created_at'])
         expect(response.guid).to eq(category_attributes['guid'])
         expect(response.is_default).to eq(category_attributes['is_default'])
@@ -180,8 +180,8 @@ RSpec.describe ::MxPlatformRuby::Category do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.first.created_at).to eq(category_attributes['created_at'])
         expect(response.first.guid).to eq(category_attributes['guid'])
         expect(response.first.is_default).to eq(category_attributes['is_default'])
@@ -203,14 +203,14 @@ RSpec.describe ::MxPlatformRuby::Category do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_default_categories_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_default_categories_response) }
 
     describe 'list_default_categories_page' do
       it 'returns a list of categorys' do
         response = described_class.list_default_categories_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.first.created_at).to eq(category_attributes['created_at'])
         expect(response.first.guid).to eq(category_attributes['guid'])
         expect(response.first.is_default).to eq(category_attributes['is_default'])
@@ -231,7 +231,7 @@ RSpec.describe ::MxPlatformRuby::Category do
           response = category
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.created_at).to eq(category_attributes['created_at'])
         expect(response.guid).to eq(category_attributes['guid'])
         expect(response.is_default).to eq(category_attributes['is_default'])
@@ -251,8 +251,8 @@ RSpec.describe ::MxPlatformRuby::Category do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Category)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
         expect(response.first.created_at).to eq(category_attributes['created_at'])
         expect(response.first.guid).to eq(category_attributes['guid'])
         expect(response.first.is_default).to eq(category_attributes['is_default'])
@@ -268,12 +268,12 @@ RSpec.describe ::MxPlatformRuby::Category do
 
   describe 'read_category' do
     let(:read_category_response) { { 'category' => category_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_category_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_category_response) }
 
     it 'returns category' do
       response = described_class.read_category
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Category)
+      expect(response).to be_kind_of(::MXPlatformRuby::Category)
       expect(response.created_at).to eq(category_attributes['created_at'])
       expect(response.guid).to eq(category_attributes['guid'])
       expect(response.is_default).to eq(category_attributes['is_default'])
@@ -285,7 +285,7 @@ RSpec.describe ::MxPlatformRuby::Category do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/categories/CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874',
         nil,
@@ -299,12 +299,12 @@ RSpec.describe ::MxPlatformRuby::Category do
 
   describe 'update_category' do
     let(:update_category_response) { { 'category' => category_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_category_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_category_response) }
 
     it 'returns category' do
       response = described_class.update_category
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Category)
+      expect(response).to be_kind_of(::MXPlatformRuby::Category)
       expect(response.created_at).to eq(category_attributes['created_at'])
       expect(response.guid).to eq(category_attributes['guid'])
       expect(response.is_default).to eq(category_attributes['is_default'])
@@ -316,7 +316,7 @@ RSpec.describe ::MxPlatformRuby::Category do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/categories',
         update_category_request_body,

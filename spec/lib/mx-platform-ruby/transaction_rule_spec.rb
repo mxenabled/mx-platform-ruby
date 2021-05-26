@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::TransactionRule do
+RSpec.describe ::MXPlatformRuby::TransactionRule do
   let(:transaction_rule_attributes) do
     {
       'category_guid' => 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
@@ -69,12 +69,12 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
 
   describe 'create_transaction_rule' do
     let(:create_transaction_rule_response) { { 'transaction_rule' => transaction_rule_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_transaction_rule_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_transaction_rule_response) }
 
     it 'returns transaction_rule' do
       response = described_class.create_transaction_rule
 
-      expect(response).to be_kind_of(::MxPlatformRuby::TransactionRule)
+      expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
       expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
       expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
       expect(response.description).to eq(transaction_rule_attributes['description'])
@@ -85,7 +85,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules',
         create_transaction_rule_request_body,
@@ -98,7 +98,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
   end
 
   describe 'delete_transaction_rule' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_transaction_rule
@@ -107,7 +107,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
         nil,
@@ -127,14 +127,14 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_transaction_rules_by_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transaction_rules_by_user_response) }
 
     describe 'list_transaction_rules_by_user_page' do
       it 'returns a list of transaction_rules' do
         response = described_class.list_transaction_rules_by_user_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::TransactionRule)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)
         expect(response.first.category_guid).to eq(transaction_rule_attributes['category_guid'])
         expect(response.first.created_at).to eq(transaction_rule_attributes['created_at'])
         expect(response.first.description).to eq(transaction_rule_attributes['description'])
@@ -154,7 +154,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
           response = transaction_rule
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::TransactionRule)
+        expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
         expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
         expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
         expect(response.description).to eq(transaction_rule_attributes['description'])
@@ -173,8 +173,8 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::TransactionRule)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)
         expect(response.first.category_guid).to eq(transaction_rule_attributes['category_guid'])
         expect(response.first.created_at).to eq(transaction_rule_attributes['created_at'])
         expect(response.first.description).to eq(transaction_rule_attributes['description'])
@@ -189,12 +189,12 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
 
   describe 'read_transaction_rule' do
     let(:read_transaction_rule_response) { { 'transaction_rule' => transaction_rule_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_transaction_rule_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_transaction_rule_response) }
 
     it 'returns transaction_rule' do
       response = described_class.read_transaction_rule
 
-      expect(response).to be_kind_of(::MxPlatformRuby::TransactionRule)
+      expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
       expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
       expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
       expect(response.description).to eq(transaction_rule_attributes['description'])
@@ -205,7 +205,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
         nil,
@@ -219,12 +219,12 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
 
   describe 'update_transaction_rule' do
     let(:update_transaction_rule_response) { { 'transaction_rule' => transaction_rule_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_transaction_rule_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_transaction_rule_response) }
 
     it 'returns transaction_rule' do
       response = described_class.update_transaction_rule
 
-      expect(response).to be_kind_of(::MxPlatformRuby::TransactionRule)
+      expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
       expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
       expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
       expect(response.description).to eq(transaction_rule_attributes['description'])
@@ -235,7 +235,7 @@ RSpec.describe ::MxPlatformRuby::TransactionRule do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
         update_transaction_rule_request_body,

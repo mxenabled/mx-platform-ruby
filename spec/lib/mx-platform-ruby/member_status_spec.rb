@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::MemberStatus do
+RSpec.describe ::MXPlatformRuby::MemberStatus do
   let(:member_status_attributes) do
     {
       'aggregated_at' => '2016-10-13T18:07:57.000Z',
@@ -46,12 +46,12 @@ RSpec.describe ::MxPlatformRuby::MemberStatus do
 
   describe 'read_member_status' do
     let(:read_member_status_response) { { 'member' => member_status_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_member_status_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_member_status_response) }
 
     it 'returns member_status' do
       response = described_class.read_member_status
 
-      expect(response).to be_kind_of(::MxPlatformRuby::MemberStatus)
+      expect(response).to be_kind_of(::MXPlatformRuby::MemberStatus)
       expect(response.aggregated_at).to eq(member_status_attributes['aggregated_at'])
       expect(response.challenges).to eq(member_status_attributes['challenges'])
       expect(response.connection_status).to eq(member_status_attributes['connection_status'])
@@ -64,7 +64,7 @@ RSpec.describe ::MxPlatformRuby::MemberStatus do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/status',
         nil,

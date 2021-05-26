@@ -3,12 +3,12 @@
 require 'spec_helper'
 
 class Record
-  extend ::MxPlatformRuby::Pageable
+  extend ::MXPlatformRuby::Pageable
   include ::ActiveAttr::Model
   attribute :record_attribute
 end
 
-RSpec.describe ::MxPlatformRuby::Pageable do
+RSpec.describe ::MXPlatformRuby::Pageable do
   subject { ::Record }
 
   let(:accept_header) { { 'Accept' => 'application/json' } }
@@ -24,7 +24,7 @@ RSpec.describe ::MxPlatformRuby::Pageable do
     }
   end
   let(:first) { 1 }
-  let(:first_page) { ::MxPlatformRuby::Page.new(2, record) }
+  let(:first_page) { ::MXPlatformRuby::Page.new(2, record) }
   let(:first_page_response) do
     {
       'records' => ::Array.new(2, record_response),
@@ -37,7 +37,7 @@ RSpec.describe ::MxPlatformRuby::Pageable do
     }
   end
   let(:last) { 2 }
-  let(:last_page) { ::MxPlatformRuby::Page.new(1, record) }
+  let(:last_page) { ::MXPlatformRuby::Page.new(1, record) }
   let(:last_page_response) do
     {
       'records' => ::Array.new(1, record_response),
@@ -64,11 +64,11 @@ RSpec.describe ::MxPlatformRuby::Pageable do
   let(:total_pages) { 2 }
 
   before do
-    allow(::MxPlatformRuby.client).to receive(:make_request).with(:get, '/records?', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?', nil, accept_header)
                                                             .and_return(first_page_response)
-    allow(::MxPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=1', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=1', nil, accept_header)
                                                             .and_return(first_page_response)
-    allow(::MxPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=2', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=2', nil, accept_header)
                                                             .and_return(last_page_response)
   end
 
@@ -84,9 +84,9 @@ RSpec.describe ::MxPlatformRuby::Pageable do
 
     context 'with no results' do
       it 'returns an empty Page' do
-        allow(::MxPlatformRuby.client).to receive(:make_request).and_return(empty_response)
+        allow(::MXPlatformRuby.client).to receive(:make_request).and_return(empty_response)
         page = subject.paginate(options)
-        expect(page).to eq(::MxPlatformRuby::Page.new)
+        expect(page).to eq(::MXPlatformRuby::Page.new)
       end
     end
   end
@@ -143,13 +143,13 @@ RSpec.describe ::MxPlatformRuby::Pageable do
       let(:total_pages) { 1 }
 
       it 'uses the query params' do
-        expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        expect(::MXPlatformRuby.client).to receive(:make_request).with(
           :get,
           '/records?from_date=2000-01-01',
           nil,
           accept_header
         ).and_return(first_page_response)
-        expect(::MxPlatformRuby.client).to receive(:make_request).with(
+        expect(::MXPlatformRuby.client).to receive(:make_request).with(
           :get,
           '/records?from_date=2000-01-01&page=1',
           nil,

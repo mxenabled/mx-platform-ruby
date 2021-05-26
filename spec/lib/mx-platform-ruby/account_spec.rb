@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Account do
+RSpec.describe ::MXPlatformRuby::Account do
   let(:account_attributes) do
     {
       'account_number' => '5366',
@@ -88,14 +88,14 @@ RSpec.describe ::MxPlatformRuby::Account do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_user_accounts_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_user_accounts_response) }
 
     describe 'list_user_accounts_page' do
       it 'returns a list of accounts' do
         response = described_class.list_user_accounts_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Account)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Account)
         expect(response.first.account_number).to eq(account_attributes['account_number'])
         expect(response.first.apr).to eq(account_attributes['apr'])
         expect(response.first.apy).to eq(account_attributes['apy'])
@@ -148,7 +148,7 @@ RSpec.describe ::MxPlatformRuby::Account do
           response = account
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Account)
+        expect(response).to be_kind_of(::MXPlatformRuby::Account)
         expect(response.account_number).to eq(account_attributes['account_number'])
         expect(response.apr).to eq(account_attributes['apr'])
         expect(response.apy).to eq(account_attributes['apy'])
@@ -200,8 +200,8 @@ RSpec.describe ::MxPlatformRuby::Account do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Account)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Account)
         expect(response.first.account_number).to eq(account_attributes['account_number'])
         expect(response.first.apr).to eq(account_attributes['apr'])
         expect(response.first.apy).to eq(account_attributes['apy'])
@@ -249,12 +249,12 @@ RSpec.describe ::MxPlatformRuby::Account do
 
   describe 'read_account' do
     let(:read_account_response) { { 'account' => account_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_account_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_account_response) }
 
     it 'returns account' do
       response = described_class.read_account
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Account)
+      expect(response).to be_kind_of(::MXPlatformRuby::Account)
       expect(response.account_number).to eq(account_attributes['account_number'])
       expect(response.apr).to eq(account_attributes['apr'])
       expect(response.apy).to eq(account_attributes['apy'])
@@ -298,7 +298,7 @@ RSpec.describe ::MxPlatformRuby::Account do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/accounts/ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
         nil,
@@ -312,12 +312,12 @@ RSpec.describe ::MxPlatformRuby::Account do
 
   describe 'update_account' do
     let(:update_account_response) { { 'account' => account_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_account_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_account_response) }
 
     it 'returns account' do
       response = described_class.update_account
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Account)
+      expect(response).to be_kind_of(::MXPlatformRuby::Account)
       expect(response.account_number).to eq(account_attributes['account_number'])
       expect(response.apr).to eq(account_attributes['apr'])
       expect(response.apy).to eq(account_attributes['apy'])
@@ -361,7 +361,7 @@ RSpec.describe ::MxPlatformRuby::Account do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/accounts/ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
         update_account_request_body,

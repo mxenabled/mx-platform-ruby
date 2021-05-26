@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class TransactionRule
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :category_guid
@@ -20,10 +20,10 @@ module MxPlatformRuby
 
       body = create_transaction_rule_body(options)
       endpoint = "/users/#{options[:user_guid]}/transaction_rules"
-      response = ::MxPlatformRuby.client.make_request(:post, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       transaction_rule_params = response['transaction_rule']
-      ::MxPlatformRuby::TransactionRule.new(transaction_rule_params)
+      ::MXPlatformRuby::TransactionRule.new(transaction_rule_params)
     end
 
     def self.delete_transaction_rule(options = {})
@@ -32,7 +32,7 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/transaction_rule/#{options[:transaction_rule_guid]}"
-      ::MxPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
+      ::MXPlatformRuby.client.make_request(:delete, endpoint, nil, headers)
     end
 
     def self.list_transaction_rules_by_user_page(options = {})
@@ -59,10 +59,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/transaction_rule/#{options[:transaction_rule_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       transaction_rule_params = response['transaction_rule']
-      ::MxPlatformRuby::TransactionRule.new(transaction_rule_params)
+      ::MXPlatformRuby::TransactionRule.new(transaction_rule_params)
     end
 
     def self.update_transaction_rule(options = {})
@@ -72,10 +72,10 @@ module MxPlatformRuby
 
       body = update_transaction_rule_body(options)
       endpoint = "/users/#{options[:user_guid]}/transaction_rule/#{options[:transaction_rule_guid]}"
-      response = ::MxPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
 
       transaction_rule_params = response['transaction_rule']
-      ::MxPlatformRuby::TransactionRule.new(transaction_rule_params)
+      ::MXPlatformRuby::TransactionRule.new(transaction_rule_params)
     end
 
     # Private class methods

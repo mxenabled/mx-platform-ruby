@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::User do
+RSpec.describe ::MXPlatformRuby::User do
   let(:user_attributes) do
     {
       'email' => 'email@provider.com',
@@ -56,12 +56,12 @@ RSpec.describe ::MxPlatformRuby::User do
 
   describe 'create_user' do
     let(:create_user_response) { { 'user' => user_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_user_response) }
 
     it 'returns user' do
       response = described_class.create_user
 
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
+      expect(response).to be_kind_of(::MXPlatformRuby::User)
       expect(response.email).to eq(user_attributes['email'])
       expect(response.guid).to eq(user_attributes['guid'])
       expect(response.id).to eq(user_attributes['id'])
@@ -70,7 +70,7 @@ RSpec.describe ::MxPlatformRuby::User do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users',
         create_user_request_body,
@@ -83,7 +83,7 @@ RSpec.describe ::MxPlatformRuby::User do
   end
 
   describe 'delete_user' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_user
@@ -92,7 +92,7 @@ RSpec.describe ::MxPlatformRuby::User do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
         nil,
@@ -112,14 +112,14 @@ RSpec.describe ::MxPlatformRuby::User do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_users_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_users_response) }
 
     describe 'list_users_page' do
       it 'returns a list of users' do
         response = described_class.list_users_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::User)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::User)
         expect(response.first.email).to eq(user_attributes['email'])
         expect(response.first.guid).to eq(user_attributes['guid'])
         expect(response.first.id).to eq(user_attributes['id'])
@@ -137,7 +137,7 @@ RSpec.describe ::MxPlatformRuby::User do
           response = user
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::User)
+        expect(response).to be_kind_of(::MXPlatformRuby::User)
         expect(response.email).to eq(user_attributes['email'])
         expect(response.guid).to eq(user_attributes['guid'])
         expect(response.id).to eq(user_attributes['id'])
@@ -154,8 +154,8 @@ RSpec.describe ::MxPlatformRuby::User do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::User)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::User)
         expect(response.first.email).to eq(user_attributes['email'])
         expect(response.first.guid).to eq(user_attributes['guid'])
         expect(response.first.id).to eq(user_attributes['id'])
@@ -168,12 +168,12 @@ RSpec.describe ::MxPlatformRuby::User do
 
   describe 'read_user' do
     let(:read_user_response) { { 'user' => user_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_user_response) }
 
     it 'returns user' do
       response = described_class.read_user
 
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
+      expect(response).to be_kind_of(::MXPlatformRuby::User)
       expect(response.email).to eq(user_attributes['email'])
       expect(response.guid).to eq(user_attributes['guid'])
       expect(response.id).to eq(user_attributes['id'])
@@ -182,7 +182,7 @@ RSpec.describe ::MxPlatformRuby::User do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
         nil,
@@ -196,12 +196,12 @@ RSpec.describe ::MxPlatformRuby::User do
 
   describe 'update_user' do
     let(:update_user_response) { { 'user' => user_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_user_response) }
 
     it 'returns user' do
       response = described_class.update_user
 
-      expect(response).to be_kind_of(::MxPlatformRuby::User)
+      expect(response).to be_kind_of(::MXPlatformRuby::User)
       expect(response.email).to eq(user_attributes['email'])
       expect(response.guid).to eq(user_attributes['guid'])
       expect(response.id).to eq(user_attributes['id'])
@@ -210,7 +210,7 @@ RSpec.describe ::MxPlatformRuby::User do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
         update_user_request_body,

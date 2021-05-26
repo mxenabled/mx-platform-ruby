@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::AccountNumber do
+RSpec.describe ::MXPlatformRuby::AccountNumber do
   let(:account_number_attributes) do
     {
       'account_guid' => 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
@@ -44,14 +44,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_account_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_account_response) }
 
     describe 'list_account_numbers_by_account_page' do
       it 'returns a list of account_numbers' do
         response = described_class.list_account_numbers_by_account_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.first.account_number).to eq(account_number_attributes['account_number'])
         expect(response.first.guid).to eq(account_number_attributes['guid'])
@@ -72,7 +72,7 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
           response = account_number
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.account_number).to eq(account_number_attributes['account_number'])
         expect(response.guid).to eq(account_number_attributes['guid'])
@@ -92,8 +92,8 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.first.account_number).to eq(account_number_attributes['account_number'])
         expect(response.first.guid).to eq(account_number_attributes['guid'])
@@ -115,14 +115,14 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_member_response) }
 
     describe 'list_account_numbers_by_member_page' do
       it 'returns a list of account_numbers' do
         response = described_class.list_account_numbers_by_member_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.first.account_number).to eq(account_number_attributes['account_number'])
         expect(response.first.guid).to eq(account_number_attributes['guid'])
@@ -143,7 +143,7 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
           response = account_number
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.account_number).to eq(account_number_attributes['account_number'])
         expect(response.guid).to eq(account_number_attributes['guid'])
@@ -163,8 +163,8 @@ RSpec.describe ::MxPlatformRuby::AccountNumber do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountNumber)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
         expect(response.first.account_guid).to eq(account_number_attributes['account_guid'])
         expect(response.first.account_number).to eq(account_number_attributes['account_number'])
         expect(response.first.guid).to eq(account_number_attributes['guid'])

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::AccountOwner do
+RSpec.describe ::MXPlatformRuby::AccountOwner do
   let(:account_owner_attributes) do
     {
       'account_guid' => 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
@@ -42,14 +42,14 @@ RSpec.describe ::MxPlatformRuby::AccountOwner do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_account_owners_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_owners_response) }
 
     describe 'list_account_owners_page' do
       it 'returns a list of account_owners' do
         response = described_class.list_account_owners_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountOwner)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountOwner)
         expect(response.first.account_guid).to eq(account_owner_attributes['account_guid'])
         expect(response.first.address).to eq(account_owner_attributes['address'])
         expect(response.first.city).to eq(account_owner_attributes['city'])
@@ -74,7 +74,7 @@ RSpec.describe ::MxPlatformRuby::AccountOwner do
           response = account_owner
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::AccountOwner)
+        expect(response).to be_kind_of(::MXPlatformRuby::AccountOwner)
         expect(response.account_guid).to eq(account_owner_attributes['account_guid'])
         expect(response.address).to eq(account_owner_attributes['address'])
         expect(response.city).to eq(account_owner_attributes['city'])
@@ -98,8 +98,8 @@ RSpec.describe ::MxPlatformRuby::AccountOwner do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::AccountOwner)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountOwner)
         expect(response.first.account_guid).to eq(account_owner_attributes['account_guid'])
         expect(response.first.address).to eq(account_owner_attributes['address'])
         expect(response.first.city).to eq(account_owner_attributes['city'])

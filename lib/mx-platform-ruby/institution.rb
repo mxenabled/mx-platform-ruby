@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Institution
-    extend ::MxPlatformRuby::Pageable
+    extend ::MXPlatformRuby::Pageable
     include ::ActiveAttr::Model
 
     attribute :code
@@ -58,10 +58,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/institutions/#{options[:institution_code]}"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       institution_params = response['institution']
-      ::MxPlatformRuby::Institution.new(institution_params)
+      ::MXPlatformRuby::Institution.new(institution_params)
     end
 
     # Private class methods

@@ -5,12 +5,12 @@ require 'mx-platform-ruby/version'
 
 Gem::Specification.new do |s|
   s.name        = 'mx-platform-ruby'
-  s.version     = MxPlatformRuby::VERSION
+  s.version     = MXPlatformRuby::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['MX']
   s.email       = ['platform']
   s.homepage    = 'https://www.mx.com/products/platform-api'
-  s.summary     = 'Mx Platform Ruby Gem'
+  s.summary     = 'MX Platform Ruby Gem'
   s.description = 'A Ruby library for the MX Platform API.'
   s.license     = 'MIT'
   s.required_ruby_version = '>= 2.6'

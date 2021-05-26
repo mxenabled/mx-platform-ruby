@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class Client
     BASE_URL = 'https://int-api.mx.com'
 
@@ -47,7 +47,7 @@ module MxPlatformRuby
 
     def handle_response(response)
       # Handle 200-206 responses as acceptable
-      raise ::MxPlatformRuby::Error, "#{response.status}: #{response.body}" unless response.status.between?(200, 206)
+      raise ::MXPlatformRuby::Error, "#{response.status}: #{response.body}" unless response.status.between?(200, 206)
 
       return if response.body.empty?
 

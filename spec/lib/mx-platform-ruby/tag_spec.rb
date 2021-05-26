@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Tag do
+RSpec.describe ::MXPlatformRuby::Tag do
   let(:tag_attributes) do
     {
       'guid' => 'TAG-aef36e72-6294-4c38-844d-e573e80aed52',
@@ -61,19 +61,19 @@ RSpec.describe ::MxPlatformRuby::Tag do
 
   describe 'create_tag' do
     let(:create_tag_response) { { 'tag' => tag_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(create_tag_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(create_tag_response) }
 
     it 'returns tag' do
       response = described_class.create_tag
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tag)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tag)
       expect(response.guid).to eq(tag_attributes['guid'])
       expect(response.name).to eq(tag_attributes['name'])
       expect(response.user_guid).to eq(tag_attributes['user_guid'])
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :post,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/tags',
         create_tag_request_body,
@@ -86,7 +86,7 @@ RSpec.describe ::MxPlatformRuby::Tag do
   end
 
   describe 'delete_tag' do
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(nil) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(nil) }
 
     it 'returns nil' do
       response = described_class.delete_tag
@@ -95,7 +95,7 @@ RSpec.describe ::MxPlatformRuby::Tag do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :delete,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/tags/TAG-aef36e72-6294-4c38-844d-e573e80aed52',
         nil,
@@ -115,14 +115,14 @@ RSpec.describe ::MxPlatformRuby::Tag do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_tags_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_tags_response) }
 
     describe 'list_tags_page' do
       it 'returns a list of tags' do
         response = described_class.list_tags_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Tag)
         expect(response.first.guid).to eq(tag_attributes['guid'])
         expect(response.first.name).to eq(tag_attributes['name'])
         expect(response.first.user_guid).to eq(tag_attributes['user_guid'])
@@ -138,7 +138,7 @@ RSpec.describe ::MxPlatformRuby::Tag do
           response = tag
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Tag)
+        expect(response).to be_kind_of(::MXPlatformRuby::Tag)
         expect(response.guid).to eq(tag_attributes['guid'])
         expect(response.name).to eq(tag_attributes['name'])
         expect(response.user_guid).to eq(tag_attributes['user_guid'])
@@ -153,8 +153,8 @@ RSpec.describe ::MxPlatformRuby::Tag do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Tag)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Tag)
         expect(response.first.guid).to eq(tag_attributes['guid'])
         expect(response.first.name).to eq(tag_attributes['name'])
         expect(response.first.user_guid).to eq(tag_attributes['user_guid'])
@@ -165,19 +165,19 @@ RSpec.describe ::MxPlatformRuby::Tag do
 
   describe 'read_tag' do
     let(:read_tag_response) { { 'tag' => tag_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_tag_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_tag_response) }
 
     it 'returns tag' do
       response = described_class.read_tag
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tag)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tag)
       expect(response.guid).to eq(tag_attributes['guid'])
       expect(response.name).to eq(tag_attributes['name'])
       expect(response.user_guid).to eq(tag_attributes['user_guid'])
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/tags/TAG-aef36e72-6294-4c38-844d-e573e80aed52',
         nil,
@@ -191,19 +191,19 @@ RSpec.describe ::MxPlatformRuby::Tag do
 
   describe 'update_tag' do
     let(:update_tag_response) { { 'tag' => tag_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_tag_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_tag_response) }
 
     it 'returns tag' do
       response = described_class.update_tag
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Tag)
+      expect(response).to be_kind_of(::MXPlatformRuby::Tag)
       expect(response.guid).to eq(tag_attributes['guid'])
       expect(response.name).to eq(tag_attributes['name'])
       expect(response.user_guid).to eq(tag_attributes['user_guid'])
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/tags/TAG-aef36e72-6294-4c38-844d-e573e80aed52',
         update_tag_request_body,

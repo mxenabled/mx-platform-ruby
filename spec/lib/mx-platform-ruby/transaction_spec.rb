@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Transaction do
+RSpec.describe ::MXPlatformRuby::Transaction do
   let(:transaction_attributes) do
     {
       'account_guid' => 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
@@ -101,14 +101,14 @@ RSpec.describe ::MxPlatformRuby::Transaction do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_account_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_account_response) }
 
     describe 'list_transactions_by_account_page' do
       it 'returns a list of transactions' do
         response = described_class.list_transactions_by_account_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -157,7 +157,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = transaction
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.amount).to eq(transaction_attributes['amount'])
         expect(response.category).to eq(transaction_attributes['category'])
@@ -205,8 +205,8 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -256,14 +256,14 @@ RSpec.describe ::MxPlatformRuby::Transaction do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_member_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_member_response) }
 
     describe 'list_transactions_by_member_page' do
       it 'returns a list of transactions' do
         response = described_class.list_transactions_by_member_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -312,7 +312,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = transaction
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.amount).to eq(transaction_attributes['amount'])
         expect(response.category).to eq(transaction_attributes['category'])
@@ -360,8 +360,8 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -411,14 +411,14 @@ RSpec.describe ::MxPlatformRuby::Transaction do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_tag_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_tag_response) }
 
     describe 'list_transactions_by_tag_page' do
       it 'returns a list of transactions' do
         response = described_class.list_transactions_by_tag_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -467,7 +467,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = transaction
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.amount).to eq(transaction_attributes['amount'])
         expect(response.category).to eq(transaction_attributes['category'])
@@ -515,8 +515,8 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -566,14 +566,14 @@ RSpec.describe ::MxPlatformRuby::Transaction do
       }
     end
 
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_user_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transactions_by_user_response) }
 
     describe 'list_transactions_by_user_page' do
       it 'returns a list of transactions' do
         response = described_class.list_transactions_by_user_page
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -622,7 +622,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = transaction
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.amount).to eq(transaction_attributes['amount'])
         expect(response.category).to eq(transaction_attributes['category'])
@@ -670,8 +670,8 @@ RSpec.describe ::MxPlatformRuby::Transaction do
           response = page
         end
 
-        expect(response).to be_kind_of(::MxPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MxPlatformRuby::Transaction)
+        expect(response).to be_kind_of(::MXPlatformRuby::Page)
+        expect(response.first).to be_kind_of(::MXPlatformRuby::Transaction)
         expect(response.first.account_guid).to eq(transaction_attributes['account_guid'])
         expect(response.first.amount).to eq(transaction_attributes['amount'])
         expect(response.first.category).to eq(transaction_attributes['category'])
@@ -715,12 +715,12 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
   describe 'read_transaction' do
     let(:read_transaction_response) { { 'transaction' => transaction_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(read_transaction_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(read_transaction_response) }
 
     it 'returns transaction' do
       response = described_class.read_transaction
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+      expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
       expect(response.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.amount).to eq(transaction_attributes['amount'])
       expect(response.category).to eq(transaction_attributes['category'])
@@ -760,7 +760,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :get,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transactions/TRN-810828b0-5210-4878-9bd3-f4ce514f90c4',
         nil,
@@ -774,12 +774,12 @@ RSpec.describe ::MxPlatformRuby::Transaction do
 
   describe 'update_transaction' do
     let(:update_transaction_response) { { 'transaction' => transaction_attributes } }
-    before { allow(::MxPlatformRuby.client).to receive(:make_request).and_return(update_transaction_response) }
+    before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(update_transaction_response) }
 
     it 'returns transaction' do
       response = described_class.update_transaction
 
-      expect(response).to be_kind_of(::MxPlatformRuby::Transaction)
+      expect(response).to be_kind_of(::MXPlatformRuby::Transaction)
       expect(response.account_guid).to eq(transaction_attributes['account_guid'])
       expect(response.amount).to eq(transaction_attributes['amount'])
       expect(response.category).to eq(transaction_attributes['category'])
@@ -819,7 +819,7 @@ RSpec.describe ::MxPlatformRuby::Transaction do
     end
 
     it 'makes a client request with the expected params' do
-      expect(::MxPlatformRuby.client).to receive(:make_request).with(
+      expect(::MXPlatformRuby.client).to receive(:make_request).with(
         :put,
         '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transactions/TRN-810828b0-5210-4878-9bd3-f4ce514f90c4',
         update_transaction_request_body,

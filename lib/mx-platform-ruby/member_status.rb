@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module MxPlatformRuby
+module MXPlatformRuby
   class MemberStatus
     include ::ActiveAttr::Model
 
@@ -20,10 +20,10 @@ module MxPlatformRuby
       }
 
       endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/status"
-      response = ::MxPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
 
       member_params = response['member']
-      ::MxPlatformRuby::MemberStatus.new(member_params)
+      ::MXPlatformRuby::MemberStatus.new(member_params)
     end
   end
 end

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe ::MxPlatformRuby::Client do
+RSpec.describe ::MXPlatformRuby::Client do
   let(:client_custom_params) { described_class.new('base_url', 'password', 'username') }
   let(:client_default_params) { described_class.new }
   let(:error_response) { ::OpenStruct.new('status' => 500, 'body' => 'error_message') }
@@ -90,10 +90,10 @@ RSpec.describe ::MxPlatformRuby::Client do
     end
 
     context 'with error' do
-      it 'raises a ::MxPlatformRuby::Error' do
+      it 'raises a ::MXPlatformRuby::Error' do
         allow(client_custom_params.http_client).to receive(:get).and_return(error_response)
         expect { client_custom_params.make_request(:get, '/endpoint', key: :value) }.to raise_error(
-          ::MxPlatformRuby::Error
+          ::MXPlatformRuby::Error
         )
       end
     end
