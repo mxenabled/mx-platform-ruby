@@ -1,9 +1,9 @@
 name: Ruby
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  validate_openapi:
+  test:
 
     runs-on: ubuntu-latest
 
