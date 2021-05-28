@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.license               = 'MIT'
   s.required_ruby_version = '>= 2.6'
   s.metadata = {
-    "documentation_uri" => 'https://docs.mx.com/api'
+    'documentation_uri' => 'https://docs.mx.com/api'
   }
 
   s.add_runtime_dependency 'active_attr'
