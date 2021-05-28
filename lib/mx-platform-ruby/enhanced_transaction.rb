@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module MXPlatformRuby
-  class EnhanceTransaction
+  class EnhancedTransaction
     include ::ActiveAttr::Model
 
     attribute :amount
@@ -21,26 +21,26 @@ module MXPlatformRuby
     attribute :original_description
     attribute :type
 
-    def self.enhance_transactions(options = {})
+    def self.enhanced_transactions(options = {})
       headers = {
         'Accept' => 'application/vnd.mx.api.v1+json'
       }
 
-      body = enhance_transactions_body(options)
+      body = enhanced_transactions_body(options)
       endpoint = '/transactions/enhance'
       response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
 
       transactions_params = response['transactions']
-      ::MXPlatformRuby::EnhanceTransaction.new(transactions_params)
+      ::MXPlatformRuby::EnhancedTransaction.new(transactions_params)
     end
 
     # Private class methods
 
-    def self.enhance_transactions_body(options)
+    def self.enhanced_transactions_body(options)
       {
         transactions: options[:transactions]
       }
     end
-    private_class_method :enhance_transactions_body
+    private_class_method :enhanced_transactions_body
   end
 end
