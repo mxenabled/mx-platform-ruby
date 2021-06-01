@@ -1,9 +1,9 @@
-name: Ruby
+name: Test
 
 on: [push]
 
 jobs:
-  test:
+  Test:
 
     runs-on: ubuntu-latest
 
