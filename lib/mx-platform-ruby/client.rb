@@ -13,9 +13,9 @@ module MXPlatformRuby
     end
 
     def make_request(method, endpoint, body = nil, headers = {})
+      body    = ::JSON.dump(body) if body
       headers = default_headers.merge(headers)
       url     = "#{base_url}#{endpoint}"
-      body    = ::JSON.dump(body) if body
 
       response = http_client.public_send(method, url, body, headers)
 
@@ -31,8 +31,8 @@ module MXPlatformRuby
     def default_headers
       {
         'Accept' => 'application/json',
-        'Content-Type' => 'application/json',
-        'Authorization' => "Basic #{::Base64.urlsafe_encode64("#{username}:#{password}")}"
+        'Authorization' => "Basic #{::Base64.urlsafe_encode64("#{username}:#{password}")}",
+        'Content-Type' => 'application/json'
       }
     end
 
