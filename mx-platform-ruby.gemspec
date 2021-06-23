@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version               = MXPlatformRuby::VERSION
   s.platform              = Gem::Platform::RUBY
   s.authors               = ['MX']
-  s.email                 = ['platform']
+  s.email                 = ['dev@mx.com']
   s.homepage              = 'https://www.mx.com/products/platform-api'
   s.summary               = 'MX Platform Ruby Gem'
   s.description           = 'A Ruby library for the MX Platform API.'

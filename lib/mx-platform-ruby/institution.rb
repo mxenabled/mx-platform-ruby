@@ -17,48 +17,44 @@ module MXPlatformRuby
     attribute :url
 
     def self.list_favorites_page(options = {})
-      options = list_favorites_pagination_options(options)
+      options = list_favorites_options(options)
 
       paginate(options)
     end
 
     def self.list_favorites_each(options = {}, &block)
-      options = list_favorites_pagination_options(options)
+      options = list_favorites_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_favorites_pages_each(options = {}, &block)
-      options = list_favorites_pagination_options(options)
+      options = list_favorites_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.list_institutions_page(options = {})
-      options = list_institutions_pagination_options(options)
+      options = list_institutions_options(options)
 
       paginate(options)
     end
 
     def self.list_institutions_each(options = {}, &block)
-      options = list_institutions_pagination_options(options)
+      options = list_institutions_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_institutions_pages_each(options = {}, &block)
-      options = list_institutions_pagination_options(options)
+      options = list_institutions_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.read_institution(options = {})
-      headers = {
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      }
-
-      endpoint = "/institutions/#{options[:institution_code]}"
-      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      read_institution_options = read_institution_options(options)
+      response = ::MXPlatformRuby.client.make_request(read_institution_options)
 
       institution_params = response['institution']
       ::MXPlatformRuby::Institution.new(institution_params)
@@ -66,33 +62,41 @@ module MXPlatformRuby
 
     # Private class methods
 
-    def self.list_favorites_pagination_options(options)
+    def self.list_favorites_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: '/institutions/favorites',
-        resource: 'institutions',
+        http_method: :get,
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }.compact
+        }.compact,
+        resource: 'institutions'
       }
     end
-    private_class_method :list_favorites_pagination_options
+    private_class_method :list_favorites_options
 
-    def self.list_institutions_pagination_options(options)
+    def self.list_institutions_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: '/institutions',
-        resource: 'institutions',
+        http_method: :get,
         query_params: {
           name: options[:name],
           supports_account_identification: options[:supports_account_identification],
           supports_account_statement: options[:supports_account_statement],
           supports_account_verification: options[:supports_account_verification],
           supports_transaction_history: options[:supports_transaction_history]
-        }.compact
+        }.compact,
+        resource: 'institutions'
       }
     end
-    private_class_method :list_institutions_pagination_options
+    private_class_method :list_institutions_options
+
+    def self.read_institution_options(options)
+      {
+        endpoint: "/institutions/#{options[:institution_code]}",
+        http_method: :get
+      }
+    end
+    private_class_method :read_institution_options
   end
 end

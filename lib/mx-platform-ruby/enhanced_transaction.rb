@@ -21,14 +21,9 @@ module MXPlatformRuby
     attribute :original_description
     attribute :type
 
-    def self.enhanced_transactions(options = {})
-      headers = {
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      }
-
-      body = enhanced_transactions_body(options)
-      endpoint = '/transactions/enhance'
-      response = ::MXPlatformRuby.client.make_request(:post, endpoint, body, headers)
+    def self.enhance_transactions(options = {})
+      enhance_transactions_options = enhance_transactions_options(options)
+      response = ::MXPlatformRuby.client.make_request(enhance_transactions_options)
 
       transactions_params = response['transactions']
       ::MXPlatformRuby::EnhancedTransaction.new(transactions_params)
@@ -36,11 +31,15 @@ module MXPlatformRuby
 
     # Private class methods
 
-    def self.enhanced_transactions_body(options)
+    def self.enhance_transactions_options(options)
       {
-        transactions: options[:transactions]
+        endpoint: '/transactions/enhance',
+        http_method: :post,
+        request_body: {
+          transactions: options[:transactions]
+        }.compact
       }
     end
-    private_class_method :enhanced_transactions_body
+    private_class_method :enhance_transactions_options
   end
 end

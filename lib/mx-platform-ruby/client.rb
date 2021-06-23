@@ -12,10 +12,12 @@ module MXPlatformRuby
       @username = username
     end
 
-    def make_request(method, endpoint, body = nil, headers = {})
-      body    = ::JSON.dump(body) if body
-      headers = default_headers.merge(headers)
-      url     = "#{base_url}#{endpoint}"
+    def make_request(options = {})
+      body    = ::JSON.dump(options[:request_body]) if options[:request_body]
+      headers = default_headers.merge(options[:headers] || {})
+      url     = "#{base_url}#{options[:endpoint]}"
+      url     = "#{url}?#{::URI.encode_www_form(options[:query_params])}" if options[:query_params]
+      method  = options[:http_method]
 
       response = http_client.public_send(method, url, body, headers)
 
@@ -30,7 +32,7 @@ module MXPlatformRuby
 
     def default_headers
       {
-        'Accept' => 'application/json',
+        'Accept' => 'application/vnd.mx.api.v1+json',
         'Authorization' => "Basic #{::Base64.urlsafe_encode64("#{username}:#{password}")}",
         'Content-Type' => 'application/json'
       }

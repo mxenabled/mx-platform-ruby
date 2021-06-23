@@ -25,7 +25,7 @@ Layout/LineLength:
   Description: Checks the length of lines in the source code
   Exclude:
     - 'spec/lib/**/*.rb' # Excluding to avoid multiline expect statements
-  IgnoredPatterns: ['^      endpoint =.*'] # Excluding since the endpoints may requrie longer lines
+  IgnoredPatterns: ['^        endpoint: ".*'] # Excluding since the endpoints may requrie longer lines
   Max: 120
 
 Naming/FileName:

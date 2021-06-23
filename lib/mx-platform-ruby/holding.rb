@@ -25,48 +25,44 @@ module MXPlatformRuby
     attribute :user_guid
 
     def self.list_holdings_by_member_page(options = {})
-      options = list_holdings_by_member_pagination_options(options)
+      options = list_holdings_by_member_options(options)
 
       paginate(options)
     end
 
     def self.list_holdings_by_member_each(options = {}, &block)
-      options = list_holdings_by_member_pagination_options(options)
+      options = list_holdings_by_member_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_holdings_by_member_pages_each(options = {}, &block)
-      options = list_holdings_by_member_pagination_options(options)
+      options = list_holdings_by_member_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.list_holdings_by_user_page(options = {})
-      options = list_holdings_by_user_pagination_options(options)
+      options = list_holdings_by_user_options(options)
 
       paginate(options)
     end
 
     def self.list_holdings_by_user_each(options = {}, &block)
-      options = list_holdings_by_user_pagination_options(options)
+      options = list_holdings_by_user_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_holdings_by_user_pages_each(options = {}, &block)
-      options = list_holdings_by_user_pagination_options(options)
+      options = list_holdings_by_user_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.read_holding(options = {})
-      headers = {
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      }
-
-      endpoint = "/users/#{options[:user_guid]}/holdings/#{options[:holding_guid]}"
-      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      read_holding_options = read_holding_options(options)
+      response = ::MXPlatformRuby.client.make_request(read_holding_options)
 
       holding_params = response['holding']
       ::MXPlatformRuby::Holding.new(holding_params)
@@ -74,34 +70,42 @@ module MXPlatformRuby
 
     # Private class methods
 
-    def self.list_holdings_by_member_pagination_options(options)
+    def self.list_holdings_by_member_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/holdings",
-        resource: 'holdings',
+        http_method: :get,
         query_params: {
           from_date: options[:from_date],
           page: options[:page],
           records_per_page: options[:records_per_page],
           to_date: options[:to_date]
-        }.compact
+        }.compact,
+        resource: 'holdings'
       }
     end
-    private_class_method :list_holdings_by_member_pagination_options
+    private_class_method :list_holdings_by_member_options
 
-    def self.list_holdings_by_user_pagination_options(options)
+    def self.list_holdings_by_user_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: "/users/#{options[:user_guid]}/holdings",
-        resource: 'holdings',
+        http_method: :get,
         query_params: {
           from_date: options[:from_date],
           page: options[:page],
           records_per_page: options[:records_per_page],
           to_date: options[:to_date]
-        }.compact
+        }.compact,
+        resource: 'holdings'
       }
     end
-    private_class_method :list_holdings_by_user_pagination_options
+    private_class_method :list_holdings_by_user_options
+
+    def self.read_holding_options(options)
+      {
+        endpoint: "/users/#{options[:user_guid]}/holdings/#{options[:holding_guid]}",
+        http_method: :get
+      }
+    end
+    private_class_method :read_holding_options
   end
 end

@@ -17,7 +17,7 @@ RSpec.describe ::MXPlatformRuby::Pageable do
       'records' => [],
       'pagination' => {
         'current_page' => 1,
-        'records_per_page' => records_per_page,
+        'per_page' => per_page,
         'total_entries' => 0,
         'total_pages' => 1
       }
@@ -30,7 +30,7 @@ RSpec.describe ::MXPlatformRuby::Pageable do
       'records' => ::Array.new(2, record_response),
       'pagination' => {
         'current_page' => first,
-        'records_per_page' => records_per_page,
+        'per_page' => per_page,
         'total_entries' => total_entries,
         'total_pages' => total_pages
       }
@@ -43,7 +43,7 @@ RSpec.describe ::MXPlatformRuby::Pageable do
       'records' => ::Array.new(1, record_response),
       'pagination' => {
         'current_page' => last,
-        'records_per_page' => records_per_page,
+        'per_page' => per_page,
         'total_entries' => total_entries,
         'total_pages' => total_pages
       }
@@ -56,19 +56,19 @@ RSpec.describe ::MXPlatformRuby::Pageable do
       resource: 'records'
     }
   end
-  let(:query_params) { { query_params: { from_date: ::Date.new(2000, 1, 1) } } }
+  let(:query_params) { { query_params: { from_date: '2000-01-01', to_date: '2020-01-01' } } }
   let(:record) { ::Record.new('record_attribute' => 'record_value') }
   let(:record_response) { { 'record_attribute' => 'record_value' } }
-  let(:records_per_page) { 2 }
+  let(:per_page) { 2 }
   let(:total_entries) { 3 }
   let(:total_pages) { 2 }
 
   before do
-    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with({ accept_header: 'application/json', endpoint: '/records', resource: 'records' })
                                                             .and_return(first_page_response)
-    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=1', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with({ accept_header: 'application/json', endpoint: '/records', query_params: { page: 1 }, resource: 'records' })
                                                             .and_return(first_page_response)
-    allow(::MXPlatformRuby.client).to receive(:make_request).with(:get, '/records?page=2', nil, accept_header)
+    allow(::MXPlatformRuby.client).to receive(:make_request).with({ accept_header: 'application/json', endpoint: '/records', query_params: { page: 2 }, resource: 'records' })
                                                             .and_return(last_page_response)
   end
 
@@ -77,7 +77,7 @@ RSpec.describe ::MXPlatformRuby::Pageable do
       page = subject.paginate(options)
       expect(page).to eq(first_page)
       expect(page.current_page).to eq(first)
-      expect(page.records_per_page).to eq(records_per_page)
+      expect(page.per_page).to eq(per_page)
       expect(page.total_entries).to eq(total_entries)
       expect(page.total_pages).to eq(total_pages)
     end
@@ -113,7 +113,7 @@ RSpec.describe ::MXPlatformRuby::Pageable do
         subject.paginate_pages(options) { |page| pages << page }
         expect(pages.first).to eq(first_page)
         expect(pages.first.current_page).to eq(first)
-        expect(pages.first.records_per_page).to eq(records_per_page)
+        expect(pages.first.per_page).to eq(per_page)
         expect(pages.first.total_entries).to eq(total_entries)
         expect(pages.first.total_pages).to eq(total_pages)
         expect(pages.size).to eq(1)
@@ -126,12 +126,12 @@ RSpec.describe ::MXPlatformRuby::Pageable do
         subject.paginate_pages(options) { |page| pages << page }
         expect(pages.first).to eq(first_page)
         expect(pages.first.current_page).to eq(first)
-        expect(pages.first.records_per_page).to eq(records_per_page)
+        expect(pages.first.per_page).to eq(per_page)
         expect(pages.first.total_entries).to eq(total_entries)
         expect(pages.first.total_pages).to eq(total_pages)
         expect(pages.last).to eq(last_page)
         expect(pages.last.current_page).to eq(last)
-        expect(pages.last.records_per_page).to eq(records_per_page)
+        expect(pages.last.per_page).to eq(per_page)
         expect(pages.last.total_entries).to eq(total_entries)
         expect(pages.last.total_pages).to eq(total_pages)
         expect(pages.size).to eq(2)
@@ -144,16 +144,27 @@ RSpec.describe ::MXPlatformRuby::Pageable do
 
       it 'uses the query params' do
         expect(::MXPlatformRuby.client).to receive(:make_request).with(
-          :get,
-          '/records?from_date=2000-01-01',
-          nil,
-          accept_header
+          {
+            accept_header: 'application/json',
+            endpoint: '/records',
+            query_params: {
+              from_date: '2000-01-01',
+              to_date: '2020-01-01'
+            },
+            resource: 'records'
+          }
         ).and_return(first_page_response)
         expect(::MXPlatformRuby.client).to receive(:make_request).with(
-          :get,
-          '/records?from_date=2000-01-01&page=1',
-          nil,
-          accept_header
+          {
+            accept_header: 'application/json',
+            endpoint: '/records',
+            query_params: {
+              from_date: '2000-01-01',
+              to_date: '2020-01-01',
+              page: 1
+            },
+            resource: 'records'
+          }
         ).and_return(first_page_response)
         subject.paginate_pages(options.merge(query_params)) {}
       end

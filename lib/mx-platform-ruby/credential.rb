@@ -12,67 +12,67 @@ module MXPlatformRuby
     attribute :label
 
     def self.list_institution_required_credentials_page(options = {})
-      options = list_institution_required_credentials_pagination_options(options)
+      options = list_institution_required_credentials_options(options)
 
       paginate(options)
     end
 
     def self.list_institution_required_credentials_each(options = {}, &block)
-      options = list_institution_required_credentials_pagination_options(options)
+      options = list_institution_required_credentials_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_institution_required_credentials_pages_each(options = {}, &block)
-      options = list_institution_required_credentials_pagination_options(options)
+      options = list_institution_required_credentials_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.list_member_credentials_page(options = {})
-      options = list_member_credentials_pagination_options(options)
+      options = list_member_credentials_options(options)
 
       paginate(options)
     end
 
     def self.list_member_credentials_each(options = {}, &block)
-      options = list_member_credentials_pagination_options(options)
+      options = list_member_credentials_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_member_credentials_pages_each(options = {}, &block)
-      options = list_member_credentials_pagination_options(options)
+      options = list_member_credentials_options(options)
 
       paginate_pages(options, &block)
     end
 
     # Private class methods
 
-    def self.list_institution_required_credentials_pagination_options(options)
+    def self.list_institution_required_credentials_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: "/institutions/#{options[:institution_code]}/credentials",
-        resource: 'credentials',
+        http_method: :get,
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }.compact
+        }.compact,
+        resource: 'credentials'
       }
     end
-    private_class_method :list_institution_required_credentials_pagination_options
+    private_class_method :list_institution_required_credentials_options
 
-    def self.list_member_credentials_pagination_options(options)
+    def self.list_member_credentials_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/credentials",
-        resource: 'credentials',
+        http_method: :get,
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }.compact
+        }.compact,
+        resource: 'credentials'
       }
     end
-    private_class_method :list_member_credentials_pagination_options
+    private_class_method :list_member_credentials_options
   end
 end

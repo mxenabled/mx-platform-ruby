@@ -5,15 +5,14 @@ require 'spec_helper'
 RSpec.describe ::MXPlatformRuby::User do
   let(:user_attributes) do
     {
-      'email' => 'email@provider.com',
-      'guid' => 'USR-d74cb14f-fd0a-449f-991b-e0362a63d9c6',
-      'id' => 'My-Unique-ID',
-      'is_disabled' => false,
-      'metadata' => '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
+      email: 'email@provider.com',
+      guid: 'USR-d74cb14f-fd0a-449f-991b-e0362a63d9c6',
+      id: 'My-Unique-ID',
+      is_disabled: false,
+      metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
     }
   end
-  let(:create_user_request_body) { { user: create_user_request_body_parameters } }
-  let(:create_user_request_body_parameters) do
+  let(:create_user_options) do
     {
       email: 'email@provider.com',
       id: 'My-Unique-ID',
@@ -21,27 +20,28 @@ RSpec.describe ::MXPlatformRuby::User do
       metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
     }
   end
-  let(:delete_user_path_parameters) do
+  let(:delete_user_options) do
     {
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:read_user_path_parameters) do
+  let(:list_users_options) do
+    {
+      page: 1,
+      records_per_page: 10
+    }
+  end
+  let(:read_user_options) do
     {
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:update_user_request_body) { { user: update_user_request_body_parameters } }
-  let(:update_user_request_body_parameters) do
+  let(:update_user_options) do
     {
       email: 'email@provider.com',
       id: 'My-Unique-ID',
       is_disabled: false,
-      metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
-    }
-  end
-  let(:update_user_path_parameters) do
-    {
+      metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
@@ -62,23 +62,29 @@ RSpec.describe ::MXPlatformRuby::User do
       response = described_class.create_user
 
       expect(response).to be_kind_of(::MXPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
+      expect(response.email).to eq(user_attributes[:email])
+      expect(response.guid).to eq(user_attributes[:guid])
+      expect(response.id).to eq(user_attributes[:id])
+      expect(response.is_disabled).to eq(user_attributes[:is_disabled])
+      expect(response.metadata).to eq(user_attributes[:metadata])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :post,
-        '/users',
-        create_user_request_body,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users',
+          http_method: :post,
+          request_body: {
+            user: {
+              email: 'email@provider.com',
+              id: 'My-Unique-ID',
+              is_disabled: false,
+              metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
+            }
+          }
+        }
       )
-      described_class.create_user(
-        create_user_request_body_parameters
-      )
+      described_class.create_user(create_user_options)
     end
   end
 
@@ -93,14 +99,12 @@ RSpec.describe ::MXPlatformRuby::User do
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :delete,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
+          http_method: :delete
+        }
       )
-      described_class.delete_user(
-        delete_user_path_parameters
-      )
+      described_class.delete_user(delete_user_options)
     end
   end
 
@@ -120,11 +124,11 @@ RSpec.describe ::MXPlatformRuby::User do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::User)
-        expect(response.first.email).to eq(user_attributes['email'])
-        expect(response.first.guid).to eq(user_attributes['guid'])
-        expect(response.first.id).to eq(user_attributes['id'])
-        expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
-        expect(response.first.metadata).to eq(user_attributes['metadata'])
+        expect(response.first.email).to eq(user_attributes[:email])
+        expect(response.first.guid).to eq(user_attributes[:guid])
+        expect(response.first.id).to eq(user_attributes[:id])
+        expect(response.first.is_disabled).to eq(user_attributes[:is_disabled])
+        expect(response.first.metadata).to eq(user_attributes[:metadata])
         expect(response.length).to eq(1)
       end
     end
@@ -138,11 +142,11 @@ RSpec.describe ::MXPlatformRuby::User do
         end
 
         expect(response).to be_kind_of(::MXPlatformRuby::User)
-        expect(response.email).to eq(user_attributes['email'])
-        expect(response.guid).to eq(user_attributes['guid'])
-        expect(response.id).to eq(user_attributes['id'])
-        expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-        expect(response.metadata).to eq(user_attributes['metadata'])
+        expect(response.email).to eq(user_attributes[:email])
+        expect(response.guid).to eq(user_attributes[:guid])
+        expect(response.id).to eq(user_attributes[:id])
+        expect(response.is_disabled).to eq(user_attributes[:is_disabled])
+        expect(response.metadata).to eq(user_attributes[:metadata])
       end
     end
 
@@ -156,11 +160,11 @@ RSpec.describe ::MXPlatformRuby::User do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::User)
-        expect(response.first.email).to eq(user_attributes['email'])
-        expect(response.first.guid).to eq(user_attributes['guid'])
-        expect(response.first.id).to eq(user_attributes['id'])
-        expect(response.first.is_disabled).to eq(user_attributes['is_disabled'])
-        expect(response.first.metadata).to eq(user_attributes['metadata'])
+        expect(response.first.email).to eq(user_attributes[:email])
+        expect(response.first.guid).to eq(user_attributes[:guid])
+        expect(response.first.id).to eq(user_attributes[:id])
+        expect(response.first.is_disabled).to eq(user_attributes[:is_disabled])
+        expect(response.first.metadata).to eq(user_attributes[:metadata])
         expect(response.length).to eq(1)
       end
     end
@@ -174,23 +178,21 @@ RSpec.describe ::MXPlatformRuby::User do
       response = described_class.read_user
 
       expect(response).to be_kind_of(::MXPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
+      expect(response.email).to eq(user_attributes[:email])
+      expect(response.guid).to eq(user_attributes[:guid])
+      expect(response.id).to eq(user_attributes[:id])
+      expect(response.is_disabled).to eq(user_attributes[:is_disabled])
+      expect(response.metadata).to eq(user_attributes[:metadata])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :get,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
+          http_method: :get
+        }
       )
-      described_class.read_user(
-        read_user_path_parameters
-      )
+      described_class.read_user(read_user_options)
     end
   end
 
@@ -202,23 +204,29 @@ RSpec.describe ::MXPlatformRuby::User do
       response = described_class.update_user
 
       expect(response).to be_kind_of(::MXPlatformRuby::User)
-      expect(response.email).to eq(user_attributes['email'])
-      expect(response.guid).to eq(user_attributes['guid'])
-      expect(response.id).to eq(user_attributes['id'])
-      expect(response.is_disabled).to eq(user_attributes['is_disabled'])
-      expect(response.metadata).to eq(user_attributes['metadata'])
+      expect(response.email).to eq(user_attributes[:email])
+      expect(response.guid).to eq(user_attributes[:guid])
+      expect(response.id).to eq(user_attributes[:id])
+      expect(response.is_disabled).to eq(user_attributes[:is_disabled])
+      expect(response.metadata).to eq(user_attributes[:metadata])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :put,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
-        update_user_request_body,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54',
+          http_method: :put,
+          request_body: {
+            user: {
+              email: 'email@provider.com',
+              id: 'My-Unique-ID',
+              is_disabled: false,
+              metadata: '{\"first_name\": \"Steven\", \"last_name\": \"Universe\"}'
+            }
+          }
+        }
       )
-      described_class.update_user(
-        update_user_request_body_parameters.merge(update_user_path_parameters)
-      )
+      described_class.update_user(update_user_options)
     end
   end
 end
