@@ -47,43 +47,34 @@ module MXPlatformRuby
     attribute :user_guid
 
     def self.list_user_accounts_page(options = {})
-      options = list_user_accounts_pagination_options(options)
+      options = list_user_accounts_options(options)
 
       paginate(options)
     end
 
     def self.list_user_accounts_each(options = {}, &block)
-      options = list_user_accounts_pagination_options(options)
+      options = list_user_accounts_options(options)
 
       paginate_each(options, &block)
     end
 
     def self.list_user_accounts_pages_each(options = {}, &block)
-      options = list_user_accounts_pagination_options(options)
+      options = list_user_accounts_options(options)
 
       paginate_pages(options, &block)
     end
 
     def self.read_account(options = {})
-      headers = {
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      }
-
-      endpoint = "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MXPlatformRuby.client.make_request(:get, endpoint, nil, headers)
+      read_account_options = read_account_options(options)
+      response = ::MXPlatformRuby.client.make_request(read_account_options)
 
       account_params = response['account']
       ::MXPlatformRuby::Account.new(account_params)
     end
 
     def self.update_account(options = {})
-      headers = {
-        'Accept' => 'application/vnd.mx.api.v1+json'
-      }
-
-      body = update_account_body(options)
-      endpoint = "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/accounts/#{options[:account_guid]}"
-      response = ::MXPlatformRuby.client.make_request(:put, endpoint, body, headers)
+      update_account_options = update_account_options(options)
+      response = ::MXPlatformRuby.client.make_request(update_account_options)
 
       account_params = response['account']
       ::MXPlatformRuby::Account.new(account_params)
@@ -91,26 +82,38 @@ module MXPlatformRuby
 
     # Private class methods
 
-    def self.list_user_accounts_pagination_options(options)
+    def self.list_user_accounts_options(options)
       {
-        accept_header: 'application/vnd.mx.api.v1+json',
         endpoint: "/users/#{options[:user_guid]}/accounts",
-        resource: 'accounts',
+        http_method: :get,
         query_params: {
           page: options[:page],
           records_per_page: options[:records_per_page]
-        }.compact
+        }.compact,
+        resource: 'accounts'
       }
     end
-    private_class_method :list_user_accounts_pagination_options
+    private_class_method :list_user_accounts_options
 
-    def self.update_account_body(options)
+    def self.read_account_options(options)
       {
-        account: {
-          is_hidden: options[:is_hidden]
-        }.compact
+        endpoint: "/users/#{options[:user_guid]}/accounts/#{options[:account_guid]}",
+        http_method: :get
       }
     end
-    private_class_method :update_account_body
+    private_class_method :read_account_options
+
+    def self.update_account_options(options)
+      {
+        endpoint: "/users/#{options[:user_guid]}/members/#{options[:member_guid]}/accounts/#{options[:account_guid]}",
+        http_method: :put,
+        request_body: {
+          account: {
+            is_hidden: options[:is_hidden]
+          }.compact
+        }
+      }
+    end
+    private_class_method :update_account_options
   end
 end

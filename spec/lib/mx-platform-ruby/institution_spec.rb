@@ -5,19 +5,34 @@ require 'spec_helper'
 RSpec.describe ::MXPlatformRuby::Institution do
   let(:institution_attributes) do
     {
-      'code' => 'chase',
-      'medium_logo_url' => 'https://content.moneydesktop.com/storage/MD_Assets/Ipad%20Logos/100x100/default_100x100.png',
-      'name' => 'Chase Bank',
-      'small_logo_url' => 'https://content.moneydesktop.com/storage/MD_Assets/Ipad%20Logos/50x50/default_50x50.png',
-      'supports_account_identification' => true,
-      'supports_account_statement' => true,
-      'supports_account_verification' => true,
-      'supports_oauth' => true,
-      'supports_transaction_history' => true,
-      'url' => 'https://www.chase.com'
+      code: 'chase',
+      medium_logo_url: 'https://content.moneydesktop.com/storage/MD_Assets/Ipad%20Logos/100x100/default_100x100.png',
+      name: 'Chase Bank',
+      small_logo_url: 'https://content.moneydesktop.com/storage/MD_Assets/Ipad%20Logos/50x50/default_50x50.png',
+      supports_account_identification: true,
+      supports_account_statement: true,
+      supports_account_verification: true,
+      supports_oauth: true,
+      supports_transaction_history: true,
+      url: 'https://www.chase.com'
     }
   end
-  let(:read_institution_path_parameters) do
+  let(:list_favorites_options) do
+    {
+      page: 1,
+      records_per_page: 10
+    }
+  end
+  let(:list_institutions_options) do
+    {
+      name: 'chase',
+      supports_account_identification: true,
+      supports_account_statement: true,
+      supports_account_verification: true,
+      supports_transaction_history: true
+    }
+  end
+  let(:read_institution_options) do
     {
       institution_code: 'chase'
     }
@@ -47,16 +62,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.first.code).to eq(institution_attributes['code'])
-        expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.first.name).to eq(institution_attributes['name'])
-        expect(response.first.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.first.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.first.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.first.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.first.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.first.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.first.url).to eq(institution_attributes['url'])
+        expect(response.first.code).to eq(institution_attributes[:code])
+        expect(response.first.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.first.name).to eq(institution_attributes[:name])
+        expect(response.first.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.first.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.first.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.first.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.first.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.first.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.first.url).to eq(institution_attributes[:url])
         expect(response.length).to eq(1)
       end
     end
@@ -70,16 +85,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
         end
 
         expect(response).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.code).to eq(institution_attributes['code'])
-        expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.name).to eq(institution_attributes['name'])
-        expect(response.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.url).to eq(institution_attributes['url'])
+        expect(response.code).to eq(institution_attributes[:code])
+        expect(response.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.name).to eq(institution_attributes[:name])
+        expect(response.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.url).to eq(institution_attributes[:url])
       end
     end
 
@@ -93,16 +108,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.first.code).to eq(institution_attributes['code'])
-        expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.first.name).to eq(institution_attributes['name'])
-        expect(response.first.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.first.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.first.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.first.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.first.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.first.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.first.url).to eq(institution_attributes['url'])
+        expect(response.first.code).to eq(institution_attributes[:code])
+        expect(response.first.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.first.name).to eq(institution_attributes[:name])
+        expect(response.first.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.first.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.first.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.first.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.first.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.first.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.first.url).to eq(institution_attributes[:url])
         expect(response.length).to eq(1)
       end
     end
@@ -124,16 +139,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.first.code).to eq(institution_attributes['code'])
-        expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.first.name).to eq(institution_attributes['name'])
-        expect(response.first.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.first.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.first.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.first.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.first.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.first.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.first.url).to eq(institution_attributes['url'])
+        expect(response.first.code).to eq(institution_attributes[:code])
+        expect(response.first.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.first.name).to eq(institution_attributes[:name])
+        expect(response.first.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.first.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.first.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.first.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.first.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.first.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.first.url).to eq(institution_attributes[:url])
         expect(response.length).to eq(1)
       end
     end
@@ -147,16 +162,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
         end
 
         expect(response).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.code).to eq(institution_attributes['code'])
-        expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.name).to eq(institution_attributes['name'])
-        expect(response.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.url).to eq(institution_attributes['url'])
+        expect(response.code).to eq(institution_attributes[:code])
+        expect(response.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.name).to eq(institution_attributes[:name])
+        expect(response.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.url).to eq(institution_attributes[:url])
       end
     end
 
@@ -170,16 +185,16 @@ RSpec.describe ::MXPlatformRuby::Institution do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Institution)
-        expect(response.first.code).to eq(institution_attributes['code'])
-        expect(response.first.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-        expect(response.first.name).to eq(institution_attributes['name'])
-        expect(response.first.small_logo_url).to eq(institution_attributes['small_logo_url'])
-        expect(response.first.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-        expect(response.first.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-        expect(response.first.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-        expect(response.first.supports_oauth).to eq(institution_attributes['supports_oauth'])
-        expect(response.first.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-        expect(response.first.url).to eq(institution_attributes['url'])
+        expect(response.first.code).to eq(institution_attributes[:code])
+        expect(response.first.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+        expect(response.first.name).to eq(institution_attributes[:name])
+        expect(response.first.small_logo_url).to eq(institution_attributes[:small_logo_url])
+        expect(response.first.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+        expect(response.first.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+        expect(response.first.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+        expect(response.first.supports_oauth).to eq(institution_attributes[:supports_oauth])
+        expect(response.first.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+        expect(response.first.url).to eq(institution_attributes[:url])
         expect(response.length).to eq(1)
       end
     end
@@ -193,28 +208,26 @@ RSpec.describe ::MXPlatformRuby::Institution do
       response = described_class.read_institution
 
       expect(response).to be_kind_of(::MXPlatformRuby::Institution)
-      expect(response.code).to eq(institution_attributes['code'])
-      expect(response.medium_logo_url).to eq(institution_attributes['medium_logo_url'])
-      expect(response.name).to eq(institution_attributes['name'])
-      expect(response.small_logo_url).to eq(institution_attributes['small_logo_url'])
-      expect(response.supports_account_identification).to eq(institution_attributes['supports_account_identification'])
-      expect(response.supports_account_statement).to eq(institution_attributes['supports_account_statement'])
-      expect(response.supports_account_verification).to eq(institution_attributes['supports_account_verification'])
-      expect(response.supports_oauth).to eq(institution_attributes['supports_oauth'])
-      expect(response.supports_transaction_history).to eq(institution_attributes['supports_transaction_history'])
-      expect(response.url).to eq(institution_attributes['url'])
+      expect(response.code).to eq(institution_attributes[:code])
+      expect(response.medium_logo_url).to eq(institution_attributes[:medium_logo_url])
+      expect(response.name).to eq(institution_attributes[:name])
+      expect(response.small_logo_url).to eq(institution_attributes[:small_logo_url])
+      expect(response.supports_account_identification).to eq(institution_attributes[:supports_account_identification])
+      expect(response.supports_account_statement).to eq(institution_attributes[:supports_account_statement])
+      expect(response.supports_account_verification).to eq(institution_attributes[:supports_account_verification])
+      expect(response.supports_oauth).to eq(institution_attributes[:supports_oauth])
+      expect(response.supports_transaction_history).to eq(institution_attributes[:supports_transaction_history])
+      expect(response.url).to eq(institution_attributes[:url])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :get,
-        '/institutions/chase',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/institutions/chase',
+          http_method: :get
+        }
       )
-      described_class.read_institution(
-        read_institution_path_parameters
-      )
+      described_class.read_institution(read_institution_options)
     end
   end
 end

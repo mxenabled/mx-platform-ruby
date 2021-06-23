@@ -54,7 +54,7 @@ RSpec.describe ::MXPlatformRuby::Client do
 
     it 'builds the request url' do
       expect(client_custom_params.http_client).to receive(:get).with('base_url/endpoint', any_args)
-      client_custom_params.make_request(:get, '/endpoint')
+      client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint' })
     end
 
     it 'sends authentication headers' do
@@ -63,18 +63,18 @@ RSpec.describe ::MXPlatformRuby::Client do
         anything,
         hash_including('Authorization' => 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=')
       )
-      client_custom_params.make_request(:get, '/endpoint')
+      client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint' })
     end
 
     it 'sends the body as json' do
       expect(client_custom_params.http_client).to receive(:get).with(anything, '{"key":"value"}', any_args)
-      client_custom_params.make_request(:get, '/endpoint', key: :value)
+      client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint', request_body: { key: :value } })
     end
 
     context 'when the response is json' do
       it 'parses the json response' do
         allow(client_custom_params.http_client).to receive(:get).and_return(ok_response)
-        parsed_response = client_custom_params.make_request(:get, '/endpoint', key: :value)
+        parsed_response = client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint', request_body: { key: :value } })
         expect(parsed_response['key']).to eq('value')
       end
     end
@@ -82,7 +82,7 @@ RSpec.describe ::MXPlatformRuby::Client do
     context 'when the response is not json' do
       it 'formats the response as a ::TempFile' do
         allow(client_custom_params.http_client).to receive(:get).and_return(file_response)
-        temp_file = client_custom_params.make_request(:get, '/endpoint', key: :value)
+        temp_file = client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint', request_body: { key: :value } })
 
         expect(temp_file).to be_kind_of(::Tempfile)
         expect(::IO.read(temp_file)).to eq(::IO.read(sample_pdf))
@@ -92,7 +92,7 @@ RSpec.describe ::MXPlatformRuby::Client do
     context 'with error' do
       it 'raises a ::MXPlatformRuby::Error' do
         allow(client_custom_params.http_client).to receive(:get).and_return(error_response)
-        expect { client_custom_params.make_request(:get, '/endpoint', key: :value) }.to raise_error(
+        expect { client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint', request_body: { key: :value } }) }.to raise_error(
           ::MXPlatformRuby::Error
         )
       end

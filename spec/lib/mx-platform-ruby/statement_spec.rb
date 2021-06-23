@@ -5,30 +5,32 @@ require 'spec_helper'
 RSpec.describe ::MXPlatformRuby::Statement do
   let(:statement_attributes) do
     {
-      'account_guid' => 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
-      'content_hash' => 'ca53785b812d00ef821c3d94bfd6e5bbc0020504410589b7ea8552169f021981',
-      'created_at' => '2016-10-13T18:08:00+00:00',
-      'guid' => 'STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
-      'member_guid' => 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
-      'updated_at' => '2016-10-13T18:09:00+00:00',
-      'uri' => 'uri/to/statement',
-      'user_guid' => 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
+      account_guid: 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1',
+      content_hash: 'ca53785b812d00ef821c3d94bfd6e5bbc0020504410589b7ea8552169f021981',
+      created_at: '2016-10-13T18:08:00+00:00',
+      guid: 'STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
+      member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
+      updated_at: '2016-10-13T18:09:00+00:00',
+      uri: 'uri/to/statement',
+      user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:download_statement_pdf_path_parameters) do
+  let(:download_statement_pdf_options) do
     {
       member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
       statement_guid: 'STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:list_statements_by_member_path_parameters) do
+  let(:list_statements_by_member_options) do
     {
       member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
+      page: 1,
+      records_per_page: 10,
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:read_statement_by_member_path_parameters) do
+  let(:read_statement_by_member_options) do
     {
       member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
       statement_guid: 'STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
@@ -56,14 +58,15 @@ RSpec.describe ::MXPlatformRuby::Statement do
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :get,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1.pdf',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+pdf'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1.pdf',
+          headers: {
+            'Accept': 'application/vnd.mx.api.v1+pdf'
+          },
+          http_method: :get
+        }
       )
-      described_class.download_statement_pdf(
-        download_statement_pdf_path_parameters
-      )
+      described_class.download_statement_pdf(download_statement_pdf_options)
     end
   end
 
@@ -83,14 +86,14 @@ RSpec.describe ::MXPlatformRuby::Statement do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)
-        expect(response.first.account_guid).to eq(statement_attributes['account_guid'])
-        expect(response.first.content_hash).to eq(statement_attributes['content_hash'])
-        expect(response.first.created_at).to eq(statement_attributes['created_at'])
-        expect(response.first.guid).to eq(statement_attributes['guid'])
-        expect(response.first.member_guid).to eq(statement_attributes['member_guid'])
-        expect(response.first.updated_at).to eq(statement_attributes['updated_at'])
-        expect(response.first.uri).to eq(statement_attributes['uri'])
-        expect(response.first.user_guid).to eq(statement_attributes['user_guid'])
+        expect(response.first.account_guid).to eq(statement_attributes[:account_guid])
+        expect(response.first.content_hash).to eq(statement_attributes[:content_hash])
+        expect(response.first.created_at).to eq(statement_attributes[:created_at])
+        expect(response.first.guid).to eq(statement_attributes[:guid])
+        expect(response.first.member_guid).to eq(statement_attributes[:member_guid])
+        expect(response.first.updated_at).to eq(statement_attributes[:updated_at])
+        expect(response.first.uri).to eq(statement_attributes[:uri])
+        expect(response.first.user_guid).to eq(statement_attributes[:user_guid])
         expect(response.length).to eq(1)
       end
     end
@@ -104,14 +107,14 @@ RSpec.describe ::MXPlatformRuby::Statement do
         end
 
         expect(response).to be_kind_of(::MXPlatformRuby::Statement)
-        expect(response.account_guid).to eq(statement_attributes['account_guid'])
-        expect(response.content_hash).to eq(statement_attributes['content_hash'])
-        expect(response.created_at).to eq(statement_attributes['created_at'])
-        expect(response.guid).to eq(statement_attributes['guid'])
-        expect(response.member_guid).to eq(statement_attributes['member_guid'])
-        expect(response.updated_at).to eq(statement_attributes['updated_at'])
-        expect(response.uri).to eq(statement_attributes['uri'])
-        expect(response.user_guid).to eq(statement_attributes['user_guid'])
+        expect(response.account_guid).to eq(statement_attributes[:account_guid])
+        expect(response.content_hash).to eq(statement_attributes[:content_hash])
+        expect(response.created_at).to eq(statement_attributes[:created_at])
+        expect(response.guid).to eq(statement_attributes[:guid])
+        expect(response.member_guid).to eq(statement_attributes[:member_guid])
+        expect(response.updated_at).to eq(statement_attributes[:updated_at])
+        expect(response.uri).to eq(statement_attributes[:uri])
+        expect(response.user_guid).to eq(statement_attributes[:user_guid])
       end
     end
 
@@ -125,14 +128,14 @@ RSpec.describe ::MXPlatformRuby::Statement do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)
-        expect(response.first.account_guid).to eq(statement_attributes['account_guid'])
-        expect(response.first.content_hash).to eq(statement_attributes['content_hash'])
-        expect(response.first.created_at).to eq(statement_attributes['created_at'])
-        expect(response.first.guid).to eq(statement_attributes['guid'])
-        expect(response.first.member_guid).to eq(statement_attributes['member_guid'])
-        expect(response.first.updated_at).to eq(statement_attributes['updated_at'])
-        expect(response.first.uri).to eq(statement_attributes['uri'])
-        expect(response.first.user_guid).to eq(statement_attributes['user_guid'])
+        expect(response.first.account_guid).to eq(statement_attributes[:account_guid])
+        expect(response.first.content_hash).to eq(statement_attributes[:content_hash])
+        expect(response.first.created_at).to eq(statement_attributes[:created_at])
+        expect(response.first.guid).to eq(statement_attributes[:guid])
+        expect(response.first.member_guid).to eq(statement_attributes[:member_guid])
+        expect(response.first.updated_at).to eq(statement_attributes[:updated_at])
+        expect(response.first.uri).to eq(statement_attributes[:uri])
+        expect(response.first.user_guid).to eq(statement_attributes[:user_guid])
         expect(response.length).to eq(1)
       end
     end
@@ -146,26 +149,24 @@ RSpec.describe ::MXPlatformRuby::Statement do
       response = described_class.read_statement_by_member
 
       expect(response).to be_kind_of(::MXPlatformRuby::Statement)
-      expect(response.account_guid).to eq(statement_attributes['account_guid'])
-      expect(response.content_hash).to eq(statement_attributes['content_hash'])
-      expect(response.created_at).to eq(statement_attributes['created_at'])
-      expect(response.guid).to eq(statement_attributes['guid'])
-      expect(response.member_guid).to eq(statement_attributes['member_guid'])
-      expect(response.updated_at).to eq(statement_attributes['updated_at'])
-      expect(response.uri).to eq(statement_attributes['uri'])
-      expect(response.user_guid).to eq(statement_attributes['user_guid'])
+      expect(response.account_guid).to eq(statement_attributes[:account_guid])
+      expect(response.content_hash).to eq(statement_attributes[:content_hash])
+      expect(response.created_at).to eq(statement_attributes[:created_at])
+      expect(response.guid).to eq(statement_attributes[:guid])
+      expect(response.member_guid).to eq(statement_attributes[:member_guid])
+      expect(response.updated_at).to eq(statement_attributes[:updated_at])
+      expect(response.uri).to eq(statement_attributes[:uri])
+      expect(response.user_guid).to eq(statement_attributes[:user_guid])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :get,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/members/MBR-7c6f361b-e582-15b6-60c0-358f12466b4b/statements/STA-737a344b-caae-0f6e-1384-01f52e75dcb1',
+          http_method: :get
+        }
       )
-      described_class.read_statement_by_member(
-        read_statement_by_member_path_parameters
-      )
+      described_class.read_statement_by_member(read_statement_by_member_options)
     end
   end
 end

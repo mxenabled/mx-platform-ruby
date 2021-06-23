@@ -5,55 +5,47 @@ require 'spec_helper'
 RSpec.describe ::MXPlatformRuby::TransactionRule do
   let(:transaction_rule_attributes) do
     {
-      'category_guid' => 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
-      'created_at' => '2018-10-02T22:00:50+00:00',
-      'description' => 'Wal-mart food storage',
-      'guid' => 'TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
-      'match_description' => 'Wal-mart',
-      'updated_at' => '2018-10-02T23:54:40+00:00',
-      'user_guid' => 'USR-22fc3203-b3e6-8340-43db-8e50b2f56995'
+      category_guid: 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
+      created_at: '2018-10-02T22:00:50+00:00',
+      description: 'Wal-mart food storage',
+      guid: 'TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
+      match_description: 'Wal-mart',
+      updated_at: '2018-10-02T23:54:40+00:00',
+      user_guid: 'USR-22fc3203-b3e6-8340-43db-8e50b2f56995'
     }
   end
-  let(:create_transaction_rule_request_body) { { member: create_transaction_rule_request_body_parameters } }
-  let(:create_transaction_rule_request_body_parameters) do
+  let(:create_transaction_rule_options) do
     {
       category_guid: 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
       description: 'Wal-mart food storage',
-      match_description: 'Wal-mart'
-    }
-  end
-  let(:create_transaction_rule_path_parameters) do
-    {
+      match_description: 'Wal-mart',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:delete_transaction_rule_path_parameters) do
+  let(:delete_transaction_rule_options) do
     {
       transaction_rule_guid: 'TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:list_transaction_rules_by_user_path_parameters) do
+  let(:list_transaction_rules_by_user_options) do
     {
+      page: 1,
+      records_per_page: 10,
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:read_transaction_rule_path_parameters) do
+  let(:read_transaction_rule_options) do
     {
       transaction_rule_guid: 'TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
   end
-  let(:update_transaction_rule_request_body) { { transaction_rule: update_transaction_rule_request_body_parameters } }
-  let(:update_transaction_rule_request_body_parameters) do
+  let(:update_transaction_rule_options) do
     {
       category_guid: 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
       description: 'Wal-mart food storage',
-      match_description: 'Wal-mart'
-    }
-  end
-  let(:update_transaction_rule_path_parameters) do
-    {
+      match_description: 'Wal-mart',
       transaction_rule_guid: 'TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
       user_guid: 'USR-fa7537f3-48aa-a683-a02a-b18940482f54'
     }
@@ -75,25 +67,30 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
       response = described_class.create_transaction_rule
 
       expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
-      expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
-      expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
-      expect(response.description).to eq(transaction_rule_attributes['description'])
-      expect(response.guid).to eq(transaction_rule_attributes['guid'])
-      expect(response.match_description).to eq(transaction_rule_attributes['match_description'])
-      expect(response.updated_at).to eq(transaction_rule_attributes['updated_at'])
-      expect(response.user_guid).to eq(transaction_rule_attributes['user_guid'])
+      expect(response.category_guid).to eq(transaction_rule_attributes[:category_guid])
+      expect(response.created_at).to eq(transaction_rule_attributes[:created_at])
+      expect(response.description).to eq(transaction_rule_attributes[:description])
+      expect(response.guid).to eq(transaction_rule_attributes[:guid])
+      expect(response.match_description).to eq(transaction_rule_attributes[:match_description])
+      expect(response.updated_at).to eq(transaction_rule_attributes[:updated_at])
+      expect(response.user_guid).to eq(transaction_rule_attributes[:user_guid])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :post,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules',
-        create_transaction_rule_request_body,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules',
+          http_method: :post,
+          request_body: {
+            transaction_rule: {
+              category_guid: 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
+              description: 'Wal-mart food storage',
+              match_description: 'Wal-mart'
+            }
+          }
+        }
       )
-      described_class.create_transaction_rule(
-        create_transaction_rule_request_body_parameters.merge(create_transaction_rule_path_parameters)
-      )
+      described_class.create_transaction_rule(create_transaction_rule_options)
     end
   end
 
@@ -108,14 +105,12 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :delete,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
+          http_method: :delete
+        }
       )
-      described_class.delete_transaction_rule(
-        delete_transaction_rule_path_parameters
-      )
+      described_class.delete_transaction_rule(delete_transaction_rule_options)
     end
   end
 
@@ -135,13 +130,13 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)
-        expect(response.first.category_guid).to eq(transaction_rule_attributes['category_guid'])
-        expect(response.first.created_at).to eq(transaction_rule_attributes['created_at'])
-        expect(response.first.description).to eq(transaction_rule_attributes['description'])
-        expect(response.first.guid).to eq(transaction_rule_attributes['guid'])
-        expect(response.first.match_description).to eq(transaction_rule_attributes['match_description'])
-        expect(response.first.updated_at).to eq(transaction_rule_attributes['updated_at'])
-        expect(response.first.user_guid).to eq(transaction_rule_attributes['user_guid'])
+        expect(response.first.category_guid).to eq(transaction_rule_attributes[:category_guid])
+        expect(response.first.created_at).to eq(transaction_rule_attributes[:created_at])
+        expect(response.first.description).to eq(transaction_rule_attributes[:description])
+        expect(response.first.guid).to eq(transaction_rule_attributes[:guid])
+        expect(response.first.match_description).to eq(transaction_rule_attributes[:match_description])
+        expect(response.first.updated_at).to eq(transaction_rule_attributes[:updated_at])
+        expect(response.first.user_guid).to eq(transaction_rule_attributes[:user_guid])
         expect(response.length).to eq(1)
       end
     end
@@ -155,13 +150,13 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
         end
 
         expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
-        expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
-        expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
-        expect(response.description).to eq(transaction_rule_attributes['description'])
-        expect(response.guid).to eq(transaction_rule_attributes['guid'])
-        expect(response.match_description).to eq(transaction_rule_attributes['match_description'])
-        expect(response.updated_at).to eq(transaction_rule_attributes['updated_at'])
-        expect(response.user_guid).to eq(transaction_rule_attributes['user_guid'])
+        expect(response.category_guid).to eq(transaction_rule_attributes[:category_guid])
+        expect(response.created_at).to eq(transaction_rule_attributes[:created_at])
+        expect(response.description).to eq(transaction_rule_attributes[:description])
+        expect(response.guid).to eq(transaction_rule_attributes[:guid])
+        expect(response.match_description).to eq(transaction_rule_attributes[:match_description])
+        expect(response.updated_at).to eq(transaction_rule_attributes[:updated_at])
+        expect(response.user_guid).to eq(transaction_rule_attributes[:user_guid])
       end
     end
 
@@ -175,13 +170,13 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)
-        expect(response.first.category_guid).to eq(transaction_rule_attributes['category_guid'])
-        expect(response.first.created_at).to eq(transaction_rule_attributes['created_at'])
-        expect(response.first.description).to eq(transaction_rule_attributes['description'])
-        expect(response.first.guid).to eq(transaction_rule_attributes['guid'])
-        expect(response.first.match_description).to eq(transaction_rule_attributes['match_description'])
-        expect(response.first.updated_at).to eq(transaction_rule_attributes['updated_at'])
-        expect(response.first.user_guid).to eq(transaction_rule_attributes['user_guid'])
+        expect(response.first.category_guid).to eq(transaction_rule_attributes[:category_guid])
+        expect(response.first.created_at).to eq(transaction_rule_attributes[:created_at])
+        expect(response.first.description).to eq(transaction_rule_attributes[:description])
+        expect(response.first.guid).to eq(transaction_rule_attributes[:guid])
+        expect(response.first.match_description).to eq(transaction_rule_attributes[:match_description])
+        expect(response.first.updated_at).to eq(transaction_rule_attributes[:updated_at])
+        expect(response.first.user_guid).to eq(transaction_rule_attributes[:user_guid])
         expect(response.length).to eq(1)
       end
     end
@@ -195,25 +190,23 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
       response = described_class.read_transaction_rule
 
       expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
-      expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
-      expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
-      expect(response.description).to eq(transaction_rule_attributes['description'])
-      expect(response.guid).to eq(transaction_rule_attributes['guid'])
-      expect(response.match_description).to eq(transaction_rule_attributes['match_description'])
-      expect(response.updated_at).to eq(transaction_rule_attributes['updated_at'])
-      expect(response.user_guid).to eq(transaction_rule_attributes['user_guid'])
+      expect(response.category_guid).to eq(transaction_rule_attributes[:category_guid])
+      expect(response.created_at).to eq(transaction_rule_attributes[:created_at])
+      expect(response.description).to eq(transaction_rule_attributes[:description])
+      expect(response.guid).to eq(transaction_rule_attributes[:guid])
+      expect(response.match_description).to eq(transaction_rule_attributes[:match_description])
+      expect(response.updated_at).to eq(transaction_rule_attributes[:updated_at])
+      expect(response.user_guid).to eq(transaction_rule_attributes[:user_guid])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :get,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
-        nil,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
+          http_method: :get
+        }
       )
-      described_class.read_transaction_rule(
-        read_transaction_rule_path_parameters
-      )
+      described_class.read_transaction_rule(read_transaction_rule_options)
     end
   end
 
@@ -225,25 +218,30 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
       response = described_class.update_transaction_rule
 
       expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
-      expect(response.category_guid).to eq(transaction_rule_attributes['category_guid'])
-      expect(response.created_at).to eq(transaction_rule_attributes['created_at'])
-      expect(response.description).to eq(transaction_rule_attributes['description'])
-      expect(response.guid).to eq(transaction_rule_attributes['guid'])
-      expect(response.match_description).to eq(transaction_rule_attributes['match_description'])
-      expect(response.updated_at).to eq(transaction_rule_attributes['updated_at'])
-      expect(response.user_guid).to eq(transaction_rule_attributes['user_guid'])
+      expect(response.category_guid).to eq(transaction_rule_attributes[:category_guid])
+      expect(response.created_at).to eq(transaction_rule_attributes[:created_at])
+      expect(response.description).to eq(transaction_rule_attributes[:description])
+      expect(response.guid).to eq(transaction_rule_attributes[:guid])
+      expect(response.match_description).to eq(transaction_rule_attributes[:match_description])
+      expect(response.updated_at).to eq(transaction_rule_attributes[:updated_at])
+      expect(response.user_guid).to eq(transaction_rule_attributes[:user_guid])
     end
 
     it 'makes a client request with the expected params' do
       expect(::MXPlatformRuby.client).to receive(:make_request).with(
-        :put,
-        '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rule/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
-        update_transaction_rule_request_body,
-        'Accept' => 'application/vnd.mx.api.v1+json'
+        {
+          endpoint: '/users/USR-fa7537f3-48aa-a683-a02a-b18940482f54/transaction_rules/TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3',
+          http_method: :put,
+          request_body: {
+            transaction_rule: {
+              category_guid: 'CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0',
+              description: 'Wal-mart food storage',
+              match_description: 'Wal-mart'
+            }
+          }
+        }
       )
-      described_class.update_transaction_rule(
-        update_transaction_rule_request_body_parameters.merge(update_transaction_rule_path_parameters)
-      )
+      described_class.update_transaction_rule(update_transaction_rule_options)
     end
   end
 end

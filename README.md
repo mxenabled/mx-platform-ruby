@@ -54,7 +54,7 @@ To retrieve a single page,
 page = ::MXPlatformRuby::Institution.list_institutions_page(page: 1, records_per_page: 10)
 
 puts page.current_page
-puts page.records_per_page
+puts page.per_page
 puts page.total_entries
 puts page.total_pages
 
@@ -67,7 +67,7 @@ To retrieve multiple pages,
 ```ruby
 ::MXPlatformRuby::Institution.list_institutions_pages_each(page: 1, records_per_page: 10) do |page|
   puts page.current_page
-  puts page.records_per_page
+  puts page.per_page
   puts page.total_entries
   puts page.total_pages
 
