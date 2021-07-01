@@ -1,3 +1,5 @@
+*This project is currently in **Beta**. Please open up an issue [here](https://github.com/mxenabled/mx-platform-ruby/issues) to report issues using the MX Platform API Ruby Library.*
+
 # MX Platform API Ruby Library
 #### Version 0.1.0
 
@@ -79,4 +81,4 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mxenabled/mx-platform-ruby
+Bug reports and pull requests are welcome on [GitHub](https://github.com/mxenabled/mx-platform-ruby).
