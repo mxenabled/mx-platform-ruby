@@ -12,6 +12,10 @@ module MXPlatformRuby
       @username = username
     end
 
+    def http_client
+      @http_client ||= ::HTTPClient.new
+    end
+
     def make_request(options = {})
       body    = ::JSON.dump(options[:request_body]) if options[:request_body]
       headers = default_headers.merge(options[:headers] || {})
@@ -22,10 +26,6 @@ module MXPlatformRuby
       response = http_client.public_send(method, url, body, headers)
 
       handle_response(response)
-    end
-
-    def http_client
-      @http_client ||= ::HTTPClient.new
     end
 
     private
