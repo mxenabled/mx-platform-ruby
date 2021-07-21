@@ -109,8 +109,6 @@ RSpec.describe ::MXPlatformRuby::Member do
         }
       ],
       id: 'unique_id',
-      institution_code: 'chase',
-      is_oauth: false,
       member_guid: 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b',
       metadata: '\"credentials_last_refreshed_at\": \"2015-10-15\"',
       skip_aggregation: false,
@@ -238,10 +236,10 @@ RSpec.describe ::MXPlatformRuby::Member do
               institution_code: 'chase',
               is_oauth: false,
               metadata: '\"credentials_last_refreshed_at\": \"2015-10-15\"',
-              referral_source: 'APP',
-              skip_aggregation: false,
-              ui_message_webview_url_scheme: 'mx'
-            }
+              skip_aggregation: false
+            },
+            referral_source: 'APP',
+            ui_message_webview_url_scheme: 'mx'
           }
         }
       )
@@ -564,8 +562,6 @@ RSpec.describe ::MXPlatformRuby::Member do
                 }
               ],
               id: 'unique_id',
-              institution_code: 'chase',
-              is_oauth: false,
               metadata: '\"credentials_last_refreshed_at\": \"2015-10-15\"',
               skip_aggregation: false
             }
