@@ -151,11 +151,11 @@ module MXPlatformRuby
             institution_code: options[:institution_code],
             is_oauth: options[:is_oauth],
             metadata: options[:metadata],
-            referral_source: options[:referral_source],
-            skip_aggregation: options[:skip_aggregation],
-            ui_message_webview_url_scheme: options[:ui_message_webview_url_scheme]
-          }.compact
-        }
+            skip_aggregation: options[:skip_aggregation]
+          }.compact,
+          referral_source: options[:referral_source],
+          ui_message_webview_url_scheme: options[:ui_message_webview_url_scheme]
+        }.compact
       }
     end
     private_class_method :create_member_options
@@ -235,8 +235,6 @@ module MXPlatformRuby
             background_aggregation_is_disabled: options[:background_aggregation_is_disabled],
             credentials: options[:credentials],
             id: options[:id],
-            institution_code: options[:institution_code],
-            is_oauth: options[:is_oauth],
             metadata: options[:metadata],
             skip_aggregation: options[:skip_aggregation]
           }.compact
