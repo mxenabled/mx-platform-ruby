@@ -1,13 +1,13 @@
 *.gem
 *.swp
-.DS_Store
 .bundle
 .config
+.DS_Store
+.idea
 .ruby-*
 .rvmrc
 .yardoc
-.idea
-Gemfile.lock
 coverage
+Gemfile.lock
 pkg/*
 tmp

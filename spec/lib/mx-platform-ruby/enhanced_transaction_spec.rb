@@ -38,29 +38,31 @@ RSpec.describe ::MXPlatformRuby::EnhancedTransaction do
   end
 
   describe 'enhance_transactions' do
-    let(:enhance_transactions_response) { { 'transactions' => enhanced_transaction_attributes } }
+    let(:enhance_transactions_response) { { 'transactions' => [enhanced_transaction_attributes] } }
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(enhance_transactions_response) }
 
-    it 'returns enhanced_transaction' do
+    it 'returns an array of enhanced_transactions' do
       response = described_class.enhance_transactions
 
-      expect(response).to be_kind_of(::MXPlatformRuby::EnhancedTransaction)
-      expect(response.amount).to eq(enhanced_transaction_attributes[:amount])
-      expect(response.category).to eq(enhanced_transaction_attributes[:category])
-      expect(response.description).to eq(enhanced_transaction_attributes[:description])
-      expect(response.id).to eq(enhanced_transaction_attributes[:id])
-      expect(response.is_bill_pay).to eq(enhanced_transaction_attributes[:is_bill_pay])
-      expect(response.is_direct_deposit).to eq(enhanced_transaction_attributes[:is_direct_deposit])
-      expect(response.is_expense).to eq(enhanced_transaction_attributes[:is_expense])
-      expect(response.is_fee).to eq(enhanced_transaction_attributes[:is_fee])
-      expect(response.is_income).to eq(enhanced_transaction_attributes[:is_income])
-      expect(response.is_international).to eq(enhanced_transaction_attributes[:is_international])
-      expect(response.is_overdraft_fee).to eq(enhanced_transaction_attributes[:is_overdraft_fee])
-      expect(response.is_payroll_advance).to eq(enhanced_transaction_attributes[:is_payroll_advance])
-      expect(response.merchant_category_code).to eq(enhanced_transaction_attributes[:merchant_category_code])
-      expect(response.merchant_guid).to eq(enhanced_transaction_attributes[:merchant_guid])
-      expect(response.original_description).to eq(enhanced_transaction_attributes[:original_description])
-      expect(response.type).to eq(enhanced_transaction_attributes[:type])
+      expect(response).to be_kind_of(::Array)
+      expect(response.first).to be_kind_of(::MXPlatformRuby::EnhancedTransaction)
+      expect(response.first.amount).to eq(enhanced_transaction_attributes[:amount])
+      expect(response.first.category).to eq(enhanced_transaction_attributes[:category])
+      expect(response.first.description).to eq(enhanced_transaction_attributes[:description])
+      expect(response.first.id).to eq(enhanced_transaction_attributes[:id])
+      expect(response.first.is_bill_pay).to eq(enhanced_transaction_attributes[:is_bill_pay])
+      expect(response.first.is_direct_deposit).to eq(enhanced_transaction_attributes[:is_direct_deposit])
+      expect(response.first.is_expense).to eq(enhanced_transaction_attributes[:is_expense])
+      expect(response.first.is_fee).to eq(enhanced_transaction_attributes[:is_fee])
+      expect(response.first.is_income).to eq(enhanced_transaction_attributes[:is_income])
+      expect(response.first.is_international).to eq(enhanced_transaction_attributes[:is_international])
+      expect(response.first.is_overdraft_fee).to eq(enhanced_transaction_attributes[:is_overdraft_fee])
+      expect(response.first.is_payroll_advance).to eq(enhanced_transaction_attributes[:is_payroll_advance])
+      expect(response.first.merchant_category_code).to eq(enhanced_transaction_attributes[:merchant_category_code])
+      expect(response.first.merchant_guid).to eq(enhanced_transaction_attributes[:merchant_guid])
+      expect(response.first.original_description).to eq(enhanced_transaction_attributes[:original_description])
+      expect(response.first.type).to eq(enhanced_transaction_attributes[:type])
+      expect(response.length).to eq(1)
     end
 
     it 'makes a client request with the expected params' do
