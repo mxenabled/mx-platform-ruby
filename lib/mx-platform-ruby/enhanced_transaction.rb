@@ -25,8 +25,7 @@ module MXPlatformRuby
       enhance_transactions_options = enhance_transactions_options(options)
       response = ::MXPlatformRuby.client.make_request(enhance_transactions_options)
 
-      transactions_params = response['transactions']
-      ::MXPlatformRuby::EnhancedTransaction.new(transactions_params)
+      response['transactions'].map { |attributes| ::MXPlatformRuby::EnhancedTransaction.new(attributes) }
     end
 
     # Private class methods
