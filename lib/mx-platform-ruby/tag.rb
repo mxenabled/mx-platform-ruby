@@ -22,22 +22,10 @@ module MXPlatformRuby
       ::MXPlatformRuby.client.make_request(delete_tag_options)
     end
 
-    def self.list_tags_page(options = {})
+    def self.list_tags(options = {})
       options = list_tags_options(options)
 
       paginate(options)
-    end
-
-    def self.list_tags_each(options = {}, &block)
-      options = list_tags_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_tags_pages_each(options = {}, &block)
-      options = list_tags_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_tag(options = {})

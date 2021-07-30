@@ -52,49 +52,9 @@ RSpec.describe ::MXPlatformRuby::Challenge do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_member_challenges_response) }
 
-    describe 'list_member_challenges_page' do
+    describe 'list_member_challenges' do
       it 'returns a list of challenges' do
-        response = described_class.list_member_challenges_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Challenge)
-        expect(response.first.field_name).to eq(challenge_attributes[:field_name])
-        expect(response.first.guid).to eq(challenge_attributes[:guid])
-        expect(response.first.image_data).to eq(challenge_attributes[:image_data])
-        expect(response.first.image_options).to eq(challenge_attributes[:image_options])
-        expect(response.first.label).to eq(challenge_attributes[:label])
-        expect(response.first.options).to eq(challenge_attributes[:options])
-        expect(response.first.type).to eq(challenge_attributes[:type])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_member_challenges_each' do
-      it 'yields a challenge' do
-        response = nil
-
-        described_class.list_member_challenges_each do |challenge|
-          response = challenge
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Challenge)
-        expect(response.field_name).to eq(challenge_attributes[:field_name])
-        expect(response.guid).to eq(challenge_attributes[:guid])
-        expect(response.image_data).to eq(challenge_attributes[:image_data])
-        expect(response.image_options).to eq(challenge_attributes[:image_options])
-        expect(response.label).to eq(challenge_attributes[:label])
-        expect(response.options).to eq(challenge_attributes[:options])
-        expect(response.type).to eq(challenge_attributes[:type])
-      end
-    end
-
-    describe 'list_member_challenges_pages_each' do
-      it 'yields a page of challenges' do
-        response = nil
-
-        described_class.list_member_challenges_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_member_challenges
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Challenge)

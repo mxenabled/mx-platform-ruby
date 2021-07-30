@@ -61,7 +61,7 @@ RSpec.describe ::MXPlatformRuby::Client do
       expect(client_custom_params.http_client).to receive(:get).with(
         anything,
         anything,
-        hash_including('Authorization' => 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=')
+        hash_including(Authorization: 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=')
       )
       client_custom_params.make_request({ http_method: :get, endpoint: '/endpoint' })
     end

@@ -80,51 +80,9 @@ RSpec.describe ::MXPlatformRuby::Statement do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_statements_by_member_response) }
 
-    describe 'list_statements_by_member_page' do
+    describe 'list_statements_by_member' do
       it 'returns a list of statements' do
-        response = described_class.list_statements_by_member_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)
-        expect(response.first.account_guid).to eq(statement_attributes[:account_guid])
-        expect(response.first.content_hash).to eq(statement_attributes[:content_hash])
-        expect(response.first.created_at).to eq(statement_attributes[:created_at])
-        expect(response.first.guid).to eq(statement_attributes[:guid])
-        expect(response.first.member_guid).to eq(statement_attributes[:member_guid])
-        expect(response.first.updated_at).to eq(statement_attributes[:updated_at])
-        expect(response.first.uri).to eq(statement_attributes[:uri])
-        expect(response.first.user_guid).to eq(statement_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_statements_by_member_each' do
-      it 'yields a statement' do
-        response = nil
-
-        described_class.list_statements_by_member_each do |statement|
-          response = statement
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Statement)
-        expect(response.account_guid).to eq(statement_attributes[:account_guid])
-        expect(response.content_hash).to eq(statement_attributes[:content_hash])
-        expect(response.created_at).to eq(statement_attributes[:created_at])
-        expect(response.guid).to eq(statement_attributes[:guid])
-        expect(response.member_guid).to eq(statement_attributes[:member_guid])
-        expect(response.updated_at).to eq(statement_attributes[:updated_at])
-        expect(response.uri).to eq(statement_attributes[:uri])
-        expect(response.user_guid).to eq(statement_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_statements_by_member_pages_each' do
-      it 'yields a page of statements' do
-        response = nil
-
-        described_class.list_statements_by_member_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_statements_by_member
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Statement)

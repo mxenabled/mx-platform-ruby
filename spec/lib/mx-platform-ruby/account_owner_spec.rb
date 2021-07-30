@@ -46,59 +46,9 @@ RSpec.describe ::MXPlatformRuby::AccountOwner do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_owners_response) }
 
-    describe 'list_account_owners_page' do
+    describe 'list_account_owners' do
       it 'returns a list of account_owners' do
-        response = described_class.list_account_owners_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountOwner)
-        expect(response.first.account_guid).to eq(account_owner_attributes[:account_guid])
-        expect(response.first.address).to eq(account_owner_attributes[:address])
-        expect(response.first.city).to eq(account_owner_attributes[:city])
-        expect(response.first.country).to eq(account_owner_attributes[:country])
-        expect(response.first.email).to eq(account_owner_attributes[:email])
-        expect(response.first.guid).to eq(account_owner_attributes[:guid])
-        expect(response.first.member_guid).to eq(account_owner_attributes[:member_guid])
-        expect(response.first.owner_name).to eq(account_owner_attributes[:owner_name])
-        expect(response.first.phone).to eq(account_owner_attributes[:phone])
-        expect(response.first.postal_code).to eq(account_owner_attributes[:postal_code])
-        expect(response.first.state).to eq(account_owner_attributes[:state])
-        expect(response.first.user_guid).to eq(account_owner_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_account_owners_each' do
-      it 'yields a account_owner' do
-        response = nil
-
-        described_class.list_account_owners_each do |account_owner|
-          response = account_owner
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::AccountOwner)
-        expect(response.account_guid).to eq(account_owner_attributes[:account_guid])
-        expect(response.address).to eq(account_owner_attributes[:address])
-        expect(response.city).to eq(account_owner_attributes[:city])
-        expect(response.country).to eq(account_owner_attributes[:country])
-        expect(response.email).to eq(account_owner_attributes[:email])
-        expect(response.guid).to eq(account_owner_attributes[:guid])
-        expect(response.member_guid).to eq(account_owner_attributes[:member_guid])
-        expect(response.owner_name).to eq(account_owner_attributes[:owner_name])
-        expect(response.phone).to eq(account_owner_attributes[:phone])
-        expect(response.postal_code).to eq(account_owner_attributes[:postal_code])
-        expect(response.state).to eq(account_owner_attributes[:state])
-        expect(response.user_guid).to eq(account_owner_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_account_owners_pages_each' do
-      it 'yields a page of account_owners' do
-        response = nil
-
-        described_class.list_account_owners_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_account_owners
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::AccountOwner)

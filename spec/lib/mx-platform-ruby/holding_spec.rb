@@ -69,71 +69,9 @@ RSpec.describe ::MXPlatformRuby::Holding do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_member_response) }
 
-    describe 'list_holdings_by_member_page' do
+    describe 'list_holdings_by_member' do
       it 'returns a list of holdings' do
-        response = described_class.list_holdings_by_member_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
-        expect(response.first.account_guid).to eq(holding_attributes[:account_guid])
-        expect(response.first.cost_basis).to eq(holding_attributes[:cost_basis])
-        expect(response.first.created_at).to eq(holding_attributes[:created_at])
-        expect(response.first.currency_code).to eq(holding_attributes[:currency_code])
-        expect(response.first.cusip).to eq(holding_attributes[:cusip])
-        expect(response.first.daily_change).to eq(holding_attributes[:daily_change])
-        expect(response.first.description).to eq(holding_attributes[:description])
-        expect(response.first.guid).to eq(holding_attributes[:guid])
-        expect(response.first.holding_type).to eq(holding_attributes[:holding_type])
-        expect(response.first.id).to eq(holding_attributes[:id])
-        expect(response.first.market_value).to eq(holding_attributes[:market_value])
-        expect(response.first.member_guid).to eq(holding_attributes[:member_guid])
-        expect(response.first.metadata).to eq(holding_attributes[:metadata])
-        expect(response.first.purchase_price).to eq(holding_attributes[:purchase_price])
-        expect(response.first.shares).to eq(holding_attributes[:shares])
-        expect(response.first.symbol).to eq(holding_attributes[:symbol])
-        expect(response.first.updated_at).to eq(holding_attributes[:updated_at])
-        expect(response.first.user_guid).to eq(holding_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_holdings_by_member_each' do
-      it 'yields a holding' do
-        response = nil
-
-        described_class.list_holdings_by_member_each do |holding|
-          response = holding
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Holding)
-        expect(response.account_guid).to eq(holding_attributes[:account_guid])
-        expect(response.cost_basis).to eq(holding_attributes[:cost_basis])
-        expect(response.created_at).to eq(holding_attributes[:created_at])
-        expect(response.currency_code).to eq(holding_attributes[:currency_code])
-        expect(response.cusip).to eq(holding_attributes[:cusip])
-        expect(response.daily_change).to eq(holding_attributes[:daily_change])
-        expect(response.description).to eq(holding_attributes[:description])
-        expect(response.guid).to eq(holding_attributes[:guid])
-        expect(response.holding_type).to eq(holding_attributes[:holding_type])
-        expect(response.id).to eq(holding_attributes[:id])
-        expect(response.market_value).to eq(holding_attributes[:market_value])
-        expect(response.member_guid).to eq(holding_attributes[:member_guid])
-        expect(response.metadata).to eq(holding_attributes[:metadata])
-        expect(response.purchase_price).to eq(holding_attributes[:purchase_price])
-        expect(response.shares).to eq(holding_attributes[:shares])
-        expect(response.symbol).to eq(holding_attributes[:symbol])
-        expect(response.updated_at).to eq(holding_attributes[:updated_at])
-        expect(response.user_guid).to eq(holding_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_holdings_by_member_pages_each' do
-      it 'yields a page of holdings' do
-        response = nil
-
-        described_class.list_holdings_by_member_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_holdings_by_member
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
@@ -170,71 +108,9 @@ RSpec.describe ::MXPlatformRuby::Holding do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_holdings_by_user_response) }
 
-    describe 'list_holdings_by_user_page' do
+    describe 'list_holdings_by_user' do
       it 'returns a list of holdings' do
-        response = described_class.list_holdings_by_user_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)
-        expect(response.first.account_guid).to eq(holding_attributes[:account_guid])
-        expect(response.first.cost_basis).to eq(holding_attributes[:cost_basis])
-        expect(response.first.created_at).to eq(holding_attributes[:created_at])
-        expect(response.first.currency_code).to eq(holding_attributes[:currency_code])
-        expect(response.first.cusip).to eq(holding_attributes[:cusip])
-        expect(response.first.daily_change).to eq(holding_attributes[:daily_change])
-        expect(response.first.description).to eq(holding_attributes[:description])
-        expect(response.first.guid).to eq(holding_attributes[:guid])
-        expect(response.first.holding_type).to eq(holding_attributes[:holding_type])
-        expect(response.first.id).to eq(holding_attributes[:id])
-        expect(response.first.market_value).to eq(holding_attributes[:market_value])
-        expect(response.first.member_guid).to eq(holding_attributes[:member_guid])
-        expect(response.first.metadata).to eq(holding_attributes[:metadata])
-        expect(response.first.purchase_price).to eq(holding_attributes[:purchase_price])
-        expect(response.first.shares).to eq(holding_attributes[:shares])
-        expect(response.first.symbol).to eq(holding_attributes[:symbol])
-        expect(response.first.updated_at).to eq(holding_attributes[:updated_at])
-        expect(response.first.user_guid).to eq(holding_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_holdings_by_user_each' do
-      it 'yields a holding' do
-        response = nil
-
-        described_class.list_holdings_by_user_each do |holding|
-          response = holding
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Holding)
-        expect(response.account_guid).to eq(holding_attributes[:account_guid])
-        expect(response.cost_basis).to eq(holding_attributes[:cost_basis])
-        expect(response.created_at).to eq(holding_attributes[:created_at])
-        expect(response.currency_code).to eq(holding_attributes[:currency_code])
-        expect(response.cusip).to eq(holding_attributes[:cusip])
-        expect(response.daily_change).to eq(holding_attributes[:daily_change])
-        expect(response.description).to eq(holding_attributes[:description])
-        expect(response.guid).to eq(holding_attributes[:guid])
-        expect(response.holding_type).to eq(holding_attributes[:holding_type])
-        expect(response.id).to eq(holding_attributes[:id])
-        expect(response.market_value).to eq(holding_attributes[:market_value])
-        expect(response.member_guid).to eq(holding_attributes[:member_guid])
-        expect(response.metadata).to eq(holding_attributes[:metadata])
-        expect(response.purchase_price).to eq(holding_attributes[:purchase_price])
-        expect(response.shares).to eq(holding_attributes[:shares])
-        expect(response.symbol).to eq(holding_attributes[:symbol])
-        expect(response.updated_at).to eq(holding_attributes[:updated_at])
-        expect(response.user_guid).to eq(holding_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_holdings_by_user_pages_each' do
-      it 'yields a page of holdings' do
-        response = nil
-
-        described_class.list_holdings_by_user_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_holdings_by_user
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Holding)

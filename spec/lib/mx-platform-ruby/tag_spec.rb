@@ -110,41 +110,9 @@ RSpec.describe ::MXPlatformRuby::Tag do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_tags_response) }
 
-    describe 'list_tags_page' do
+    describe 'list_tags' do
       it 'returns a list of tags' do
-        response = described_class.list_tags_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Tag)
-        expect(response.first.guid).to eq(tag_attributes[:guid])
-        expect(response.first.name).to eq(tag_attributes[:name])
-        expect(response.first.user_guid).to eq(tag_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_tags_each' do
-      it 'yields a tag' do
-        response = nil
-
-        described_class.list_tags_each do |tag|
-          response = tag
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Tag)
-        expect(response.guid).to eq(tag_attributes[:guid])
-        expect(response.name).to eq(tag_attributes[:name])
-        expect(response.user_guid).to eq(tag_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_tags_pages_each' do
-      it 'yields a page of tags' do
-        response = nil
-
-        described_class.list_tags_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_tags
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Tag)

@@ -124,49 +124,9 @@ RSpec.describe ::MXPlatformRuby::TransactionRule do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_transaction_rules_by_user_response) }
 
-    describe 'list_transaction_rules_by_user_page' do
+    describe 'list_transaction_rules_by_user' do
       it 'returns a list of transaction_rules' do
-        response = described_class.list_transaction_rules_by_user_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)
-        expect(response.first.category_guid).to eq(transaction_rule_attributes[:category_guid])
-        expect(response.first.created_at).to eq(transaction_rule_attributes[:created_at])
-        expect(response.first.description).to eq(transaction_rule_attributes[:description])
-        expect(response.first.guid).to eq(transaction_rule_attributes[:guid])
-        expect(response.first.match_description).to eq(transaction_rule_attributes[:match_description])
-        expect(response.first.updated_at).to eq(transaction_rule_attributes[:updated_at])
-        expect(response.first.user_guid).to eq(transaction_rule_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_transaction_rules_by_user_each' do
-      it 'yields a transaction_rule' do
-        response = nil
-
-        described_class.list_transaction_rules_by_user_each do |transaction_rule|
-          response = transaction_rule
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::TransactionRule)
-        expect(response.category_guid).to eq(transaction_rule_attributes[:category_guid])
-        expect(response.created_at).to eq(transaction_rule_attributes[:created_at])
-        expect(response.description).to eq(transaction_rule_attributes[:description])
-        expect(response.guid).to eq(transaction_rule_attributes[:guid])
-        expect(response.match_description).to eq(transaction_rule_attributes[:match_description])
-        expect(response.updated_at).to eq(transaction_rule_attributes[:updated_at])
-        expect(response.user_guid).to eq(transaction_rule_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_transaction_rules_by_user_pages_each' do
-      it 'yields a page of transaction_rules' do
-        response = nil
-
-        described_class.list_transaction_rules_by_user_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_transaction_rules_by_user
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::TransactionRule)

@@ -24,40 +24,16 @@ module MXPlatformRuby
     attribute :updated_at
     attribute :user_guid
 
-    def self.list_holdings_by_member_page(options = {})
+    def self.list_holdings_by_member(options = {})
       options = list_holdings_by_member_options(options)
 
       paginate(options)
     end
 
-    def self.list_holdings_by_member_each(options = {}, &block)
-      options = list_holdings_by_member_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_holdings_by_member_pages_each(options = {}, &block)
-      options = list_holdings_by_member_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_holdings_by_user_page(options = {})
+    def self.list_holdings_by_user(options = {})
       options = list_holdings_by_user_options(options)
 
       paginate(options)
-    end
-
-    def self.list_holdings_by_user_each(options = {}, &block)
-      options = list_holdings_by_user_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_holdings_by_user_pages_each(options = {}, &block)
-      options = list_holdings_by_user_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_holding(options = {})

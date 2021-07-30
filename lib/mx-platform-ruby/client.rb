@@ -32,9 +32,9 @@ module MXPlatformRuby
 
     def default_headers
       {
-        'Accept' => 'application/vnd.mx.api.v1+json',
-        'Authorization' => "Basic #{::Base64.urlsafe_encode64("#{username}:#{password}")}",
-        'Content-Type' => 'application/json'
+        'Accept': 'application/vnd.mx.api.v1+json',
+        'Authorization': "Basic #{::Base64.urlsafe_encode64("#{username}:#{password}")}",
+        'Content-Type': 'application/json'
       }
     end
 
