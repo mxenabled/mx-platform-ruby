@@ -18,22 +18,10 @@ module MXPlatformRuby
     attribute :state
     attribute :user_guid
 
-    def self.list_account_owners_page(options = {})
+    def self.list_account_owners(options = {})
       options = list_account_owners_options(options)
 
       paginate(options)
-    end
-
-    def self.list_account_owners_each(options = {}, &block)
-      options = list_account_owners_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_account_owners_pages_each(options = {}, &block)
-      options = list_account_owners_options(options)
-
-      paginate_pages(options, &block)
     end
 
     # Private class methods

@@ -130,51 +130,9 @@ RSpec.describe ::MXPlatformRuby::Category do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_categories_response) }
 
-    describe 'list_categories_page' do
+    describe 'list_categories' do
       it 'returns a list of categorys' do
-        response = described_class.list_categories_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
-        expect(response.first.created_at).to eq(category_attributes[:created_at])
-        expect(response.first.guid).to eq(category_attributes[:guid])
-        expect(response.first.is_default).to eq(category_attributes[:is_default])
-        expect(response.first.is_income).to eq(category_attributes[:is_income])
-        expect(response.first.metadata).to eq(category_attributes[:metadata])
-        expect(response.first.name).to eq(category_attributes[:name])
-        expect(response.first.parent_guid).to eq(category_attributes[:parent_guid])
-        expect(response.first.updated_at).to eq(category_attributes[:updated_at])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_categories_each' do
-      it 'yields a category' do
-        response = nil
-
-        described_class.list_categories_each do |category|
-          response = category
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Category)
-        expect(response.created_at).to eq(category_attributes[:created_at])
-        expect(response.guid).to eq(category_attributes[:guid])
-        expect(response.is_default).to eq(category_attributes[:is_default])
-        expect(response.is_income).to eq(category_attributes[:is_income])
-        expect(response.metadata).to eq(category_attributes[:metadata])
-        expect(response.name).to eq(category_attributes[:name])
-        expect(response.parent_guid).to eq(category_attributes[:parent_guid])
-        expect(response.updated_at).to eq(category_attributes[:updated_at])
-      end
-    end
-
-    describe 'list_categories_pages_each' do
-      it 'yields a page of categorys' do
-        response = nil
-
-        described_class.list_categories_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_categories
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
@@ -201,51 +159,9 @@ RSpec.describe ::MXPlatformRuby::Category do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_default_categories_response) }
 
-    describe 'list_default_categories_page' do
+    describe 'list_default_categories' do
       it 'returns a list of categorys' do
-        response = described_class.list_default_categories_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Category)
-        expect(response.first.created_at).to eq(category_attributes[:created_at])
-        expect(response.first.guid).to eq(category_attributes[:guid])
-        expect(response.first.is_default).to eq(category_attributes[:is_default])
-        expect(response.first.is_income).to eq(category_attributes[:is_income])
-        expect(response.first.metadata).to eq(category_attributes[:metadata])
-        expect(response.first.name).to eq(category_attributes[:name])
-        expect(response.first.parent_guid).to eq(category_attributes[:parent_guid])
-        expect(response.first.updated_at).to eq(category_attributes[:updated_at])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_default_categories_each' do
-      it 'yields a category' do
-        response = nil
-
-        described_class.list_default_categories_each do |category|
-          response = category
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Category)
-        expect(response.created_at).to eq(category_attributes[:created_at])
-        expect(response.guid).to eq(category_attributes[:guid])
-        expect(response.is_default).to eq(category_attributes[:is_default])
-        expect(response.is_income).to eq(category_attributes[:is_income])
-        expect(response.metadata).to eq(category_attributes[:metadata])
-        expect(response.name).to eq(category_attributes[:name])
-        expect(response.parent_guid).to eq(category_attributes[:parent_guid])
-        expect(response.updated_at).to eq(category_attributes[:updated_at])
-      end
-    end
-
-    describe 'list_default_categories_pages_each' do
-      it 'yields a page of categorys' do
-        response = nil
-
-        described_class.list_default_categories_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_default_categories
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Category)

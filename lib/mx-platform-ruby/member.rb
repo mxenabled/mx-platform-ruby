@@ -71,22 +71,10 @@ module MXPlatformRuby
       ::MXPlatformRuby::Member.new(member_params)
     end
 
-    def self.list_members_page(options = {})
+    def self.list_members(options = {})
       options = list_members_options(options)
 
       paginate(options)
-    end
-
-    def self.list_members_each(options = {}, &block)
-      options = list_members_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_members_pages_each(options = {}, &block)
-      options = list_members_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_member(options = {})

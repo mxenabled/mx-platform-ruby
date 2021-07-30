@@ -37,47 +37,23 @@ In order to make API requests, you will need to [sign up for the MX Platform API
 end
 ```
 
-## List endpoints
+## Paginated endpoints
 
-The simplest way to read back all objects from the list endpoints is through the "_each" methods. These methods yield one object at a time.
+For paginated endpoints, the pagination values can be accessed through the returned `::MXPlatformRuby::Page` array as follows
 
 ```ruby
-::MXPlatformRuby::Institution.list_institutions_each do |institution|
+institutions = ::MXPlatformRuby::Institution.list_institutions(options)
+
+puts "Current page: #{institutions.current_page}"
+puts "Per page: #{institutions.per_page}"
+puts "Total entries: #{institutions.total_entries}"
+puts "Total pages: #{institutions.total_pages}"
+
+institutions.each do |institution|
   p institution
 end
 ```
 
-#### Additional control
-
-For additional control when working with the `page` and `records_per_page` parameters, we've also surfaced "pagination" endpoints.
-
-To retrieve a single page,
-```ruby
-page = ::MXPlatformRuby::Institution.list_institutions_page(page: 1, records_per_page: 10)
-
-puts page.current_page
-puts page.per_page
-puts page.total_entries
-puts page.total_pages
-
-page.each do |institution|
-  p institution
-end
-```
-
-To retrieve multiple pages,
-```ruby
-::MXPlatformRuby::Institution.list_institutions_pages_each(page: 1, records_per_page: 10) do |page|
-  puts page.current_page
-  puts page.per_page
-  puts page.total_entries
-  puts page.total_pages
-
-  page.each do |institution|
-    p institution
-  end
-end
-```
 
 ## Contributing
 

@@ -42,76 +42,28 @@ module MXPlatformRuby
     attribute :updated_at
     attribute :user_guid
 
-    def self.list_transactions_by_account_page(options = {})
+    def self.list_transactions_by_account(options = {})
       options = list_transactions_by_account_options(options)
 
       paginate(options)
     end
 
-    def self.list_transactions_by_account_each(options = {}, &block)
-      options = list_transactions_by_account_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_transactions_by_account_pages_each(options = {}, &block)
-      options = list_transactions_by_account_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_transactions_by_member_page(options = {})
+    def self.list_transactions_by_member(options = {})
       options = list_transactions_by_member_options(options)
 
       paginate(options)
     end
 
-    def self.list_transactions_by_member_each(options = {}, &block)
-      options = list_transactions_by_member_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_transactions_by_member_pages_each(options = {}, &block)
-      options = list_transactions_by_member_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_transactions_by_tag_page(options = {})
+    def self.list_transactions_by_tag(options = {})
       options = list_transactions_by_tag_options(options)
 
       paginate(options)
     end
 
-    def self.list_transactions_by_tag_each(options = {}, &block)
-      options = list_transactions_by_tag_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_transactions_by_tag_pages_each(options = {}, &block)
-      options = list_transactions_by_tag_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_transactions_by_user_page(options = {})
+    def self.list_transactions_by_user(options = {})
       options = list_transactions_by_user_options(options)
 
       paginate(options)
-    end
-
-    def self.list_transactions_by_user_each(options = {}, &block)
-      options = list_transactions_by_user_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_transactions_by_user_pages_each(options = {}, &block)
-      options = list_transactions_by_user_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_transaction(options = {})

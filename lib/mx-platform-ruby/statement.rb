@@ -19,22 +19,10 @@ module MXPlatformRuby
       ::MXPlatformRuby.client.make_request(download_statement_pdf_options)
     end
 
-    def self.list_statements_by_member_page(options = {})
+    def self.list_statements_by_member(options = {})
       options = list_statements_by_member_options(options)
 
       paginate(options)
-    end
-
-    def self.list_statements_by_member_each(options = {}, &block)
-      options = list_statements_by_member_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_statements_by_member_pages_each(options = {}, &block)
-      options = list_statements_by_member_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_statement_by_member(options = {})

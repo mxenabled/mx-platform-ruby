@@ -13,22 +13,10 @@ module MXPlatformRuby
     attribute :options
     attribute :type
 
-    def self.list_member_challenges_page(options = {})
+    def self.list_member_challenges(options = {})
       options = list_member_challenges_options(options)
 
       paginate(options)
-    end
-
-    def self.list_member_challenges_each(options = {}, &block)
-      options = list_member_challenges_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_member_challenges_pages_each(options = {}, &block)
-      options = list_member_challenges_options(options)
-
-      paginate_pages(options, &block)
     end
 
     # Private class methods

@@ -11,40 +11,16 @@ module MXPlatformRuby
     attribute :guid
     attribute :label
 
-    def self.list_institution_required_credentials_page(options = {})
+    def self.list_institution_required_credentials(options = {})
       options = list_institution_required_credentials_options(options)
 
       paginate(options)
     end
 
-    def self.list_institution_required_credentials_each(options = {}, &block)
-      options = list_institution_required_credentials_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_institution_required_credentials_pages_each(options = {}, &block)
-      options = list_institution_required_credentials_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_member_credentials_page(options = {})
+    def self.list_member_credentials(options = {})
       options = list_member_credentials_options(options)
 
       paginate(options)
-    end
-
-    def self.list_member_credentials_each(options = {}, &block)
-      options = list_member_credentials_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_member_credentials_pages_each(options = {}, &block)
-      options = list_member_credentials_options(options)
-
-      paginate_pages(options, &block)
     end
 
     # Private class methods

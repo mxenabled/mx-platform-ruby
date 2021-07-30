@@ -27,40 +27,16 @@ module MXPlatformRuby
       ::MXPlatformRuby.client.make_request(delete_category_options)
     end
 
-    def self.list_categories_page(options = {})
+    def self.list_categories(options = {})
       options = list_categories_options(options)
 
       paginate(options)
     end
 
-    def self.list_categories_each(options = {}, &block)
-      options = list_categories_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_categories_pages_each(options = {}, &block)
-      options = list_categories_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_default_categories_page(options = {})
+    def self.list_default_categories(options = {})
       options = list_default_categories_options(options)
 
       paginate(options)
-    end
-
-    def self.list_default_categories_each(options = {}, &block)
-      options = list_default_categories_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_default_categories_pages_each(options = {}, &block)
-      options = list_default_categories_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_category(options = {})

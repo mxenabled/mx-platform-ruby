@@ -26,22 +26,10 @@ module MXPlatformRuby
       ::MXPlatformRuby.client.make_request(delete_transaction_rule_options)
     end
 
-    def self.list_transaction_rules_by_user_page(options = {})
+    def self.list_transaction_rules_by_user(options = {})
       options = list_transaction_rules_by_user_options(options)
 
       paginate(options)
-    end
-
-    def self.list_transaction_rules_by_user_each(options = {}, &block)
-      options = list_transaction_rules_by_user_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_transaction_rules_by_user_pages_each(options = {}, &block)
-      options = list_transaction_rules_by_user_options(options)
-
-      paginate_pages(options, &block)
     end
 
     def self.read_transaction_rule(options = {})

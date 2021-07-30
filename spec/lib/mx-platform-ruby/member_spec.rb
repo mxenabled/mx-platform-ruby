@@ -376,59 +376,9 @@ RSpec.describe ::MXPlatformRuby::Member do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_members_response) }
 
-    describe 'list_members_page' do
+    describe 'list_members' do
       it 'returns a list of members' do
-        response = described_class.list_members_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Member)
-        expect(response.first.aggregated_at).to eq(member_attributes[:aggregated_at])
-        expect(response.first.connection_status).to eq(member_attributes[:connection_status])
-        expect(response.first.guid).to eq(member_attributes[:guid])
-        expect(response.first.id).to eq(member_attributes[:id])
-        expect(response.first.institution_code).to eq(member_attributes[:institution_code])
-        expect(response.first.is_being_aggregated).to eq(member_attributes[:is_being_aggregated])
-        expect(response.first.is_oauth).to eq(member_attributes[:is_oauth])
-        expect(response.first.metadata).to eq(member_attributes[:metadata])
-        expect(response.first.name).to eq(member_attributes[:name])
-        expect(response.first.oauth_window_uri).to eq(member_attributes[:oauth_window_uri])
-        expect(response.first.successfully_aggregated_at).to eq(member_attributes[:successfully_aggregated_at])
-        expect(response.first.user_guid).to eq(member_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_members_each' do
-      it 'yields a member' do
-        response = nil
-
-        described_class.list_members_each do |member|
-          response = member
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Member)
-        expect(response.aggregated_at).to eq(member_attributes[:aggregated_at])
-        expect(response.connection_status).to eq(member_attributes[:connection_status])
-        expect(response.guid).to eq(member_attributes[:guid])
-        expect(response.id).to eq(member_attributes[:id])
-        expect(response.institution_code).to eq(member_attributes[:institution_code])
-        expect(response.is_being_aggregated).to eq(member_attributes[:is_being_aggregated])
-        expect(response.is_oauth).to eq(member_attributes[:is_oauth])
-        expect(response.metadata).to eq(member_attributes[:metadata])
-        expect(response.name).to eq(member_attributes[:name])
-        expect(response.oauth_window_uri).to eq(member_attributes[:oauth_window_uri])
-        expect(response.successfully_aggregated_at).to eq(member_attributes[:successfully_aggregated_at])
-        expect(response.user_guid).to eq(member_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_members_pages_each' do
-      it 'yields a page of members' do
-        response = nil
-
-        described_class.list_members_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_members
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Member)

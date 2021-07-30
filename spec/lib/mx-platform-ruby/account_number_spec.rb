@@ -50,51 +50,9 @@ RSpec.describe ::MXPlatformRuby::AccountNumber do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_account_response) }
 
-    describe 'list_account_numbers_by_account_page' do
+    describe 'list_account_numbers_by_account' do
       it 'returns a list of account_numbers' do
-        response = described_class.list_account_numbers_by_account_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
-        expect(response.first.account_guid).to eq(account_number_attributes[:account_guid])
-        expect(response.first.account_number).to eq(account_number_attributes[:account_number])
-        expect(response.first.guid).to eq(account_number_attributes[:guid])
-        expect(response.first.institution_number).to eq(account_number_attributes[:institution_number])
-        expect(response.first.member_guid).to eq(account_number_attributes[:member_guid])
-        expect(response.first.routing_number).to eq(account_number_attributes[:routing_number])
-        expect(response.first.transit_number).to eq(account_number_attributes[:transit_number])
-        expect(response.first.user_guid).to eq(account_number_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_account_numbers_by_account_each' do
-      it 'yields a account_number' do
-        response = nil
-
-        described_class.list_account_numbers_by_account_each do |account_number|
-          response = account_number
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::AccountNumber)
-        expect(response.account_guid).to eq(account_number_attributes[:account_guid])
-        expect(response.account_number).to eq(account_number_attributes[:account_number])
-        expect(response.guid).to eq(account_number_attributes[:guid])
-        expect(response.institution_number).to eq(account_number_attributes[:institution_number])
-        expect(response.member_guid).to eq(account_number_attributes[:member_guid])
-        expect(response.routing_number).to eq(account_number_attributes[:routing_number])
-        expect(response.transit_number).to eq(account_number_attributes[:transit_number])
-        expect(response.user_guid).to eq(account_number_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_account_numbers_by_account_pages_each' do
-      it 'yields a page of account_numbers' do
-        response = nil
-
-        described_class.list_account_numbers_by_account_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_account_numbers_by_account
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
@@ -121,51 +79,9 @@ RSpec.describe ::MXPlatformRuby::AccountNumber do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_account_numbers_by_member_response) }
 
-    describe 'list_account_numbers_by_member_page' do
+    describe 'list_account_numbers_by_member' do
       it 'returns a list of account_numbers' do
-        response = described_class.list_account_numbers_by_member_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)
-        expect(response.first.account_guid).to eq(account_number_attributes[:account_guid])
-        expect(response.first.account_number).to eq(account_number_attributes[:account_number])
-        expect(response.first.guid).to eq(account_number_attributes[:guid])
-        expect(response.first.institution_number).to eq(account_number_attributes[:institution_number])
-        expect(response.first.member_guid).to eq(account_number_attributes[:member_guid])
-        expect(response.first.routing_number).to eq(account_number_attributes[:routing_number])
-        expect(response.first.transit_number).to eq(account_number_attributes[:transit_number])
-        expect(response.first.user_guid).to eq(account_number_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_account_numbers_by_member_each' do
-      it 'yields a account_number' do
-        response = nil
-
-        described_class.list_account_numbers_by_member_each do |account_number|
-          response = account_number
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::AccountNumber)
-        expect(response.account_guid).to eq(account_number_attributes[:account_guid])
-        expect(response.account_number).to eq(account_number_attributes[:account_number])
-        expect(response.guid).to eq(account_number_attributes[:guid])
-        expect(response.institution_number).to eq(account_number_attributes[:institution_number])
-        expect(response.member_guid).to eq(account_number_attributes[:member_guid])
-        expect(response.routing_number).to eq(account_number_attributes[:routing_number])
-        expect(response.transit_number).to eq(account_number_attributes[:transit_number])
-        expect(response.user_guid).to eq(account_number_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_account_numbers_by_member_pages_each' do
-      it 'yields a page of account_numbers' do
-        response = nil
-
-        described_class.list_account_numbers_by_member_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_account_numbers_by_member
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::AccountNumber)

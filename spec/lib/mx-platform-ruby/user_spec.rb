@@ -118,45 +118,9 @@ RSpec.describe ::MXPlatformRuby::User do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_users_response) }
 
-    describe 'list_users_page' do
+    describe 'list_users' do
       it 'returns a list of users' do
-        response = described_class.list_users_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::User)
-        expect(response.first.email).to eq(user_attributes[:email])
-        expect(response.first.guid).to eq(user_attributes[:guid])
-        expect(response.first.id).to eq(user_attributes[:id])
-        expect(response.first.is_disabled).to eq(user_attributes[:is_disabled])
-        expect(response.first.metadata).to eq(user_attributes[:metadata])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_users_each' do
-      it 'yields a user' do
-        response = nil
-
-        described_class.list_users_each do |user|
-          response = user
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::User)
-        expect(response.email).to eq(user_attributes[:email])
-        expect(response.guid).to eq(user_attributes[:guid])
-        expect(response.id).to eq(user_attributes[:id])
-        expect(response.is_disabled).to eq(user_attributes[:is_disabled])
-        expect(response.metadata).to eq(user_attributes[:metadata])
-      end
-    end
-
-    describe 'list_users_pages_each' do
-      it 'yields a page of users' do
-        response = nil
-
-        described_class.list_users_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_users
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::User)

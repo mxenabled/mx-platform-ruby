@@ -116,45 +116,9 @@ RSpec.describe ::MXPlatformRuby::Tagging do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_taggings_response) }
 
-    describe 'list_taggings_page' do
+    describe 'list_taggings' do
       it 'returns a list of taggings' do
-        response = described_class.list_taggings_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Tagging)
-        expect(response.first.guid).to eq(tagging_attributes[:guid])
-        expect(response.first.member_is_managed_by_user).to eq(tagging_attributes[:member_is_managed_by_user])
-        expect(response.first.tag_guid).to eq(tagging_attributes[:tag_guid])
-        expect(response.first.transaction_guid).to eq(tagging_attributes[:transaction_guid])
-        expect(response.first.user_guid).to eq(tagging_attributes[:user_guid])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_taggings_each' do
-      it 'yields a tagging' do
-        response = nil
-
-        described_class.list_taggings_each do |tagging|
-          response = tagging
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Tagging)
-        expect(response.guid).to eq(tagging_attributes[:guid])
-        expect(response.member_is_managed_by_user).to eq(tagging_attributes[:member_is_managed_by_user])
-        expect(response.tag_guid).to eq(tagging_attributes[:tag_guid])
-        expect(response.transaction_guid).to eq(tagging_attributes[:transaction_guid])
-        expect(response.user_guid).to eq(tagging_attributes[:user_guid])
-      end
-    end
-
-    describe 'list_taggings_pages_each' do
-      it 'yields a page of taggings' do
-        response = nil
-
-        described_class.list_taggings_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_taggings
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Tagging)

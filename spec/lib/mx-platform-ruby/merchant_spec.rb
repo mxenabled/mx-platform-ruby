@@ -43,47 +43,9 @@ RSpec.describe ::MXPlatformRuby::Merchant do
 
     before { allow(::MXPlatformRuby.client).to receive(:make_request).and_return(list_merchants_response) }
 
-    describe 'list_merchants_page' do
+    describe 'list_merchants' do
       it 'returns a list of merchants' do
-        response = described_class.list_merchants_page
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Page)
-        expect(response.first).to be_kind_of(::MXPlatformRuby::Merchant)
-        expect(response.first.created_at).to eq(merchant_attributes[:created_at])
-        expect(response.first.guid).to eq(merchant_attributes[:guid])
-        expect(response.first.logo_url).to eq(merchant_attributes[:logo_url])
-        expect(response.first.name).to eq(merchant_attributes[:name])
-        expect(response.first.updated_at).to eq(merchant_attributes[:updated_at])
-        expect(response.first.website_url).to eq(merchant_attributes[:website_url])
-        expect(response.length).to eq(1)
-      end
-    end
-
-    describe 'list_merchants_each' do
-      it 'yields a merchant' do
-        response = nil
-
-        described_class.list_merchants_each do |merchant|
-          response = merchant
-        end
-
-        expect(response).to be_kind_of(::MXPlatformRuby::Merchant)
-        expect(response.created_at).to eq(merchant_attributes[:created_at])
-        expect(response.guid).to eq(merchant_attributes[:guid])
-        expect(response.logo_url).to eq(merchant_attributes[:logo_url])
-        expect(response.name).to eq(merchant_attributes[:name])
-        expect(response.updated_at).to eq(merchant_attributes[:updated_at])
-        expect(response.website_url).to eq(merchant_attributes[:website_url])
-      end
-    end
-
-    describe 'list_merchants_pages_each' do
-      it 'yields a page of merchants' do
-        response = nil
-
-        described_class.list_merchants_pages_each do |page|
-          response = page
-        end
+        response = described_class.list_merchants
 
         expect(response).to be_kind_of(::MXPlatformRuby::Page)
         expect(response.first).to be_kind_of(::MXPlatformRuby::Merchant)

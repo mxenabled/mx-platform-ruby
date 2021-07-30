@@ -14,40 +14,16 @@ module MXPlatformRuby
     attribute :transit_number
     attribute :user_guid
 
-    def self.list_account_numbers_by_account_page(options = {})
+    def self.list_account_numbers_by_account(options = {})
       options = list_account_numbers_by_account_options(options)
 
       paginate(options)
     end
 
-    def self.list_account_numbers_by_account_each(options = {}, &block)
-      options = list_account_numbers_by_account_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_account_numbers_by_account_pages_each(options = {}, &block)
-      options = list_account_numbers_by_account_options(options)
-
-      paginate_pages(options, &block)
-    end
-
-    def self.list_account_numbers_by_member_page(options = {})
+    def self.list_account_numbers_by_member(options = {})
       options = list_account_numbers_by_member_options(options)
 
       paginate(options)
-    end
-
-    def self.list_account_numbers_by_member_each(options = {}, &block)
-      options = list_account_numbers_by_member_options(options)
-
-      paginate_each(options, &block)
-    end
-
-    def self.list_account_numbers_by_member_pages_each(options = {}, &block)
-      options = list_account_numbers_by_member_options(options)
-
-      paginate_pages(options, &block)
     end
 
     # Private class methods
