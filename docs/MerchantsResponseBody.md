@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **merchants** | [**Array&lt;Merchant&gt;**](Merchant.md) |  | [optional] |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
+| **merchants** | [**Array&lt;MerchantResponse&gt;**](MerchantResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 

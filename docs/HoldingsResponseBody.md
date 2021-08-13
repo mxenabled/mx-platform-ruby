@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **holdings** | [**Array&lt;Holding&gt;**](Holding.md) |  | [optional] |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
+| **holdings** | [**Array&lt;HoldingResponse&gt;**](HoldingResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user** | [**ConnectWidget**](ConnectWidget.md) |  | [optional] |
+| **user** | [**ConnectWidgetResponse**](ConnectWidgetResponse.md) |  | [optional] |
 
 ## Example
 

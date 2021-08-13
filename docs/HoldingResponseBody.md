@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **holding** | [**Holding**](Holding.md) |  | [optional] |
+| **holding** | [**HoldingResponse**](HoldingResponse.md) |  | [optional] |
 
 ## Example
 

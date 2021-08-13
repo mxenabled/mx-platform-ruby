@@ -18,20 +18,20 @@ All URIs are relative to *https://api.mx.com*
 | [**delete_tagging**](MxPlatformApi.md#delete_tagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging |
 | [**delete_transaction_rule**](MxPlatformApi.md#delete_transaction_rule) | **DELETE** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Delete transaction rule |
 | [**delete_user**](MxPlatformApi.md#delete_user) | **DELETE** /users/{user_guid} | Delete user |
-| [**download_statement_pdf**](MxPlatformApi.md#download_statement_pdf) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement PDF |
+| [**download_statement_pdf**](MxPlatformApi.md#download_statement_pdf) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf |
 | [**enhance_transactions**](MxPlatformApi.md#enhance_transactions) | **POST** /transactions/enhance | Enhance transactions |
 | [**extend_history**](MxPlatformApi.md#extend_history) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
-| [**fetch_statements_by_member**](MxPlatformApi.md#fetch_statements_by_member) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements by member |
+| [**fetch_statements**](MxPlatformApi.md#fetch_statements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements |
 | [**identify_member**](MxPlatformApi.md#identify_member) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member |
 | [**list_account_numbers_by_account**](MxPlatformApi.md#list_account_numbers_by_account) | **GET** /users/{user_guid}/accounts/{account_guid}/account_numbers | List account numbers by account |
 | [**list_account_numbers_by_member**](MxPlatformApi.md#list_account_numbers_by_member) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member |
-| [**list_account_owners**](MxPlatformApi.md#list_account_owners) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners |
+| [**list_account_owners_by_member**](MxPlatformApi.md#list_account_owners_by_member) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners by member |
 | [**list_categories**](MxPlatformApi.md#list_categories) | **GET** /users/{user_guid}/categories | List categories |
 | [**list_default_categories**](MxPlatformApi.md#list_default_categories) | **GET** /users/{user_guid}/categories/default | List default categories |
-| [**list_favorites**](MxPlatformApi.md#list_favorites) | **GET** /institutions/favorites | List favorites |
+| [**list_favorite_institutions**](MxPlatformApi.md#list_favorite_institutions) | **GET** /institutions/favorites | List favorite institutions |
+| [**list_holdings**](MxPlatformApi.md#list_holdings) | **GET** /users/{user_guid}/holdings | List holdings |
 | [**list_holdings_by_member**](MxPlatformApi.md#list_holdings_by_member) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member |
-| [**list_holdings_by_user**](MxPlatformApi.md#list_holdings_by_user) | **GET** /users/{user_guid}/holdings | List holdings by user |
-| [**list_institution_required_credentials**](MxPlatformApi.md#list_institution_required_credentials) | **GET** /institutions/{institution_code}/credentials | List institution-required credentials |
+| [**list_institution_credentials**](MxPlatformApi.md#list_institution_credentials) | **GET** /institutions/{institution_code}/credentials | List institution credentials |
 | [**list_institutions**](MxPlatformApi.md#list_institutions) | **GET** /institutions | List institutions |
 | [**list_member_challenges**](MxPlatformApi.md#list_member_challenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges |
 | [**list_member_credentials**](MxPlatformApi.md#list_member_credentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
@@ -40,11 +40,11 @@ All URIs are relative to *https://api.mx.com*
 | [**list_statements_by_member**](MxPlatformApi.md#list_statements_by_member) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member |
 | [**list_taggings**](MxPlatformApi.md#list_taggings) | **GET** /users/{user_guid}/taggings | List taggings |
 | [**list_tags**](MxPlatformApi.md#list_tags) | **GET** /users/{user_guid}/tags | List tags |
-| [**list_transaction_rules_by_user**](MxPlatformApi.md#list_transaction_rules_by_user) | **GET** /users/{user_guid}/transaction_rules | List transaction rules by user |
+| [**list_transaction_rules**](MxPlatformApi.md#list_transaction_rules) | **GET** /users/{user_guid}/transaction_rules | List transaction rules |
+| [**list_transactions**](MxPlatformApi.md#list_transactions) | **GET** /users/{user_guid}/transactions | List transactions |
 | [**list_transactions_by_account**](MxPlatformApi.md#list_transactions_by_account) | **GET** /users/{user_guid}/accounts/{account_guid}/transactions | List transactions by account |
 | [**list_transactions_by_member**](MxPlatformApi.md#list_transactions_by_member) | **GET** /users/{user_guid}/members/{member_guid}/transactions | List transactions by member |
 | [**list_transactions_by_tag**](MxPlatformApi.md#list_transactions_by_tag) | **GET** /users/{user_guid}/tags/{tag_guid}/transactions | List transactions by tag |
-| [**list_transactions_by_user**](MxPlatformApi.md#list_transactions_by_user) | **GET** /users/{user_guid}/transactions | List transactions by user |
 | [**list_user_accounts**](MxPlatformApi.md#list_user_accounts) | **GET** /users/{user_guid}/accounts | List accounts |
 | [**list_users**](MxPlatformApi.md#list_users) | **GET** /users | List users |
 | [**read_account**](MxPlatformApi.md#read_account) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account |
@@ -60,11 +60,11 @@ All URIs are relative to *https://api.mx.com*
 | [**read_transaction**](MxPlatformApi.md#read_transaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction |
 | [**read_transaction_rule**](MxPlatformApi.md#read_transaction_rule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule |
 | [**read_user**](MxPlatformApi.md#read_user) | **GET** /users/{user_guid} | Read user |
-| [**request_connect_widget_url**](MxPlatformApi.md#request_connect_widget_url) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget URL |
-| [**request_o_auth_window**](MxPlatformApi.md#request_o_auth_window) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Read member |
-| [**request_widget_url**](MxPlatformApi.md#request_widget_url) | **POST** /users/{user_guid}/widget_urls | Request a widget URL |
+| [**request_connect_widget_url**](MxPlatformApi.md#request_connect_widget_url) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url |
+| [**request_o_auth_window_uri**](MxPlatformApi.md#request_o_auth_window_uri) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri |
+| [**request_widget_url**](MxPlatformApi.md#request_widget_url) | **POST** /users/{user_guid}/widget_urls | Request widget url |
 | [**resume_aggregation**](MxPlatformApi.md#resume_aggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation |
-| [**update_account**](MxPlatformApi.md#update_account) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account |
+| [**update_account_by_member**](MxPlatformApi.md#update_account_by_member) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member |
 | [**update_category**](MxPlatformApi.md#update_category) | **PUT** /users/{user_guid}/categories/{category_guid} | Update category |
 | [**update_member**](MxPlatformApi.md#update_member) | **PUT** /users/{user_guid}/members/{member_guid} | Update member |
 | [**update_tag**](MxPlatformApi.md#update_tag) | **PUT** /users/{user_guid}/tags/{tag_guid} | Update tag |
@@ -365,7 +365,7 @@ end
 
 ## create_tag
 
-> <InlineResponse200> create_tag(user_guid, tag_create_request_body)
+> <TagResponseBody> create_tag(user_guid, tag_create_request_body)
 
 Create tag
 
@@ -400,7 +400,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse200>, Integer, Hash)> create_tag_with_http_info(user_guid, tag_create_request_body)
+> <Array(<TagResponseBody>, Integer, Hash)> create_tag_with_http_info(user_guid, tag_create_request_body)
 
 ```ruby
 begin
@@ -408,7 +408,7 @@ begin
   data, status_code, headers = api_instance.create_tag_with_http_info(user_guid, tag_create_request_body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse200>
+  p data # => <TagResponseBody>
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->create_tag_with_http_info: #{e}"
 end
@@ -423,7 +423,7 @@ end
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TagResponseBody**](TagResponseBody.md)
 
 ### Authorization
 
@@ -1077,7 +1077,7 @@ nil (empty response body)
 
 > File download_statement_pdf(member_guid, statement_guid, user_guid)
 
-Download statement PDF
+Download statement pdf
 
 Use this endpoint to download a specified statement PDF.
 
@@ -1099,7 +1099,7 @@ statement_guid = 'STA-737a344b-caae-0f6e-1384-01f52e75dcb1' # String | The uniqu
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
-  # Download statement PDF
+  # Download statement pdf
   result = api_instance.download_statement_pdf(member_guid, statement_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
@@ -1115,7 +1115,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Download statement PDF
+  # Download statement pdf
   data, status_code, headers = api_instance.download_statement_pdf_with_http_info(member_guid, statement_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
@@ -1289,11 +1289,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## fetch_statements_by_member
+## fetch_statements
 
-> <MemberResponseBody> fetch_statements_by_member(member_guid, user_guid)
+> <MemberResponseBody> fetch_statements(member_guid, user_guid)
 
-Fetch statements by member
+Fetch statements
 
 Use this endpoint to fetch the statements associated with a particular member.
 
@@ -1314,29 +1314,29 @@ member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique i
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
-  # Fetch statements by member
-  result = api_instance.fetch_statements_by_member(member_guid, user_guid)
+  # Fetch statements
+  result = api_instance.fetch_statements(member_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->fetch_statements_by_member: #{e}"
+  puts "Error when calling MxPlatformApi->fetch_statements: #{e}"
 end
 ```
 
-#### Using the fetch_statements_by_member_with_http_info variant
+#### Using the fetch_statements_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MemberResponseBody>, Integer, Hash)> fetch_statements_by_member_with_http_info(member_guid, user_guid)
+> <Array(<MemberResponseBody>, Integer, Hash)> fetch_statements_with_http_info(member_guid, user_guid)
 
 ```ruby
 begin
-  # Fetch statements by member
-  data, status_code, headers = api_instance.fetch_statements_by_member_with_http_info(member_guid, user_guid)
+  # Fetch statements
+  data, status_code, headers = api_instance.fetch_statements_with_http_info(member_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MemberResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->fetch_statements_by_member_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->fetch_statements_with_http_info: #{e}"
 end
 ```
 
@@ -1589,11 +1589,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## list_account_owners
+## list_account_owners_by_member
 
-> <AccountOwnersResponseBody> list_account_owners(member_guid, user_guid, opts)
+> <AccountOwnersResponseBody> list_account_owners_by_member(member_guid, user_guid, opts)
 
-List account owners
+List account owners by member
 
 This endpoint returns an array with information about every account associated with a particular member.
 
@@ -1618,29 +1618,29 @@ opts = {
 }
 
 begin
-  # List account owners
-  result = api_instance.list_account_owners(member_guid, user_guid, opts)
+  # List account owners by member
+  result = api_instance.list_account_owners_by_member(member_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_account_owners: #{e}"
+  puts "Error when calling MxPlatformApi->list_account_owners_by_member: #{e}"
 end
 ```
 
-#### Using the list_account_owners_with_http_info variant
+#### Using the list_account_owners_by_member_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountOwnersResponseBody>, Integer, Hash)> list_account_owners_with_http_info(member_guid, user_guid, opts)
+> <Array(<AccountOwnersResponseBody>, Integer, Hash)> list_account_owners_by_member_with_http_info(member_guid, user_guid, opts)
 
 ```ruby
 begin
-  # List account owners
-  data, status_code, headers = api_instance.list_account_owners_with_http_info(member_guid, user_guid, opts)
+  # List account owners by member
+  data, status_code, headers = api_instance.list_account_owners_by_member_with_http_info(member_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountOwnersResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_account_owners_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->list_account_owners_by_member_with_http_info: #{e}"
 end
 ```
 
@@ -1813,11 +1813,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## list_favorites
+## list_favorite_institutions
 
-> <InstitutionsResponseBody> list_favorites(opts)
+> <InstitutionsResponseBody> list_favorite_institutions(opts)
 
-List favorites
+List favorite institutions
 
 This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
 
@@ -1840,29 +1840,29 @@ opts = {
 }
 
 begin
-  # List favorites
-  result = api_instance.list_favorites(opts)
+  # List favorite institutions
+  result = api_instance.list_favorite_institutions(opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_favorites: #{e}"
+  puts "Error when calling MxPlatformApi->list_favorite_institutions: #{e}"
 end
 ```
 
-#### Using the list_favorites_with_http_info variant
+#### Using the list_favorite_institutions_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InstitutionsResponseBody>, Integer, Hash)> list_favorites_with_http_info(opts)
+> <Array(<InstitutionsResponseBody>, Integer, Hash)> list_favorite_institutions_with_http_info(opts)
 
 ```ruby
 begin
-  # List favorites
-  data, status_code, headers = api_instance.list_favorites_with_http_info(opts)
+  # List favorite institutions
+  data, status_code, headers = api_instance.list_favorite_institutions_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <InstitutionsResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_favorites_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->list_favorite_institutions_with_http_info: #{e}"
 end
 ```
 
@@ -1876,6 +1876,86 @@ end
 ### Return type
 
 [**InstitutionsResponseBody**](InstitutionsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## list_holdings
+
+> <HoldingsResponseBody> list_holdings(user_guid, opts)
+
+List holdings
+
+This endpoint returns all holdings associated with the specified `user` across all accounts and members.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  from_date: '2015-09-20', # String | Filter holdings from this date.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10, # Integer | Specify records per page.
+  to_date: '2019-10-20' # String | Filter holdings to this date.
+}
+
+begin
+  # List holdings
+  result = api_instance.list_holdings(user_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_holdings: #{e}"
+end
+```
+
+#### Using the list_holdings_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HoldingsResponseBody>, Integer, Hash)> list_holdings_with_http_info(user_guid, opts)
+
+```ruby
+begin
+  # List holdings
+  data, status_code, headers = api_instance.list_holdings_with_http_info(user_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HoldingsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_holdings_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **from_date** | **String** | Filter holdings from this date. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **to_date** | **String** | Filter holdings to this date. | [optional] |
+
+### Return type
+
+[**HoldingsResponseBody**](HoldingsResponseBody.md)
 
 ### Authorization
 
@@ -1969,91 +2049,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## list_holdings_by_user
+## list_institution_credentials
 
-> <HoldingsResponseBody> list_holdings_by_user(user_guid, opts)
+> <CredentialsResponseBody> list_institution_credentials(institution_code, opts)
 
-List holdings by user
-
-This endpoint returns all holdings associated with the specified `user` across all accounts and members.
-
-### Examples
-
-```ruby
-require 'time'
-require 'mx-platform-ruby'
-# setup authorization
-MxPlatformRuby.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-opts = {
-  from_date: '2015-09-20', # String | Filter holdings from this date.
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10, # Integer | Specify records per page.
-  to_date: '2019-10-20' # String | Filter holdings to this date.
-}
-
-begin
-  # List holdings by user
-  result = api_instance.list_holdings_by_user(user_guid, opts)
-  p result
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_holdings_by_user: #{e}"
-end
-```
-
-#### Using the list_holdings_by_user_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<HoldingsResponseBody>, Integer, Hash)> list_holdings_by_user_with_http_info(user_guid, opts)
-
-```ruby
-begin
-  # List holdings by user
-  data, status_code, headers = api_instance.list_holdings_by_user_with_http_info(user_guid, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <HoldingsResponseBody>
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_holdings_by_user_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **from_date** | **String** | Filter holdings from this date. | [optional] |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
-| **to_date** | **String** | Filter holdings to this date. | [optional] |
-
-### Return type
-
-[**HoldingsResponseBody**](HoldingsResponseBody.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
-
-
-## list_institution_required_credentials
-
-> <CredentialsResponseBody> list_institution_required_credentials(institution_code, opts)
-
-List institution-required credentials
+List institution credentials
 
 Use this endpoint to see which credentials will be needed to create a member for a specific institution.
 
@@ -2077,29 +2077,29 @@ opts = {
 }
 
 begin
-  # List institution-required credentials
-  result = api_instance.list_institution_required_credentials(institution_code, opts)
+  # List institution credentials
+  result = api_instance.list_institution_credentials(institution_code, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_institution_required_credentials: #{e}"
+  puts "Error when calling MxPlatformApi->list_institution_credentials: #{e}"
 end
 ```
 
-#### Using the list_institution_required_credentials_with_http_info variant
+#### Using the list_institution_credentials_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CredentialsResponseBody>, Integer, Hash)> list_institution_required_credentials_with_http_info(institution_code, opts)
+> <Array(<CredentialsResponseBody>, Integer, Hash)> list_institution_credentials_with_http_info(institution_code, opts)
 
 ```ruby
 begin
-  # List institution-required credentials
-  data, status_code, headers = api_instance.list_institution_required_credentials_with_http_info(institution_code, opts)
+  # List institution credentials
+  data, status_code, headers = api_instance.list_institution_credentials_with_http_info(institution_code, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CredentialsResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_institution_required_credentials_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->list_institution_credentials_with_http_info: #{e}"
 end
 ```
 
@@ -2741,11 +2741,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## list_transaction_rules_by_user
+## list_transaction_rules
 
-> <TransactionRulesResponseBody> list_transaction_rules_by_user(user_guid, opts)
+> <TransactionRulesResponseBody> list_transaction_rules(user_guid, opts)
 
-List transaction rules by user
+List transaction rules
 
 Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
 
@@ -2769,29 +2769,29 @@ opts = {
 }
 
 begin
-  # List transaction rules by user
-  result = api_instance.list_transaction_rules_by_user(user_guid, opts)
+  # List transaction rules
+  result = api_instance.list_transaction_rules(user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_transaction_rules_by_user: #{e}"
+  puts "Error when calling MxPlatformApi->list_transaction_rules: #{e}"
 end
 ```
 
-#### Using the list_transaction_rules_by_user_with_http_info variant
+#### Using the list_transaction_rules_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionRulesResponseBody>, Integer, Hash)> list_transaction_rules_by_user_with_http_info(user_guid, opts)
+> <Array(<TransactionRulesResponseBody>, Integer, Hash)> list_transaction_rules_with_http_info(user_guid, opts)
 
 ```ruby
 begin
-  # List transaction rules by user
-  data, status_code, headers = api_instance.list_transaction_rules_by_user_with_http_info(user_guid, opts)
+  # List transaction rules
+  data, status_code, headers = api_instance.list_transaction_rules_with_http_info(user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionRulesResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_transaction_rules_by_user_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->list_transaction_rules_with_http_info: #{e}"
 end
 ```
 
@@ -2806,6 +2806,86 @@ end
 ### Return type
 
 [**TransactionRulesResponseBody**](TransactionRulesResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## list_transactions
+
+> <TransactionsResponseBody> list_transactions(user_guid, opts)
+
+List transactions
+
+Requests to this endpoint return a list of transactions associated with the specified `user`, accross all members and accounts associated with that `user`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  from_date: '2015-09-20', # String | Filter transactions from this date.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10, # Integer | Specify records per page.
+  to_date: '2019-10-20' # String | Filter transactions to this date.
+}
+
+begin
+  # List transactions
+  result = api_instance.list_transactions(user_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_transactions: #{e}"
+end
+```
+
+#### Using the list_transactions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TransactionsResponseBody>, Integer, Hash)> list_transactions_with_http_info(user_guid, opts)
+
+```ruby
+begin
+  # List transactions
+  data, status_code, headers = api_instance.list_transactions_with_http_info(user_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TransactionsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_transactions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **from_date** | **String** | Filter transactions from this date. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **to_date** | **String** | Filter transactions to this date. | [optional] |
+
+### Return type
+
+[**TransactionsResponseBody**](TransactionsResponseBody.md)
 
 ### Authorization
 
@@ -3038,86 +3118,6 @@ end
 | ---- | ---- | ----------- | ----- |
 | **tag_guid** | **String** | The unique id for a &#x60;tag&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-
-### Return type
-
-[**TransactionsResponseBody**](TransactionsResponseBody.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
-
-
-## list_transactions_by_user
-
-> <TransactionsResponseBody> list_transactions_by_user(user_guid, opts)
-
-List transactions by user
-
-Requests to this endpoint return a list of transactions associated with the specified `user`, accross all members and accounts associated with that `user`.
-
-### Examples
-
-```ruby
-require 'time'
-require 'mx-platform-ruby'
-# setup authorization
-MxPlatformRuby.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-opts = {
-  from_date: '2015-09-20', # String | Filter transactions from this date.
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10, # Integer | Specify records per page.
-  to_date: '2019-10-20' # String | Filter transactions to this date.
-}
-
-begin
-  # List transactions by user
-  result = api_instance.list_transactions_by_user(user_guid, opts)
-  p result
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_transactions_by_user: #{e}"
-end
-```
-
-#### Using the list_transactions_by_user_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<TransactionsResponseBody>, Integer, Hash)> list_transactions_by_user_with_http_info(user_guid, opts)
-
-```ruby
-begin
-  # List transactions by user
-  data, status_code, headers = api_instance.list_transactions_by_user_with_http_info(user_guid, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <TransactionsResponseBody>
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_transactions_by_user_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **from_date** | **String** | Filter transactions from this date. | [optional] |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
-| **to_date** | **String** | Filter transactions to this date. | [optional] |
 
 ### Return type
 
@@ -4219,7 +4219,7 @@ end
 
 > <ConnectWidgetResponseBody> request_connect_widget_url(user_guid, opts)
 
-Request connect widget URL
+Request connect widget url
 
 This endpoint will return a URL for an embeddable version of MX Connect.
 
@@ -4242,7 +4242,7 @@ opts = {
 }
 
 begin
-  # Request connect widget URL
+  # Request connect widget url
   result = api_instance.request_connect_widget_url(user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
@@ -4258,7 +4258,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Request connect widget URL
+  # Request connect widget url
   data, status_code, headers = api_instance.request_connect_widget_url_with_http_info(user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -4289,11 +4289,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## request_o_auth_window
+## request_o_auth_window_uri
 
-> <OAuthWindowResponseBody> request_o_auth_window(member_guid, user_guid, opts)
+> <OAuthWindowResponseBody> request_o_auth_window_uri(member_guid, user_guid, opts)
 
-Read member
+Request oauth window uri
 
 This endpoint will generate an `oauth_window_uri` for the specified `member`.
 
@@ -4318,29 +4318,29 @@ opts = {
 }
 
 begin
-  # Read member
-  result = api_instance.request_o_auth_window(member_guid, user_guid, opts)
+  # Request oauth window uri
+  result = api_instance.request_o_auth_window_uri(member_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_o_auth_window: #{e}"
+  puts "Error when calling MxPlatformApi->request_o_auth_window_uri: #{e}"
 end
 ```
 
-#### Using the request_o_auth_window_with_http_info variant
+#### Using the request_o_auth_window_uri_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthWindowResponseBody>, Integer, Hash)> request_o_auth_window_with_http_info(member_guid, user_guid, opts)
+> <Array(<OAuthWindowResponseBody>, Integer, Hash)> request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts)
 
 ```ruby
 begin
-  # Read member
-  data, status_code, headers = api_instance.request_o_auth_window_with_http_info(member_guid, user_guid, opts)
+  # Request oauth window uri
+  data, status_code, headers = api_instance.request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthWindowResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_o_auth_window_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->request_o_auth_window_uri_with_http_info: #{e}"
 end
 ```
 
@@ -4371,7 +4371,7 @@ end
 
 > <WidgetResponseBody> request_widget_url(user_guid, widget_request_body, opts)
 
-Request a widget URL
+Request widget url
 
 This endpoint allows partners to get a URL by passing the `widget_type` in the request body, as well as configuring it in several different ways. In the case of Connect, that means setting the `widget_type` to `connect_widget`. Partners may also pass an optional `Accept-Language` header as well as a number of configuration options. Note that this is a `POST` request.
 
@@ -4395,7 +4395,7 @@ opts = {
 }
 
 begin
-  # Request a widget URL
+  # Request widget url
   result = api_instance.request_widget_url(user_guid, widget_request_body, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
@@ -4411,7 +4411,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Request a widget URL
+  # Request widget url
   data, status_code, headers = api_instance.request_widget_url_with_http_info(user_guid, widget_request_body, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -4517,11 +4517,11 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## update_account
+## update_account_by_member
 
-> <AccountResponseBody> update_account(user_guid, member_guid, account_guid, account_update_request_body)
+> <AccountResponseBody> update_account_by_member(user_guid, member_guid, account_guid, account_update_request_body)
 
-Update account
+Update account by member
 
 This endpoint allows you to update certain attributes of an `account` resource.
 
@@ -4544,29 +4544,29 @@ account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique 
 account_update_request_body = MxPlatformRuby::AccountUpdateRequestBody.new # AccountUpdateRequestBody | Account object to be created with optional parameters (is_hidden)
 
 begin
-  # Update account
-  result = api_instance.update_account(user_guid, member_guid, account_guid, account_update_request_body)
+  # Update account by member
+  result = api_instance.update_account_by_member(user_guid, member_guid, account_guid, account_update_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->update_account: #{e}"
+  puts "Error when calling MxPlatformApi->update_account_by_member: #{e}"
 end
 ```
 
-#### Using the update_account_with_http_info variant
+#### Using the update_account_by_member_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountResponseBody>, Integer, Hash)> update_account_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
+> <Array(<AccountResponseBody>, Integer, Hash)> update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
 
 ```ruby
 begin
-  # Update account
-  data, status_code, headers = api_instance.update_account_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
+  # Update account by member
+  data, status_code, headers = api_instance.update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->update_account_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->update_account_by_member_with_http_info: #{e}"
 end
 ```
 
@@ -4743,7 +4743,7 @@ end
 
 ## update_tag
 
-> <InlineResponse200> update_tag(tag_guid, user_guid, tag_update_request_body)
+> <TagResponseBody> update_tag(tag_guid, user_guid, tag_update_request_body)
 
 Update tag
 
@@ -4779,7 +4779,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InlineResponse200>, Integer, Hash)> update_tag_with_http_info(tag_guid, user_guid, tag_update_request_body)
+> <Array(<TagResponseBody>, Integer, Hash)> update_tag_with_http_info(tag_guid, user_guid, tag_update_request_body)
 
 ```ruby
 begin
@@ -4787,7 +4787,7 @@ begin
   data, status_code, headers = api_instance.update_tag_with_http_info(tag_guid, user_guid, tag_update_request_body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <InlineResponse200>
+  p data # => <TagResponseBody>
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->update_tag_with_http_info: #{e}"
 end
@@ -4803,7 +4803,7 @@ end
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**TagResponseBody**](TagResponseBody.md)
 
 ### Authorization
 

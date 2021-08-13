@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
-| **transactions** | [**Array&lt;Transaction&gt;**](Transaction.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
+| **transactions** | [**Array&lt;TransactionResponse&gt;**](TransactionResponse.md) |  | [optional] |
 
 ## Example
 

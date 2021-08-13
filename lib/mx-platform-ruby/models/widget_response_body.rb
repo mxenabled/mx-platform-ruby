@@ -32,7 +32,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'widget_url' => :'Widget'
+        :'widget_url' => :'WidgetResponse'
       }
     end
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transaction_rule** | [**TransactionRule**](TransactionRule.md) |  | [optional] |
+| **transaction_rule** | [**TransactionRuleResponse**](TransactionRuleResponse.md) |  | [optional] |
 
 ## Example
 

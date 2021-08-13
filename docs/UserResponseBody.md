@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user** | [**User**](User.md) |  | [optional] |
+| **user** | [**UserResponse**](UserResponse.md) |  | [optional] |
 
 ## Example
 

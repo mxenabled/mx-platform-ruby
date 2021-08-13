@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **member** | [**Member**](Member.md) |  | [optional] |
+| **member** | [**MemberResponse**](MemberResponse.md) |  | [optional] |
 
 ## Example
 

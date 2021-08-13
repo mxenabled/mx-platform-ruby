@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **category** | [**Category**](Category.md) |  | [optional] |
+| **category** | [**CategoryResponse**](CategoryResponse.md) |  | [optional] |
 
 ## Example
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **institution** | [**Institution**](Institution.md) |  | [optional] |
+| **institution** | [**InstitutionResponse**](InstitutionResponse.md) |  | [optional] |
 
 ## Example
 

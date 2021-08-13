@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **widget_url** | [**Widget**](Widget.md) |  | [optional] |
+| **widget_url** | [**WidgetResponse**](WidgetResponse.md) |  | [optional] |
 
 ## Example
 

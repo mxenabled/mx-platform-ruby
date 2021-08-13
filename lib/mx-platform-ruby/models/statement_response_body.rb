@@ -32,7 +32,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'statement' => :'Statement'
+        :'statement' => :'StatementResponse'
       }
     end
 

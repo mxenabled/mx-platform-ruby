@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **member** | [**OAuthWindow**](OAuthWindow.md) |  | [optional] |
+| **member** | [**OAuthWindowResponse**](OAuthWindowResponse.md) |  | [optional] |
 
 ## Example
 

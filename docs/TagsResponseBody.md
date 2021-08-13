@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
-| **tags** | [**Array&lt;Tag&gt;**](Tag.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
+| **tags** | [**Array&lt;TagResponse&gt;**](TagResponse.md) |  | [optional] |
 
 ## Example
 
