@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **statement** | [**Statement**](Statement.md) |  | [optional] |
+| **statement** | [**StatementResponse**](StatementResponse.md) |  | [optional] |
 
 ## Example
 

@@ -90,7 +90,7 @@ describe 'MxPlatformApi' do
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param tag_create_request_body Tag object to be created with required parameters (tag_guid)
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse200]
+  # @return [TagResponseBody]
   describe 'create_tag test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -213,7 +213,7 @@ describe 'MxPlatformApi' do
   end
 
   # unit tests for download_statement_pdf
-  # Download statement PDF
+  # Download statement pdf
   # Use this endpoint to download a specified statement PDF.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param statement_guid The unique id for a &#x60;statement&#x60;.
@@ -251,14 +251,14 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for fetch_statements_by_member
-  # Fetch statements by member
+  # unit tests for fetch_statements
+  # Fetch statements
   # Use this endpoint to fetch the statements associated with a particular member.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [MemberResponseBody]
-  describe 'fetch_statements_by_member test' do
+  describe 'fetch_statements test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -307,8 +307,8 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for list_account_owners
-  # List account owners
+  # unit tests for list_account_owners_by_member
+  # List account owners by member
   # This endpoint returns an array with information about every account associated with a particular member.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
@@ -316,7 +316,7 @@ describe 'MxPlatformApi' do
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [AccountOwnersResponseBody]
-  describe 'list_account_owners test' do
+  describe 'list_account_owners_by_member test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -348,14 +348,30 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for list_favorites
-  # List favorites
+  # unit tests for list_favorite_institutions
+  # List favorite institutions
   # This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [InstitutionsResponseBody]
-  describe 'list_favorites test' do
+  describe 'list_favorite_institutions test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_holdings
+  # List holdings
+  # This endpoint returns all holdings associated with the specified &#x60;user&#x60; across all accounts and members.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :from_date Filter holdings from this date.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @option opts [String] :to_date Filter holdings to this date.
+  # @return [HoldingsResponseBody]
+  describe 'list_holdings test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -378,31 +394,15 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for list_holdings_by_user
-  # List holdings by user
-  # This endpoint returns all holdings associated with the specified &#x60;user&#x60; across all accounts and members.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :from_date Filter holdings from this date.
-  # @option opts [Integer] :page Specify current page.
-  # @option opts [Integer] :records_per_page Specify records per page.
-  # @option opts [String] :to_date Filter holdings to this date.
-  # @return [HoldingsResponseBody]
-  describe 'list_holdings_by_user test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for list_institution_required_credentials
-  # List institution-required credentials
+  # unit tests for list_institution_credentials
+  # List institution credentials
   # Use this endpoint to see which credentials will be needed to create a member for a specific institution.
   # @param institution_code The institution_code of the institution.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [CredentialsResponseBody]
-  describe 'list_institution_required_credentials test' do
+  describe 'list_institution_credentials test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -524,15 +524,31 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for list_transaction_rules_by_user
-  # List transaction rules by user
+  # unit tests for list_transaction_rules
+  # List transaction rules
   # Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [TransactionRulesResponseBody]
-  describe 'list_transaction_rules_by_user test' do
+  describe 'list_transaction_rules test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_transactions
+  # List transactions
+  # Requests to this endpoint return a list of transactions associated with the specified &#x60;user&#x60;, accross all members and accounts associated with that &#x60;user&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :from_date Filter transactions from this date.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @option opts [String] :to_date Filter transactions to this date.
+  # @return [TransactionsResponseBody]
+  describe 'list_transactions test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -580,22 +596,6 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [TransactionsResponseBody]
   describe 'list_transactions_by_tag test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for list_transactions_by_user
-  # List transactions by user
-  # Requests to this endpoint return a list of transactions associated with the specified &#x60;user&#x60;, accross all members and accounts associated with that &#x60;user&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param [Hash] opts the optional parameters
-  # @option opts [String] :from_date Filter transactions from this date.
-  # @option opts [Integer] :page Specify current page.
-  # @option opts [Integer] :records_per_page Specify records per page.
-  # @option opts [String] :to_date Filter transactions to this date.
-  # @return [TransactionsResponseBody]
-  describe 'list_transactions_by_user test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -796,7 +796,7 @@ describe 'MxPlatformApi' do
   end
 
   # unit tests for request_connect_widget_url
-  # Request connect widget URL
+  # Request connect widget url
   # This endpoint will return a URL for an embeddable version of MX Connect.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
@@ -808,8 +808,8 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for request_o_auth_window
-  # Read member
+  # unit tests for request_o_auth_window_uri
+  # Request oauth window uri
   # This endpoint will generate an &#x60;oauth_window_uri&#x60; for the specified &#x60;member&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
@@ -817,14 +817,14 @@ describe 'MxPlatformApi' do
   # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
   # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
   # @return [OAuthWindowResponseBody]
-  describe 'request_o_auth_window test' do
+  describe 'request_o_auth_window_uri test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
   # unit tests for request_widget_url
-  # Request a widget URL
+  # Request widget url
   # This endpoint allows partners to get a URL by passing the &#x60;widget_type&#x60; in the request body, as well as configuring it in several different ways. In the case of Connect, that means setting the &#x60;widget_type&#x60; to &#x60;connect_widget&#x60;. Partners may also pass an optional &#x60;Accept-Language&#x60; header as well as a number of configuration options. Note that this is a &#x60;POST&#x60; request.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param widget_request_body The widget url configuration options.
@@ -851,8 +851,8 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for update_account
-  # Update account
+  # unit tests for update_account_by_member
+  # Update account by member
   # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
@@ -860,7 +860,7 @@ describe 'MxPlatformApi' do
   # @param account_update_request_body Account object to be created with optional parameters (is_hidden)
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
-  describe 'update_account test' do
+  describe 'update_account_by_member test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -901,7 +901,7 @@ describe 'MxPlatformApi' do
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param tag_update_request_body Tag object to be updated with required parameter (tag_guid)
   # @param [Hash] opts the optional parameters
-  # @return [InlineResponse200]
+  # @return [TagResponseBody]
   describe 'update_tag test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

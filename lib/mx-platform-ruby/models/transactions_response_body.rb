@@ -35,8 +35,8 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pagination' => :'Pagination',
-        :'transactions' => :'Array<Transaction>'
+        :'pagination' => :'PaginationResponse',
+        :'transactions' => :'Array<TransactionResponse>'
       }
     end
 

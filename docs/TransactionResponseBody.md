@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transaction** | [**Transaction**](Transaction.md) |  | [optional] |
+| **transaction** | [**TransactionResponse**](TransactionResponse.md) |  | [optional] |
 
 ## Example
 

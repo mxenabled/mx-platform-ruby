@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
-| **statements** | [**Array&lt;Statement&gt;**](Statement.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
+| **statements** | [**Array&lt;StatementResponse&gt;**](StatementResponse.md) |  | [optional] |
 
 ## Example
 

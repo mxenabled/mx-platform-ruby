@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **accounts** | [**Array&lt;Account&gt;**](Account.md) |  | [optional] |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
+| **accounts** | [**Array&lt;AccountResponse&gt;**](AccountResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 

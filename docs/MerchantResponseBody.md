@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **merchant** | [**Merchant**](Merchant.md) |  | [optional] |
+| **merchant** | [**MerchantResponse**](MerchantResponse.md) |  | [optional] |
 
 ## Example
 

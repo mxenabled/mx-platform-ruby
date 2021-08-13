@@ -32,7 +32,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'transaction_rule' => :'TransactionRule'
+        :'transaction_rule' => :'TransactionRuleResponse'
       }
     end
 

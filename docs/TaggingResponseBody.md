@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **tagging** | [**Tagging**](Tagging.md) |  | [optional] |
+| **tagging** | [**TaggingResponse**](TaggingResponse.md) |  | [optional] |
 
 ## Example
 

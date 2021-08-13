@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **challenges** | [**Array&lt;Challenge&gt;**](Challenge.md) |  | [optional] |
-| **pagination** | [**Pagination**](Pagination.md) |  | [optional] |
+| **challenges** | [**Array&lt;ChallengeResponse&gt;**](ChallengeResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **transactions** | [**Array&lt;EnhanceTransaction&gt;**](EnhanceTransaction.md) |  | [optional] |
+| **transactions** | [**Array&lt;EnhanceTransactionResponse&gt;**](EnhanceTransactionResponse.md) |  | [optional] |
 
 ## Example
 
