@@ -1,4 +1,4 @@
-# MxPlatformRuby::ChallengeResponseOptions
+# MxPlatformRuby::OptionResponse
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'mx-platform-ruby'
 
-instance = MxPlatformRuby::ChallengeResponseOptions.new(
+instance = MxPlatformRuby::OptionResponse.new(
   label: IMAGE_1,
   value: image_data
 )

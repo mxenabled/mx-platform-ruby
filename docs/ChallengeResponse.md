@@ -7,9 +7,9 @@
 | **field_name** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **image_data** | **String** |  | [optional] |
-| **image_options** | [**Array&lt;ChallengeResponseImageOptions&gt;**](ChallengeResponseImageOptions.md) |  | [optional] |
+| **image_options** | [**Array&lt;ImageOptionResponse&gt;**](ImageOptionResponse.md) |  | [optional] |
 | **label** | **String** |  | [optional] |
-| **options** | [**Array&lt;ChallengeResponseOptions&gt;**](ChallengeResponseOptions.md) |  | [optional] |
+| **options** | [**Array&lt;OptionResponse&gt;**](OptionResponse.md) |  | [optional] |
 | **type** | **String** |  | [optional] |
 
 ## Example
