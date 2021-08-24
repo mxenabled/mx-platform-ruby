@@ -1,4 +1,4 @@
-# MxPlatformRuby::ChallengeResponseImageOptions
+# MxPlatformRuby::ImageOptionResponse
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'mx-platform-ruby'
 
-instance = MxPlatformRuby::ChallengeResponseImageOptions.new(
+instance = MxPlatformRuby::ImageOptionResponse.new(
   data_uri: data:image/png;base64,iVBORw0KGgoAAAANSUh ... more image data ...,
   label: IMAGE_1,
   value: image_data

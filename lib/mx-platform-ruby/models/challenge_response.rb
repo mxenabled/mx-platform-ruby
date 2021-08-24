@@ -53,9 +53,9 @@ module MxPlatformRuby
         :'field_name' => :'String',
         :'guid' => :'String',
         :'image_data' => :'String',
-        :'image_options' => :'Array<ChallengeResponseImageOptions>',
+        :'image_options' => :'Array<ImageOptionResponse>',
         :'label' => :'String',
-        :'options' => :'Array<ChallengeResponseOptions>',
+        :'options' => :'Array<OptionResponse>',
         :'type' => :'String'
       }
     end
