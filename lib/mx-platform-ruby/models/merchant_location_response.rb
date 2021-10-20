@@ -14,52 +14,46 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class MemberResponse
-    attr_accessor :aggregated_at
+  class MerchantLocationResponse
+    attr_accessor :city
 
-    attr_accessor :connection_status
+    attr_accessor :country
+
+    attr_accessor :created_at
 
     attr_accessor :guid
 
-    attr_accessor :id
+    attr_accessor :latitude
 
-    attr_accessor :institution_code
+    attr_accessor :longitude
 
-    attr_accessor :is_being_aggregated
+    attr_accessor :merchant_guid
 
-    attr_accessor :is_managed_by_user
+    attr_accessor :phone_number
 
-    attr_accessor :is_oauth
+    attr_accessor :postal_code
 
-    attr_accessor :metadata
+    attr_accessor :state
 
-    attr_accessor :name
+    attr_accessor :street_address
 
-    attr_accessor :oauth_window_uri
-
-    attr_accessor :successfully_aggregated_at
-
-    attr_accessor :user_guid
-
-    attr_accessor :user_id
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregated_at' => :'aggregated_at',
-        :'connection_status' => :'connection_status',
+        :'city' => :'city',
+        :'country' => :'country',
+        :'created_at' => :'created_at',
         :'guid' => :'guid',
-        :'id' => :'id',
-        :'institution_code' => :'institution_code',
-        :'is_being_aggregated' => :'is_being_aggregated',
-        :'is_managed_by_user' => :'is_managed_by_user',
-        :'is_oauth' => :'is_oauth',
-        :'metadata' => :'metadata',
-        :'name' => :'name',
-        :'oauth_window_uri' => :'oauth_window_uri',
-        :'successfully_aggregated_at' => :'successfully_aggregated_at',
-        :'user_guid' => :'user_guid',
-        :'user_id' => :'user_id'
+        :'latitude' => :'latitude',
+        :'longitude' => :'longitude',
+        :'merchant_guid' => :'merchant_guid',
+        :'phone_number' => :'phone_number',
+        :'postal_code' => :'postal_code',
+        :'state' => :'state',
+        :'street_address' => :'street_address',
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -71,20 +65,18 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregated_at' => :'String',
-        :'connection_status' => :'String',
+        :'city' => :'String',
+        :'country' => :'String',
+        :'created_at' => :'String',
         :'guid' => :'String',
-        :'id' => :'String',
-        :'institution_code' => :'String',
-        :'is_being_aggregated' => :'Boolean',
-        :'is_managed_by_user' => :'Boolean',
-        :'is_oauth' => :'Boolean',
-        :'metadata' => :'String',
-        :'name' => :'String',
-        :'oauth_window_uri' => :'String',
-        :'successfully_aggregated_at' => :'String',
-        :'user_guid' => :'String',
-        :'user_id' => :'String'
+        :'latitude' => :'Float',
+        :'longitude' => :'Float',
+        :'merchant_guid' => :'String',
+        :'phone_number' => :'String',
+        :'postal_code' => :'String',
+        :'state' => :'String',
+        :'street_address' => :'String',
+        :'updated_at' => :'String'
       }
     end
 
@@ -98,71 +90,63 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::MemberResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::MerchantLocationResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::MemberResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::MerchantLocationResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'aggregated_at')
-        self.aggregated_at = attributes[:'aggregated_at']
+      if attributes.key?(:'city')
+        self.city = attributes[:'city']
       end
 
-      if attributes.key?(:'connection_status')
-        self.connection_status = attributes[:'connection_status']
+      if attributes.key?(:'country')
+        self.country = attributes[:'country']
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
       if attributes.key?(:'guid')
         self.guid = attributes[:'guid']
       end
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'latitude')
+        self.latitude = attributes[:'latitude']
       end
 
-      if attributes.key?(:'institution_code')
-        self.institution_code = attributes[:'institution_code']
+      if attributes.key?(:'longitude')
+        self.longitude = attributes[:'longitude']
       end
 
-      if attributes.key?(:'is_being_aggregated')
-        self.is_being_aggregated = attributes[:'is_being_aggregated']
+      if attributes.key?(:'merchant_guid')
+        self.merchant_guid = attributes[:'merchant_guid']
       end
 
-      if attributes.key?(:'is_managed_by_user')
-        self.is_managed_by_user = attributes[:'is_managed_by_user']
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
       end
 
-      if attributes.key?(:'is_oauth')
-        self.is_oauth = attributes[:'is_oauth']
+      if attributes.key?(:'postal_code')
+        self.postal_code = attributes[:'postal_code']
       end
 
-      if attributes.key?(:'metadata')
-        self.metadata = attributes[:'metadata']
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
       end
 
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.key?(:'street_address')
+        self.street_address = attributes[:'street_address']
       end
 
-      if attributes.key?(:'oauth_window_uri')
-        self.oauth_window_uri = attributes[:'oauth_window_uri']
-      end
-
-      if attributes.key?(:'successfully_aggregated_at')
-        self.successfully_aggregated_at = attributes[:'successfully_aggregated_at']
-      end
-
-      if attributes.key?(:'user_guid')
-        self.user_guid = attributes[:'user_guid']
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -184,20 +168,18 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregated_at == o.aggregated_at &&
-          connection_status == o.connection_status &&
+          city == o.city &&
+          country == o.country &&
+          created_at == o.created_at &&
           guid == o.guid &&
-          id == o.id &&
-          institution_code == o.institution_code &&
-          is_being_aggregated == o.is_being_aggregated &&
-          is_managed_by_user == o.is_managed_by_user &&
-          is_oauth == o.is_oauth &&
-          metadata == o.metadata &&
-          name == o.name &&
-          oauth_window_uri == o.oauth_window_uri &&
-          successfully_aggregated_at == o.successfully_aggregated_at &&
-          user_guid == o.user_guid &&
-          user_id == o.user_id
+          latitude == o.latitude &&
+          longitude == o.longitude &&
+          merchant_guid == o.merchant_guid &&
+          phone_number == o.phone_number &&
+          postal_code == o.postal_code &&
+          state == o.state &&
+          street_address == o.street_address &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -209,7 +191,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_oauth, metadata, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
+      [city, country, created_at, guid, latitude, longitude, merchant_guid, phone_number, postal_code, state, street_address, updated_at].hash
     end
 
     # Builds the object from hash

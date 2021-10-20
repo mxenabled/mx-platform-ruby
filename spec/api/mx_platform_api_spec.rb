@@ -71,6 +71,47 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for create_managed_account
+  # Create managed account
+  # Use this endpoint to create a partner-managed account.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param managed_account_create_request_body Managed account to be created.
+  # @param [Hash] opts the optional parameters
+  # @return [AccountResponseBody]
+  describe 'create_managed_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_managed_member
+  # Create managed member
+  # Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param managed_member_create_request_body Managed member to be created.
+  # @param [Hash] opts the optional parameters
+  # @return [MemberResponseBody]
+  describe 'create_managed_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_managed_transaction
+  # Create managed transaction
+  # Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param managed_transaction_create_request_body Managed transaction to be created.
+  # @param [Hash] opts the optional parameters
+  # @return [TransactionResponseBody]
+  describe 'create_managed_transaction test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_member
   # Create member
   # This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the &#x60;/institutions/{institution_code}/credentials&#x60; endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
@@ -143,6 +184,47 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_category test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_managed_account
+  # Delete managed account
+  # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_managed_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_managed_member
+  # Delete managed member
+  # Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_managed_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_managed_transaction
+  # Delete managed transaction
+  # Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_managed_transaction test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -424,6 +506,63 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_managed_accounts
+  # List managed accounts
+  # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [AccountsResponseBody]
+  describe 'list_managed_accounts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_managed_institutions
+  # List managed institutions
+  # This endpoint returns a list of institutions which can be used to create partner-managed members.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [InstitutionsResponseBody]
+  describe 'list_managed_institutions test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_managed_members
+  # List managed members
+  # This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [MembersResponseBody]
+  describe 'list_managed_members test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_managed_transactions
+  # List managed transactions
+  # This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [TransactionsResponseBody]
+  describe 'list_managed_transactions test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_member_challenges
   # List member challenges
   # Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;204 No Content&#x60; will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;200 OK&#x60; will be returned - along with the corresponding credentials.
@@ -679,6 +818,47 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for read_managed_account
+  # Read managed account
+  # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [AccountResponseBody]
+  describe 'read_managed_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_managed_member
+  # Read managed member
+  # This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [MemberResponseBody]
+  describe 'read_managed_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_managed_transaction
+  # Read managed transaction
+  # Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [TransactionResponseBody]
+  describe 'read_managed_transaction test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for read_member
   # Read member
   # Use this endpoint to read the attributes of a specific member.
@@ -712,6 +892,18 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [MerchantResponseBody]
   describe 'read_merchant test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_merchant_location
+  # Read merchant location
+  # This endpoint returns the specified merchant_location resource.
+  # @param merchant_location_guid The unique id for a &#x60;merchant_location&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [MerchantLocationResponseBody]
+  describe 'read_merchant_location test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -816,6 +1008,7 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
   # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
+  # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
   # @return [OAuthWindowResponseBody]
   describe 'request_o_auth_window_uri test' do
     it 'should work' do
@@ -875,6 +1068,50 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [CategoryResponseBody]
   describe 'update_category test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_managed_account
+  # Update managed account
+  # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param managed_account_update_request_body Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+  # @param [Hash] opts the optional parameters
+  # @return [AccountResponseBody]
+  describe 'update_managed_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_managed_member
+  # Update managed member
+  # Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param managed_member_update_request_body Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+  # @param [Hash] opts the optional parameters
+  # @return [MemberResponseBody]
+  describe 'update_managed_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_managed_transaction
+  # Update managed transaction
+  # Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param managed_transaction_update_request_body Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+  # @param [Hash] opts the optional parameters
+  # @return [TransactionResponseBody]
+  describe 'update_managed_transaction test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
