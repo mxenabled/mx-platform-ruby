@@ -228,6 +228,231 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Create managed account
+    # Use this endpoint to create a partner-managed account.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param managed_account_create_request_body [ManagedAccountCreateRequestBody] Managed account to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [AccountResponseBody]
+    def create_managed_account(user_guid, member_guid, managed_account_create_request_body, opts = {})
+      data, _status_code, _headers = create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body, opts)
+      data
+    end
+
+    # Create managed account
+    # Use this endpoint to create a partner-managed account.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param managed_account_create_request_body [ManagedAccountCreateRequestBody] Managed account to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
+    def create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_managed_account ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_account"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.create_managed_account"
+      end
+      # verify the required parameter 'managed_account_create_request_body' is set
+      if @api_client.config.client_side_validation && managed_account_create_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_account_create_request_body' when calling MxPlatformApi.create_managed_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_account_create_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.create_managed_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#create_managed_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create managed member
+    # Use this endpoint to create a new partner-managed `member`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param managed_member_create_request_body [ManagedMemberCreateRequestBody] Managed member to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [MemberResponseBody]
+    def create_managed_member(user_guid, managed_member_create_request_body, opts = {})
+      data, _status_code, _headers = create_managed_member_with_http_info(user_guid, managed_member_create_request_body, opts)
+      data
+    end
+
+    # Create managed member
+    # Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param managed_member_create_request_body [ManagedMemberCreateRequestBody] Managed member to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
+    def create_managed_member_with_http_info(user_guid, managed_member_create_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_managed_member ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_member"
+      end
+      # verify the required parameter 'managed_member_create_request_body' is set
+      if @api_client.config.client_side_validation && managed_member_create_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_member_create_request_body' when calling MxPlatformApi.create_managed_member"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_member_create_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MemberResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.create_managed_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#create_managed_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create managed transaction
+    # Use this endpoint to create a new partner-managed `transaction`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param managed_transaction_create_request_body [ManagedTransactionCreateRequestBody] Managed transaction to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [TransactionResponseBody]
+    def create_managed_transaction(user_guid, member_guid, managed_transaction_create_request_body, opts = {})
+      data, _status_code, _headers = create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body, opts)
+      data
+    end
+
+    # Create managed transaction
+    # Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param managed_transaction_create_request_body [ManagedTransactionCreateRequestBody] Managed transaction to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
+    def create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_managed_transaction ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_transaction"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.create_managed_transaction"
+      end
+      # verify the required parameter 'managed_transaction_create_request_body' is set
+      if @api_client.config.client_side_validation && managed_transaction_create_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_transaction_create_request_body' when calling MxPlatformApi.create_managed_transaction"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_transaction_create_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TransactionResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.create_managed_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#create_managed_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create member
     # This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the `/institutions/{institution_code}/credentials` endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
@@ -642,6 +867,225 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#delete_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete managed account
+    # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of `204 No Content`.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_managed_account(member_guid, user_guid, account_guid, opts = {})
+      delete_managed_account_with_http_info(member_guid, user_guid, account_guid, opts)
+      nil
+    end
+
+    # Delete managed account
+    # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_managed_account_with_http_info(member_guid, user_guid, account_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_managed_account ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.delete_managed_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_account"
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.delete_managed_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.delete_managed_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#delete_managed_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete managed member
+    # Use this endpoint to delete the specified partner-managed `member`. The endpoint will respond with a status of `204 No Content` without a resource.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_managed_member(member_guid, user_guid, opts = {})
+      delete_managed_member_with_http_info(member_guid, user_guid, opts)
+      nil
+    end
+
+    # Delete managed member
+    # Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_managed_member_with_http_info(member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_managed_member ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.delete_managed_member"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_member"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.delete_managed_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#delete_managed_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete managed transaction
+    # Use this endpoint to delete the specified partner-managed `transaction`. The endpoint will respond with a status of `204 No Content` without a resource.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_managed_transaction(member_guid, user_guid, transaction_guid, opts = {})
+      delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts)
+      nil
+    end
+
+    # Delete managed transaction
+    # Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_managed_transaction ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.delete_managed_transaction"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_transaction"
+      end
+      # verify the required parameter 'transaction_guid' is set
+      if @api_client.config.client_side_validation && transaction_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.delete_managed_transaction"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.delete_managed_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#delete_managed_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -2049,6 +2493,288 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # List managed accounts
+    # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [AccountsResponseBody]
+    def list_managed_accounts(user_guid, member_guid, opts = {})
+      data, _status_code, _headers = list_managed_accounts_with_http_info(user_guid, member_guid, opts)
+      data
+    end
+
+    # List managed accounts
+    # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(AccountsResponseBody, Integer, Hash)>] AccountsResponseBody data, response status code and response headers
+    def list_managed_accounts_with_http_info(user_guid, member_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_accounts ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_accounts"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_managed_accounts"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_managed_accounts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_managed_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List managed institutions
+    # This endpoint returns a list of institutions which can be used to create partner-managed members.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [InstitutionsResponseBody]
+    def list_managed_institutions(opts = {})
+      data, _status_code, _headers = list_managed_institutions_with_http_info(opts)
+      data
+    end
+
+    # List managed institutions
+    # This endpoint returns a list of institutions which can be used to create partner-managed members.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(InstitutionsResponseBody, Integer, Hash)>] InstitutionsResponseBody data, response status code and response headers
+    def list_managed_institutions_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_institutions ...'
+      end
+      # resource path
+      local_var_path = '/managed_institutions'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'InstitutionsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_managed_institutions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_managed_institutions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List managed members
+    # This endpoint returns a list of all the partner-managed members associated with the specified `user`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [MembersResponseBody]
+    def list_managed_members(user_guid, opts = {})
+      data, _status_code, _headers = list_managed_members_with_http_info(user_guid, opts)
+      data
+    end
+
+    # List managed members
+    # This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(MembersResponseBody, Integer, Hash)>] MembersResponseBody data, response status code and response headers
+    def list_managed_members_with_http_info(user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_members ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_members"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MembersResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_managed_members",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_managed_members\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List managed transactions
+    # This endpoint returns a list of all the partner-managed transactions associated with the specified `account`, scoped through a `user` and a `member`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [TransactionsResponseBody]
+    def list_managed_transactions(user_guid, member_guid, opts = {})
+      data, _status_code, _headers = list_managed_transactions_with_http_info(user_guid, member_guid, opts)
+      data
+    end
+
+    # List managed transactions
+    # This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(TransactionsResponseBody, Integer, Hash)>] TransactionsResponseBody data, response status code and response headers
+    def list_managed_transactions_with_http_info(user_guid, member_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_transactions ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_transactions"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_managed_transactions"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TransactionsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_managed_transactions",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_managed_transactions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List member challenges
     # Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of `CHALLENGED`, then code `204 No Content` will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of `CHALLENGED`, then code `200 OK` will be returned - along with the corresponding credentials.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
@@ -3321,6 +4047,225 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Read managed account
+    # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [AccountResponseBody]
+    def read_managed_account(member_guid, user_guid, account_guid, opts = {})
+      data, _status_code, _headers = read_managed_account_with_http_info(member_guid, user_guid, account_guid, opts)
+      data
+    end
+
+    # Read managed account
+    # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
+    def read_managed_account_with_http_info(member_guid, user_guid, account_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_managed_account ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_managed_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_account"
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.read_managed_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_managed_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_managed_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read managed member
+    # This endpoint returns the attributes of the specified partner-managed `member`.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [MemberResponseBody]
+    def read_managed_member(member_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_managed_member_with_http_info(member_guid, user_guid, opts)
+      data
+    end
+
+    # Read managed member
+    # This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
+    def read_managed_member_with_http_info(member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_managed_member ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_managed_member"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_member"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MemberResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_managed_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_managed_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read managed transaction
+    # Requests to this endpoint will return the attributes of the specified partner-managed `transaction`.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [TransactionResponseBody]
+    def read_managed_transaction(member_guid, user_guid, transaction_guid, opts = {})
+      data, _status_code, _headers = read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts)
+      data
+    end
+
+    # Read managed transaction
+    # Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
+    def read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_managed_transaction ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_managed_transaction"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_transaction"
+      end
+      # verify the required parameter 'transaction_guid' is set
+      if @api_client.config.client_side_validation && transaction_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.read_managed_transaction"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TransactionResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_managed_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_managed_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Read member
     # Use this endpoint to read the attributes of a specific member.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
@@ -3518,6 +4463,69 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_merchant\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read merchant location
+    # This endpoint returns the specified merchant_location resource.
+    # @param merchant_location_guid [String] The unique id for a &#x60;merchant_location&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [MerchantLocationResponseBody]
+    def read_merchant_location(merchant_location_guid, opts = {})
+      data, _status_code, _headers = read_merchant_location_with_http_info(merchant_location_guid, opts)
+      data
+    end
+
+    # Read merchant location
+    # This endpoint returns the specified merchant_location resource.
+    # @param merchant_location_guid [String] The unique id for a &#x60;merchant_location&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MerchantLocationResponseBody, Integer, Hash)>] MerchantLocationResponseBody data, response status code and response headers
+    def read_merchant_location_with_http_info(merchant_location_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_merchant_location ...'
+      end
+      # verify the required parameter 'merchant_location_guid' is set
+      if @api_client.config.client_side_validation && merchant_location_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'merchant_location_guid' when calling MxPlatformApi.read_merchant_location"
+      end
+      # resource path
+      local_var_path = '/merchant_locations/{merchant_location_guid}'.sub('{' + 'merchant_location_guid' + '}', CGI.escape(merchant_location_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MerchantLocationResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_merchant_location",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_merchant_location\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4010,6 +5018,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
     # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
+    # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
     # @return [OAuthWindowResponseBody]
     def request_o_auth_window_uri(member_guid, user_guid, opts = {})
       data, _status_code, _headers = request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts)
@@ -4023,6 +5032,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
     # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
+    # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
     # @return [Array<(OAuthWindowResponseBody, Integer, Hash)>] OAuthWindowResponseBody data, response status code and response headers
     def request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts = {})
       if @api_client.config.debugging
@@ -4043,6 +5053,7 @@ module MxPlatformRuby
       query_params = opts[:query_params] || {}
       query_params[:'referral_source'] = opts[:'referral_source'] if !opts[:'referral_source'].nil?
       query_params[:'ui_message_webview_url_scheme'] = opts[:'ui_message_webview_url_scheme'] if !opts[:'ui_message_webview_url_scheme'].nil?
+      query_params[:'skip_aggregation'] = opts[:'skip_aggregation'] if !opts[:'skip_aggregation'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -4385,6 +5396,249 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#update_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update managed account
+    # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param managed_account_update_request_body [ManagedAccountUpdateRequestBody] Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [AccountResponseBody]
+    def update_managed_account(member_guid, user_guid, account_guid, managed_account_update_request_body, opts = {})
+      data, _status_code, _headers = update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body, opts)
+      data
+    end
+
+    # Update managed account
+    # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param managed_account_update_request_body [ManagedAccountUpdateRequestBody] Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
+    def update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_managed_account ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.update_managed_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_account"
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_managed_account"
+      end
+      # verify the required parameter 'managed_account_update_request_body' is set
+      if @api_client.config.client_side_validation && managed_account_update_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_account_update_request_body' when calling MxPlatformApi.update_managed_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_account_update_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.update_managed_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#update_managed_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update managed member
+    # Use this endpoint to update the attributes of the specified partner_managed `member`.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param managed_member_update_request_body [ManagedMemberUpdateRequestBody] Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [MemberResponseBody]
+    def update_managed_member(member_guid, user_guid, managed_member_update_request_body, opts = {})
+      data, _status_code, _headers = update_managed_member_with_http_info(member_guid, user_guid, managed_member_update_request_body, opts)
+      data
+    end
+
+    # Update managed member
+    # Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param managed_member_update_request_body [ManagedMemberUpdateRequestBody] Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
+    def update_managed_member_with_http_info(member_guid, user_guid, managed_member_update_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_managed_member ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.update_managed_member"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_member"
+      end
+      # verify the required parameter 'managed_member_update_request_body' is set
+      if @api_client.config.client_side_validation && managed_member_update_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_member_update_request_body' when calling MxPlatformApi.update_managed_member"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_member_update_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MemberResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.update_managed_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#update_managed_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update managed transaction
+    # Use this endpoint to update the attributes of the specified partner_managed `transaction`.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param managed_transaction_update_request_body [ManagedTransactionUpdateRequestBody] Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [TransactionResponseBody]
+    def update_managed_transaction(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts = {})
+      data, _status_code, _headers = update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts)
+      data
+    end
+
+    # Update managed transaction
+    # Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param managed_transaction_update_request_body [ManagedTransactionUpdateRequestBody] Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
+    def update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_managed_transaction ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.update_managed_transaction"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_transaction"
+      end
+      # verify the required parameter 'transaction_guid' is set
+      if @api_client.config.client_side_validation && transaction_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.update_managed_transaction"
+      end
+      # verify the required parameter 'managed_transaction_update_request_body' is set
+      if @api_client.config.client_side_validation && managed_transaction_update_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'managed_transaction_update_request_body' when calling MxPlatformApi.update_managed_transaction"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(managed_transaction_update_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TransactionResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.update_managed_transaction",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#update_managed_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

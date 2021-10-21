@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_guid** | **String** |  | [optional] |
+| **account_id** | **String** |  | [optional] |
 | **amount** | **Float** |  | [optional] |
 | **category** | **String** |  | [optional] |
 | **check_number_string** | **String** |  | [optional] |
@@ -29,9 +30,12 @@
 | **localized_memo** | **String** |  | [optional] |
 | **longitude** | **Float** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
+| **member_is_managed_by_user** | **Boolean** |  | [optional] |
 | **memo** | **String** |  | [optional] |
 | **merchant_category_code** | **Integer** |  | [optional] |
 | **merchant_guid** | **String** |  | [optional] |
+| **merchant_location_guid** | **String** |  | [optional] |
+| **metadata** | **String** |  | [optional] |
 | **original_description** | **String** |  | [optional] |
 | **posted_at** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
@@ -40,6 +44,7 @@
 | **type** | **String** |  | [optional] |
 | **updated_at** | **String** |  | [optional] |
 | **user_guid** | **String** |  | [optional] |
+| **user_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -48,6 +53,7 @@ require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::TransactionResponse.new(
   account_guid: ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1,
+  account_id: account123,
   amount: 61.11,
   category: Groceries,
   check_number_string: 6812,
@@ -72,9 +78,12 @@ instance = MxPlatformRuby::TransactionResponse.new(
   localized_memo: This is a localized_memo,
   longitude: 139.691706,
   member_guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
+  member_is_managed_by_user: false,
   memo: This is a memo,
   merchant_category_code: 5411,
   merchant_guid: MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b,
+  merchant_location_guid: MCL-00024e59-18b5-4d79-b879-2a7896726fea,
+  metadata: some metadata,
   original_description: WHOLEFDS TSQ 102,
   posted_at: 2016-10-07T06:00:00.000Z,
   status: POSTED,
@@ -82,7 +91,8 @@ instance = MxPlatformRuby::TransactionResponse.new(
   transacted_at: 2016-10-06T13:00:00.000Z,
   type: DEBIT,
   updated_at: 2016-10-07T05:49:12.000Z,
-  user_guid: USR-fa7537f3-48aa-a683-a02a-b18940482f54
+  user_guid: USR-fa7537f3-48aa-a683-a02a-b18940482f54,
+  user_id: user123
 )
 ```
 

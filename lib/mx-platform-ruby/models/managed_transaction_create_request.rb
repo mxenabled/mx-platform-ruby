@@ -14,48 +14,20 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class TransactionResponse
-    attr_accessor :account_guid
-
-    attr_accessor :account_id
-
+  class ManagedTransactionCreateRequest
     attr_accessor :amount
 
     attr_accessor :category
 
     attr_accessor :check_number_string
 
-    attr_accessor :created_at
-
     attr_accessor :currency_code
-
-    attr_accessor :date
 
     attr_accessor :description
 
-    attr_accessor :guid
-
     attr_accessor :id
 
-    attr_accessor :is_bill_pay
-
-    attr_accessor :is_direct_deposit
-
-    attr_accessor :is_expense
-
-    attr_accessor :is_fee
-
-    attr_accessor :is_income
-
     attr_accessor :is_international
-
-    attr_accessor :is_overdraft_fee
-
-    attr_accessor :is_payroll_advance
-
-    attr_accessor :is_recurring
-
-    attr_accessor :is_subscription
 
     attr_accessor :latitude
 
@@ -64,10 +36,6 @@ module MxPlatformRuby
     attr_accessor :localized_memo
 
     attr_accessor :longitude
-
-    attr_accessor :member_guid
-
-    attr_accessor :member_is_managed_by_user
 
     attr_accessor :memo
 
@@ -79,68 +47,37 @@ module MxPlatformRuby
 
     attr_accessor :metadata
 
-    attr_accessor :original_description
-
     attr_accessor :posted_at
 
     attr_accessor :status
-
-    attr_accessor :top_level_category
 
     attr_accessor :transacted_at
 
     attr_accessor :type
 
-    attr_accessor :updated_at
-
-    attr_accessor :user_guid
-
-    attr_accessor :user_id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_guid' => :'account_guid',
-        :'account_id' => :'account_id',
         :'amount' => :'amount',
         :'category' => :'category',
         :'check_number_string' => :'check_number_string',
-        :'created_at' => :'created_at',
         :'currency_code' => :'currency_code',
-        :'date' => :'date',
         :'description' => :'description',
-        :'guid' => :'guid',
         :'id' => :'id',
-        :'is_bill_pay' => :'is_bill_pay',
-        :'is_direct_deposit' => :'is_direct_deposit',
-        :'is_expense' => :'is_expense',
-        :'is_fee' => :'is_fee',
-        :'is_income' => :'is_income',
         :'is_international' => :'is_international',
-        :'is_overdraft_fee' => :'is_overdraft_fee',
-        :'is_payroll_advance' => :'is_payroll_advance',
-        :'is_recurring' => :'is_recurring',
-        :'is_subscription' => :'is_subscription',
         :'latitude' => :'latitude',
         :'localized_description' => :'localized_description',
         :'localized_memo' => :'localized_memo',
         :'longitude' => :'longitude',
-        :'member_guid' => :'member_guid',
-        :'member_is_managed_by_user' => :'member_is_managed_by_user',
         :'memo' => :'memo',
         :'merchant_category_code' => :'merchant_category_code',
         :'merchant_guid' => :'merchant_guid',
         :'merchant_location_guid' => :'merchant_location_guid',
         :'metadata' => :'metadata',
-        :'original_description' => :'original_description',
         :'posted_at' => :'posted_at',
         :'status' => :'status',
-        :'top_level_category' => :'top_level_category',
         :'transacted_at' => :'transacted_at',
-        :'type' => :'type',
-        :'updated_at' => :'updated_at',
-        :'user_guid' => :'user_guid',
-        :'user_id' => :'user_id'
+        :'type' => :'type'
       }
     end
 
@@ -152,47 +89,26 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_guid' => :'String',
-        :'account_id' => :'String',
-        :'amount' => :'Float',
+        :'amount' => :'String',
         :'category' => :'String',
         :'check_number_string' => :'String',
-        :'created_at' => :'String',
         :'currency_code' => :'String',
-        :'date' => :'String',
         :'description' => :'String',
-        :'guid' => :'String',
         :'id' => :'String',
-        :'is_bill_pay' => :'Boolean',
-        :'is_direct_deposit' => :'Boolean',
-        :'is_expense' => :'Boolean',
-        :'is_fee' => :'Boolean',
-        :'is_income' => :'Boolean',
         :'is_international' => :'Boolean',
-        :'is_overdraft_fee' => :'Boolean',
-        :'is_payroll_advance' => :'Boolean',
-        :'is_recurring' => :'Boolean',
-        :'is_subscription' => :'Boolean',
         :'latitude' => :'Float',
         :'localized_description' => :'String',
         :'localized_memo' => :'String',
         :'longitude' => :'Float',
-        :'member_guid' => :'String',
-        :'member_is_managed_by_user' => :'Boolean',
         :'memo' => :'String',
         :'merchant_category_code' => :'Integer',
         :'merchant_guid' => :'String',
         :'merchant_location_guid' => :'String',
         :'metadata' => :'String',
-        :'original_description' => :'String',
         :'posted_at' => :'String',
         :'status' => :'String',
-        :'top_level_category' => :'String',
         :'transacted_at' => :'String',
-        :'type' => :'String',
-        :'updated_at' => :'String',
-        :'user_guid' => :'String',
-        :'user_id' => :'String'
+        :'type' => :'String'
       }
     end
 
@@ -206,24 +122,16 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::TransactionResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::ManagedTransactionCreateRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::TransactionResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::ManagedTransactionCreateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'account_guid')
-        self.account_guid = attributes[:'account_guid']
-      end
-
-      if attributes.key?(:'account_id')
-        self.account_id = attributes[:'account_id']
-      end
 
       if attributes.key?(:'amount')
         self.amount = attributes[:'amount']
@@ -237,68 +145,20 @@ module MxPlatformRuby
         self.check_number_string = attributes[:'check_number_string']
       end
 
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
       if attributes.key?(:'currency_code')
         self.currency_code = attributes[:'currency_code']
-      end
-
-      if attributes.key?(:'date')
-        self.date = attributes[:'date']
       end
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'guid')
-        self.guid = attributes[:'guid']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'is_bill_pay')
-        self.is_bill_pay = attributes[:'is_bill_pay']
-      end
-
-      if attributes.key?(:'is_direct_deposit')
-        self.is_direct_deposit = attributes[:'is_direct_deposit']
-      end
-
-      if attributes.key?(:'is_expense')
-        self.is_expense = attributes[:'is_expense']
-      end
-
-      if attributes.key?(:'is_fee')
-        self.is_fee = attributes[:'is_fee']
-      end
-
-      if attributes.key?(:'is_income')
-        self.is_income = attributes[:'is_income']
-      end
-
       if attributes.key?(:'is_international')
         self.is_international = attributes[:'is_international']
-      end
-
-      if attributes.key?(:'is_overdraft_fee')
-        self.is_overdraft_fee = attributes[:'is_overdraft_fee']
-      end
-
-      if attributes.key?(:'is_payroll_advance')
-        self.is_payroll_advance = attributes[:'is_payroll_advance']
-      end
-
-      if attributes.key?(:'is_recurring')
-        self.is_recurring = attributes[:'is_recurring']
-      end
-
-      if attributes.key?(:'is_subscription')
-        self.is_subscription = attributes[:'is_subscription']
       end
 
       if attributes.key?(:'latitude')
@@ -315,14 +175,6 @@ module MxPlatformRuby
 
       if attributes.key?(:'longitude')
         self.longitude = attributes[:'longitude']
-      end
-
-      if attributes.key?(:'member_guid')
-        self.member_guid = attributes[:'member_guid']
-      end
-
-      if attributes.key?(:'member_is_managed_by_user')
-        self.member_is_managed_by_user = attributes[:'member_is_managed_by_user']
       end
 
       if attributes.key?(:'memo')
@@ -345,20 +197,12 @@ module MxPlatformRuby
         self.metadata = attributes[:'metadata']
       end
 
-      if attributes.key?(:'original_description')
-        self.original_description = attributes[:'original_description']
-      end
-
       if attributes.key?(:'posted_at')
         self.posted_at = attributes[:'posted_at']
       end
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
-      end
-
-      if attributes.key?(:'top_level_category')
-        self.top_level_category = attributes[:'top_level_category']
       end
 
       if attributes.key?(:'transacted_at')
@@ -368,30 +212,43 @@ module MxPlatformRuby
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.key?(:'user_guid')
-        self.user_guid = attributes[:'user_guid']
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @amount.nil?
+        invalid_properties.push('invalid value for "amount", amount cannot be nil.')
+      end
+
+      if @description.nil?
+        invalid_properties.push('invalid value for "description", description cannot be nil.')
+      end
+
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @transacted_at.nil?
+        invalid_properties.push('invalid value for "transacted_at", transacted_at cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @amount.nil?
+      return false if @description.nil?
+      return false if @status.nil?
+      return false if @transacted_at.nil?
+      return false if @type.nil?
       true
     end
 
@@ -400,47 +257,26 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_guid == o.account_guid &&
-          account_id == o.account_id &&
           amount == o.amount &&
           category == o.category &&
           check_number_string == o.check_number_string &&
-          created_at == o.created_at &&
           currency_code == o.currency_code &&
-          date == o.date &&
           description == o.description &&
-          guid == o.guid &&
           id == o.id &&
-          is_bill_pay == o.is_bill_pay &&
-          is_direct_deposit == o.is_direct_deposit &&
-          is_expense == o.is_expense &&
-          is_fee == o.is_fee &&
-          is_income == o.is_income &&
           is_international == o.is_international &&
-          is_overdraft_fee == o.is_overdraft_fee &&
-          is_payroll_advance == o.is_payroll_advance &&
-          is_recurring == o.is_recurring &&
-          is_subscription == o.is_subscription &&
           latitude == o.latitude &&
           localized_description == o.localized_description &&
           localized_memo == o.localized_memo &&
           longitude == o.longitude &&
-          member_guid == o.member_guid &&
-          member_is_managed_by_user == o.member_is_managed_by_user &&
           memo == o.memo &&
           merchant_category_code == o.merchant_category_code &&
           merchant_guid == o.merchant_guid &&
           merchant_location_guid == o.merchant_location_guid &&
           metadata == o.metadata &&
-          original_description == o.original_description &&
           posted_at == o.posted_at &&
           status == o.status &&
-          top_level_category == o.top_level_category &&
           transacted_at == o.transacted_at &&
-          type == o.type &&
-          updated_at == o.updated_at &&
-          user_guid == o.user_guid &&
-          user_id == o.user_id
+          type == o.type
     end
 
     # @see the `==` method
@@ -452,7 +288,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, account_id, amount, category, check_number_string, created_at, currency_code, date, description, guid, id, is_bill_pay, is_direct_deposit, is_expense, is_fee, is_income, is_international, is_overdraft_fee, is_payroll_advance, is_recurring, is_subscription, latitude, localized_description, localized_memo, longitude, member_guid, member_is_managed_by_user, memo, merchant_category_code, merchant_guid, merchant_location_guid, metadata, original_description, posted_at, status, top_level_category, transacted_at, type, updated_at, user_guid, user_id].hash
+      [amount, category, check_number_string, currency_code, description, id, is_international, latitude, localized_description, localized_memo, longitude, memo, merchant_category_code, merchant_guid, merchant_location_guid, metadata, posted_at, status, transacted_at, type].hash
     end
 
     # Builds the object from hash

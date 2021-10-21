@@ -14,52 +14,22 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class MemberResponse
-    attr_accessor :aggregated_at
-
-    attr_accessor :connection_status
-
-    attr_accessor :guid
-
+  class ManagedMemberCreateRequest
     attr_accessor :id
 
     attr_accessor :institution_code
-
-    attr_accessor :is_being_aggregated
-
-    attr_accessor :is_managed_by_user
-
-    attr_accessor :is_oauth
 
     attr_accessor :metadata
 
     attr_accessor :name
 
-    attr_accessor :oauth_window_uri
-
-    attr_accessor :successfully_aggregated_at
-
-    attr_accessor :user_guid
-
-    attr_accessor :user_id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'aggregated_at' => :'aggregated_at',
-        :'connection_status' => :'connection_status',
-        :'guid' => :'guid',
         :'id' => :'id',
         :'institution_code' => :'institution_code',
-        :'is_being_aggregated' => :'is_being_aggregated',
-        :'is_managed_by_user' => :'is_managed_by_user',
-        :'is_oauth' => :'is_oauth',
         :'metadata' => :'metadata',
-        :'name' => :'name',
-        :'oauth_window_uri' => :'oauth_window_uri',
-        :'successfully_aggregated_at' => :'successfully_aggregated_at',
-        :'user_guid' => :'user_guid',
-        :'user_id' => :'user_id'
+        :'name' => :'name'
       }
     end
 
@@ -71,20 +41,10 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'aggregated_at' => :'String',
-        :'connection_status' => :'String',
-        :'guid' => :'String',
         :'id' => :'String',
         :'institution_code' => :'String',
-        :'is_being_aggregated' => :'Boolean',
-        :'is_managed_by_user' => :'Boolean',
-        :'is_oauth' => :'Boolean',
         :'metadata' => :'String',
-        :'name' => :'String',
-        :'oauth_window_uri' => :'String',
-        :'successfully_aggregated_at' => :'String',
-        :'user_guid' => :'String',
-        :'user_id' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -98,28 +58,16 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::MemberResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::ManagedMemberCreateRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::MemberResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::ManagedMemberCreateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'aggregated_at')
-        self.aggregated_at = attributes[:'aggregated_at']
-      end
-
-      if attributes.key?(:'connection_status')
-        self.connection_status = attributes[:'connection_status']
-      end
-
-      if attributes.key?(:'guid')
-        self.guid = attributes[:'guid']
-      end
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
@@ -129,18 +77,6 @@ module MxPlatformRuby
         self.institution_code = attributes[:'institution_code']
       end
 
-      if attributes.key?(:'is_being_aggregated')
-        self.is_being_aggregated = attributes[:'is_being_aggregated']
-      end
-
-      if attributes.key?(:'is_managed_by_user')
-        self.is_managed_by_user = attributes[:'is_managed_by_user']
-      end
-
-      if attributes.key?(:'is_oauth')
-        self.is_oauth = attributes[:'is_oauth']
-      end
-
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
       end
@@ -148,34 +84,23 @@ module MxPlatformRuby
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
-
-      if attributes.key?(:'oauth_window_uri')
-        self.oauth_window_uri = attributes[:'oauth_window_uri']
-      end
-
-      if attributes.key?(:'successfully_aggregated_at')
-        self.successfully_aggregated_at = attributes[:'successfully_aggregated_at']
-      end
-
-      if attributes.key?(:'user_guid')
-        self.user_guid = attributes[:'user_guid']
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @institution_code.nil?
+        invalid_properties.push('invalid value for "institution_code", institution_code cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @institution_code.nil?
       true
     end
 
@@ -184,20 +109,10 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          aggregated_at == o.aggregated_at &&
-          connection_status == o.connection_status &&
-          guid == o.guid &&
           id == o.id &&
           institution_code == o.institution_code &&
-          is_being_aggregated == o.is_being_aggregated &&
-          is_managed_by_user == o.is_managed_by_user &&
-          is_oauth == o.is_oauth &&
           metadata == o.metadata &&
-          name == o.name &&
-          oauth_window_uri == o.oauth_window_uri &&
-          successfully_aggregated_at == o.successfully_aggregated_at &&
-          user_guid == o.user_guid &&
-          user_id == o.user_id
+          name == o.name
     end
 
     # @see the `==` method
@@ -209,7 +124,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_oauth, metadata, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
+      [id, institution_code, metadata, name].hash
     end
 
     # Builds the object from hash
