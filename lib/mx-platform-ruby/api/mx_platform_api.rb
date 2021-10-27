@@ -2074,6 +2074,8 @@ module MxPlatformRuby
     # Use this endpoint to read the attributes of a specific user.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
     # @return [CategoriesResponseBody]
     def list_default_categories(user_guid, opts = {})
       data, _status_code, _headers = list_default_categories_with_http_info(user_guid, opts)
@@ -2084,6 +2086,8 @@ module MxPlatformRuby
     # Use this endpoint to read the attributes of a specific user.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(CategoriesResponseBody, Integer, Hash)>] CategoriesResponseBody data, response status code and response headers
     def list_default_categories_with_http_info(user_guid, opts = {})
       if @api_client.config.debugging
@@ -2098,6 +2102,8 @@ module MxPlatformRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -2425,6 +2431,8 @@ module MxPlatformRuby
     # This endpoint returns a list of institutions based on the specified search term or parameter.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name This will list only institutions in which the appended string appears.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
     # @option opts [Boolean] :supports_account_identification Filter only institutions which support account identification.
     # @option opts [Boolean] :supports_account_statement Filter only institutions which support account statements.
     # @option opts [Boolean] :supports_account_verification Filter only institutions which support account verification.
@@ -2439,6 +2447,8 @@ module MxPlatformRuby
     # This endpoint returns a list of institutions based on the specified search term or parameter.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :name This will list only institutions in which the appended string appears.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
     # @option opts [Boolean] :supports_account_identification Filter only institutions which support account identification.
     # @option opts [Boolean] :supports_account_statement Filter only institutions which support account statements.
     # @option opts [Boolean] :supports_account_verification Filter only institutions which support account verification.
@@ -2454,6 +2464,8 @@ module MxPlatformRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'name'] = opts[:'name'] if !opts[:'name'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
       query_params[:'supports_account_identification'] = opts[:'supports_account_identification'] if !opts[:'supports_account_identification'].nil?
       query_params[:'supports_account_statement'] = opts[:'supports_account_statement'] if !opts[:'supports_account_statement'].nil?
       query_params[:'supports_account_verification'] = opts[:'supports_account_verification'] if !opts[:'supports_account_verification'].nil?
@@ -3581,6 +3593,10 @@ module MxPlatformRuby
     # @param tag_guid [String] The unique id for a &#x60;tag&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :from_date Filter transactions from this date.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :to_date Filter transactions to this date.
     # @return [TransactionsResponseBody]
     def list_transactions_by_tag(tag_guid, user_guid, opts = {})
       data, _status_code, _headers = list_transactions_by_tag_with_http_info(tag_guid, user_guid, opts)
@@ -3592,6 +3608,10 @@ module MxPlatformRuby
     # @param tag_guid [String] The unique id for a &#x60;tag&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :from_date Filter transactions from this date.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :to_date Filter transactions to this date.
     # @return [Array<(TransactionsResponseBody, Integer, Hash)>] TransactionsResponseBody data, response status code and response headers
     def list_transactions_by_tag_with_http_info(tag_guid, user_guid, opts = {})
       if @api_client.config.debugging
@@ -3610,6 +3630,10 @@ module MxPlatformRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'from_date'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+      query_params[:'to_date'] = opts[:'to_date'] if !opts[:'to_date'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
