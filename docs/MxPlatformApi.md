@@ -2199,7 +2199,7 @@ end
 
 ## list_default_categories
 
-> <CategoriesResponseBody> list_default_categories(user_guid)
+> <CategoriesResponseBody> list_default_categories(user_guid, opts)
 
 List default categories
 
@@ -2219,10 +2219,14 @@ end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10 # Integer | Specify records per page.
+}
 
 begin
   # List default categories
-  result = api_instance.list_default_categories(user_guid)
+  result = api_instance.list_default_categories(user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->list_default_categories: #{e}"
@@ -2233,12 +2237,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CategoriesResponseBody>, Integer, Hash)> list_default_categories_with_http_info(user_guid)
+> <Array(<CategoriesResponseBody>, Integer, Hash)> list_default_categories_with_http_info(user_guid, opts)
 
 ```ruby
 begin
   # List default categories
-  data, status_code, headers = api_instance.list_default_categories_with_http_info(user_guid)
+  data, status_code, headers = api_instance.list_default_categories_with_http_info(user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CategoriesResponseBody>
@@ -2252,6 +2256,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2602,6 +2608,8 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 opts = {
   name: 'chase', # String | This will list only institutions in which the appended string appears.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10, # Integer | Specify records per page.
   supports_account_identification: true, # Boolean | Filter only institutions which support account identification.
   supports_account_statement: true, # Boolean | Filter only institutions which support account statements.
   supports_account_verification: true, # Boolean | Filter only institutions which support account verification.
@@ -2640,6 +2648,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | This will list only institutions in which the appended string appears. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
 | **supports_account_identification** | **Boolean** | Filter only institutions which support account identification. | [optional] |
 | **supports_account_statement** | **Boolean** | Filter only institutions which support account statements. | [optional] |
 | **supports_account_verification** | **Boolean** | Filter only institutions which support account verification. | [optional] |
@@ -3823,7 +3833,7 @@ end
 
 ## list_transactions_by_tag
 
-> <TransactionsResponseBody> list_transactions_by_tag(tag_guid, user_guid)
+> <TransactionsResponseBody> list_transactions_by_tag(tag_guid, user_guid, opts)
 
 List transactions by tag
 
@@ -3844,10 +3854,16 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 tag_guid = 'TAG-aef36e72-6294-4c38-844d-e573e80aed52' # String | The unique id for a `tag`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  from_date: '2015-09-20', # String | Filter transactions from this date.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10, # Integer | Specify records per page.
+  to_date: '2019-10-20' # String | Filter transactions to this date.
+}
 
 begin
   # List transactions by tag
-  result = api_instance.list_transactions_by_tag(tag_guid, user_guid)
+  result = api_instance.list_transactions_by_tag(tag_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->list_transactions_by_tag: #{e}"
@@ -3858,12 +3874,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionsResponseBody>, Integer, Hash)> list_transactions_by_tag_with_http_info(tag_guid, user_guid)
+> <Array(<TransactionsResponseBody>, Integer, Hash)> list_transactions_by_tag_with_http_info(tag_guid, user_guid, opts)
 
 ```ruby
 begin
   # List transactions by tag
-  data, status_code, headers = api_instance.list_transactions_by_tag_with_http_info(tag_guid, user_guid)
+  data, status_code, headers = api_instance.list_transactions_by_tag_with_http_info(tag_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionsResponseBody>
@@ -3878,6 +3894,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **tag_guid** | **String** | The unique id for a &#x60;tag&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **from_date** | **String** | Filter transactions from this date. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **to_date** | **String** | Filter transactions to this date. | [optional] |
 
 ### Return type
 

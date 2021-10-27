@@ -423,6 +423,8 @@ describe 'MxPlatformApi' do
   # Use this endpoint to read the attributes of a specific user.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
   # @return [CategoriesResponseBody]
   describe 'list_default_categories test' do
     it 'should work' do
@@ -495,6 +497,8 @@ describe 'MxPlatformApi' do
   # This endpoint returns a list of institutions based on the specified search term or parameter.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :name This will list only institutions in which the appended string appears.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
   # @option opts [Boolean] :supports_account_identification Filter only institutions which support account identification.
   # @option opts [Boolean] :supports_account_statement Filter only institutions which support account statements.
   # @option opts [Boolean] :supports_account_verification Filter only institutions which support account verification.
@@ -733,6 +737,10 @@ describe 'MxPlatformApi' do
   # @param tag_guid The unique id for a &#x60;tag&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :from_date Filter transactions from this date.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @option opts [String] :to_date Filter transactions to this date.
   # @return [TransactionsResponseBody]
   describe 'list_transactions_by_tag test' do
     it 'should work' do
