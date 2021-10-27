@@ -16,4 +16,4 @@ jobs:
         tag_prefix: "v"
         strategy: regex
         root: "/lib/mx-platform-ruby/version.rb"
-        regex_pattern: "[\d.]+"
+        regex_pattern: "[0-9\\.]+"
