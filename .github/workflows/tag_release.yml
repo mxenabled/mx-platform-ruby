@@ -1,0 +1,20 @@
+name: Tag Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  Release:
+    name: "Tag Release"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Create Release"
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.TAG_AND_RELEASE_TOKEN }}"
+          prerelease: false
+        run: |
+          echo "Release created."
