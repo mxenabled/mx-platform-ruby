@@ -16,5 +16,3 @@ jobs:
         tag_prefix: "v"
         root: $GITHUB_WORKSPACE/lib/mx-platform-ruby/version.rb
         regex_pattern: "VERSION = '[0-9\\.]+'"
-      run: |
-          echo "Tag created."
