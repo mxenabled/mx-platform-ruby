@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  Tag:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -14,6 +14,5 @@ jobs:
         GITHUB_TOKEN: "${{ secrets.TAG_AND_RELEASE_TOKEN }}"
         commit_message_template: "({{number}} {{message}})"
         tag_prefix: "v"
-        strategy: regex
-        root: "/lib/mx-platform-ruby/version.rb"
-        regex_pattern: "[0-9\\.]+"
+        root: $GITHUB_WORKSPACE/lib/mx-platform-ruby/version.rb
+        regex_pattern: "VERSION = '[0-9\\.]+'"
