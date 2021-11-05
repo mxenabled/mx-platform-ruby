@@ -67,6 +67,10 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'account_number',
+        :'institution_number',
+        :'routing_number',
+        :'transit_number',
       ])
     end
 
