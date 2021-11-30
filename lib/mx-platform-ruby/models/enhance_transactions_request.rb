@@ -19,7 +19,11 @@ module MxPlatformRuby
 
     attr_accessor :description
 
+    attr_accessor :extended_transaction_type
+
     attr_accessor :id
+
+    attr_accessor :memo
 
     attr_accessor :merchant_category_code
 
@@ -30,7 +34,9 @@ module MxPlatformRuby
       {
         :'amount' => :'amount',
         :'description' => :'description',
+        :'extended_transaction_type' => :'extended_transaction_type',
         :'id' => :'id',
+        :'memo' => :'memo',
         :'merchant_category_code' => :'merchant_category_code',
         :'type' => :'type'
       }
@@ -46,7 +52,9 @@ module MxPlatformRuby
       {
         :'amount' => :'Float',
         :'description' => :'String',
+        :'extended_transaction_type' => :'String',
         :'id' => :'String',
+        :'memo' => :'String',
         :'merchant_category_code' => :'Integer',
         :'type' => :'String'
       }
@@ -81,8 +89,16 @@ module MxPlatformRuby
         self.description = attributes[:'description']
       end
 
+      if attributes.key?(:'extended_transaction_type')
+        self.extended_transaction_type = attributes[:'extended_transaction_type']
+      end
+
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'memo')
+        self.memo = attributes[:'memo']
       end
 
       if attributes.key?(:'merchant_category_code')
@@ -124,7 +140,9 @@ module MxPlatformRuby
       self.class == o.class &&
           amount == o.amount &&
           description == o.description &&
+          extended_transaction_type == o.extended_transaction_type &&
           id == o.id &&
+          memo == o.memo &&
           merchant_category_code == o.merchant_category_code &&
           type == o.type
     end
@@ -138,7 +156,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, description, id, merchant_category_code, type].hash
+      [amount, description, extended_transaction_type, id, memo, merchant_category_code, type].hash
     end
 
     # Builds the object from hash

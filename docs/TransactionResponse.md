@@ -8,11 +8,13 @@
 | **account_id** | **String** |  | [optional] |
 | **amount** | **Float** |  | [optional] |
 | **category** | **String** |  | [optional] |
+| **category_guid** | **String** |  | [optional] |
 | **check_number_string** | **String** |  | [optional] |
 | **created_at** | **String** |  | [optional] |
 | **currency_code** | **String** |  | [optional] |
 | **date** | **String** |  | [optional] |
 | **description** | **String** |  | [optional] |
+| **extended_transaction_type** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **is_bill_pay** | **Boolean** |  | [optional] |
@@ -56,11 +58,13 @@ instance = MxPlatformRuby::TransactionResponse.new(
   account_id: account123,
   amount: 61.11,
   category: Groceries,
+  category_guid: CAT-9588eaad-90a4-bb5c-66c8-1812503d0db8,
   check_number_string: 6812,
   created_at: 2016-10-06T09:43:42.000Z,
   currency_code: USD,
   date: 2013-09-23T00:00:00.000Z,
   description: Whole foods,
+  extended_transaction_type: partner_transaction_type,
   guid: TRN-265abee9-889b-af6a-c69b-25157db2bdd9,
   id: transaction-265abee9-889b-af6a-c69b-25157db2bdd9,
   is_bill_pay: false,
