@@ -23,6 +23,8 @@ module MxPlatformRuby
 
     attr_accessor :category
 
+    attr_accessor :category_guid
+
     attr_accessor :check_number_string
 
     attr_accessor :created_at
@@ -32,6 +34,8 @@ module MxPlatformRuby
     attr_accessor :date
 
     attr_accessor :description
+
+    attr_accessor :extended_transaction_type
 
     attr_accessor :guid
 
@@ -104,11 +108,13 @@ module MxPlatformRuby
         :'account_id' => :'account_id',
         :'amount' => :'amount',
         :'category' => :'category',
+        :'category_guid' => :'category_guid',
         :'check_number_string' => :'check_number_string',
         :'created_at' => :'created_at',
         :'currency_code' => :'currency_code',
         :'date' => :'date',
         :'description' => :'description',
+        :'extended_transaction_type' => :'extended_transaction_type',
         :'guid' => :'guid',
         :'id' => :'id',
         :'is_bill_pay' => :'is_bill_pay',
@@ -156,11 +162,13 @@ module MxPlatformRuby
         :'account_id' => :'String',
         :'amount' => :'Float',
         :'category' => :'String',
+        :'category_guid' => :'String',
         :'check_number_string' => :'String',
         :'created_at' => :'String',
         :'currency_code' => :'String',
         :'date' => :'String',
         :'description' => :'String',
+        :'extended_transaction_type' => :'String',
         :'guid' => :'String',
         :'id' => :'String',
         :'is_bill_pay' => :'Boolean',
@@ -202,11 +210,13 @@ module MxPlatformRuby
         :'account_id',
         :'amount',
         :'category',
+        :'category_guid',
         :'check_number_string',
         :'created_at',
         :'currency_code',
         :'date',
         :'description',
+        :'extended_transaction_type',
         :'id',
         :'is_bill_pay',
         :'is_direct_deposit',
@@ -268,6 +278,10 @@ module MxPlatformRuby
         self.category = attributes[:'category']
       end
 
+      if attributes.key?(:'category_guid')
+        self.category_guid = attributes[:'category_guid']
+      end
+
       if attributes.key?(:'check_number_string')
         self.check_number_string = attributes[:'check_number_string']
       end
@@ -286,6 +300,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'extended_transaction_type')
+        self.extended_transaction_type = attributes[:'extended_transaction_type']
       end
 
       if attributes.key?(:'guid')
@@ -439,11 +457,13 @@ module MxPlatformRuby
           account_id == o.account_id &&
           amount == o.amount &&
           category == o.category &&
+          category_guid == o.category_guid &&
           check_number_string == o.check_number_string &&
           created_at == o.created_at &&
           currency_code == o.currency_code &&
           date == o.date &&
           description == o.description &&
+          extended_transaction_type == o.extended_transaction_type &&
           guid == o.guid &&
           id == o.id &&
           is_bill_pay == o.is_bill_pay &&
@@ -487,7 +507,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, account_id, amount, category, check_number_string, created_at, currency_code, date, description, guid, id, is_bill_pay, is_direct_deposit, is_expense, is_fee, is_income, is_international, is_overdraft_fee, is_payroll_advance, is_recurring, is_subscription, latitude, localized_description, localized_memo, longitude, member_guid, member_is_managed_by_user, memo, merchant_category_code, merchant_guid, merchant_location_guid, metadata, original_description, posted_at, status, top_level_category, transacted_at, type, updated_at, user_guid, user_id].hash
+      [account_guid, account_id, amount, category, category_guid, check_number_string, created_at, currency_code, date, description, extended_transaction_type, guid, id, is_bill_pay, is_direct_deposit, is_expense, is_fee, is_income, is_international, is_overdraft_fee, is_payroll_advance, is_recurring, is_subscription, latitude, localized_description, localized_memo, longitude, member_guid, member_is_managed_by_user, memo, merchant_category_code, merchant_guid, merchant_location_guid, metadata, original_description, posted_at, status, top_level_category, transacted_at, type, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash

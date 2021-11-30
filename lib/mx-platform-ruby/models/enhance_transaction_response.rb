@@ -17,9 +17,17 @@ module MxPlatformRuby
   class EnhanceTransactionResponse
     attr_accessor :amount
 
+    attr_accessor :categorized_by
+
     attr_accessor :category
 
+    attr_accessor :category_guid
+
+    attr_accessor :described_by
+
     attr_accessor :description
+
+    attr_accessor :extended_transaction_type
 
     attr_accessor :id
 
@@ -39,9 +47,15 @@ module MxPlatformRuby
 
     attr_accessor :is_payroll_advance
 
+    attr_accessor :is_subscription
+
+    attr_accessor :memo
+
     attr_accessor :merchant_category_code
 
     attr_accessor :merchant_guid
+
+    attr_accessor :merchant_location_guid
 
     attr_accessor :original_description
 
@@ -51,8 +65,12 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'amount' => :'amount',
+        :'categorized_by' => :'categorized_by',
         :'category' => :'category',
+        :'category_guid' => :'category_guid',
+        :'described_by' => :'described_by',
         :'description' => :'description',
+        :'extended_transaction_type' => :'extended_transaction_type',
         :'id' => :'id',
         :'is_bill_pay' => :'is_bill_pay',
         :'is_direct_deposit' => :'is_direct_deposit',
@@ -62,8 +80,11 @@ module MxPlatformRuby
         :'is_international' => :'is_international',
         :'is_overdraft_fee' => :'is_overdraft_fee',
         :'is_payroll_advance' => :'is_payroll_advance',
+        :'is_subscription' => :'is_subscription',
+        :'memo' => :'memo',
         :'merchant_category_code' => :'merchant_category_code',
         :'merchant_guid' => :'merchant_guid',
+        :'merchant_location_guid' => :'merchant_location_guid',
         :'original_description' => :'original_description',
         :'type' => :'type'
       }
@@ -78,8 +99,12 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'amount' => :'Float',
+        :'categorized_by' => :'Integer',
         :'category' => :'String',
+        :'category_guid' => :'String',
+        :'described_by' => :'Integer',
         :'description' => :'String',
+        :'extended_transaction_type' => :'String',
         :'id' => :'String',
         :'is_bill_pay' => :'Boolean',
         :'is_direct_deposit' => :'Boolean',
@@ -89,8 +114,11 @@ module MxPlatformRuby
         :'is_international' => :'Boolean',
         :'is_overdraft_fee' => :'Boolean',
         :'is_payroll_advance' => :'Boolean',
+        :'is_subscription' => :'Boolean',
+        :'memo' => :'String',
         :'merchant_category_code' => :'Integer',
         :'merchant_guid' => :'String',
+        :'merchant_location_guid' => :'String',
         :'original_description' => :'String',
         :'type' => :'String'
       }
@@ -100,8 +128,12 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'amount',
+        :'categorized_by',
         :'category',
+        :'category_guid',
+        :'described_by',
         :'description',
+        :'extended_transaction_type',
         :'id',
         :'is_bill_pay',
         :'is_direct_deposit',
@@ -111,7 +143,10 @@ module MxPlatformRuby
         :'is_international',
         :'is_overdraft_fee',
         :'is_payroll_advance',
+        :'is_subscription',
+        :'memo',
         :'merchant_category_code',
+        :'merchant_location_guid',
         :'original_description',
         :'type'
       ])
@@ -136,12 +171,28 @@ module MxPlatformRuby
         self.amount = attributes[:'amount']
       end
 
+      if attributes.key?(:'categorized_by')
+        self.categorized_by = attributes[:'categorized_by']
+      end
+
       if attributes.key?(:'category')
         self.category = attributes[:'category']
       end
 
+      if attributes.key?(:'category_guid')
+        self.category_guid = attributes[:'category_guid']
+      end
+
+      if attributes.key?(:'described_by')
+        self.described_by = attributes[:'described_by']
+      end
+
       if attributes.key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'extended_transaction_type')
+        self.extended_transaction_type = attributes[:'extended_transaction_type']
       end
 
       if attributes.key?(:'id')
@@ -180,12 +231,24 @@ module MxPlatformRuby
         self.is_payroll_advance = attributes[:'is_payroll_advance']
       end
 
+      if attributes.key?(:'is_subscription')
+        self.is_subscription = attributes[:'is_subscription']
+      end
+
+      if attributes.key?(:'memo')
+        self.memo = attributes[:'memo']
+      end
+
       if attributes.key?(:'merchant_category_code')
         self.merchant_category_code = attributes[:'merchant_category_code']
       end
 
       if attributes.key?(:'merchant_guid')
         self.merchant_guid = attributes[:'merchant_guid']
+      end
+
+      if attributes.key?(:'merchant_location_guid')
+        self.merchant_location_guid = attributes[:'merchant_location_guid']
       end
 
       if attributes.key?(:'original_description')
@@ -216,8 +279,12 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           amount == o.amount &&
+          categorized_by == o.categorized_by &&
           category == o.category &&
+          category_guid == o.category_guid &&
+          described_by == o.described_by &&
           description == o.description &&
+          extended_transaction_type == o.extended_transaction_type &&
           id == o.id &&
           is_bill_pay == o.is_bill_pay &&
           is_direct_deposit == o.is_direct_deposit &&
@@ -227,8 +294,11 @@ module MxPlatformRuby
           is_international == o.is_international &&
           is_overdraft_fee == o.is_overdraft_fee &&
           is_payroll_advance == o.is_payroll_advance &&
+          is_subscription == o.is_subscription &&
+          memo == o.memo &&
           merchant_category_code == o.merchant_category_code &&
           merchant_guid == o.merchant_guid &&
+          merchant_location_guid == o.merchant_location_guid &&
           original_description == o.original_description &&
           type == o.type
     end
@@ -242,7 +312,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [amount, category, description, id, is_bill_pay, is_direct_deposit, is_expense, is_fee, is_income, is_international, is_overdraft_fee, is_payroll_advance, merchant_category_code, merchant_guid, original_description, type].hash
+      [amount, categorized_by, category, category_guid, described_by, description, extended_transaction_type, id, is_bill_pay, is_direct_deposit, is_expense, is_fee, is_income, is_international, is_overdraft_fee, is_payroll_advance, is_subscription, memo, merchant_category_code, merchant_guid, merchant_location_guid, original_description, type].hash
     end
 
     # Builds the object from hash
