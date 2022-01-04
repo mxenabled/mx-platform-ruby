@@ -52,7 +52,7 @@ instance = MxPlatformRuby::EnhanceTransactionResponse.new(
   is_payroll_advance: false,
   is_subscription: false,
   memo: Additional-information*on_transaction,
-  merchant_category_code: 5411,
+  merchant_category_code: 4121,
   merchant_guid: MCH-14f25b63-ef47-a38e-b2b6-d02b280b6e4e,
   merchant_location_guid: MCL-00024e59-18b5-4d79-b879-2a7896726fea,
   original_description: ubr* pending.uber.com,
