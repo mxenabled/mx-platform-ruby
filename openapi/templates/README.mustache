@@ -77,4 +77,4 @@ openapi-generator-cli generate \
 
 ## Contributing
 
-Please [open an issue](https://github.com/mxenabled/mx-platform-java/issues) or [submit a pull request.](https://github.com/mxenabled/mx-platform-java/pulls)
+Please [open an issue](https://github.com/mxenabled/mx-platform-ruby/issues) or [submit a pull request.](https://github.com/mxenabled/mx-platform-ruby/pulls)

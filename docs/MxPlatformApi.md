@@ -33,7 +33,8 @@ All URIs are relative to *https://api.mx.com*
 | [**list_account_numbers_by_member**](MxPlatformApi.md#list_account_numbers_by_member) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member |
 | [**list_account_owners_by_member**](MxPlatformApi.md#list_account_owners_by_member) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners by member |
 | [**list_categories**](MxPlatformApi.md#list_categories) | **GET** /users/{user_guid}/categories | List categories |
-| [**list_default_categories**](MxPlatformApi.md#list_default_categories) | **GET** /users/{user_guid}/categories/default | List default categories |
+| [**list_default_categories**](MxPlatformApi.md#list_default_categories) | **GET** /categories/default | List default categories |
+| [**list_default_categories_by_user**](MxPlatformApi.md#list_default_categories_by_user) | **GET** /users/{user_guid}/categories/default | List default categories by user |
 | [**list_favorite_institutions**](MxPlatformApi.md#list_favorite_institutions) | **GET** /institutions/favorites | List favorite institutions |
 | [**list_holdings**](MxPlatformApi.md#list_holdings) | **GET** /users/{user_guid}/holdings | List holdings |
 | [**list_holdings_by_member**](MxPlatformApi.md#list_holdings_by_member) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member |
@@ -58,7 +59,8 @@ All URIs are relative to *https://api.mx.com*
 | [**list_user_accounts**](MxPlatformApi.md#list_user_accounts) | **GET** /users/{user_guid}/accounts | List accounts |
 | [**list_users**](MxPlatformApi.md#list_users) | **GET** /users | List users |
 | [**read_account**](MxPlatformApi.md#read_account) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account |
-| [**read_category**](MxPlatformApi.md#read_category) | **GET** /users/{user_guid}/categories/{category_guid} | Read category |
+| [**read_category**](MxPlatformApi.md#read_category) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category |
+| [**read_default_category**](MxPlatformApi.md#read_default_category) | **GET** /categories/{category_guid} | Read a default category |
 | [**read_holding**](MxPlatformApi.md#read_holding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding |
 | [**read_institution**](MxPlatformApi.md#read_institution) | **GET** /institutions/{institution_code} | Read institution |
 | [**read_managed_account**](MxPlatformApi.md#read_managed_account) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account |
@@ -2199,11 +2201,85 @@ end
 
 ## list_default_categories
 
-> <CategoriesResponseBody> list_default_categories(user_guid, opts)
+> <CategoriesResponseBody> list_default_categories(opts)
 
 List default categories
 
-Use this endpoint to read the attributes of a specific user.
+Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its `is_default` field set to `true`. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+opts = {
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10 # Integer | Specify records per page.
+}
+
+begin
+  # List default categories
+  result = api_instance.list_default_categories(opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_default_categories: #{e}"
+end
+```
+
+#### Using the list_default_categories_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CategoriesResponseBody>, Integer, Hash)> list_default_categories_with_http_info(opts)
+
+```ruby
+begin
+  # List default categories
+  data, status_code, headers = api_instance.list_default_categories_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CategoriesResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_default_categories_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+
+### Return type
+
+[**CategoriesResponseBody**](CategoriesResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## list_default_categories_by_user
+
+> <CategoriesResponseBody> list_default_categories_by_user(user_guid, opts)
+
+List default categories by user
+
+Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its `is_default` field set to `true`. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
 
 ### Examples
 
@@ -2225,29 +2301,29 @@ opts = {
 }
 
 begin
-  # List default categories
-  result = api_instance.list_default_categories(user_guid, opts)
+  # List default categories by user
+  result = api_instance.list_default_categories_by_user(user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_default_categories: #{e}"
+  puts "Error when calling MxPlatformApi->list_default_categories_by_user: #{e}"
 end
 ```
 
-#### Using the list_default_categories_with_http_info variant
+#### Using the list_default_categories_by_user_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CategoriesResponseBody>, Integer, Hash)> list_default_categories_with_http_info(user_guid, opts)
+> <Array(<CategoriesResponseBody>, Integer, Hash)> list_default_categories_by_user_with_http_info(user_guid, opts)
 
 ```ruby
 begin
-  # List default categories
-  data, status_code, headers = api_instance.list_default_categories_with_http_info(user_guid, opts)
+  # List default categories by user
+  data, status_code, headers = api_instance.list_default_categories_by_user_with_http_info(user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CategoriesResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->list_default_categories_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->list_default_categories_by_user_with_http_info: #{e}"
 end
 ```
 
@@ -4139,7 +4215,7 @@ end
 
 > <CategoryResponseBody> read_category(category_guid, user_guid)
 
-Read category
+Read a custom category
 
 Use this endpoint to read the attributes of either a default category or a custom category.
 
@@ -4160,7 +4236,7 @@ category_guid = 'CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874' # String | The unique
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
-  # Read category
+  # Read a custom category
   result = api_instance.read_category(category_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
@@ -4176,13 +4252,85 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Read category
+  # Read a custom category
   data, status_code, headers = api_instance.read_category_with_http_info(category_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CategoryResponseBody>
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->read_category_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **category_guid** | **String** | The unique id for a &#x60;category&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+[**CategoryResponseBody**](CategoryResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_default_category
+
+> <CategoryResponseBody> read_default_category(category_guid, user_guid)
+
+Read a default category
+
+Use this endpoint to read the attributes of a default category.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+category_guid = 'CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874' # String | The unique id for a `category`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Read a default category
+  result = api_instance.read_default_category(category_guid, user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_default_category: #{e}"
+end
+```
+
+#### Using the read_default_category_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CategoryResponseBody>, Integer, Hash)> read_default_category_with_http_info(category_guid, user_guid)
+
+```ruby
+begin
+  # Read a default category
+  data, status_code, headers = api_instance.read_default_category_with_http_info(category_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CategoryResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_default_category_with_http_info: #{e}"
 end
 ```
 

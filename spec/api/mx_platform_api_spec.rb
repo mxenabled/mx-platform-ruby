@@ -420,13 +420,26 @@ describe 'MxPlatformApi' do
 
   # unit tests for list_default_categories
   # List default categories
-  # Use this endpoint to read the attributes of a specific user.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [CategoriesResponseBody]
   describe 'list_default_categories test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_default_categories_by_user
+  # List default categories by user
+  # Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [CategoriesResponseBody]
+  describe 'list_default_categories_by_user test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -789,13 +802,26 @@ describe 'MxPlatformApi' do
   end
 
   # unit tests for read_category
-  # Read category
+  # Read a custom category
   # Use this endpoint to read the attributes of either a default category or a custom category.
   # @param category_guid The unique id for a &#x60;category&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [CategoryResponseBody]
   describe 'read_category test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_default_category
+  # Read a default category
+  # Use this endpoint to read the attributes of a default category.
+  # @param category_guid The unique id for a &#x60;category&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [CategoryResponseBody]
+  describe 'read_default_category test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

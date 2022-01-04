@@ -2101,34 +2101,28 @@ module MxPlatformRuby
     end
 
     # List default categories
-    # Use this endpoint to read the attributes of a specific user.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its `is_default` field set to `true`. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [CategoriesResponseBody]
-    def list_default_categories(user_guid, opts = {})
-      data, _status_code, _headers = list_default_categories_with_http_info(user_guid, opts)
+    def list_default_categories(opts = {})
+      data, _status_code, _headers = list_default_categories_with_http_info(opts)
       data
     end
 
     # List default categories
-    # Use this endpoint to read the attributes of a specific user.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(CategoriesResponseBody, Integer, Hash)>] CategoriesResponseBody data, response status code and response headers
-    def list_default_categories_with_http_info(user_guid, opts = {})
+    def list_default_categories_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_default_categories ...'
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_default_categories"
-      end
       # resource path
-      local_var_path = '/users/{user_guid}/categories/default'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+      local_var_path = '/categories/default'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2165,6 +2159,75 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#list_default_categories\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List default categories by user
+    # Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its `is_default` field set to `true`. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [CategoriesResponseBody]
+    def list_default_categories_by_user(user_guid, opts = {})
+      data, _status_code, _headers = list_default_categories_by_user_with_http_info(user_guid, opts)
+      data
+    end
+
+    # List default categories by user
+    # Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(CategoriesResponseBody, Integer, Hash)>] CategoriesResponseBody data, response status code and response headers
+    def list_default_categories_by_user_with_http_info(user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_default_categories_by_user ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_default_categories_by_user"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/categories/default'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CategoriesResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_default_categories_by_user",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_default_categories_by_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3900,7 +3963,7 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
-    # Read category
+    # Read a custom category
     # Use this endpoint to read the attributes of either a default category or a custom category.
     # @param category_guid [String] The unique id for a &#x60;category&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
@@ -3911,7 +3974,7 @@ module MxPlatformRuby
       data
     end
 
-    # Read category
+    # Read a custom category
     # Use this endpoint to read the attributes of either a default category or a custom category.
     # @param category_guid [String] The unique id for a &#x60;category&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
@@ -3965,6 +4028,75 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read a default category
+    # Use this endpoint to read the attributes of a default category.
+    # @param category_guid [String] The unique id for a &#x60;category&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [CategoryResponseBody]
+    def read_default_category(category_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_default_category_with_http_info(category_guid, user_guid, opts)
+      data
+    end
+
+    # Read a default category
+    # Use this endpoint to read the attributes of a default category.
+    # @param category_guid [String] The unique id for a &#x60;category&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CategoryResponseBody, Integer, Hash)>] CategoryResponseBody data, response status code and response headers
+    def read_default_category_with_http_info(category_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_default_category ...'
+      end
+      # verify the required parameter 'category_guid' is set
+      if @api_client.config.client_side_validation && category_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'category_guid' when calling MxPlatformApi.read_default_category"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_default_category"
+      end
+      # resource path
+      local_var_path = '/categories/{category_guid}'.sub('{' + 'category_guid' + '}', CGI.escape(category_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CategoryResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_default_category",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_default_category\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
