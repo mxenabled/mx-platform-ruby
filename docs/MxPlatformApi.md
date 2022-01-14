@@ -956,7 +956,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_managed_account
@@ -1029,7 +1029,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_managed_member
@@ -1100,7 +1100,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_managed_transaction
@@ -1173,7 +1173,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_member
@@ -1244,7 +1244,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_tag
@@ -1315,7 +1315,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_tagging
@@ -1386,7 +1386,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_transaction_rule
@@ -1457,7 +1457,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## delete_user
@@ -1526,7 +1526,7 @@ nil (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.mx.api.v1+json
+- **Accept**: Not defined
 
 
 ## download_statement_pdf
