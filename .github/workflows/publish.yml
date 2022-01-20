@@ -1,11 +1,11 @@
-name: RubyGems Release
+name: Publish
 
 on:
   push:
     branches: [ master ]
 
 jobs:
-  Release:
+  Publish:
     name: Release to RubyGems
     runs-on: ubuntu-latest
     permissions:
