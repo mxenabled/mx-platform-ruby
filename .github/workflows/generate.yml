@@ -42,8 +42,8 @@ jobs:
       run: git checkout -b "openapi-generator-${{ steps.bump_version.outputs.version }}"
     - name: Create commit
       run: |
-        git config user.name "openapi_generator"
-        git config user.email "openapi_generator@mx.com"
+        git config user.name "devexperience"
+        git config user.email "devexperience@mx.com"
         git add .
         git commit -m "Generated version ${{ steps.bump_version.outputs.version }}
 
