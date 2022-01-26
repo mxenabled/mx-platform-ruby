@@ -3,7 +3,6 @@ require "fileutils"
 ALLOW_LIST = [
   ".git",
   ".github",
-  ".gitignore",
   ".openapi-generator-ignore",
   "LICENSE",
   "openapi"
