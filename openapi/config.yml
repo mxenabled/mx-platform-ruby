@@ -1,3 +1,4 @@
+---
 gemAuthor: MX
 gemAuthorEmail: devexperience@mx.com
 gemDescription: A Ruby library for the MX Platform API.
@@ -5,6 +6,6 @@ gemHomepage: https://github.com/mxenabled/mx-platform-ruby
 gemLicense: MIT
 gemName: mx-platform-ruby
 gemRequiredRubyVersion: ">= 2.6"
-gemVersion: 0.8.2
+gemVersion: 0.8.3
 library: faraday
 moduleName: MxPlatformRuby
