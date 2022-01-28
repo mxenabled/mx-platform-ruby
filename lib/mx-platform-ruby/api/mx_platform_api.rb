@@ -2352,6 +2352,87 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # List holdings by account
+    # This endpoint returns all holdings associated with the specified `account`.
+    # @param account_guid [String] The unique id for the &#x60;account&#x60;.
+    # @param user_guid [String] The unique id for the &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :from_date Filter holdings from this date.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :to_date Filter holdings to this date.
+    # @return [HoldingsResponseBody]
+    def list_holdings_by_account(account_guid, user_guid, opts = {})
+      data, _status_code, _headers = list_holdings_by_account_with_http_info(account_guid, user_guid, opts)
+      data
+    end
+
+    # List holdings by account
+    # This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+    # @param account_guid [String] The unique id for the &#x60;account&#x60;.
+    # @param user_guid [String] The unique id for the &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :from_date Filter holdings from this date.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :to_date Filter holdings to this date.
+    # @return [Array<(HoldingsResponseBody, Integer, Hash)>] HoldingsResponseBody data, response status code and response headers
+    def list_holdings_by_account_with_http_info(account_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_holdings_by_account ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.list_holdings_by_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_holdings_by_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/accounts/{account_guid}/holdings'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'from_date'] = opts[:'from_date'] if !opts[:'from_date'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+      query_params[:'to_date'] = opts[:'to_date'] if !opts[:'to_date'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HoldingsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_holdings_by_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_holdings_by_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List holdings by member
     # This endpoint returns all holdings associated with the specified `member` across all accounts.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.

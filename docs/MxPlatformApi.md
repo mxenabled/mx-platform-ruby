@@ -37,6 +37,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_default_categories_by_user**](MxPlatformApi.md#list_default_categories_by_user) | **GET** /users/{user_guid}/categories/default | List default categories by user |
 | [**list_favorite_institutions**](MxPlatformApi.md#list_favorite_institutions) | **GET** /institutions/favorites | List favorite institutions |
 | [**list_holdings**](MxPlatformApi.md#list_holdings) | **GET** /users/{user_guid}/holdings | List holdings |
+| [**list_holdings_by_account**](MxPlatformApi.md#list_holdings_by_account) | **GET** /users/{user_guid}/accounts/{account_guid}/holdings | List holdings by account |
 | [**list_holdings_by_member**](MxPlatformApi.md#list_holdings_by_member) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member |
 | [**list_institution_credentials**](MxPlatformApi.md#list_institution_credentials) | **GET** /institutions/{institution_code}/credentials | List institution credentials |
 | [**list_institutions**](MxPlatformApi.md#list_institutions) | **GET** /institutions | List institutions |
@@ -2484,6 +2485,88 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **from_date** | **String** | Filter holdings from this date. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **to_date** | **String** | Filter holdings to this date. | [optional] |
+
+### Return type
+
+[**HoldingsResponseBody**](HoldingsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## list_holdings_by_account
+
+> <HoldingsResponseBody> list_holdings_by_account(account_guid, user_guid, opts)
+
+List holdings by account
+
+This endpoint returns all holdings associated with the specified `account`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for the `account`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for the `user`.
+opts = {
+  from_date: '2015-09-20', # String | Filter holdings from this date.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10, # Integer | Specify records per page.
+  to_date: '2019-10-20' # String | Filter holdings to this date.
+}
+
+begin
+  # List holdings by account
+  result = api_instance.list_holdings_by_account(account_guid, user_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_holdings_by_account: #{e}"
+end
+```
+
+#### Using the list_holdings_by_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<HoldingsResponseBody>, Integer, Hash)> list_holdings_by_account_with_http_info(account_guid, user_guid, opts)
+
+```ruby
+begin
+  # List holdings by account
+  data, status_code, headers = api_instance.list_holdings_by_account_with_http_info(account_guid, user_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <HoldingsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_holdings_by_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for the &#x60;account&#x60;. |  |
+| **user_guid** | **String** | The unique id for the &#x60;user&#x60;. |  |
 | **from_date** | **String** | Filter holdings from this date. | [optional] |
 | **page** | **Integer** | Specify current page. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
