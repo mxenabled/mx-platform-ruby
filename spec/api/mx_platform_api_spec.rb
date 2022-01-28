@@ -474,6 +474,23 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_holdings_by_account
+  # List holdings by account
+  # This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+  # @param account_guid The unique id for the &#x60;account&#x60;.
+  # @param user_guid The unique id for the &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :from_date Filter holdings from this date.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @option opts [String] :to_date Filter holdings to this date.
+  # @return [HoldingsResponseBody]
+  describe 'list_holdings_by_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_holdings_by_member
   # List holdings by member
   # This endpoint returns all holdings associated with the specified &#x60;member&#x60; across all accounts.
