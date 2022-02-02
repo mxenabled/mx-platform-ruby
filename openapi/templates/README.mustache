@@ -47,7 +47,10 @@ MxPlatformRuby.configure do |config|
   config.server_index = 1
 end
 
-api_instance = MxPlatformRuby::MxPlatformApi.new
+api_client = ::MxPlatformRuby::ApiClient.new
+api_client.default_headers['Accept'] = 'application/vnd.mx.api.v1+json'
+mx_platform_api = ::MxPlatformRuby::MxPlatformApi.new(api_client)
+
 user_create_request_body = MxPlatformRuby::UserCreateRequestBody.new(
   user: MxPlatformRuby::UserCreateRequest.new(
     metadata: "Creating a user!"
