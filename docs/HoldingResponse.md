@@ -29,7 +29,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::HoldingResponse.new(
-  account_guid: HOL-d65683e8-9eab-26bb-bcfd-ced159c9abe2,
+  account_guid: ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1,
   cost_basis: 827.0,
   created_at: 2015-04-13T18:01:23.000Z,
   currency_code: USD,

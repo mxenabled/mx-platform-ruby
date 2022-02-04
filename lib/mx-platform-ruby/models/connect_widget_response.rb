@@ -44,6 +44,7 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'connect_widget_url',
+        :'guid'
       ])
     end
 

@@ -60,6 +60,7 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'created_at',
+        :'guid',
         :'logo_url',
         :'name',
         :'updated_at',

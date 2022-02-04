@@ -236,6 +236,7 @@ module MxPlatformRuby
         :'currency_code',
         :'day_payment_is_due',
         :'death_benefit',
+        :'guid',
         :'holdings_value',
         :'id',
         :'imported_at',
@@ -248,6 +249,7 @@ module MxPlatformRuby
         :'last_payment_at',
         :'loan_amount',
         :'matures_on',
+        :'member_guid',
         :'member_id',
         :'member_is_managed_by_user',
         :'metadata',
@@ -266,6 +268,7 @@ module MxPlatformRuby
         :'total_account_value',
         :'type',
         :'updated_at',
+        :'user_guid',
         :'user_id'
       ])
     end

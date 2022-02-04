@@ -207,6 +207,7 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'account_guid',
         :'account_id',
         :'amount',
         :'category',
@@ -217,6 +218,7 @@ module MxPlatformRuby
         :'date',
         :'description',
         :'extended_transaction_type',
+        :'guid',
         :'id',
         :'is_bill_pay',
         :'is_direct_deposit',
@@ -232,9 +234,12 @@ module MxPlatformRuby
         :'localized_description',
         :'localized_memo',
         :'longitude',
+        :'member_guid',
         :'member_is_managed_by_user',
         :'memo',
         :'merchant_category_code',
+        :'merchant_guid',
+        :'merchant_location_guid',
         :'metadata',
         :'original_description',
         :'posted_at',
@@ -243,6 +248,7 @@ module MxPlatformRuby
         :'transacted_at',
         :'type',
         :'updated_at',
+        :'user_guid',
         :'user_id'
       ])
     end
