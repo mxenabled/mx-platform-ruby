@@ -58,7 +58,7 @@ user_create_request_body = MxPlatformRuby::UserCreateRequestBody.new(
 )
 
 begin
-  result = api_instance.create_user(user_create_request_body)
+  result = mx_platform_api.create_user(user_create_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->create_user: #{e}"
