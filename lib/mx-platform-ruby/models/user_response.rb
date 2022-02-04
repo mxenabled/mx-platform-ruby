@@ -56,6 +56,7 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'email',
+        :'guid',
         :'id',
         :'is_disabled',
         :'metadata'

@@ -68,10 +68,12 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'created_at',
+        :'guid',
         :'is_default',
         :'is_income',
         :'metadata',
         :'name',
+        :'parent_guid',
         :'updated_at'
       ])
     end

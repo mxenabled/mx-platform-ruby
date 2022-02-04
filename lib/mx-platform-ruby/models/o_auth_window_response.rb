@@ -43,6 +43,7 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'guid',
         :'oauth_window_uri'
       ])
     end

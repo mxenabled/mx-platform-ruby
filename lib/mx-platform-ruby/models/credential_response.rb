@@ -58,6 +58,8 @@ module MxPlatformRuby
         :'display_order',
         :'field_name',
         :'field_type',
+        :'guid',
+        :'label'
       ])
     end
 

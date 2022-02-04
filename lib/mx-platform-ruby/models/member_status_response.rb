@@ -73,6 +73,7 @@ module MxPlatformRuby
       Set.new([
         :'aggregated_at',
         :'connection_status',
+        :'guid',
         :'has_processed_accounts',
         :'has_processed_transactions',
         :'is_authenticated',

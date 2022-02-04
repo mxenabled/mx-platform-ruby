@@ -146,6 +146,7 @@ module MxPlatformRuby
         :'is_subscription',
         :'memo',
         :'merchant_category_code',
+        :'merchant_guid',
         :'merchant_location_guid',
         :'original_description',
         :'type'

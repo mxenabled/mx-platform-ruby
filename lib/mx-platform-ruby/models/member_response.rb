@@ -93,6 +93,7 @@ module MxPlatformRuby
       Set.new([
         :'aggregated_at',
         :'connection_status',
+        :'guid',
         :'id',
         :'institution_code',
         :'is_being_aggregated',
@@ -102,6 +103,7 @@ module MxPlatformRuby
         :'name',
         :'oauth_window_uri',
         :'successfully_aggregated_at',
+        :'user_guid',
         :'user_id'
       ])
     end
