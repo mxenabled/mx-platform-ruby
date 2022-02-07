@@ -38,7 +38,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 ```ruby
 require 'mx-platform-ruby'
 
-MxPlatformRuby.configure do |config|
+::MxPlatformRuby.configure do |config|
   # Configure with your Client ID/API Key from https://dashboard.mx.com
   config.username = 'Your Client ID'
   config.password = 'Your API Key'
@@ -51,16 +51,16 @@ api_client = ::MxPlatformRuby::ApiClient.new
 api_client.default_headers['Accept'] = 'application/vnd.mx.api.v1+json'
 mx_platform_api = ::MxPlatformRuby::MxPlatformApi.new(api_client)
 
-user_create_request_body = MxPlatformRuby::UserCreateRequestBody.new(
-  user: MxPlatformRuby::UserCreateRequest.new(
-    metadata: "Creating a user!"
+request_body = ::MxPlatformRuby::UserCreateRequestBody.new(
+  user: ::MxPlatformRuby::UserCreateRequest.new(
+    metadata: 'Creating a user!'
   )
 )
 
 begin
-  result = mx_platform_api.create_user(user_create_request_body)
-  p result
-rescue MxPlatformRuby::ApiError => e
+  response = mx_platform_api.create_user(request_body)
+  p response
+rescue ::MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->create_user: #{e}"
 end
 ```
