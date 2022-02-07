@@ -835,7 +835,6 @@ describe 'MxPlatformApi' do
   # Read a default category
   # Use this endpoint to read the attributes of a default category.
   # @param category_guid The unique id for a &#x60;category&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [CategoryResponseBody]
   describe 'read_default_category test' do
@@ -1042,8 +1041,8 @@ describe 'MxPlatformApi' do
   # Request connect widget url
   # This endpoint will return a URL for an embeddable version of MX Connect.
   # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param connect_widget_request_body Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
   # @param [Hash] opts the optional parameters
-  # @option opts [ConnectWidgetRequestBody] :connect_widget_request_body Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
   # @return [ConnectWidgetResponseBody]
   describe 'request_connect_widget_url test' do
     it 'should work' do

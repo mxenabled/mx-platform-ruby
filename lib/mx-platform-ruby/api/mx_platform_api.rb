@@ -4098,21 +4098,19 @@ module MxPlatformRuby
     # Read a default category
     # Use this endpoint to read the attributes of a default category.
     # @param category_guid [String] The unique id for a &#x60;category&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [CategoryResponseBody]
-    def read_default_category(category_guid, user_guid, opts = {})
-      data, _status_code, _headers = read_default_category_with_http_info(category_guid, user_guid, opts)
+    def read_default_category(category_guid, opts = {})
+      data, _status_code, _headers = read_default_category_with_http_info(category_guid, opts)
       data
     end
 
     # Read a default category
     # Use this endpoint to read the attributes of a default category.
     # @param category_guid [String] The unique id for a &#x60;category&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CategoryResponseBody, Integer, Hash)>] CategoryResponseBody data, response status code and response headers
-    def read_default_category_with_http_info(category_guid, user_guid, opts = {})
+    def read_default_category_with_http_info(category_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_default_category ...'
       end
@@ -4120,12 +4118,8 @@ module MxPlatformRuby
       if @api_client.config.client_side_validation && category_guid.nil?
         fail ArgumentError, "Missing the required parameter 'category_guid' when calling MxPlatformApi.read_default_category"
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_default_category"
-      end
       # resource path
-      local_var_path = '/categories/{category_guid}'.sub('{' + 'category_guid' + '}', CGI.escape(category_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+      local_var_path = '/categories/{category_guid}'.sub('{' + 'category_guid' + '}', CGI.escape(category_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5196,27 +5190,31 @@ module MxPlatformRuby
     # Request connect widget url
     # This endpoint will return a URL for an embeddable version of MX Connect.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param connect_widget_request_body [ConnectWidgetRequestBody] Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
     # @param [Hash] opts the optional parameters
-    # @option opts [ConnectWidgetRequestBody] :connect_widget_request_body Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
     # @return [ConnectWidgetResponseBody]
-    def request_connect_widget_url(user_guid, opts = {})
-      data, _status_code, _headers = request_connect_widget_url_with_http_info(user_guid, opts)
+    def request_connect_widget_url(user_guid, connect_widget_request_body, opts = {})
+      data, _status_code, _headers = request_connect_widget_url_with_http_info(user_guid, connect_widget_request_body, opts)
       data
     end
 
     # Request connect widget url
     # This endpoint will return a URL for an embeddable version of MX Connect.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param connect_widget_request_body [ConnectWidgetRequestBody] Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
     # @param [Hash] opts the optional parameters
-    # @option opts [ConnectWidgetRequestBody] :connect_widget_request_body Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
     # @return [Array<(ConnectWidgetResponseBody, Integer, Hash)>] ConnectWidgetResponseBody data, response status code and response headers
-    def request_connect_widget_url_with_http_info(user_guid, opts = {})
+    def request_connect_widget_url_with_http_info(user_guid, connect_widget_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_connect_widget_url ...'
       end
       # verify the required parameter 'user_guid' is set
       if @api_client.config.client_side_validation && user_guid.nil?
         fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.request_connect_widget_url"
+      end
+      # verify the required parameter 'connect_widget_request_body' is set
+      if @api_client.config.client_side_validation && connect_widget_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'connect_widget_request_body' when calling MxPlatformApi.request_connect_widget_url"
       end
       # resource path
       local_var_path = '/users/{user_guid}/connect_widget_url'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
@@ -5238,7 +5236,7 @@ module MxPlatformRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'connect_widget_request_body'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(connect_widget_request_body)
 
       # return_type
       return_type = opts[:debug_return_type] || 'ConnectWidgetResponseBody'
