@@ -4368,7 +4368,7 @@ end
 
 ## read_default_category
 
-> <CategoryResponseBody> read_default_category(category_guid, user_guid)
+> <CategoryResponseBody> read_default_category(category_guid)
 
 Read a default category
 
@@ -4388,11 +4388,10 @@ end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
 category_guid = 'CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874' # String | The unique id for a `category`.
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
   # Read a default category
-  result = api_instance.read_default_category(category_guid, user_guid)
+  result = api_instance.read_default_category(category_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->read_default_category: #{e}"
@@ -4403,12 +4402,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CategoryResponseBody>, Integer, Hash)> read_default_category_with_http_info(category_guid, user_guid)
+> <Array(<CategoryResponseBody>, Integer, Hash)> read_default_category_with_http_info(category_guid)
 
 ```ruby
 begin
   # Read a default category
-  data, status_code, headers = api_instance.read_default_category_with_http_info(category_guid, user_guid)
+  data, status_code, headers = api_instance.read_default_category_with_http_info(category_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CategoryResponseBody>
@@ -4422,7 +4421,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **category_guid** | **String** | The unique id for a &#x60;category&#x60;. |  |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 
 ### Return type
 
@@ -5518,7 +5516,7 @@ end
 
 ## request_connect_widget_url
 
-> <ConnectWidgetResponseBody> request_connect_widget_url(user_guid, opts)
+> <ConnectWidgetResponseBody> request_connect_widget_url(user_guid, connect_widget_request_body)
 
 Request connect widget url
 
@@ -5538,13 +5536,11 @@ end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-opts = {
-  connect_widget_request_body: MxPlatformRuby::ConnectWidgetRequestBody.new # ConnectWidgetRequestBody | Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
-}
+connect_widget_request_body = MxPlatformRuby::ConnectWidgetRequestBody.new # ConnectWidgetRequestBody | Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials)
 
 begin
   # Request connect widget url
-  result = api_instance.request_connect_widget_url(user_guid, opts)
+  result = api_instance.request_connect_widget_url(user_guid, connect_widget_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->request_connect_widget_url: #{e}"
@@ -5555,12 +5551,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ConnectWidgetResponseBody>, Integer, Hash)> request_connect_widget_url_with_http_info(user_guid, opts)
+> <Array(<ConnectWidgetResponseBody>, Integer, Hash)> request_connect_widget_url_with_http_info(user_guid, connect_widget_request_body)
 
 ```ruby
 begin
   # Request connect widget url
-  data, status_code, headers = api_instance.request_connect_widget_url_with_http_info(user_guid, opts)
+  data, status_code, headers = api_instance.request_connect_widget_url_with_http_info(user_guid, connect_widget_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ConnectWidgetResponseBody>
@@ -5574,7 +5570,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **connect_widget_request_body** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md) | Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) | [optional] |
+| **connect_widget_request_body** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md) | Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) |  |
 
 ### Return type
 
