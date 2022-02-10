@@ -9,7 +9,7 @@ All URIs are relative to *https://api.mx.com*
 | [**create_category**](MxPlatformApi.md#create_category) | **POST** /users/{user_guid}/categories | Create category |
 | [**create_managed_account**](MxPlatformApi.md#create_managed_account) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account |
 | [**create_managed_member**](MxPlatformApi.md#create_managed_member) | **POST** /users/{user_guid}/managed_members | Create managed member |
-| [**create_managed_transaction**](MxPlatformApi.md#create_managed_transaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/transactions | Create managed transaction |
+| [**create_managed_transaction**](MxPlatformApi.md#create_managed_transaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction |
 | [**create_member**](MxPlatformApi.md#create_member) | **POST** /users/{user_guid}/members | Create member |
 | [**create_tag**](MxPlatformApi.md#create_tag) | **POST** /users/{user_guid}/tags | Create tag |
 | [**create_tagging**](MxPlatformApi.md#create_tagging) | **POST** /users/{user_guid}/taggings | Create tagging |
@@ -18,7 +18,7 @@ All URIs are relative to *https://api.mx.com*
 | [**delete_category**](MxPlatformApi.md#delete_category) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category |
 | [**delete_managed_account**](MxPlatformApi.md#delete_managed_account) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account |
 | [**delete_managed_member**](MxPlatformApi.md#delete_managed_member) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member |
-| [**delete_managed_transaction**](MxPlatformApi.md#delete_managed_transaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Delete managed transaction |
+| [**delete_managed_transaction**](MxPlatformApi.md#delete_managed_transaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction |
 | [**delete_member**](MxPlatformApi.md#delete_member) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member |
 | [**delete_tag**](MxPlatformApi.md#delete_tag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag |
 | [**delete_tagging**](MxPlatformApi.md#delete_tagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging |
@@ -44,7 +44,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_managed_accounts**](MxPlatformApi.md#list_managed_accounts) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts | List managed accounts |
 | [**list_managed_institutions**](MxPlatformApi.md#list_managed_institutions) | **GET** /managed_institutions | List managed institutions |
 | [**list_managed_members**](MxPlatformApi.md#list_managed_members) | **GET** /users/{user_guid}/managed_members | List managed members |
-| [**list_managed_transactions**](MxPlatformApi.md#list_managed_transactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/transactions | List managed transactions |
+| [**list_managed_transactions**](MxPlatformApi.md#list_managed_transactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions |
 | [**list_member_challenges**](MxPlatformApi.md#list_member_challenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges |
 | [**list_member_credentials**](MxPlatformApi.md#list_member_credentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
 | [**list_members**](MxPlatformApi.md#list_members) | **GET** /users/{user_guid}/members | List members |
@@ -66,7 +66,7 @@ All URIs are relative to *https://api.mx.com*
 | [**read_institution**](MxPlatformApi.md#read_institution) | **GET** /institutions/{institution_code} | Read institution |
 | [**read_managed_account**](MxPlatformApi.md#read_managed_account) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account |
 | [**read_managed_member**](MxPlatformApi.md#read_managed_member) | **GET** /users/{user_guid}/managed_members/{member_guid} | Read managed member |
-| [**read_managed_transaction**](MxPlatformApi.md#read_managed_transaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Read managed transaction |
+| [**read_managed_transaction**](MxPlatformApi.md#read_managed_transaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Read managed transaction |
 | [**read_member**](MxPlatformApi.md#read_member) | **GET** /users/{user_guid}/members/{member_guid} | Read member |
 | [**read_member_status**](MxPlatformApi.md#read_member_status) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status |
 | [**read_merchant**](MxPlatformApi.md#read_merchant) | **GET** /merchants/{merchant_guid} | Read merchant |
@@ -85,7 +85,7 @@ All URIs are relative to *https://api.mx.com*
 | [**update_category**](MxPlatformApi.md#update_category) | **PUT** /users/{user_guid}/categories/{category_guid} | Update category |
 | [**update_managed_account**](MxPlatformApi.md#update_managed_account) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Update managed account |
 | [**update_managed_member**](MxPlatformApi.md#update_managed_member) | **PUT** /users/{user_guid}/managed_members/{member_guid} | Update managed member |
-| [**update_managed_transaction**](MxPlatformApi.md#update_managed_transaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Update managed transaction |
+| [**update_managed_transaction**](MxPlatformApi.md#update_managed_transaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Update managed transaction |
 | [**update_member**](MxPlatformApi.md#update_member) | **PUT** /users/{user_guid}/members/{member_guid} | Update member |
 | [**update_tag**](MxPlatformApi.md#update_tag) | **PUT** /users/{user_guid}/tags/{tag_guid} | Update tag |
 | [**update_tagging**](MxPlatformApi.md#update_tagging) | **PUT** /users/{user_guid}/taggings/{tagging_guid} | Update tagging |
@@ -313,7 +313,7 @@ end
 
 ## create_managed_account
 
-> <AccountResponseBody> create_managed_account(user_guid, member_guid, managed_account_create_request_body)
+> <AccountResponseBody> create_managed_account(member_guid, user_guid, managed_account_create_request_body)
 
 Create managed account
 
@@ -332,13 +332,13 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 managed_account_create_request_body = MxPlatformRuby::ManagedAccountCreateRequestBody.new # ManagedAccountCreateRequestBody | Managed account to be created.
 
 begin
   # Create managed account
-  result = api_instance.create_managed_account(user_guid, member_guid, managed_account_create_request_body)
+  result = api_instance.create_managed_account(member_guid, user_guid, managed_account_create_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->create_managed_account: #{e}"
@@ -349,12 +349,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountResponseBody>, Integer, Hash)> create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body)
+> <Array(<AccountResponseBody>, Integer, Hash)> create_managed_account_with_http_info(member_guid, user_guid, managed_account_create_request_body)
 
 ```ruby
 begin
   # Create managed account
-  data, status_code, headers = api_instance.create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body)
+  data, status_code, headers = api_instance.create_managed_account_with_http_info(member_guid, user_guid, managed_account_create_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountResponseBody>
@@ -367,8 +367,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **managed_account_create_request_body** | [**ManagedAccountCreateRequestBody**](ManagedAccountCreateRequestBody.md) | Managed account to be created. |  |
 
 ### Return type
@@ -459,7 +459,7 @@ end
 
 ## create_managed_transaction
 
-> <TransactionResponseBody> create_managed_transaction(user_guid, member_guid, managed_transaction_create_request_body)
+> <TransactionResponseBody> create_managed_transaction(account_guid, member_guid, user_guid, managed_transaction_create_request_body)
 
 Create managed transaction
 
@@ -478,13 +478,14 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 managed_transaction_create_request_body = MxPlatformRuby::ManagedTransactionCreateRequestBody.new # ManagedTransactionCreateRequestBody | Managed transaction to be created.
 
 begin
   # Create managed transaction
-  result = api_instance.create_managed_transaction(user_guid, member_guid, managed_transaction_create_request_body)
+  result = api_instance.create_managed_transaction(account_guid, member_guid, user_guid, managed_transaction_create_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->create_managed_transaction: #{e}"
@@ -495,12 +496,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionResponseBody>, Integer, Hash)> create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body)
+> <Array(<TransactionResponseBody>, Integer, Hash)> create_managed_transaction_with_http_info(account_guid, member_guid, user_guid, managed_transaction_create_request_body)
 
 ```ruby
 begin
   # Create managed transaction
-  data, status_code, headers = api_instance.create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body)
+  data, status_code, headers = api_instance.create_managed_transaction_with_http_info(account_guid, member_guid, user_guid, managed_transaction_create_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionResponseBody>
@@ -513,8 +514,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **managed_transaction_create_request_body** | [**ManagedTransactionCreateRequestBody**](ManagedTransactionCreateRequestBody.md) | Managed transaction to be created. |  |
 
 ### Return type
@@ -962,7 +964,7 @@ nil (empty response body)
 
 ## delete_managed_account
 
-> delete_managed_account(member_guid, user_guid, account_guid)
+> delete_managed_account(account_guid, member_guid, user_guid)
 
 Delete managed account
 
@@ -981,13 +983,13 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 
 begin
   # Delete managed account
-  api_instance.delete_managed_account(member_guid, user_guid, account_guid)
+  api_instance.delete_managed_account(account_guid, member_guid, user_guid)
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->delete_managed_account: #{e}"
 end
@@ -997,12 +999,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_managed_account_with_http_info(member_guid, user_guid, account_guid)
+> <Array(nil, Integer, Hash)> delete_managed_account_with_http_info(account_guid, member_guid, user_guid)
 
 ```ruby
 begin
   # Delete managed account
-  data, status_code, headers = api_instance.delete_managed_account_with_http_info(member_guid, user_guid, account_guid)
+  data, status_code, headers = api_instance.delete_managed_account_with_http_info(account_guid, member_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1015,9 +1017,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 
 ### Return type
 
@@ -1106,7 +1108,7 @@ nil (empty response body)
 
 ## delete_managed_transaction
 
-> delete_managed_transaction(member_guid, user_guid, transaction_guid)
+> delete_managed_transaction(account_guid, member_guid, transaction_guid, user_guid)
 
 Delete managed transaction
 
@@ -1125,13 +1127,14 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 transaction_guid = 'TRN-810828b0-5210-4878-9bd3-f4ce514f90c4' # String | The unique id for a `transaction`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
   # Delete managed transaction
-  api_instance.delete_managed_transaction(member_guid, user_guid, transaction_guid)
+  api_instance.delete_managed_transaction(account_guid, member_guid, transaction_guid, user_guid)
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->delete_managed_transaction: #{e}"
 end
@@ -1141,12 +1144,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid)
+> <Array(nil, Integer, Hash)> delete_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid)
 
 ```ruby
 begin
   # Delete managed transaction
-  data, status_code, headers = api_instance.delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid)
+  data, status_code, headers = api_instance.delete_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -1159,9 +1162,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **transaction_guid** | **String** | The unique id for a &#x60;transaction&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 
 ### Return type
 
@@ -2830,7 +2834,7 @@ end
 
 ## list_managed_accounts
 
-> <AccountsResponseBody> list_managed_accounts(user_guid, member_guid, opts)
+> <AccountsResponseBody> list_managed_accounts(member_guid, user_guid, opts)
 
 List managed accounts
 
@@ -2849,8 +2853,8 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 opts = {
   page: 1, # Integer | Specify current page.
   records_per_page: 10 # Integer | Specify records per page.
@@ -2858,7 +2862,7 @@ opts = {
 
 begin
   # List managed accounts
-  result = api_instance.list_managed_accounts(user_guid, member_guid, opts)
+  result = api_instance.list_managed_accounts(member_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->list_managed_accounts: #{e}"
@@ -2869,12 +2873,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountsResponseBody>, Integer, Hash)> list_managed_accounts_with_http_info(user_guid, member_guid, opts)
+> <Array(<AccountsResponseBody>, Integer, Hash)> list_managed_accounts_with_http_info(member_guid, user_guid, opts)
 
 ```ruby
 begin
   # List managed accounts
-  data, status_code, headers = api_instance.list_managed_accounts_with_http_info(user_guid, member_guid, opts)
+  data, status_code, headers = api_instance.list_managed_accounts_with_http_info(member_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountsResponseBody>
@@ -2887,8 +2891,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **page** | **Integer** | Specify current page. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
 
@@ -3058,7 +3062,7 @@ end
 
 ## list_managed_transactions
 
-> <TransactionsResponseBody> list_managed_transactions(user_guid, member_guid, opts)
+> <TransactionsResponseBody> list_managed_transactions(account_guid, member_guid, user_guid, opts)
 
 List managed transactions
 
@@ -3077,8 +3081,9 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 opts = {
   page: 1, # Integer | Specify current page.
   records_per_page: 10 # Integer | Specify records per page.
@@ -3086,7 +3091,7 @@ opts = {
 
 begin
   # List managed transactions
-  result = api_instance.list_managed_transactions(user_guid, member_guid, opts)
+  result = api_instance.list_managed_transactions(account_guid, member_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->list_managed_transactions: #{e}"
@@ -3097,12 +3102,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionsResponseBody>, Integer, Hash)> list_managed_transactions_with_http_info(user_guid, member_guid, opts)
+> <Array(<TransactionsResponseBody>, Integer, Hash)> list_managed_transactions_with_http_info(account_guid, member_guid, user_guid, opts)
 
 ```ruby
 begin
   # List managed transactions
-  data, status_code, headers = api_instance.list_managed_transactions_with_http_info(user_guid, member_guid, opts)
+  data, status_code, headers = api_instance.list_managed_transactions_with_http_info(account_guid, member_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionsResponseBody>
@@ -3115,8 +3120,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **page** | **Integer** | Specify current page. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
 
@@ -4580,7 +4586,7 @@ end
 
 ## read_managed_account
 
-> <AccountResponseBody> read_managed_account(member_guid, user_guid, account_guid)
+> <AccountResponseBody> read_managed_account(account_guid, member_guid, user_guid)
 
 Read managed account
 
@@ -4599,13 +4605,13 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 
 begin
   # Read managed account
-  result = api_instance.read_managed_account(member_guid, user_guid, account_guid)
+  result = api_instance.read_managed_account(account_guid, member_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->read_managed_account: #{e}"
@@ -4616,12 +4622,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountResponseBody>, Integer, Hash)> read_managed_account_with_http_info(member_guid, user_guid, account_guid)
+> <Array(<AccountResponseBody>, Integer, Hash)> read_managed_account_with_http_info(account_guid, member_guid, user_guid)
 
 ```ruby
 begin
   # Read managed account
-  data, status_code, headers = api_instance.read_managed_account_with_http_info(member_guid, user_guid, account_guid)
+  data, status_code, headers = api_instance.read_managed_account_with_http_info(account_guid, member_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountResponseBody>
@@ -4634,9 +4640,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 
 ### Return type
 
@@ -4726,7 +4732,7 @@ end
 
 ## read_managed_transaction
 
-> <TransactionResponseBody> read_managed_transaction(member_guid, user_guid, transaction_guid)
+> <TransactionResponseBody> read_managed_transaction(account_guid, member_guid, transaction_guid, user_guid)
 
 Read managed transaction
 
@@ -4745,13 +4751,14 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 transaction_guid = 'TRN-810828b0-5210-4878-9bd3-f4ce514f90c4' # String | The unique id for a `transaction`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 
 begin
   # Read managed transaction
-  result = api_instance.read_managed_transaction(member_guid, user_guid, transaction_guid)
+  result = api_instance.read_managed_transaction(account_guid, member_guid, transaction_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->read_managed_transaction: #{e}"
@@ -4762,12 +4769,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionResponseBody>, Integer, Hash)> read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid)
+> <Array(<TransactionResponseBody>, Integer, Hash)> read_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid)
 
 ```ruby
 begin
   # Read managed transaction
-  data, status_code, headers = api_instance.read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid)
+  data, status_code, headers = api_instance.read_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionResponseBody>
@@ -4780,9 +4787,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **transaction_guid** | **String** | The unique id for a &#x60;transaction&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 
 ### Return type
 
@@ -5611,8 +5619,8 @@ member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique i
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 opts = {
   referral_source: 'APP', # String | Must be either `BROWSER` or `APP` depending on the implementation. Defaults to `BROWSER`.
-  ui_message_webview_url_scheme: 'mx', # String | A scheme for routing the user back to the application state they were previously in.
-  skip_aggregation: false # Boolean | Setting this parameter to `true` will prevent the member from automatically aggregating after being redirected from the authorization page.
+  skip_aggregation: false, # Boolean | Setting this parameter to `true` will prevent the member from automatically aggregating after being redirected from the authorization page.
+  ui_message_webview_url_scheme: 'mx' # String | A scheme for routing the user back to the application state they were previously in.
 }
 
 begin
@@ -5649,8 +5657,8 @@ end
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **referral_source** | **String** | Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional] |
-| **ui_message_webview_url_scheme** | **String** | A scheme for routing the user back to the application state they were previously in. | [optional] |
 | **skip_aggregation** | **Boolean** | Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional] |
+| **ui_message_webview_url_scheme** | **String** | A scheme for routing the user back to the application state they were previously in. | [optional] |
 
 ### Return type
 
@@ -5818,7 +5826,7 @@ end
 
 ## update_account_by_member
 
-> <AccountResponseBody> update_account_by_member(user_guid, member_guid, account_guid, account_update_request_body)
+> <AccountResponseBody> update_account_by_member(account_guid, member_guid, user_guid, account_update_request_body)
 
 Update account by member
 
@@ -5837,14 +5845,14 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 account_update_request_body = MxPlatformRuby::AccountUpdateRequestBody.new # AccountUpdateRequestBody | Account object to be created with optional parameters (is_hidden)
 
 begin
   # Update account by member
-  result = api_instance.update_account_by_member(user_guid, member_guid, account_guid, account_update_request_body)
+  result = api_instance.update_account_by_member(account_guid, member_guid, user_guid, account_update_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->update_account_by_member: #{e}"
@@ -5855,12 +5863,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountResponseBody>, Integer, Hash)> update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
+> <Array(<AccountResponseBody>, Integer, Hash)> update_account_by_member_with_http_info(account_guid, member_guid, user_guid, account_update_request_body)
 
 ```ruby
 begin
   # Update account by member
-  data, status_code, headers = api_instance.update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body)
+  data, status_code, headers = api_instance.update_account_by_member_with_http_info(account_guid, member_guid, user_guid, account_update_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountResponseBody>
@@ -5873,9 +5881,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **account_update_request_body** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md) | Account object to be created with optional parameters (is_hidden) |  |
 
 ### Return type
@@ -5968,7 +5976,7 @@ end
 
 ## update_managed_account
 
-> <AccountResponseBody> update_managed_account(member_guid, user_guid, account_guid, managed_account_update_request_body)
+> <AccountResponseBody> update_managed_account(account_guid, member_guid, user_guid, managed_account_update_request_body)
 
 Update managed account
 
@@ -5987,14 +5995,14 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 managed_account_update_request_body = MxPlatformRuby::ManagedAccountUpdateRequestBody.new # ManagedAccountUpdateRequestBody | Managed account object to be updated (While no single parameter is required, the request body can't be empty)
 
 begin
   # Update managed account
-  result = api_instance.update_managed_account(member_guid, user_guid, account_guid, managed_account_update_request_body)
+  result = api_instance.update_managed_account(account_guid, member_guid, user_guid, managed_account_update_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->update_managed_account: #{e}"
@@ -6005,12 +6013,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountResponseBody>, Integer, Hash)> update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body)
+> <Array(<AccountResponseBody>, Integer, Hash)> update_managed_account_with_http_info(account_guid, member_guid, user_guid, managed_account_update_request_body)
 
 ```ruby
 begin
   # Update managed account
-  data, status_code, headers = api_instance.update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body)
+  data, status_code, headers = api_instance.update_managed_account_with_http_info(account_guid, member_guid, user_guid, managed_account_update_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountResponseBody>
@@ -6023,9 +6031,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **managed_account_update_request_body** | [**ManagedAccountUpdateRequestBody**](ManagedAccountUpdateRequestBody.md) | Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) |  |
 
 ### Return type
@@ -6118,7 +6126,7 @@ end
 
 ## update_managed_transaction
 
-> <TransactionResponseBody> update_managed_transaction(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body)
+> <TransactionResponseBody> update_managed_transaction(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body)
 
 Update managed transaction
 
@@ -6137,14 +6145,15 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 transaction_guid = 'TRN-810828b0-5210-4878-9bd3-f4ce514f90c4' # String | The unique id for a `transaction`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 managed_transaction_update_request_body = MxPlatformRuby::ManagedTransactionUpdateRequestBody.new # ManagedTransactionUpdateRequestBody | Managed transaction object to be updated (While no single parameter is required, the request body can't be empty)
 
 begin
   # Update managed transaction
-  result = api_instance.update_managed_transaction(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body)
+  result = api_instance.update_managed_transaction(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->update_managed_transaction: #{e}"
@@ -6155,12 +6164,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransactionResponseBody>, Integer, Hash)> update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body)
+> <Array(<TransactionResponseBody>, Integer, Hash)> update_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body)
 
 ```ruby
 begin
   # Update managed transaction
-  data, status_code, headers = api_instance.update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body)
+  data, status_code, headers = api_instance.update_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransactionResponseBody>
@@ -6173,9 +6182,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **transaction_guid** | **String** | The unique id for a &#x60;transaction&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **managed_transaction_update_request_body** | [**ManagedTransactionUpdateRequestBody**](ManagedTransactionUpdateRequestBody.md) | Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) |  |
 
 ### Return type

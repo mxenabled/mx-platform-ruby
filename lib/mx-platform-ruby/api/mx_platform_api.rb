@@ -233,41 +233,41 @@ module MxPlatformRuby
 
     # Create managed account
     # Use this endpoint to create a partner-managed account.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_account_create_request_body [ManagedAccountCreateRequestBody] Managed account to be created.
     # @param [Hash] opts the optional parameters
     # @return [AccountResponseBody]
-    def create_managed_account(user_guid, member_guid, managed_account_create_request_body, opts = {})
-      data, _status_code, _headers = create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body, opts)
+    def create_managed_account(member_guid, user_guid, managed_account_create_request_body, opts = {})
+      data, _status_code, _headers = create_managed_account_with_http_info(member_guid, user_guid, managed_account_create_request_body, opts)
       data
     end
 
     # Create managed account
     # Use this endpoint to create a partner-managed account.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_account_create_request_body [ManagedAccountCreateRequestBody] Managed account to be created.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
-    def create_managed_account_with_http_info(user_guid, member_guid, managed_account_create_request_body, opts = {})
+    def create_managed_account_with_http_info(member_guid, user_guid, managed_account_create_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_managed_account ...'
-      end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_account"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.create_managed_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_account"
       end
       # verify the required parameter 'managed_account_create_request_body' is set
       if @api_client.config.client_side_validation && managed_account_create_request_body.nil?
         fail ArgumentError, "Missing the required parameter 'managed_account_create_request_body' when calling MxPlatformApi.create_managed_account"
       end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -387,41 +387,47 @@ module MxPlatformRuby
 
     # Create managed transaction
     # Use this endpoint to create a new partner-managed `transaction`.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_transaction_create_request_body [ManagedTransactionCreateRequestBody] Managed transaction to be created.
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponseBody]
-    def create_managed_transaction(user_guid, member_guid, managed_transaction_create_request_body, opts = {})
-      data, _status_code, _headers = create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body, opts)
+    def create_managed_transaction(account_guid, member_guid, user_guid, managed_transaction_create_request_body, opts = {})
+      data, _status_code, _headers = create_managed_transaction_with_http_info(account_guid, member_guid, user_guid, managed_transaction_create_request_body, opts)
       data
     end
 
     # Create managed transaction
     # Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_transaction_create_request_body [ManagedTransactionCreateRequestBody] Managed transaction to be created.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
-    def create_managed_transaction_with_http_info(user_guid, member_guid, managed_transaction_create_request_body, opts = {})
+    def create_managed_transaction_with_http_info(account_guid, member_guid, user_guid, managed_transaction_create_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_managed_transaction ...'
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_transaction"
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.create_managed_transaction"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.create_managed_transaction"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_managed_transaction"
       end
       # verify the required parameter 'managed_transaction_create_request_body' is set
       if @api_client.config.client_side_validation && managed_transaction_create_request_body.nil?
         fail ArgumentError, "Missing the required parameter 'managed_transaction_create_request_body' when calling MxPlatformApi.create_managed_transaction"
       end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -898,26 +904,30 @@ module MxPlatformRuby
 
     # Delete managed account
     # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of `204 No Content`.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_managed_account(member_guid, user_guid, account_guid, opts = {})
-      delete_managed_account_with_http_info(member_guid, user_guid, account_guid, opts)
+    def delete_managed_account(account_guid, member_guid, user_guid, opts = {})
+      delete_managed_account_with_http_info(account_guid, member_guid, user_guid, opts)
       nil
     end
 
     # Delete managed account
     # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_managed_account_with_http_info(member_guid, user_guid, account_guid, opts = {})
+    def delete_managed_account_with_http_info(account_guid, member_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_managed_account ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.delete_managed_account"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
@@ -927,12 +937,8 @@ module MxPlatformRuby
       if @api_client.config.client_side_validation && user_guid.nil?
         fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_account"
       end
-      # verify the required parameter 'account_guid' is set
-      if @api_client.config.client_side_validation && account_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.delete_managed_account"
-      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1038,41 +1044,47 @@ module MxPlatformRuby
 
     # Delete managed transaction
     # Use this endpoint to delete the specified partner-managed `transaction`. The endpoint will respond with a status of `204 No Content` without a resource.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_managed_transaction(member_guid, user_guid, transaction_guid, opts = {})
-      delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts)
+    def delete_managed_transaction(account_guid, member_guid, transaction_guid, user_guid, opts = {})
+      delete_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, opts)
       nil
     end
 
     # Delete managed transaction
     # Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts = {})
+    def delete_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_managed_transaction ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.delete_managed_transaction"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.delete_managed_transaction"
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_transaction"
-      end
       # verify the required parameter 'transaction_guid' is set
       if @api_client.config.client_side_validation && transaction_guid.nil?
         fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.delete_managed_transaction"
       end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_managed_transaction"
+      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2663,39 +2675,39 @@ module MxPlatformRuby
 
     # List managed accounts
     # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [AccountsResponseBody]
-    def list_managed_accounts(user_guid, member_guid, opts = {})
-      data, _status_code, _headers = list_managed_accounts_with_http_info(user_guid, member_guid, opts)
+    def list_managed_accounts(member_guid, user_guid, opts = {})
+      data, _status_code, _headers = list_managed_accounts_with_http_info(member_guid, user_guid, opts)
       data
     end
 
     # List managed accounts
     # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(AccountsResponseBody, Integer, Hash)>] AccountsResponseBody data, response status code and response headers
-    def list_managed_accounts_with_http_info(user_guid, member_guid, opts = {})
+    def list_managed_accounts_with_http_info(member_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_accounts ...'
-      end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_accounts"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_managed_accounts"
       end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_accounts"
+      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -2870,39 +2882,45 @@ module MxPlatformRuby
 
     # List managed transactions
     # This endpoint returns a list of all the partner-managed transactions associated with the specified `account`, scoped through a `user` and a `member`.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [TransactionsResponseBody]
-    def list_managed_transactions(user_guid, member_guid, opts = {})
-      data, _status_code, _headers = list_managed_transactions_with_http_info(user_guid, member_guid, opts)
+    def list_managed_transactions(account_guid, member_guid, user_guid, opts = {})
+      data, _status_code, _headers = list_managed_transactions_with_http_info(account_guid, member_guid, user_guid, opts)
       data
     end
 
     # List managed transactions
     # This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(TransactionsResponseBody, Integer, Hash)>] TransactionsResponseBody data, response status code and response headers
-    def list_managed_transactions_with_http_info(user_guid, member_guid, opts = {})
+    def list_managed_transactions_with_http_info(account_guid, member_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_managed_transactions ...'
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_transactions"
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.list_managed_transactions"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_managed_transactions"
       end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_managed_transactions"
+      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4292,26 +4310,30 @@ module MxPlatformRuby
 
     # Read managed account
     # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [AccountResponseBody]
-    def read_managed_account(member_guid, user_guid, account_guid, opts = {})
-      data, _status_code, _headers = read_managed_account_with_http_info(member_guid, user_guid, account_guid, opts)
+    def read_managed_account(account_guid, member_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_managed_account_with_http_info(account_guid, member_guid, user_guid, opts)
       data
     end
 
     # Read managed account
     # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
-    def read_managed_account_with_http_info(member_guid, user_guid, account_guid, opts = {})
+    def read_managed_account_with_http_info(account_guid, member_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_managed_account ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.read_managed_account"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
@@ -4321,12 +4343,8 @@ module MxPlatformRuby
       if @api_client.config.client_side_validation && user_guid.nil?
         fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_account"
       end
-      # verify the required parameter 'account_guid' is set
-      if @api_client.config.client_side_validation && account_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.read_managed_account"
-      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -4436,41 +4454,47 @@ module MxPlatformRuby
 
     # Read managed transaction
     # Requests to this endpoint will return the attributes of the specified partner-managed `transaction`.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponseBody]
-    def read_managed_transaction(member_guid, user_guid, transaction_guid, opts = {})
-      data, _status_code, _headers = read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts)
+    def read_managed_transaction(account_guid, member_guid, transaction_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, opts)
       data
     end
 
     # Read managed transaction
     # Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
-    def read_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, opts = {})
+    def read_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_managed_transaction ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.read_managed_transaction"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_managed_transaction"
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_transaction"
-      end
       # verify the required parameter 'transaction_guid' is set
       if @api_client.config.client_side_validation && transaction_guid.nil?
         fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.read_managed_transaction"
       end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_managed_transaction"
+      end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5267,8 +5291,8 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
-    # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
     # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
+    # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
     # @return [OAuthWindowResponseBody]
     def request_o_auth_window_uri(member_guid, user_guid, opts = {})
       data, _status_code, _headers = request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts)
@@ -5281,8 +5305,8 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
-    # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
     # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
+    # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
     # @return [Array<(OAuthWindowResponseBody, Integer, Hash)>] OAuthWindowResponseBody data, response status code and response headers
     def request_o_auth_window_uri_with_http_info(member_guid, user_guid, opts = {})
       if @api_client.config.debugging
@@ -5302,8 +5326,8 @@ module MxPlatformRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'referral_source'] = opts[:'referral_source'] if !opts[:'referral_source'].nil?
-      query_params[:'ui_message_webview_url_scheme'] = opts[:'ui_message_webview_url_scheme'] if !opts[:'ui_message_webview_url_scheme'].nil?
       query_params[:'skip_aggregation'] = opts[:'skip_aggregation'] if !opts[:'skip_aggregation'].nil?
+      query_params[:'ui_message_webview_url_scheme'] = opts[:'ui_message_webview_url_scheme'] if !opts[:'ui_message_webview_url_scheme'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -5498,47 +5522,47 @@ module MxPlatformRuby
 
     # Update account by member
     # This endpoint allows you to update certain attributes of an `account` resource.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param account_update_request_body [AccountUpdateRequestBody] Account object to be created with optional parameters (is_hidden)
     # @param [Hash] opts the optional parameters
     # @return [AccountResponseBody]
-    def update_account_by_member(user_guid, member_guid, account_guid, account_update_request_body, opts = {})
-      data, _status_code, _headers = update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body, opts)
+    def update_account_by_member(account_guid, member_guid, user_guid, account_update_request_body, opts = {})
+      data, _status_code, _headers = update_account_by_member_with_http_info(account_guid, member_guid, user_guid, account_update_request_body, opts)
       data
     end
 
     # Update account by member
     # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param account_update_request_body [AccountUpdateRequestBody] Account object to be created with optional parameters (is_hidden)
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
-    def update_account_by_member_with_http_info(user_guid, member_guid, account_guid, account_update_request_body, opts = {})
+    def update_account_by_member_with_http_info(account_guid, member_guid, user_guid, account_update_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_account_by_member ...'
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_account_by_member"
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_account_by_member"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.update_account_by_member"
       end
-      # verify the required parameter 'account_guid' is set
-      if @api_client.config.client_side_validation && account_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_account_by_member"
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_account_by_member"
       end
       # verify the required parameter 'account_update_request_body' is set
       if @api_client.config.client_side_validation && account_update_request_body.nil?
         fail ArgumentError, "Missing the required parameter 'account_update_request_body' when calling MxPlatformApi.update_account_by_member"
       end
       # resource path
-      local_var_path = '/users/{user_guid}/members/{member_guid}/accounts/{account_guid}'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+      local_var_path = '/users/{user_guid}/members/{member_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5664,28 +5688,32 @@ module MxPlatformRuby
 
     # Update managed account
     # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param managed_account_update_request_body [ManagedAccountUpdateRequestBody] Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
     # @param [Hash] opts the optional parameters
     # @return [AccountResponseBody]
-    def update_managed_account(member_guid, user_guid, account_guid, managed_account_update_request_body, opts = {})
-      data, _status_code, _headers = update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body, opts)
+    def update_managed_account(account_guid, member_guid, user_guid, managed_account_update_request_body, opts = {})
+      data, _status_code, _headers = update_managed_account_with_http_info(account_guid, member_guid, user_guid, managed_account_update_request_body, opts)
       data
     end
 
     # Update managed account
     # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param managed_account_update_request_body [ManagedAccountUpdateRequestBody] Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
-    def update_managed_account_with_http_info(member_guid, user_guid, account_guid, managed_account_update_request_body, opts = {})
+    def update_managed_account_with_http_info(account_guid, member_guid, user_guid, managed_account_update_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_managed_account ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_managed_account"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
@@ -5695,16 +5723,12 @@ module MxPlatformRuby
       if @api_client.config.client_side_validation && user_guid.nil?
         fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_account"
       end
-      # verify the required parameter 'account_guid' is set
-      if @api_client.config.client_side_validation && account_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_managed_account"
-      end
       # verify the required parameter 'managed_account_update_request_body' is set
       if @api_client.config.client_side_validation && managed_account_update_request_body.nil?
         fail ArgumentError, "Missing the required parameter 'managed_account_update_request_body' when calling MxPlatformApi.update_managed_account"
       end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5830,47 +5854,53 @@ module MxPlatformRuby
 
     # Update managed transaction
     # Use this endpoint to update the attributes of the specified partner_managed `transaction`.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_transaction_update_request_body [ManagedTransactionUpdateRequestBody] Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
     # @param [Hash] opts the optional parameters
     # @return [TransactionResponseBody]
-    def update_managed_transaction(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts = {})
-      data, _status_code, _headers = update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts)
+    def update_managed_transaction(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body, opts = {})
+      data, _status_code, _headers = update_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body, opts)
       data
     end
 
     # Update managed transaction
     # Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
-    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param managed_transaction_update_request_body [ManagedTransactionUpdateRequestBody] Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
     # @param [Hash] opts the optional parameters
     # @return [Array<(TransactionResponseBody, Integer, Hash)>] TransactionResponseBody data, response status code and response headers
-    def update_managed_transaction_with_http_info(member_guid, user_guid, transaction_guid, managed_transaction_update_request_body, opts = {})
+    def update_managed_transaction_with_http_info(account_guid, member_guid, transaction_guid, user_guid, managed_transaction_update_request_body, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MxPlatformApi.update_managed_transaction ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.update_managed_transaction"
       end
       # verify the required parameter 'member_guid' is set
       if @api_client.config.client_side_validation && member_guid.nil?
         fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.update_managed_transaction"
       end
-      # verify the required parameter 'user_guid' is set
-      if @api_client.config.client_side_validation && user_guid.nil?
-        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_transaction"
-      end
       # verify the required parameter 'transaction_guid' is set
       if @api_client.config.client_side_validation && transaction_guid.nil?
         fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.update_managed_transaction"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.update_managed_transaction"
       end
       # verify the required parameter 'managed_transaction_update_request_body' is set
       if @api_client.config.client_side_validation && managed_transaction_update_request_body.nil?
         fail ArgumentError, "Missing the required parameter 'managed_transaction_update_request_body' when calling MxPlatformApi.update_managed_transaction"
       end
       # resource path
-      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+      local_var_path = '/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
