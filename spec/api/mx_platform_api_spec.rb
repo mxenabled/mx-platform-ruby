@@ -74,8 +74,8 @@ describe 'MxPlatformApi' do
   # unit tests for create_managed_account
   # Create managed account
   # Use this endpoint to create a partner-managed account.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param managed_account_create_request_body Managed account to be created.
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
@@ -101,8 +101,9 @@ describe 'MxPlatformApi' do
   # unit tests for create_managed_transaction
   # Create managed transaction
   # Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param managed_transaction_create_request_body Managed transaction to be created.
   # @param [Hash] opts the optional parameters
   # @return [TransactionResponseBody]
@@ -192,9 +193,9 @@ describe 'MxPlatformApi' do
   # unit tests for delete_managed_account
   # Delete managed account
   # Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_managed_account test' do
@@ -219,9 +220,10 @@ describe 'MxPlatformApi' do
   # unit tests for delete_managed_transaction
   # Delete managed transaction
   # Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_managed_transaction test' do
@@ -543,8 +545,8 @@ describe 'MxPlatformApi' do
   # unit tests for list_managed_accounts
   # List managed accounts
   # Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
@@ -585,8 +587,9 @@ describe 'MxPlatformApi' do
   # unit tests for list_managed_transactions
   # List managed transactions
   # This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
@@ -871,9 +874,9 @@ describe 'MxPlatformApi' do
   # unit tests for read_managed_account
   # Read managed account
   # Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
   describe 'read_managed_account test' do
@@ -898,9 +901,10 @@ describe 'MxPlatformApi' do
   # unit tests for read_managed_transaction
   # Read managed transaction
   # Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @return [TransactionResponseBody]
   describe 'read_managed_transaction test' do
@@ -1057,8 +1061,8 @@ describe 'MxPlatformApi' do
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
-  # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
   # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
+  # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in.
   # @return [OAuthWindowResponseBody]
   describe 'request_o_auth_window_uri test' do
     it 'should work' do
@@ -1097,9 +1101,9 @@ describe 'MxPlatformApi' do
   # unit tests for update_account_by_member
   # Update account by member
   # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param account_update_request_body Account object to be created with optional parameters (is_hidden)
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
@@ -1126,9 +1130,9 @@ describe 'MxPlatformApi' do
   # unit tests for update_managed_account
   # Update managed account
   # Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param managed_account_update_request_body Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty)
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
@@ -1155,9 +1159,10 @@ describe 'MxPlatformApi' do
   # unit tests for update_managed_transaction
   # Update managed transaction
   # Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
-  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param managed_transaction_update_request_body Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty)
   # @param [Hash] opts the optional parameters
   # @return [TransactionResponseBody]
