@@ -1070,6 +1070,42 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for request_payment_account
+  # Request payment account
+  # Use this endpoint to request a payment account.
+  # @param [Hash] opts the optional parameters
+  # @return [PaymentAccountResponseBody]
+  describe 'request_payment_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for request_payment_processor_authorization_code
+  # Request payment processor authorization code
+  # Use this endpoint to request a payment processor authorization code.
+  # @param payment_processor_authorization_code_request_body Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+  # @param [Hash] opts the optional parameters
+  # @return [PaymentProcessorAuthorizationCodeResponseBody]
+  describe 'request_payment_processor_authorization_code test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for request_payment_processor_token
+  # Request payment processor token
+  # Use this endpoint to request a payment processor token.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :code Code to request processor token.
+  # @option opts [String] :grant_type Specify grant type.
+  # @return [PaymentProcessorTokenResponseBody]
+  describe 'request_payment_processor_token test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for request_widget_url
   # Request widget url
   # This endpoint allows partners to get a URL by passing the &#x60;widget_type&#x60; in the request body, as well as configuring it in several different ways. In the case of Connect, that means setting the &#x60;widget_type&#x60; to &#x60;connect_widget&#x60;. Partners may also pass an optional &#x60;Accept-Language&#x60; header as well as a number of configuration options. Note that this is a &#x60;POST&#x60; request.

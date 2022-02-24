@@ -79,6 +79,9 @@ All URIs are relative to *https://api.mx.com*
 | [**read_user**](MxPlatformApi.md#read_user) | **GET** /users/{user_guid} | Read user |
 | [**request_connect_widget_url**](MxPlatformApi.md#request_connect_widget_url) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url |
 | [**request_o_auth_window_uri**](MxPlatformApi.md#request_o_auth_window_uri) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri |
+| [**request_payment_account**](MxPlatformApi.md#request_payment_account) | **GET** /payment_account | Request payment account |
+| [**request_payment_processor_authorization_code**](MxPlatformApi.md#request_payment_processor_authorization_code) | **POST** /payment_processor_authorization_code | Request payment processor authorization code |
+| [**request_payment_processor_token**](MxPlatformApi.md#request_payment_processor_token) | **POST** /payment_processor_token | Request payment processor token |
 | [**request_widget_url**](MxPlatformApi.md#request_widget_url) | **POST** /users/{user_guid}/widget_urls | Request widget url |
 | [**resume_aggregation**](MxPlatformApi.md#resume_aggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation |
 | [**update_account_by_member**](MxPlatformApi.md#update_account_by_member) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member |
@@ -5663,6 +5666,216 @@ end
 ### Return type
 
 [**OAuthWindowResponseBody**](OAuthWindowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## request_payment_account
+
+> <PaymentAccountResponseBody> request_payment_account
+
+Request payment account
+
+Use this endpoint to request a payment account.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure Bearer authorization: bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+
+begin
+  # Request payment account
+  result = api_instance.request_payment_account
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_account: #{e}"
+end
+```
+
+#### Using the request_payment_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaymentAccountResponseBody>, Integer, Hash)> request_payment_account_with_http_info
+
+```ruby
+begin
+  # Request payment account
+  data, status_code, headers = api_instance.request_payment_account_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaymentAccountResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PaymentAccountResponseBody**](PaymentAccountResponseBody.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## request_payment_processor_authorization_code
+
+> <PaymentProcessorAuthorizationCodeResponseBody> request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+
+Request payment processor authorization code
+
+Use this endpoint to request a payment processor authorization code.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+payment_processor_authorization_code_request_body = MxPlatformRuby::PaymentProcessorAuthorizationCodeRequestBody.new # PaymentProcessorAuthorizationCodeRequestBody | Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+
+begin
+  # Request payment processor authorization code
+  result = api_instance.request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_processor_authorization_code: #{e}"
+end
+```
+
+#### Using the request_payment_processor_authorization_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaymentProcessorAuthorizationCodeResponseBody>, Integer, Hash)> request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+
+```ruby
+begin
+  # Request payment processor authorization code
+  data, status_code, headers = api_instance.request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaymentProcessorAuthorizationCodeResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_processor_authorization_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **payment_processor_authorization_code_request_body** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md) | Payment processor authorization code object containing account_guid, member_guid, and user_guid. |  |
+
+### Return type
+
+[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## request_payment_processor_token
+
+> <PaymentProcessorTokenResponseBody> request_payment_processor_token(opts)
+
+Request payment processor token
+
+Use this endpoint to request a payment processor token.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+opts = {
+  code: 'sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM', # String | Code to request processor token.
+  grant_type: 'authorization_code' # String | Specify grant type.
+}
+
+begin
+  # Request payment processor token
+  result = api_instance.request_payment_processor_token(opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_processor_token: #{e}"
+end
+```
+
+#### Using the request_payment_processor_token_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaymentProcessorTokenResponseBody>, Integer, Hash)> request_payment_processor_token_with_http_info(opts)
+
+```ruby
+begin
+  # Request payment processor token
+  data, status_code, headers = api_instance.request_payment_processor_token_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaymentProcessorTokenResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_payment_processor_token_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **code** | **String** | Code to request processor token. | [optional] |
+| **grant_type** | **String** | Specify grant type. | [optional] |
+
+### Return type
+
+[**PaymentProcessorTokenResponseBody**](PaymentProcessorTokenResponseBody.md)
 
 ### Authorization
 
