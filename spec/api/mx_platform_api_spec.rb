@@ -167,7 +167,7 @@ describe 'MxPlatformApi' do
 
   # unit tests for create_user
   # Create user
-  # Call this endpoint to create a new user. The MX Platform API will respond with the newly-created user object if successful. This endpoint accepts several parameters - id, metadata, and is_disabled. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill.
+  # Use this endpoint to create a new user. The API will respond with the newly-created user object if successful. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that user’s data until they are no longer disabled.
   # @param user_create_request_body User object to be created. (None of these parameters are required, but the user object cannot be empty)
   # @param [Hash] opts the optional parameters
   # @return [UserResponseBody]
@@ -1280,7 +1280,7 @@ describe 'MxPlatformApi' do
 
   # unit tests for update_user
   # Update user
-  # Use this endpoint to update the attributes of a specific user. The MX Platform API will respond with the updated user object. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill. To disable a user, update it and set the is_disabled parameter to true. Set it to false to re-enable the user.
+  # Use this endpoint to update the attributes of the specified user.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param user_update_request_body User object to be updated (None of these parameters are required, but the user object cannot be empty.)
   # @param [Hash] opts the optional parameters
