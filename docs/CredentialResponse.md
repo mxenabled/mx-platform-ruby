@@ -9,6 +9,7 @@
 | **field_type** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **label** | **String** |  | [optional] |
+| **type** | **String** |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = MxPlatformRuby::CredentialResponse.new(
   field_name: LOGIN,
   field_type: TEXT,
   guid: CRD-1ec152cd-e628-e81a-e852-d1e7104624da,
-  label: Username
+  label: Username,
+  type: TEXT
 )
 ```
 
