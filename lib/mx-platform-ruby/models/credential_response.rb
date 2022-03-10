@@ -25,6 +25,8 @@ module MxPlatformRuby
 
     attr_accessor :label
 
+    attr_accessor :type
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +34,8 @@ module MxPlatformRuby
         :'field_name' => :'field_name',
         :'field_type' => :'field_type',
         :'guid' => :'guid',
-        :'label' => :'label'
+        :'label' => :'label',
+        :'type' => :'type'
       }
     end
 
@@ -48,7 +51,8 @@ module MxPlatformRuby
         :'field_name' => :'String',
         :'field_type' => :'String',
         :'guid' => :'String',
-        :'label' => :'String'
+        :'label' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -59,7 +63,8 @@ module MxPlatformRuby
         :'field_name',
         :'field_type',
         :'guid',
-        :'label'
+        :'label',
+        :'type'
       ])
     end
 
@@ -97,6 +102,10 @@ module MxPlatformRuby
       if attributes.key?(:'label')
         self.label = attributes[:'label']
       end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -121,7 +130,8 @@ module MxPlatformRuby
           field_name == o.field_name &&
           field_type == o.field_type &&
           guid == o.guid &&
-          label == o.label
+          label == o.label &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -133,7 +143,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [display_order, field_name, field_type, guid, label].hash
+      [display_order, field_name, field_type, guid, label, type].hash
     end
 
     # Builds the object from hash
