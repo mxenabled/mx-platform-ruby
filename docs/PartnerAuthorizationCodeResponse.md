@@ -1,4 +1,4 @@
-# MxPlatformRuby::PaymentProcessorAuthorizationCodeResponse
+# MxPlatformRuby::PartnerAuthorizationCodeResponse
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'mx-platform-ruby'
 
-instance = MxPlatformRuby::PaymentProcessorAuthorizationCodeResponse.new(
+instance = MxPlatformRuby::PartnerAuthorizationCodeResponse.new(
   authorization_code: sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM
 )
 ```

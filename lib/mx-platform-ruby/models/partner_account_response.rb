@@ -14,19 +14,31 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class PaymentProcessorAuthorizationCodeRequest
-    attr_accessor :account_guid
+  class PartnerAccountResponse
+    attr_accessor :account_name
 
-    attr_accessor :member_guid
+    attr_accessor :account_number
 
-    attr_accessor :user_guid
+    attr_accessor :account_type
+
+    attr_accessor :available_balance
+
+    attr_accessor :balance
+
+    attr_accessor :routing_number
+
+    attr_accessor :transit_number
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_guid' => :'account_guid',
-        :'member_guid' => :'member_guid',
-        :'user_guid' => :'user_guid'
+        :'account_name' => :'account_name',
+        :'account_number' => :'account_number',
+        :'account_type' => :'account_type',
+        :'available_balance' => :'available_balance',
+        :'balance' => :'balance',
+        :'routing_number' => :'routing_number',
+        :'transit_number' => :'transit_number'
       }
     end
 
@@ -38,15 +50,26 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_guid' => :'String',
-        :'member_guid' => :'String',
-        :'user_guid' => :'String'
+        :'account_name' => :'String',
+        :'account_number' => :'String',
+        :'account_type' => :'String',
+        :'available_balance' => :'Float',
+        :'balance' => :'Float',
+        :'routing_number' => :'String',
+        :'transit_number' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'account_name',
+        :'account_number',
+        :'account_type',
+        :'available_balance',
+        :'balance',
+        :'routing_number',
+        :'transit_number'
       ])
     end
 
@@ -54,27 +77,43 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::PaymentProcessorAuthorizationCodeRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::PartnerAccountResponse` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::PaymentProcessorAuthorizationCodeRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::PartnerAccountResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_guid')
-        self.account_guid = attributes[:'account_guid']
+      if attributes.key?(:'account_name')
+        self.account_name = attributes[:'account_name']
       end
 
-      if attributes.key?(:'member_guid')
-        self.member_guid = attributes[:'member_guid']
+      if attributes.key?(:'account_number')
+        self.account_number = attributes[:'account_number']
       end
 
-      if attributes.key?(:'user_guid')
-        self.user_guid = attributes[:'user_guid']
+      if attributes.key?(:'account_type')
+        self.account_type = attributes[:'account_type']
+      end
+
+      if attributes.key?(:'available_balance')
+        self.available_balance = attributes[:'available_balance']
+      end
+
+      if attributes.key?(:'balance')
+        self.balance = attributes[:'balance']
+      end
+
+      if attributes.key?(:'routing_number')
+        self.routing_number = attributes[:'routing_number']
+      end
+
+      if attributes.key?(:'transit_number')
+        self.transit_number = attributes[:'transit_number']
       end
     end
 
@@ -96,9 +135,13 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_guid == o.account_guid &&
-          member_guid == o.member_guid &&
-          user_guid == o.user_guid
+          account_name == o.account_name &&
+          account_number == o.account_number &&
+          account_type == o.account_type &&
+          available_balance == o.available_balance &&
+          balance == o.balance &&
+          routing_number == o.routing_number &&
+          transit_number == o.transit_number
     end
 
     # @see the `==` method
@@ -110,7 +153,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, member_guid, user_guid].hash
+      [account_name, account_number, account_type, available_balance, balance, routing_number, transit_number].hash
     end
 
     # Builds the object from hash
