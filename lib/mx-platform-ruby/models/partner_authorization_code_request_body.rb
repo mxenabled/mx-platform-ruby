@@ -14,13 +14,13 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class PaymentAccountResponseBody
-    attr_accessor :payment_account
+  class PartnerAuthorizationCodeRequestBody
+    attr_accessor :partner_authorization_code
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'payment_account' => :'payment_account'
+        :'partner_authorization_code' => :'partner_authorization_code'
       }
     end
 
@@ -32,7 +32,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'payment_account' => :'PaymentAccountResponse'
+        :'partner_authorization_code' => :'PartnerAuthorizationCodeRequest'
       }
     end
 
@@ -46,19 +46,19 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::PaymentAccountResponseBody` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::PartnerAuthorizationCodeRequestBody` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::PaymentAccountResponseBody`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::PartnerAuthorizationCodeRequestBody`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'payment_account')
-        self.payment_account = attributes[:'payment_account']
+      if attributes.key?(:'partner_authorization_code')
+        self.partner_authorization_code = attributes[:'partner_authorization_code']
       end
     end
 
@@ -80,7 +80,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          payment_account == o.payment_account
+          partner_authorization_code == o.partner_authorization_code
     end
 
     # @see the `==` method
@@ -92,7 +92,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [payment_account].hash
+      [partner_authorization_code].hash
     end
 
     # Builds the object from hash

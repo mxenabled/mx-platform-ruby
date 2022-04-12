@@ -79,9 +79,9 @@ All URIs are relative to *https://api.mx.com*
 | [**read_user**](MxPlatformApi.md#read_user) | **GET** /users/{user_guid} | Read user |
 | [**request_connect_widget_url**](MxPlatformApi.md#request_connect_widget_url) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url |
 | [**request_o_auth_window_uri**](MxPlatformApi.md#request_o_auth_window_uri) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri |
-| [**request_payment_account**](MxPlatformApi.md#request_payment_account) | **GET** /payment_account | Request payment account |
-| [**request_payment_processor_authorization_code**](MxPlatformApi.md#request_payment_processor_authorization_code) | **POST** /payment_processor_authorization_code | Request payment processor authorization code |
-| [**request_payment_processor_token**](MxPlatformApi.md#request_payment_processor_token) | **POST** /payment_processor_token | Request payment processor token |
+| [**request_partner_account**](MxPlatformApi.md#request_partner_account) | **GET** /partner_account | Request partner account |
+| [**request_partner_authorization_code**](MxPlatformApi.md#request_partner_authorization_code) | **POST** /partner_authorization_code | Request partner authorization code |
+| [**request_partner_token**](MxPlatformApi.md#request_partner_token) | **POST** /partner_token | Request partner token |
 | [**request_widget_url**](MxPlatformApi.md#request_widget_url) | **POST** /users/{user_guid}/widget_urls | Request widget url |
 | [**resume_aggregation**](MxPlatformApi.md#resume_aggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation |
 | [**update_account_by_member**](MxPlatformApi.md#update_account_by_member) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member |
@@ -5677,13 +5677,13 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## request_payment_account
+## request_partner_account
 
-> <PaymentAccountResponseBody> request_payment_account
+> <PartnerAccountResponseBody> request_partner_account
 
-Request payment account
+Request partner account
 
-Use this endpoint to request a payment account.
+Use this endpoint to request a partner account.
 
 ### Examples
 
@@ -5699,29 +5699,29 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 
 begin
-  # Request payment account
-  result = api_instance.request_payment_account
+  # Request partner account
+  result = api_instance.request_partner_account
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_account: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_account: #{e}"
 end
 ```
 
-#### Using the request_payment_account_with_http_info variant
+#### Using the request_partner_account_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentAccountResponseBody>, Integer, Hash)> request_payment_account_with_http_info
+> <Array(<PartnerAccountResponseBody>, Integer, Hash)> request_partner_account_with_http_info
 
 ```ruby
 begin
-  # Request payment account
-  data, status_code, headers = api_instance.request_payment_account_with_http_info
+  # Request partner account
+  data, status_code, headers = api_instance.request_partner_account_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <PaymentAccountResponseBody>
+  p data # => <PartnerAccountResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_account_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_account_with_http_info: #{e}"
 end
 ```
 
@@ -5731,7 +5731,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PaymentAccountResponseBody**](PaymentAccountResponseBody.md)
+[**PartnerAccountResponseBody**](PartnerAccountResponseBody.md)
 
 ### Authorization
 
@@ -5743,13 +5743,13 @@ This endpoint does not need any parameter.
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## request_payment_processor_authorization_code
+## request_partner_authorization_code
 
-> <PaymentProcessorAuthorizationCodeResponseBody> request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+> <PartnerAuthorizationCodeResponseBody> request_partner_authorization_code(partner_authorization_code_request_body)
 
-Request payment processor authorization code
+Request partner authorization code
 
-Use this endpoint to request a payment processor authorization code.
+Use this endpoint to request a partner authorization code.
 
 ### Examples
 
@@ -5764,32 +5764,32 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
-payment_processor_authorization_code_request_body = MxPlatformRuby::PaymentProcessorAuthorizationCodeRequestBody.new # PaymentProcessorAuthorizationCodeRequestBody | Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+partner_authorization_code_request_body = MxPlatformRuby::PartnerAuthorizationCodeRequestBody.new # PartnerAuthorizationCodeRequestBody | Partner authorization code object containing account_guid, member_guid, and user_guid.
 
 begin
-  # Request payment processor authorization code
-  result = api_instance.request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+  # Request partner authorization code
+  result = api_instance.request_partner_authorization_code(partner_authorization_code_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_processor_authorization_code: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_authorization_code: #{e}"
 end
 ```
 
-#### Using the request_payment_processor_authorization_code_with_http_info variant
+#### Using the request_partner_authorization_code_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentProcessorAuthorizationCodeResponseBody>, Integer, Hash)> request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+> <Array(<PartnerAuthorizationCodeResponseBody>, Integer, Hash)> request_partner_authorization_code_with_http_info(partner_authorization_code_request_body)
 
 ```ruby
 begin
-  # Request payment processor authorization code
-  data, status_code, headers = api_instance.request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+  # Request partner authorization code
+  data, status_code, headers = api_instance.request_partner_authorization_code_with_http_info(partner_authorization_code_request_body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <PaymentProcessorAuthorizationCodeResponseBody>
+  p data # => <PartnerAuthorizationCodeResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_processor_authorization_code_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_authorization_code_with_http_info: #{e}"
 end
 ```
 
@@ -5797,11 +5797,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **payment_processor_authorization_code_request_body** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md) | Payment processor authorization code object containing account_guid, member_guid, and user_guid. |  |
+| **partner_authorization_code_request_body** | [**PartnerAuthorizationCodeRequestBody**](PartnerAuthorizationCodeRequestBody.md) | Partner authorization code object containing account_guid, member_guid, and user_guid. |  |
 
 ### Return type
 
-[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+[**PartnerAuthorizationCodeResponseBody**](PartnerAuthorizationCodeResponseBody.md)
 
 ### Authorization
 
@@ -5813,13 +5813,13 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
-## request_payment_processor_token
+## request_partner_token
 
-> <PaymentProcessorTokenResponseBody> request_payment_processor_token(opts)
+> <PartnerTokenResponseBody> request_partner_token(opts)
 
-Request payment processor token
+Request partner token
 
-Use this endpoint to request a payment processor token.
+Use this endpoint to request a partner token.
 
 ### Examples
 
@@ -5835,34 +5835,34 @@ end
 
 api_instance = MxPlatformRuby::MxPlatformApi.new
 opts = {
-  code: 'sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM', # String | Code to request processor token.
+  code: 'sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM', # String | Code to request partner token.
   grant_type: 'authorization_code' # String | Specify grant type.
 }
 
 begin
-  # Request payment processor token
-  result = api_instance.request_payment_processor_token(opts)
+  # Request partner token
+  result = api_instance.request_partner_token(opts)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_processor_token: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_token: #{e}"
 end
 ```
 
-#### Using the request_payment_processor_token_with_http_info variant
+#### Using the request_partner_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PaymentProcessorTokenResponseBody>, Integer, Hash)> request_payment_processor_token_with_http_info(opts)
+> <Array(<PartnerTokenResponseBody>, Integer, Hash)> request_partner_token_with_http_info(opts)
 
 ```ruby
 begin
-  # Request payment processor token
-  data, status_code, headers = api_instance.request_payment_processor_token_with_http_info(opts)
+  # Request partner token
+  data, status_code, headers = api_instance.request_partner_token_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <PaymentProcessorTokenResponseBody>
+  p data # => <PartnerTokenResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling MxPlatformApi->request_payment_processor_token_with_http_info: #{e}"
+  puts "Error when calling MxPlatformApi->request_partner_token_with_http_info: #{e}"
 end
 ```
 
@@ -5870,12 +5870,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **code** | **String** | Code to request processor token. | [optional] |
+| **code** | **String** | Code to request partner token. | [optional] |
 | **grant_type** | **String** | Specify grant type. | [optional] |
 
 ### Return type
 
-[**PaymentProcessorTokenResponseBody**](PaymentProcessorTokenResponseBody.md)
+[**PartnerTokenResponseBody**](PartnerTokenResponseBody.md)
 
 ### Authorization
 

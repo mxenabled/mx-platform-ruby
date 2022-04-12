@@ -1070,37 +1070,37 @@ describe 'MxPlatformApi' do
     end
   end
 
-  # unit tests for request_payment_account
-  # Request payment account
-  # Use this endpoint to request a payment account.
+  # unit tests for request_partner_account
+  # Request partner account
+  # Use this endpoint to request a partner account.
   # @param [Hash] opts the optional parameters
-  # @return [PaymentAccountResponseBody]
-  describe 'request_payment_account test' do
+  # @return [PartnerAccountResponseBody]
+  describe 'request_partner_account test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for request_payment_processor_authorization_code
-  # Request payment processor authorization code
-  # Use this endpoint to request a payment processor authorization code.
-  # @param payment_processor_authorization_code_request_body Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+  # unit tests for request_partner_authorization_code
+  # Request partner authorization code
+  # Use this endpoint to request a partner authorization code.
+  # @param partner_authorization_code_request_body Partner authorization code object containing account_guid, member_guid, and user_guid.
   # @param [Hash] opts the optional parameters
-  # @return [PaymentProcessorAuthorizationCodeResponseBody]
-  describe 'request_payment_processor_authorization_code test' do
+  # @return [PartnerAuthorizationCodeResponseBody]
+  describe 'request_partner_authorization_code test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for request_payment_processor_token
-  # Request payment processor token
-  # Use this endpoint to request a payment processor token.
+  # unit tests for request_partner_token
+  # Request partner token
+  # Use this endpoint to request a partner token.
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :code Code to request processor token.
+  # @option opts [String] :code Code to request partner token.
   # @option opts [String] :grant_type Specify grant type.
-  # @return [PaymentProcessorTokenResponseBody]
-  describe 'request_payment_processor_token test' do
+  # @return [PartnerTokenResponseBody]
+  describe 'request_partner_token test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -5363,25 +5363,25 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
-    # Request payment account
-    # Use this endpoint to request a payment account.
+    # Request partner account
+    # Use this endpoint to request a partner account.
     # @param [Hash] opts the optional parameters
-    # @return [PaymentAccountResponseBody]
-    def request_payment_account(opts = {})
-      data, _status_code, _headers = request_payment_account_with_http_info(opts)
+    # @return [PartnerAccountResponseBody]
+    def request_partner_account(opts = {})
+      data, _status_code, _headers = request_partner_account_with_http_info(opts)
       data
     end
 
-    # Request payment account
-    # Use this endpoint to request a payment account.
+    # Request partner account
+    # Use this endpoint to request a partner account.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PaymentAccountResponseBody, Integer, Hash)>] PaymentAccountResponseBody data, response status code and response headers
-    def request_payment_account_with_http_info(opts = {})
+    # @return [Array<(PartnerAccountResponseBody, Integer, Hash)>] PartnerAccountResponseBody data, response status code and response headers
+    def request_partner_account_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_payment_account ...'
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_partner_account ...'
       end
       # resource path
-      local_var_path = '/payment_account'
+      local_var_path = '/partner_account'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5398,13 +5398,13 @@ module MxPlatformRuby
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PaymentAccountResponseBody'
+      return_type = opts[:debug_return_type] || 'PartnerAccountResponseBody'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"MxPlatformApi.request_payment_account",
+        :operation => :"MxPlatformApi.request_partner_account",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -5415,36 +5415,36 @@ module MxPlatformRuby
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MxPlatformApi#request_payment_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MxPlatformApi#request_partner_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Request payment processor authorization code
-    # Use this endpoint to request a payment processor authorization code.
-    # @param payment_processor_authorization_code_request_body [PaymentProcessorAuthorizationCodeRequestBody] Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+    # Request partner authorization code
+    # Use this endpoint to request a partner authorization code.
+    # @param partner_authorization_code_request_body [PartnerAuthorizationCodeRequestBody] Partner authorization code object containing account_guid, member_guid, and user_guid.
     # @param [Hash] opts the optional parameters
-    # @return [PaymentProcessorAuthorizationCodeResponseBody]
-    def request_payment_processor_authorization_code(payment_processor_authorization_code_request_body, opts = {})
-      data, _status_code, _headers = request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body, opts)
+    # @return [PartnerAuthorizationCodeResponseBody]
+    def request_partner_authorization_code(partner_authorization_code_request_body, opts = {})
+      data, _status_code, _headers = request_partner_authorization_code_with_http_info(partner_authorization_code_request_body, opts)
       data
     end
 
-    # Request payment processor authorization code
-    # Use this endpoint to request a payment processor authorization code.
-    # @param payment_processor_authorization_code_request_body [PaymentProcessorAuthorizationCodeRequestBody] Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+    # Request partner authorization code
+    # Use this endpoint to request a partner authorization code.
+    # @param partner_authorization_code_request_body [PartnerAuthorizationCodeRequestBody] Partner authorization code object containing account_guid, member_guid, and user_guid.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PaymentProcessorAuthorizationCodeResponseBody, Integer, Hash)>] PaymentProcessorAuthorizationCodeResponseBody data, response status code and response headers
-    def request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body, opts = {})
+    # @return [Array<(PartnerAuthorizationCodeResponseBody, Integer, Hash)>] PartnerAuthorizationCodeResponseBody data, response status code and response headers
+    def request_partner_authorization_code_with_http_info(partner_authorization_code_request_body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_payment_processor_authorization_code ...'
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_partner_authorization_code ...'
       end
-      # verify the required parameter 'payment_processor_authorization_code_request_body' is set
-      if @api_client.config.client_side_validation && payment_processor_authorization_code_request_body.nil?
-        fail ArgumentError, "Missing the required parameter 'payment_processor_authorization_code_request_body' when calling MxPlatformApi.request_payment_processor_authorization_code"
+      # verify the required parameter 'partner_authorization_code_request_body' is set
+      if @api_client.config.client_side_validation && partner_authorization_code_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'partner_authorization_code_request_body' when calling MxPlatformApi.request_partner_authorization_code"
       end
       # resource path
-      local_var_path = '/payment_processor_authorization_code'
+      local_var_path = '/partner_authorization_code'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5463,16 +5463,16 @@ module MxPlatformRuby
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(payment_processor_authorization_code_request_body)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(partner_authorization_code_request_body)
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PaymentProcessorAuthorizationCodeResponseBody'
+      return_type = opts[:debug_return_type] || 'PartnerAuthorizationCodeResponseBody'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basicAuth']
 
       new_options = opts.merge(
-        :operation => :"MxPlatformApi.request_payment_processor_authorization_code",
+        :operation => :"MxPlatformApi.request_partner_authorization_code",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -5483,34 +5483,34 @@ module MxPlatformRuby
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MxPlatformApi#request_payment_processor_authorization_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MxPlatformApi#request_partner_authorization_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Request payment processor token
-    # Use this endpoint to request a payment processor token.
+    # Request partner token
+    # Use this endpoint to request a partner token.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :code Code to request processor token.
+    # @option opts [String] :code Code to request partner token.
     # @option opts [String] :grant_type Specify grant type.
-    # @return [PaymentProcessorTokenResponseBody]
-    def request_payment_processor_token(opts = {})
-      data, _status_code, _headers = request_payment_processor_token_with_http_info(opts)
+    # @return [PartnerTokenResponseBody]
+    def request_partner_token(opts = {})
+      data, _status_code, _headers = request_partner_token_with_http_info(opts)
       data
     end
 
-    # Request payment processor token
-    # Use this endpoint to request a payment processor token.
+    # Request partner token
+    # Use this endpoint to request a partner token.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :code Code to request processor token.
+    # @option opts [String] :code Code to request partner token.
     # @option opts [String] :grant_type Specify grant type.
-    # @return [Array<(PaymentProcessorTokenResponseBody, Integer, Hash)>] PaymentProcessorTokenResponseBody data, response status code and response headers
-    def request_payment_processor_token_with_http_info(opts = {})
+    # @return [Array<(PartnerTokenResponseBody, Integer, Hash)>] PartnerTokenResponseBody data, response status code and response headers
+    def request_partner_token_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_payment_processor_token ...'
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_partner_token ...'
       end
       # resource path
-      local_var_path = '/payment_processor_token'
+      local_var_path = '/partner_token'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -5529,13 +5529,13 @@ module MxPlatformRuby
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'PaymentProcessorTokenResponseBody'
+      return_type = opts[:debug_return_type] || 'PartnerTokenResponseBody'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basicAuth']
 
       new_options = opts.merge(
-        :operation => :"MxPlatformApi.request_payment_processor_token",
+        :operation => :"MxPlatformApi.request_partner_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -5546,7 +5546,7 @@ module MxPlatformRuby
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MxPlatformApi#request_payment_processor_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MxPlatformApi#request_partner_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

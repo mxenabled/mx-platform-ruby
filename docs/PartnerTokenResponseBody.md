@@ -1,4 +1,4 @@
-# MxPlatformRuby::PaymentProcessorTokenResponseBody
+# MxPlatformRuby::PartnerTokenResponseBody
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ```ruby
 require 'mx-platform-ruby'
 
-instance = MxPlatformRuby::PaymentProcessorTokenResponseBody.new(
+instance = MxPlatformRuby::PartnerTokenResponseBody.new(
   access_token: jUmJS4AZVdvywAMO_JWKwZ8fvY9ZZQINSBHTKkHMw-c,
-  scope: payment_accounts,
+  scope: Platform#partner_accounts,
   token_type: bearer
 )
 ```

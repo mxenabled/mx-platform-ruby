@@ -1,4 +1,4 @@
-# MxPlatformRuby::PaymentAccountResponse
+# MxPlatformRuby::PartnerAccountResponse
 
 ## Properties
 
@@ -17,7 +17,7 @@
 ```ruby
 require 'mx-platform-ruby'
 
-instance = MxPlatformRuby::PaymentAccountResponse.new(
+instance = MxPlatformRuby::PartnerAccountResponse.new(
   account_name: My Savings,
   account_number: 1858091489,
   account_type: SAVINGS,
