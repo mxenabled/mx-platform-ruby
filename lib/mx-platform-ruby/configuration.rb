@@ -220,13 +220,6 @@ module MxPlatformRuby
             key: 'Authorization',
             value: basic_auth_token
           },
-        'bearerAuth' =>
-          {
-            type: 'bearer',
-            in: 'header',
-            key: 'Authorization',
-            value: "Bearer #{access_token}"
-          },
       }
     end
 

@@ -11,5 +11,5 @@ OpenAPI Generator version: 5.4.0
 =end
 
 module MxPlatformRuby
-  VERSION = '0.12.0'
+  VERSION = '0.13.0'
 end
