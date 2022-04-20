@@ -17,6 +17,8 @@ module MxPlatformRuby
   class InstitutionResponse
     attr_accessor :code
 
+    attr_accessor :instructional_text
+
     attr_accessor :medium_logo_url
 
     attr_accessor :name
@@ -39,6 +41,7 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'code' => :'code',
+        :'instructional_text' => :'instructional_text',
         :'medium_logo_url' => :'medium_logo_url',
         :'name' => :'name',
         :'small_logo_url' => :'small_logo_url',
@@ -60,6 +63,7 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'code' => :'String',
+        :'instructional_text' => :'String',
         :'medium_logo_url' => :'String',
         :'name' => :'String',
         :'small_logo_url' => :'String',
@@ -76,6 +80,7 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'code',
+        :'instructional_text',
         :'medium_logo_url',
         :'name',
         :'small_logo_url',
@@ -105,6 +110,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'code')
         self.code = attributes[:'code']
+      end
+
+      if attributes.key?(:'instructional_text')
+        self.instructional_text = attributes[:'instructional_text']
       end
 
       if attributes.key?(:'medium_logo_url')
@@ -163,6 +172,7 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           code == o.code &&
+          instructional_text == o.instructional_text &&
           medium_logo_url == o.medium_logo_url &&
           name == o.name &&
           small_logo_url == o.small_logo_url &&
@@ -183,7 +193,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_transaction_history, url].hash
+      [code, instructional_text, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_transaction_history, url].hash
     end
 
     # Builds the object from hash
