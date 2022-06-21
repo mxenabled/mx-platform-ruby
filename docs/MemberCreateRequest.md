@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **background_aggregation_is_disabled** | **Boolean** |  | [optional] |
+| **client_redirect_url** | **String** |  | [optional] |
 | **credentials** | [**Array&lt;CredentialRequest&gt;**](CredentialRequest.md) |  |  |
 | **id** | **String** |  | [optional] |
 | **institution_code** | **String** |  |  |
@@ -19,6 +20,7 @@ require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::MemberCreateRequest.new(
   background_aggregation_is_disabled: false,
+  client_redirect_url: https://mx.com,
   credentials: null,
   id: unique_id,
   institution_code: chase,

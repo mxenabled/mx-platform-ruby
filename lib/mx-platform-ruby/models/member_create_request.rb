@@ -17,6 +17,8 @@ module MxPlatformRuby
   class MemberCreateRequest
     attr_accessor :background_aggregation_is_disabled
 
+    attr_accessor :client_redirect_url
+
     attr_accessor :credentials
 
     attr_accessor :id
@@ -33,6 +35,7 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'background_aggregation_is_disabled' => :'background_aggregation_is_disabled',
+        :'client_redirect_url' => :'client_redirect_url',
         :'credentials' => :'credentials',
         :'id' => :'id',
         :'institution_code' => :'institution_code',
@@ -51,6 +54,7 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'background_aggregation_is_disabled' => :'Boolean',
+        :'client_redirect_url' => :'String',
         :'credentials' => :'Array<CredentialRequest>',
         :'id' => :'String',
         :'institution_code' => :'String',
@@ -83,6 +87,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'background_aggregation_is_disabled')
         self.background_aggregation_is_disabled = attributes[:'background_aggregation_is_disabled']
+      end
+
+      if attributes.key?(:'client_redirect_url')
+        self.client_redirect_url = attributes[:'client_redirect_url']
       end
 
       if attributes.key?(:'credentials')
@@ -141,6 +149,7 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           background_aggregation_is_disabled == o.background_aggregation_is_disabled &&
+          client_redirect_url == o.client_redirect_url &&
           credentials == o.credentials &&
           id == o.id &&
           institution_code == o.institution_code &&
@@ -158,7 +167,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [background_aggregation_is_disabled, credentials, id, institution_code, is_oauth, metadata, skip_aggregation].hash
+      [background_aggregation_is_disabled, client_redirect_url, credentials, id, institution_code, is_oauth, metadata, skip_aggregation].hash
     end
 
     # Builds the object from hash

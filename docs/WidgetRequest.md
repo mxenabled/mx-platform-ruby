@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **client_redirect_url** | **String** |  | [optional] |
 | **color_scheme** | **String** |  | [optional] |
 | **current_institution_code** | **String** |  | [optional] |
 | **current_institution_guid** | **String** |  | [optional] |
@@ -15,7 +16,6 @@
 | **ui_message_version** | **Integer** |  | [optional] |
 | **ui_message_webview_url_scheme** | **String** |  | [optional] |
 | **update_credentials** | **Boolean** |  | [optional] |
-| **wait_for_full_aggregation** | **Boolean** |  | [optional] |
 | **widget_type** | **String** |  |  |
 
 ## Example
@@ -24,6 +24,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::WidgetRequest.new(
+  client_redirect_url: https://mx.com,
   color_scheme: light,
   current_institution_code: chase,
   current_institution_guid: INS-f1a3285d-e855-b61f-6aa7-8ae575c0e0e9,
@@ -35,7 +36,6 @@ instance = MxPlatformRuby::WidgetRequest.new(
   ui_message_version: 4,
   ui_message_webview_url_scheme: mx,
   update_credentials: false,
-  wait_for_full_aggregation: false,
   widget_type: connect_widget
 )
 ```

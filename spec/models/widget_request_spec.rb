@@ -25,6 +25,12 @@ describe MxPlatformRuby::WidgetRequest do
       expect(instance).to be_instance_of(MxPlatformRuby::WidgetRequest)
     end
   end
+  describe 'test attribute "client_redirect_url"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "color_scheme"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -86,12 +92,6 @@ describe MxPlatformRuby::WidgetRequest do
   end
 
   describe 'test attribute "update_credentials"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "wait_for_full_aggregation"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
