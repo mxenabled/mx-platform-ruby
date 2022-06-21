@@ -5618,9 +5618,10 @@ api_instance = MxPlatformRuby::MxPlatformApi.new
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 opts = {
+  client_redirect_url: 'https://mx.com', # String | A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with `referral_source=APP`.
   referral_source: 'APP', # String | Must be either `BROWSER` or `APP` depending on the implementation. Defaults to `BROWSER`.
   skip_aggregation: false, # Boolean | Setting this parameter to `true` will prevent the member from automatically aggregating after being redirected from the authorization page.
-  ui_message_webview_url_scheme: 'mx' # String | A scheme for routing the user back to the application state they were previously in.
+  ui_message_webview_url_scheme: 'mx' # String | A scheme for routing the user back to the application state they were previously in. Only available with `referral_source=APP`.
 }
 
 begin
@@ -5656,9 +5657,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **client_redirect_url** | **String** | A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional] |
 | **referral_source** | **String** | Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional] |
 | **skip_aggregation** | **Boolean** | Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional] |
-| **ui_message_webview_url_scheme** | **String** | A scheme for routing the user back to the application state they were previously in. | [optional] |
+| **ui_message_webview_url_scheme** | **String** | A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional] |
 
 ### Return type
 

@@ -15,6 +15,8 @@ require 'time'
 
 module MxPlatformRuby
   class ConnectWidgetRequest
+    attr_accessor :client_redirect_url
+
     attr_accessor :color_scheme
 
     attr_accessor :current_institution_code
@@ -35,11 +37,10 @@ module MxPlatformRuby
 
     attr_accessor :update_credentials
 
-    attr_accessor :wait_for_full_aggregation
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'client_redirect_url' => :'client_redirect_url',
         :'color_scheme' => :'color_scheme',
         :'current_institution_code' => :'current_institution_code',
         :'current_member_guid' => :'current_member_guid',
@@ -49,8 +50,7 @@ module MxPlatformRuby
         :'mode' => :'mode',
         :'ui_message_version' => :'ui_message_version',
         :'ui_message_webview_url_scheme' => :'ui_message_webview_url_scheme',
-        :'update_credentials' => :'update_credentials',
-        :'wait_for_full_aggregation' => :'wait_for_full_aggregation'
+        :'update_credentials' => :'update_credentials'
       }
     end
 
@@ -62,6 +62,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'client_redirect_url' => :'String',
         :'color_scheme' => :'String',
         :'current_institution_code' => :'String',
         :'current_member_guid' => :'String',
@@ -71,8 +72,7 @@ module MxPlatformRuby
         :'mode' => :'String',
         :'ui_message_version' => :'Integer',
         :'ui_message_webview_url_scheme' => :'String',
-        :'update_credentials' => :'Boolean',
-        :'wait_for_full_aggregation' => :'Boolean'
+        :'update_credentials' => :'Boolean'
       }
     end
 
@@ -96,6 +96,10 @@ module MxPlatformRuby
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'client_redirect_url')
+        self.client_redirect_url = attributes[:'client_redirect_url']
+      end
 
       if attributes.key?(:'color_scheme')
         self.color_scheme = attributes[:'color_scheme']
@@ -136,10 +140,6 @@ module MxPlatformRuby
       if attributes.key?(:'update_credentials')
         self.update_credentials = attributes[:'update_credentials']
       end
-
-      if attributes.key?(:'wait_for_full_aggregation')
-        self.wait_for_full_aggregation = attributes[:'wait_for_full_aggregation']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -160,6 +160,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          client_redirect_url == o.client_redirect_url &&
           color_scheme == o.color_scheme &&
           current_institution_code == o.current_institution_code &&
           current_member_guid == o.current_member_guid &&
@@ -169,8 +170,7 @@ module MxPlatformRuby
           mode == o.mode &&
           ui_message_version == o.ui_message_version &&
           ui_message_webview_url_scheme == o.ui_message_webview_url_scheme &&
-          update_credentials == o.update_credentials &&
-          wait_for_full_aggregation == o.wait_for_full_aggregation
+          update_credentials == o.update_credentials
     end
 
     # @see the `==` method
@@ -182,7 +182,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [color_scheme, current_institution_code, current_member_guid, disable_institution_search, include_transactions, is_mobile_webview, mode, ui_message_version, ui_message_webview_url_scheme, update_credentials, wait_for_full_aggregation].hash
+      [client_redirect_url, color_scheme, current_institution_code, current_member_guid, disable_institution_search, include_transactions, is_mobile_webview, mode, ui_message_version, ui_message_webview_url_scheme, update_credentials].hash
     end
 
     # Builds the object from hash
