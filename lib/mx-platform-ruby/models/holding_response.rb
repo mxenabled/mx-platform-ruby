@@ -33,6 +33,8 @@ module MxPlatformRuby
 
     attr_accessor :holding_type
 
+    attr_accessor :holding_type_id
+
     attr_accessor :id
 
     attr_accessor :market_value
@@ -63,6 +65,7 @@ module MxPlatformRuby
         :'description' => :'description',
         :'guid' => :'guid',
         :'holding_type' => :'holding_type',
+        :'holding_type_id' => :'holding_type_id',
         :'id' => :'id',
         :'market_value' => :'market_value',
         :'member_guid' => :'member_guid',
@@ -92,6 +95,7 @@ module MxPlatformRuby
         :'description' => :'String',
         :'guid' => :'String',
         :'holding_type' => :'String',
+        :'holding_type_id' => :'Integer',
         :'id' => :'String',
         :'market_value' => :'Float',
         :'member_guid' => :'String',
@@ -116,6 +120,7 @@ module MxPlatformRuby
         :'description',
         :'guid',
         :'holding_type',
+        :'holding_type_id',
         :'id',
         :'market_value',
         :'member_guid',
@@ -177,6 +182,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'holding_type')
         self.holding_type = attributes[:'holding_type']
+      end
+
+      if attributes.key?(:'holding_type_id')
+        self.holding_type_id = attributes[:'holding_type_id']
       end
 
       if attributes.key?(:'id')
@@ -243,6 +252,7 @@ module MxPlatformRuby
           description == o.description &&
           guid == o.guid &&
           holding_type == o.holding_type &&
+          holding_type_id == o.holding_type_id &&
           id == o.id &&
           market_value == o.market_value &&
           member_guid == o.member_guid &&
@@ -263,7 +273,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, cost_basis, created_at, currency_code, cusip, daily_change, description, guid, holding_type, id, market_value, member_guid, metadata, purchase_price, shares, symbol, updated_at, user_guid].hash
+      [account_guid, cost_basis, created_at, currency_code, cusip, daily_change, description, guid, holding_type, holding_type_id, id, market_value, member_guid, metadata, purchase_price, shares, symbol, updated_at, user_guid].hash
     end
 
     # Builds the object from hash

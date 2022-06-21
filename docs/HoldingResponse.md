@@ -13,6 +13,7 @@
 | **description** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **holding_type** | **String** |  | [optional] |
+| **holding_type_id** | **Integer** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **market_value** | **Float** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
@@ -38,6 +39,7 @@ instance = MxPlatformRuby::HoldingResponse.new(
   description: Guggenheim Defensive Equity ETF,
   guid: HOL-d65683e8-9eab-26bb-bcfd-ced159c9abe2,
   holding_type: MONEY_MARKET,
+  holding_type_id: 1,
   id: ID-123,
   market_value: 989.5,
   member_guid: MBR-d65683e8-9eab-26bb-bcfd-ced159c9abe,
