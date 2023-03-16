@@ -25,7 +25,11 @@ module MxPlatformRuby
 
     attr_accessor :email
 
+    attr_accessor :first_name
+
     attr_accessor :guid
+
+    attr_accessor :last_name
 
     attr_accessor :member_guid
 
@@ -47,7 +51,9 @@ module MxPlatformRuby
         :'city' => :'city',
         :'country' => :'country',
         :'email' => :'email',
+        :'first_name' => :'first_name',
         :'guid' => :'guid',
+        :'last_name' => :'last_name',
         :'member_guid' => :'member_guid',
         :'owner_name' => :'owner_name',
         :'phone' => :'phone',
@@ -70,7 +76,9 @@ module MxPlatformRuby
         :'city' => :'String',
         :'country' => :'String',
         :'email' => :'String',
+        :'first_name' => :'String',
         :'guid' => :'String',
+        :'last_name' => :'String',
         :'member_guid' => :'String',
         :'owner_name' => :'String',
         :'phone' => :'String',
@@ -88,7 +96,9 @@ module MxPlatformRuby
         :'city',
         :'country',
         :'email',
+        :'first_name',
         :'guid',
+        :'last_name',
         :'member_guid',
         :'owner_name',
         :'phone',
@@ -133,8 +143,16 @@ module MxPlatformRuby
         self.email = attributes[:'email']
       end
 
+      if attributes.key?(:'first_name')
+        self.first_name = attributes[:'first_name']
+      end
+
       if attributes.key?(:'guid')
         self.guid = attributes[:'guid']
+      end
+
+      if attributes.key?(:'last_name')
+        self.last_name = attributes[:'last_name']
       end
 
       if attributes.key?(:'member_guid')
@@ -185,7 +203,9 @@ module MxPlatformRuby
           city == o.city &&
           country == o.country &&
           email == o.email &&
+          first_name == o.first_name &&
           guid == o.guid &&
+          last_name == o.last_name &&
           member_guid == o.member_guid &&
           owner_name == o.owner_name &&
           phone == o.phone &&
@@ -203,7 +223,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, address, city, country, email, guid, member_guid, owner_name, phone, postal_code, state, user_guid].hash
+      [account_guid, address, city, country, email, first_name, guid, last_name, member_guid, owner_name, phone, postal_code, state, user_guid].hash
     end
 
     # Builds the object from hash

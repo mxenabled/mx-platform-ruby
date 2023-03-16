@@ -9,7 +9,9 @@
 | **city** | **String** |  | [optional] |
 | **country** | **String** |  | [optional] |
 | **email** | **String** |  | [optional] |
+| **first_name** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
+| **last_name** | **String** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
 | **owner_name** | **String** |  | [optional] |
 | **phone** | **String** |  | [optional] |
@@ -28,7 +30,9 @@ instance = MxPlatformRuby::AccountOwnerResponse.new(
   city: Middlesex,
   country: US,
   email: donnie@darko.co,
+  first_name: Donnie,
   guid: ACO-63dc7714-6fc0-4aa2-a069-c06cdccd1af9,
+  last_name: Darko,
   member_guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
   owner_name: Donnie Darko,
   phone: 555-555-5555,

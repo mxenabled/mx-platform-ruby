@@ -23,13 +23,19 @@ module MxPlatformRuby
 
     attr_accessor :current_member_guid
 
+    attr_accessor :disable_background_agg
+
     attr_accessor :disable_institution_search
+
+    attr_accessor :include_identity
 
     attr_accessor :include_transactions
 
     attr_accessor :is_mobile_webview
 
     attr_accessor :mode
+
+    attr_accessor :oauth_referral_source
 
     attr_accessor :ui_message_version
 
@@ -44,10 +50,13 @@ module MxPlatformRuby
         :'color_scheme' => :'color_scheme',
         :'current_institution_code' => :'current_institution_code',
         :'current_member_guid' => :'current_member_guid',
+        :'disable_background_agg' => :'disable_background_agg',
         :'disable_institution_search' => :'disable_institution_search',
+        :'include_identity' => :'include_identity',
         :'include_transactions' => :'include_transactions',
         :'is_mobile_webview' => :'is_mobile_webview',
         :'mode' => :'mode',
+        :'oauth_referral_source' => :'oauth_referral_source',
         :'ui_message_version' => :'ui_message_version',
         :'ui_message_webview_url_scheme' => :'ui_message_webview_url_scheme',
         :'update_credentials' => :'update_credentials'
@@ -66,10 +75,13 @@ module MxPlatformRuby
         :'color_scheme' => :'String',
         :'current_institution_code' => :'String',
         :'current_member_guid' => :'String',
+        :'disable_background_agg' => :'Boolean',
         :'disable_institution_search' => :'Boolean',
+        :'include_identity' => :'Boolean',
         :'include_transactions' => :'Boolean',
         :'is_mobile_webview' => :'Boolean',
         :'mode' => :'String',
+        :'oauth_referral_source' => :'String',
         :'ui_message_version' => :'Integer',
         :'ui_message_webview_url_scheme' => :'String',
         :'update_credentials' => :'Boolean'
@@ -113,8 +125,16 @@ module MxPlatformRuby
         self.current_member_guid = attributes[:'current_member_guid']
       end
 
+      if attributes.key?(:'disable_background_agg')
+        self.disable_background_agg = attributes[:'disable_background_agg']
+      end
+
       if attributes.key?(:'disable_institution_search')
         self.disable_institution_search = attributes[:'disable_institution_search']
+      end
+
+      if attributes.key?(:'include_identity')
+        self.include_identity = attributes[:'include_identity']
       end
 
       if attributes.key?(:'include_transactions')
@@ -127,6 +147,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'mode')
         self.mode = attributes[:'mode']
+      end
+
+      if attributes.key?(:'oauth_referral_source')
+        self.oauth_referral_source = attributes[:'oauth_referral_source']
       end
 
       if attributes.key?(:'ui_message_version')
@@ -164,10 +188,13 @@ module MxPlatformRuby
           color_scheme == o.color_scheme &&
           current_institution_code == o.current_institution_code &&
           current_member_guid == o.current_member_guid &&
+          disable_background_agg == o.disable_background_agg &&
           disable_institution_search == o.disable_institution_search &&
+          include_identity == o.include_identity &&
           include_transactions == o.include_transactions &&
           is_mobile_webview == o.is_mobile_webview &&
           mode == o.mode &&
+          oauth_referral_source == o.oauth_referral_source &&
           ui_message_version == o.ui_message_version &&
           ui_message_webview_url_scheme == o.ui_message_webview_url_scheme &&
           update_credentials == o.update_credentials
@@ -182,7 +209,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_redirect_url, color_scheme, current_institution_code, current_member_guid, disable_institution_search, include_transactions, is_mobile_webview, mode, ui_message_version, ui_message_webview_url_scheme, update_credentials].hash
+      [client_redirect_url, color_scheme, current_institution_code, current_member_guid, disable_background_agg, disable_institution_search, include_identity, include_transactions, is_mobile_webview, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials].hash
     end
 
     # Builds the object from hash

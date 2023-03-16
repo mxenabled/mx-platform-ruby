@@ -55,6 +55,12 @@ describe MxPlatformRuby::AccountNumberResponse do
     end
   end
 
+  describe 'test attribute "passed_validation"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "routing_number"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

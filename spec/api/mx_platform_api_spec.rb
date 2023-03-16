@@ -600,6 +600,22 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_member_accounts
+  # List accounts by member
+  # This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [AccountsResponseBody]
+  describe 'list_member_accounts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_member_challenges
   # List member challenges
   # Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;204 No Content&#x60; will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;200 OK&#x60; will be returned - along with the corresponding credentials.
@@ -786,6 +802,7 @@ describe 'MxPlatformApi' do
   # This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [AccountsResponseBody]
@@ -801,6 +818,9 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :page Specify current page.
   # @option opts [Integer] :records_per_page Specify records per page.
+  # @option opts [String] :id The user &#x60;id&#x60; to search for.
+  # @option opts [String] :email The user &#x60;email&#x60; to search for.
+  # @option opts [Boolean] :is_disabled Search for users that are diabled.
   # @return [UsersResponseBody]
   describe 'list_users test' do
     it 'should work' do
@@ -816,6 +836,20 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
   describe 'read_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_account_by_member
+  # Read account by member
+  # This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [AccountResponseBody]
+  describe 'read_account_by_member test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
