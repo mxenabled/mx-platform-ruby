@@ -31,6 +31,12 @@ describe MxPlatformRuby::MemberResponse do
     end
   end
 
+  describe 'test attribute "background_aggregation_is_disabled"' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "connection_status"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

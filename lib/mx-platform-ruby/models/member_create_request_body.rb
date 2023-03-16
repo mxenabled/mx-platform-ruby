@@ -15,6 +15,8 @@ require 'time'
 
 module MxPlatformRuby
   class MemberCreateRequestBody
+    attr_accessor :client_redirect_url
+
     attr_accessor :member
 
     attr_accessor :referral_source
@@ -24,6 +26,7 @@ module MxPlatformRuby
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'client_redirect_url' => :'client_redirect_url',
         :'member' => :'member',
         :'referral_source' => :'referral_source',
         :'ui_message_webview_url_scheme' => :'ui_message_webview_url_scheme'
@@ -38,6 +41,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'client_redirect_url' => :'String',
         :'member' => :'MemberCreateRequest',
         :'referral_source' => :'String',
         :'ui_message_webview_url_scheme' => :'String'
@@ -64,6 +68,10 @@ module MxPlatformRuby
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'client_redirect_url')
+        self.client_redirect_url = attributes[:'client_redirect_url']
+      end
 
       if attributes.key?(:'member')
         self.member = attributes[:'member']
@@ -96,6 +104,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          client_redirect_url == o.client_redirect_url &&
           member == o.member &&
           referral_source == o.referral_source &&
           ui_message_webview_url_scheme == o.ui_message_webview_url_scheme
@@ -110,7 +119,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [member, referral_source, ui_message_webview_url_scheme].hash
+      [client_redirect_url, member, referral_source, ui_message_webview_url_scheme].hash
     end
 
     # Builds the object from hash

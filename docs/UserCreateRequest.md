@@ -18,7 +18,7 @@ instance = MxPlatformRuby::UserCreateRequest.new(
   email: email@provider.com,
   id: My-Unique-ID,
   is_disabled: false,
-  metadata: {\&quot;first_name\&quot;: \&quot;Steven\&quot;, \&quot;last_name\&quot;: \&quot;Universe\&quot;}
+  metadata: {\&quot;type\&quot;: \&quot;individual\&quot;, \&quot;status\&quot;: \&quot;preferred\&quot;}
 )
 ```
 

@@ -9,6 +9,7 @@
 | **guid** | **String** |  | [optional] |
 | **institution_number** | **String** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
+| **passed_validation** | **Boolean** |  | [optional] |
 | **routing_number** | **String** |  | [optional] |
 | **transit_number** | **String** |  | [optional] |
 | **user_guid** | **String** |  | [optional] |
@@ -24,6 +25,7 @@ instance = MxPlatformRuby::AccountNumberResponse.new(
   guid: ACN-8899832e-e5b4-42cd-aa25-bbf1dc889a8f,
   institution_number: 123,
   member_guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
+  passed_validation: true,
   routing_number: 68899990000000,
   transit_number: 12345,
   user_guid: USR-fa7537f3-48aa-a683-a02a-b18940482f54

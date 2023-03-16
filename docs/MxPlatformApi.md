@@ -45,6 +45,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_managed_institutions**](MxPlatformApi.md#list_managed_institutions) | **GET** /managed_institutions | List managed institutions |
 | [**list_managed_members**](MxPlatformApi.md#list_managed_members) | **GET** /users/{user_guid}/managed_members | List managed members |
 | [**list_managed_transactions**](MxPlatformApi.md#list_managed_transactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions |
+| [**list_member_accounts**](MxPlatformApi.md#list_member_accounts) | **GET** /users/{user_guid}/members/{member_guid}/accounts | List accounts by member |
 | [**list_member_challenges**](MxPlatformApi.md#list_member_challenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges |
 | [**list_member_credentials**](MxPlatformApi.md#list_member_credentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
 | [**list_members**](MxPlatformApi.md#list_members) | **GET** /users/{user_guid}/members | List members |
@@ -60,6 +61,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_user_accounts**](MxPlatformApi.md#list_user_accounts) | **GET** /users/{user_guid}/accounts | List accounts |
 | [**list_users**](MxPlatformApi.md#list_users) | **GET** /users | List users |
 | [**read_account**](MxPlatformApi.md#read_account) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account |
+| [**read_account_by_member**](MxPlatformApi.md#read_account_by_member) | **GET** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Read account by member |
 | [**read_category**](MxPlatformApi.md#read_category) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category |
 | [**read_default_category**](MxPlatformApi.md#read_default_category) | **GET** /categories/{category_guid} | Read a default category |
 | [**read_holding**](MxPlatformApi.md#read_holding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding |
@@ -3140,6 +3142,86 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
+## list_member_accounts
+
+> <AccountsResponseBody> list_member_accounts(user_guid, member_guid, opts)
+
+List accounts by member
+
+This endpoint returns a list of all the accounts associated with the specified `member`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+opts = {
+  member_is_managed_by_user: true, # Boolean | List only accounts whose member is managed by the user.
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10 # Integer | Specify records per page.
+}
+
+begin
+  # List accounts by member
+  result = api_instance.list_member_accounts(user_guid, member_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_member_accounts: #{e}"
+end
+```
+
+#### Using the list_member_accounts_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountsResponseBody>, Integer, Hash)> list_member_accounts_with_http_info(user_guid, member_guid, opts)
+
+```ruby
+begin
+  # List accounts by member
+  data, status_code, headers = api_instance.list_member_accounts_with_http_info(user_guid, member_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_member_accounts_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **member_is_managed_by_user** | **Boolean** | List only accounts whose member is managed by the user. | [optional] |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+
+### Return type
+
+[**AccountsResponseBody**](AccountsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
 ## list_member_challenges
 
 > <ChallengesResponseBody> list_member_challenges(member_guid, user_guid, opts)
@@ -4101,6 +4183,7 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 opts = {
+  member_is_managed_by_user: true, # Boolean | List only accounts whose member is managed by the user.
   page: 1, # Integer | Specify current page.
   records_per_page: 10 # Integer | Specify records per page.
 }
@@ -4137,6 +4220,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **member_is_managed_by_user** | **Boolean** | List only accounts whose member is managed by the user. | [optional] |
 | **page** | **Integer** | Specify current page. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
 
@@ -4177,7 +4261,10 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 opts = {
   page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  records_per_page: 10, # Integer | Specify records per page.
+  id: 'u-12324-abdc', # String | The user `id` to search for.
+  email: 'example@example.com', # String | The user `email` to search for.
+  is_disabled: true # Boolean | Search for users that are diabled.
 }
 
 begin
@@ -4213,6 +4300,9 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | Specify current page. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **id** | **String** | The user &#x60;id&#x60; to search for. | [optional] |
+| **email** | **String** | The user &#x60;email&#x60; to search for. | [optional] |
+| **is_disabled** | **Boolean** | Search for users that are diabled. | [optional] |
 
 ### Return type
 
@@ -4284,6 +4374,80 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+[**AccountResponseBody**](AccountResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_account_by_member
+
+> <AccountResponseBody> read_account_by_member(account_guid, member_guid, user_guid)
+
+Read account by member
+
+This endpoint allows you to read the attributes of an `account` resource.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Read account by member
+  result = api_instance.read_account_by_member(account_guid, member_guid, user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_account_by_member: #{e}"
+end
+```
+
+#### Using the read_account_by_member_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountResponseBody>, Integer, Hash)> read_account_by_member_with_http_info(account_guid, member_guid, user_guid)
+
+```ruby
+begin
+  # Read account by member
+  data, status_code, headers = api_instance.read_account_by_member_with_http_info(account_guid, member_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_account_by_member_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 
 ### Return type

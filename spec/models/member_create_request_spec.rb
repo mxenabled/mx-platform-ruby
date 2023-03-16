@@ -31,12 +31,6 @@ describe MxPlatformRuby::MemberCreateRequest do
     end
   end
 
-  describe 'test attribute "client_redirect_url"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "credentials"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -17,6 +17,8 @@ module MxPlatformRuby
   class MemberResponse
     attr_accessor :aggregated_at
 
+    attr_accessor :background_aggregation_is_disabled
+
     attr_accessor :connection_status
 
     attr_accessor :guid
@@ -47,6 +49,7 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'aggregated_at' => :'aggregated_at',
+        :'background_aggregation_is_disabled' => :'background_aggregation_is_disabled',
         :'connection_status' => :'connection_status',
         :'guid' => :'guid',
         :'id' => :'id',
@@ -72,6 +75,7 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'aggregated_at' => :'String',
+        :'background_aggregation_is_disabled' => :'Boolean',
         :'connection_status' => :'String',
         :'guid' => :'String',
         :'id' => :'String',
@@ -125,6 +129,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'aggregated_at')
         self.aggregated_at = attributes[:'aggregated_at']
+      end
+
+      if attributes.key?(:'background_aggregation_is_disabled')
+        self.background_aggregation_is_disabled = attributes[:'background_aggregation_is_disabled']
       end
 
       if attributes.key?(:'connection_status')
@@ -199,6 +207,7 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           aggregated_at == o.aggregated_at &&
+          background_aggregation_is_disabled == o.background_aggregation_is_disabled &&
           connection_status == o.connection_status &&
           guid == o.guid &&
           id == o.id &&
@@ -223,7 +232,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_oauth, metadata, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
+      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_oauth, metadata, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash

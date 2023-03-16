@@ -2961,6 +2961,84 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # List accounts by member
+    # This endpoint returns a list of all the accounts associated with the specified `member`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [AccountsResponseBody]
+    def list_member_accounts(user_guid, member_guid, opts = {})
+      data, _status_code, _headers = list_member_accounts_with_http_info(user_guid, member_guid, opts)
+      data
+    end
+
+    # List accounts by member
+    # This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(AccountsResponseBody, Integer, Hash)>] AccountsResponseBody data, response status code and response headers
+    def list_member_accounts_with_http_info(user_guid, member_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_member_accounts ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_member_accounts"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_member_accounts"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'member_is_managed_by_user'] = opts[:'member_is_managed_by_user'] if !opts[:'member_is_managed_by_user'].nil?
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_member_accounts",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_member_accounts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List member challenges
     # Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of `CHALLENGED`, then code `204 No Content` will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of `CHALLENGED`, then code `200 OK` will be returned - along with the corresponding credentials.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
@@ -3847,6 +3925,7 @@ module MxPlatformRuby
     # This endpoint returns a list of all the accounts associated with the specified `user`.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [AccountsResponseBody]
@@ -3859,6 +3938,7 @@ module MxPlatformRuby
     # This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(AccountsResponseBody, Integer, Hash)>] AccountsResponseBody data, response status code and response headers
@@ -3875,6 +3955,7 @@ module MxPlatformRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'member_is_managed_by_user'] = opts[:'member_is_managed_by_user'] if !opts[:'member_is_managed_by_user'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
 
@@ -3917,6 +3998,9 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :id The user &#x60;id&#x60; to search for.
+    # @option opts [String] :email The user &#x60;email&#x60; to search for.
+    # @option opts [Boolean] :is_disabled Search for users that are diabled.
     # @return [UsersResponseBody]
     def list_users(opts = {})
       data, _status_code, _headers = list_users_with_http_info(opts)
@@ -3928,6 +4012,9 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :page Specify current page.
     # @option opts [Integer] :records_per_page Specify records per page.
+    # @option opts [String] :id The user &#x60;id&#x60; to search for.
+    # @option opts [String] :email The user &#x60;email&#x60; to search for.
+    # @option opts [Boolean] :is_disabled Search for users that are diabled.
     # @return [Array<(UsersResponseBody, Integer, Hash)>] UsersResponseBody data, response status code and response headers
     def list_users_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -3940,6 +4027,9 @@ module MxPlatformRuby
       query_params = opts[:query_params] || {}
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+      query_params[:'id'] = opts[:'id'] if !opts[:'id'].nil?
+      query_params[:'email'] = opts[:'email'] if !opts[:'email'].nil?
+      query_params[:'is_disabled'] = opts[:'is_disabled'] if !opts[:'is_disabled'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -4040,6 +4130,81 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read account by member
+    # This endpoint allows you to read the attributes of an `account` resource.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [AccountResponseBody]
+    def read_account_by_member(account_guid, member_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_account_by_member_with_http_info(account_guid, member_guid, user_guid, opts)
+      data
+    end
+
+    # Read account by member
+    # This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
+    def read_account_by_member_with_http_info(account_guid, member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_account_by_member ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.read_account_by_member"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_account_by_member"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_account_by_member"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_account_by_member",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_account_by_member\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
