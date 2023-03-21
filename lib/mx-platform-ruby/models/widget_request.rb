@@ -25,6 +25,8 @@ module MxPlatformRuby
 
     attr_accessor :current_member_guid
 
+    attr_accessor :disable_background_agg
+
     attr_accessor :disable_institution_search
 
     attr_accessor :include_identity
@@ -53,6 +55,7 @@ module MxPlatformRuby
         :'current_institution_code' => :'current_institution_code',
         :'current_institution_guid' => :'current_institution_guid',
         :'current_member_guid' => :'current_member_guid',
+        :'disable_background_agg' => :'disable_background_agg',
         :'disable_institution_search' => :'disable_institution_search',
         :'include_identity' => :'include_identity',
         :'include_transactions' => :'include_transactions',
@@ -79,6 +82,7 @@ module MxPlatformRuby
         :'current_institution_code' => :'String',
         :'current_institution_guid' => :'String',
         :'current_member_guid' => :'String',
+        :'disable_background_agg' => :'Boolean',
         :'disable_institution_search' => :'Boolean',
         :'include_identity' => :'Boolean',
         :'include_transactions' => :'Boolean',
@@ -131,6 +135,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'current_member_guid')
         self.current_member_guid = attributes[:'current_member_guid']
+      end
+
+      if attributes.key?(:'disable_background_agg')
+        self.disable_background_agg = attributes[:'disable_background_agg']
       end
 
       if attributes.key?(:'disable_institution_search')
@@ -202,6 +210,7 @@ module MxPlatformRuby
           current_institution_code == o.current_institution_code &&
           current_institution_guid == o.current_institution_guid &&
           current_member_guid == o.current_member_guid &&
+          disable_background_agg == o.disable_background_agg &&
           disable_institution_search == o.disable_institution_search &&
           include_identity == o.include_identity &&
           include_transactions == o.include_transactions &&
@@ -223,7 +232,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_redirect_url, color_scheme, current_institution_code, current_institution_guid, current_member_guid, disable_institution_search, include_identity, include_transactions, is_mobile_webview, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, widget_type].hash
+      [client_redirect_url, color_scheme, current_institution_code, current_institution_guid, current_member_guid, disable_background_agg, disable_institution_search, include_identity, include_transactions, is_mobile_webview, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, widget_type].hash
     end
 
     # Builds the object from hash

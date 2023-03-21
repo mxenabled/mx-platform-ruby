@@ -9,6 +9,7 @@
 | **current_institution_code** | **String** |  | [optional] |
 | **current_institution_guid** | **String** |  | [optional] |
 | **current_member_guid** | **String** |  | [optional] |
+| **disable_background_agg** | **Boolean** |  | [optional] |
 | **disable_institution_search** | **Boolean** |  | [optional] |
 | **include_identity** | **Boolean** |  | [optional] |
 | **include_transactions** | **Boolean** |  | [optional] |
@@ -31,6 +32,7 @@ instance = MxPlatformRuby::WidgetRequest.new(
   current_institution_code: chase,
   current_institution_guid: INS-f1a3285d-e855-b61f-6aa7-8ae575c0e0e9,
   current_member_guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
+  disable_background_agg: false,
   disable_institution_search: false,
   include_identity: false,
   include_transactions: true,
