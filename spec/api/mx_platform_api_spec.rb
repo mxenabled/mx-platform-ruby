@@ -296,6 +296,18 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for deprecated_request_payment_processor_authorization_code
+  # (Deprecated) Request an authorization code.
+  # (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+  # @param payment_processor_authorization_code_request_body The scope for the authorization code.
+  # @param [Hash] opts the optional parameters
+  # @return [PaymentProcessorAuthorizationCodeResponseBody]
+  describe 'deprecated_request_payment_processor_authorization_code test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for download_statement_pdf
   # Download statement pdf
   # Use this endpoint to download a specified statement PDF.
@@ -1070,6 +1082,18 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [UserResponseBody]
   describe 'read_user test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for request_authorization_code
+  # Request an authorization code.
+  # Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+  # @param authorization_code_request_body The scope for the authorization code.
+  # @param [Hash] opts the optional parameters
+  # @return [AuthorizationCodeResponseBody]
+  describe 'request_authorization_code test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

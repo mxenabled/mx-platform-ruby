@@ -1450,6 +1450,74 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # (Deprecated) Request an authorization code.
+    # (This endpoint is deprecated. Clients should use `/authorization_code`.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+    # @param payment_processor_authorization_code_request_body [PaymentProcessorAuthorizationCodeRequestBody] The scope for the authorization code.
+    # @param [Hash] opts the optional parameters
+    # @return [PaymentProcessorAuthorizationCodeResponseBody]
+    def deprecated_request_payment_processor_authorization_code(payment_processor_authorization_code_request_body, opts = {})
+      data, _status_code, _headers = deprecated_request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body, opts)
+      data
+    end
+
+    # (Deprecated) Request an authorization code.
+    # (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+    # @param payment_processor_authorization_code_request_body [PaymentProcessorAuthorizationCodeRequestBody] The scope for the authorization code.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(PaymentProcessorAuthorizationCodeResponseBody, Integer, Hash)>] PaymentProcessorAuthorizationCodeResponseBody data, response status code and response headers
+    def deprecated_request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.deprecated_request_payment_processor_authorization_code ...'
+      end
+      # verify the required parameter 'payment_processor_authorization_code_request_body' is set
+      if @api_client.config.client_side_validation && payment_processor_authorization_code_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'payment_processor_authorization_code_request_body' when calling MxPlatformApi.deprecated_request_payment_processor_authorization_code"
+      end
+      # resource path
+      local_var_path = '/payment_processor_authorization_code'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(payment_processor_authorization_code_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PaymentProcessorAuthorizationCodeResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.deprecated_request_payment_processor_authorization_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#deprecated_request_payment_processor_authorization_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Download statement pdf
     # Use this endpoint to download a specified statement PDF.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
@@ -5372,6 +5440,74 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Request an authorization code.
+    # Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+    # @param authorization_code_request_body [AuthorizationCodeRequestBody] The scope for the authorization code.
+    # @param [Hash] opts the optional parameters
+    # @return [AuthorizationCodeResponseBody]
+    def request_authorization_code(authorization_code_request_body, opts = {})
+      data, _status_code, _headers = request_authorization_code_with_http_info(authorization_code_request_body, opts)
+      data
+    end
+
+    # Request an authorization code.
+    # Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+    # @param authorization_code_request_body [AuthorizationCodeRequestBody] The scope for the authorization code.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AuthorizationCodeResponseBody, Integer, Hash)>] AuthorizationCodeResponseBody data, response status code and response headers
+    def request_authorization_code_with_http_info(authorization_code_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.request_authorization_code ...'
+      end
+      # verify the required parameter 'authorization_code_request_body' is set
+      if @api_client.config.client_side_validation && authorization_code_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'authorization_code_request_body' when calling MxPlatformApi.request_authorization_code"
+      end
+      # resource path
+      local_var_path = '/authorization_code'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(authorization_code_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AuthorizationCodeResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.request_authorization_code",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#request_authorization_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
