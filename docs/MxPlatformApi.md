@@ -24,6 +24,7 @@ All URIs are relative to *https://api.mx.com*
 | [**delete_tagging**](MxPlatformApi.md#delete_tagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging |
 | [**delete_transaction_rule**](MxPlatformApi.md#delete_transaction_rule) | **DELETE** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Delete transaction rule |
 | [**delete_user**](MxPlatformApi.md#delete_user) | **DELETE** /users/{user_guid} | Delete user |
+| [**deprecated_request_payment_processor_authorization_code**](MxPlatformApi.md#deprecated_request_payment_processor_authorization_code) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code. |
 | [**download_statement_pdf**](MxPlatformApi.md#download_statement_pdf) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf |
 | [**enhance_transactions**](MxPlatformApi.md#enhance_transactions) | **POST** /transactions/enhance | Enhance transactions |
 | [**extend_history**](MxPlatformApi.md#extend_history) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
@@ -79,6 +80,7 @@ All URIs are relative to *https://api.mx.com*
 | [**read_transaction**](MxPlatformApi.md#read_transaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction |
 | [**read_transaction_rule**](MxPlatformApi.md#read_transaction_rule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule |
 | [**read_user**](MxPlatformApi.md#read_user) | **GET** /users/{user_guid} | Read user |
+| [**request_authorization_code**](MxPlatformApi.md#request_authorization_code) | **POST** /authorization_code | Request an authorization code. |
 | [**request_connect_widget_url**](MxPlatformApi.md#request_connect_widget_url) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url |
 | [**request_o_auth_window_uri**](MxPlatformApi.md#request_o_auth_window_uri) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri |
 | [**request_widget_url**](MxPlatformApi.md#request_widget_url) | **POST** /users/{user_guid}/widget_urls | Request widget url |
@@ -1534,6 +1536,76 @@ nil (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## deprecated_request_payment_processor_authorization_code
+
+> <PaymentProcessorAuthorizationCodeResponseBody> deprecated_request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+
+(Deprecated) Request an authorization code.
+
+(This endpoint is deprecated. Clients should use `/authorization_code`.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+payment_processor_authorization_code_request_body = MxPlatformRuby::PaymentProcessorAuthorizationCodeRequestBody.new # PaymentProcessorAuthorizationCodeRequestBody | The scope for the authorization code.
+
+begin
+  # (Deprecated) Request an authorization code.
+  result = api_instance.deprecated_request_payment_processor_authorization_code(payment_processor_authorization_code_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->deprecated_request_payment_processor_authorization_code: #{e}"
+end
+```
+
+#### Using the deprecated_request_payment_processor_authorization_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<PaymentProcessorAuthorizationCodeResponseBody>, Integer, Hash)> deprecated_request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+
+```ruby
+begin
+  # (Deprecated) Request an authorization code.
+  data, status_code, headers = api_instance.deprecated_request_payment_processor_authorization_code_with_http_info(payment_processor_authorization_code_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <PaymentProcessorAuthorizationCodeResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->deprecated_request_payment_processor_authorization_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **payment_processor_authorization_code_request_body** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md) | The scope for the authorization code. |  |
+
+### Return type
+
+[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.mx.api.v1+json
 
 
 ## download_statement_pdf
@@ -5683,6 +5755,76 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## request_authorization_code
+
+> <AuthorizationCodeResponseBody> request_authorization_code(authorization_code_request_body)
+
+Request an authorization code.
+
+Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+authorization_code_request_body = MxPlatformRuby::AuthorizationCodeRequestBody.new # AuthorizationCodeRequestBody | The scope for the authorization code.
+
+begin
+  # Request an authorization code.
+  result = api_instance.request_authorization_code(authorization_code_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_authorization_code: #{e}"
+end
+```
+
+#### Using the request_authorization_code_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AuthorizationCodeResponseBody>, Integer, Hash)> request_authorization_code_with_http_info(authorization_code_request_body)
+
+```ruby
+begin
+  # Request an authorization code.
+  data, status_code, headers = api_instance.request_authorization_code_with_http_info(authorization_code_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AuthorizationCodeResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->request_authorization_code_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **authorization_code_request_body** | [**AuthorizationCodeRequestBody**](AuthorizationCodeRequestBody.md) | The scope for the authorization code. |  |
+
+### Return type
+
+[**AuthorizationCodeResponseBody**](AuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/vnd.mx.api.v1+json
 
 
