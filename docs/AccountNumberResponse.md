@@ -20,7 +20,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::AccountNumberResponse.new(
-  account_guid: ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1,
+  account_guid: ACT-06d7f45b-caae-0f6e-1384-01f52e75dcb1,
   account_number: 10001,
   guid: ACN-8899832e-e5b4-42cd-aa25-bbf1dc889a8f,
   institution_number: 123,

@@ -322,6 +322,20 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for download_tax_document
+  # Download a Tax Document PDF
+  # Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+  # @param tax_document_guid The unique id for a &#x60;tax_document&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [File]
+  describe 'download_tax_document test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for enhance_transactions
   # Enhance transactions
   # Use this endpoint to categorize, cleanse, and classify transactions. These transactions are not persisted or stored on the MX platform.
@@ -355,6 +369,19 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [MemberResponseBody]
   describe 'fetch_statements test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for fetch_tax_documents
+  # Fetch Tax Documents
+  # Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [MemberResponseBody]
+  describe 'fetch_tax_documents test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -728,6 +755,21 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_tax_documents
+  # List Tax Documents
+  # Use this endpoint to get a paginated list of tax documents.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [TaxDocumentsResponseBody]
+  describe 'list_tax_documents test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_transaction_rules
   # List transaction rules
   # Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
@@ -1044,6 +1086,20 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [TaggingResponseBody]
   describe 'read_tagging test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_tax_document
+  # Read a Tax Document
+  # Use this endpoint to read the attributes of the specified tax document.
+  # @param tax_document_guid The unique id for a &#x60;tax_document&#x60;.
+  # @param member_guid The unique id for a &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [TaxDocumentResponseBody]
+  describe 'read_tax_document test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
