@@ -26,9 +26,11 @@ All URIs are relative to *https://api.mx.com*
 | [**delete_user**](MxPlatformApi.md#delete_user) | **DELETE** /users/{user_guid} | Delete user |
 | [**deprecated_request_payment_processor_authorization_code**](MxPlatformApi.md#deprecated_request_payment_processor_authorization_code) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code. |
 | [**download_statement_pdf**](MxPlatformApi.md#download_statement_pdf) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf |
+| [**download_tax_document**](MxPlatformApi.md#download_tax_document) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF |
 | [**enhance_transactions**](MxPlatformApi.md#enhance_transactions) | **POST** /transactions/enhance | Enhance transactions |
 | [**extend_history**](MxPlatformApi.md#extend_history) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
 | [**fetch_statements**](MxPlatformApi.md#fetch_statements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements |
+| [**fetch_tax_documents**](MxPlatformApi.md#fetch_tax_documents) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents |
 | [**identify_member**](MxPlatformApi.md#identify_member) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member |
 | [**list_account_numbers_by_account**](MxPlatformApi.md#list_account_numbers_by_account) | **GET** /users/{user_guid}/accounts/{account_guid}/account_numbers | List account numbers by account |
 | [**list_account_numbers_by_member**](MxPlatformApi.md#list_account_numbers_by_member) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member |
@@ -54,6 +56,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_statements_by_member**](MxPlatformApi.md#list_statements_by_member) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member |
 | [**list_taggings**](MxPlatformApi.md#list_taggings) | **GET** /users/{user_guid}/taggings | List taggings |
 | [**list_tags**](MxPlatformApi.md#list_tags) | **GET** /users/{user_guid}/tags | List tags |
+| [**list_tax_documents**](MxPlatformApi.md#list_tax_documents) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents | List Tax Documents |
 | [**list_transaction_rules**](MxPlatformApi.md#list_transaction_rules) | **GET** /users/{user_guid}/transaction_rules | List transaction rules |
 | [**list_transactions**](MxPlatformApi.md#list_transactions) | **GET** /users/{user_guid}/transactions | List transactions |
 | [**list_transactions_by_account**](MxPlatformApi.md#list_transactions_by_account) | **GET** /users/{user_guid}/accounts/{account_guid}/transactions | List transactions by account |
@@ -77,6 +80,7 @@ All URIs are relative to *https://api.mx.com*
 | [**read_statement_by_member**](MxPlatformApi.md#read_statement_by_member) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member |
 | [**read_tag**](MxPlatformApi.md#read_tag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag |
 | [**read_tagging**](MxPlatformApi.md#read_tagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging |
+| [**read_tax_document**](MxPlatformApi.md#read_tax_document) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid} | Read a Tax Document |
 | [**read_transaction**](MxPlatformApi.md#read_transaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction |
 | [**read_transaction_rule**](MxPlatformApi.md#read_transaction_rule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule |
 | [**read_user**](MxPlatformApi.md#read_user) | **GET** /users/{user_guid} | Read user |
@@ -1682,6 +1686,80 @@ end
 - **Accept**: application/vnd.mx.api.v1+pdf
 
 
+## download_tax_document
+
+> File download_tax_document(tax_document_guid, member_guid, user_guid)
+
+Download a Tax Document PDF
+
+Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+tax_document_guid = 'TAX-987dfds1b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `tax_document`.
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Download a Tax Document PDF
+  result = api_instance.download_tax_document(tax_document_guid, member_guid, user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->download_tax_document: #{e}"
+end
+```
+
+#### Using the download_tax_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(File, Integer, Hash)> download_tax_document_with_http_info(tax_document_guid, member_guid, user_guid)
+
+```ruby
+begin
+  # Download a Tax Document PDF
+  data, status_code, headers = api_instance.download_tax_document_with_http_info(tax_document_guid, member_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => File
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->download_tax_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **tax_document_guid** | **String** | The unique id for a &#x60;tax_document&#x60;. |  |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+**File**
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+pdf
+
+
 ## enhance_transactions
 
 > <EnhanceTransactionsResponseBody> enhance_transactions(enhance_transactions_request_body)
@@ -1872,6 +1950,78 @@ begin
   p data # => <MemberResponseBody>
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->fetch_statements_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+[**MemberResponseBody**](MemberResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## fetch_tax_documents
+
+> <MemberResponseBody> fetch_tax_documents(member_guid, user_guid)
+
+Fetch Tax Documents
+
+Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Fetch Tax Documents
+  result = api_instance.fetch_tax_documents(member_guid, user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->fetch_tax_documents: #{e}"
+end
+```
+
+#### Using the fetch_tax_documents_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MemberResponseBody>, Integer, Hash)> fetch_tax_documents_with_http_info(member_guid, user_guid)
+
+```ruby
+begin
+  # Fetch Tax Documents
+  data, status_code, headers = api_instance.fetch_tax_documents_with_http_info(member_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MemberResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->fetch_tax_documents_with_http_info: #{e}"
 end
 ```
 
@@ -3830,6 +3980,84 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
+## list_tax_documents
+
+> <TaxDocumentsResponseBody> list_tax_documents(member_guid, user_guid, opts)
+
+List Tax Documents
+
+Use this endpoint to get a paginated list of tax documents.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  page: 1, # Integer | Specify current page.
+  records_per_page: 10 # Integer | Specify records per page.
+}
+
+begin
+  # List Tax Documents
+  result = api_instance.list_tax_documents(member_guid, user_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_tax_documents: #{e}"
+end
+```
+
+#### Using the list_tax_documents_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TaxDocumentsResponseBody>, Integer, Hash)> list_tax_documents_with_http_info(member_guid, user_guid, opts)
+
+```ruby
+begin
+  # List Tax Documents
+  data, status_code, headers = api_instance.list_tax_documents_with_http_info(member_guid, user_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TaxDocumentsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_tax_documents_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **page** | **Integer** | Specify current page. | [optional] |
+| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+
+### Return type
+
+[**TaxDocumentsResponseBody**](TaxDocumentsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
 ## list_transaction_rules
 
 > <TransactionRulesResponseBody> list_transaction_rules(user_guid, opts)
@@ -5533,6 +5761,80 @@ end
 ### Return type
 
 [**TaggingResponseBody**](TaggingResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_tax_document
+
+> <TaxDocumentResponseBody> read_tax_document(tax_document_guid, member_guid, user_guid)
+
+Read a Tax Document
+
+Use this endpoint to read the attributes of the specified tax document.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+tax_document_guid = 'TAX-987dfds1b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `tax_document`.
+member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Read a Tax Document
+  result = api_instance.read_tax_document(tax_document_guid, member_guid, user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_tax_document: #{e}"
+end
+```
+
+#### Using the read_tax_document_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TaxDocumentResponseBody>, Integer, Hash)> read_tax_document_with_http_info(tax_document_guid, member_guid, user_guid)
+
+```ruby
+begin
+  # Read a Tax Document
+  data, status_code, headers = api_instance.read_tax_document_with_http_info(tax_document_guid, member_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TaxDocumentResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_tax_document_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **tax_document_guid** | **String** | The unique id for a &#x60;tax_document&#x60;. |  |
+| **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+[**TaxDocumentResponseBody**](TaxDocumentResponseBody.md)
 
 ### Authorization
 

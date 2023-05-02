@@ -1593,6 +1593,81 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Download a Tax Document PDF
+    # Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+    # @param tax_document_guid [String] The unique id for a &#x60;tax_document&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [File]
+    def download_tax_document(tax_document_guid, member_guid, user_guid, opts = {})
+      data, _status_code, _headers = download_tax_document_with_http_info(tax_document_guid, member_guid, user_guid, opts)
+      data
+    end
+
+    # Download a Tax Document PDF
+    # Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+    # @param tax_document_guid [String] The unique id for a &#x60;tax_document&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
+    def download_tax_document_with_http_info(tax_document_guid, member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.download_tax_document ...'
+      end
+      # verify the required parameter 'tax_document_guid' is set
+      if @api_client.config.client_side_validation && tax_document_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'tax_document_guid' when calling MxPlatformApi.download_tax_document"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.download_tax_document"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.download_tax_document"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf'.sub('{' + 'tax_document_guid' + '}', CGI.escape(tax_document_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+pdf'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'File'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.download_tax_document",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#download_tax_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Enhance transactions
     # Use this endpoint to categorize, cleanse, and classify transactions. These transactions are not persisted or stored on the MX platform.
     # @param enhance_transactions_request_body [EnhanceTransactionsRequestBody] Transaction object to be enhanced
@@ -1795,6 +1870,75 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#fetch_statements\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetch Tax Documents
+    # Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [MemberResponseBody]
+    def fetch_tax_documents(member_guid, user_guid, opts = {})
+      data, _status_code, _headers = fetch_tax_documents_with_http_info(member_guid, user_guid, opts)
+      data
+    end
+
+    # Fetch Tax Documents
+    # Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
+    def fetch_tax_documents_with_http_info(member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.fetch_tax_documents ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.fetch_tax_documents"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.fetch_tax_documents"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/fetch_tax_documents'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MemberResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.fetch_tax_documents",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#fetch_tax_documents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3602,6 +3746,81 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # List Tax Documents
+    # Use this endpoint to get a paginated list of tax documents.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [TaxDocumentsResponseBody]
+    def list_tax_documents(member_guid, user_guid, opts = {})
+      data, _status_code, _headers = list_tax_documents_with_http_info(member_guid, user_guid, opts)
+      data
+    end
+
+    # List Tax Documents
+    # Use this endpoint to get a paginated list of tax documents.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :page Specify current page.
+    # @option opts [Integer] :records_per_page Specify records per page.
+    # @return [Array<(TaxDocumentsResponseBody, Integer, Hash)>] TaxDocumentsResponseBody data, response status code and response headers
+    def list_tax_documents_with_http_info(member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_tax_documents ...'
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_tax_documents"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_tax_documents"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/tax_documents'.sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TaxDocumentsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_tax_documents",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_tax_documents\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List transaction rules
     # Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
@@ -5239,6 +5458,81 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_tagging\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read a Tax Document
+    # Use this endpoint to read the attributes of the specified tax document.
+    # @param tax_document_guid [String] The unique id for a &#x60;tax_document&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [TaxDocumentResponseBody]
+    def read_tax_document(tax_document_guid, member_guid, user_guid, opts = {})
+      data, _status_code, _headers = read_tax_document_with_http_info(tax_document_guid, member_guid, user_guid, opts)
+      data
+    end
+
+    # Read a Tax Document
+    # Use this endpoint to read the attributes of the specified tax document.
+    # @param tax_document_guid [String] The unique id for a &#x60;tax_document&#x60;.
+    # @param member_guid [String] The unique id for a &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(TaxDocumentResponseBody, Integer, Hash)>] TaxDocumentResponseBody data, response status code and response headers
+    def read_tax_document_with_http_info(tax_document_guid, member_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_tax_document ...'
+      end
+      # verify the required parameter 'tax_document_guid' is set
+      if @api_client.config.client_side_validation && tax_document_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'tax_document_guid' when calling MxPlatformApi.read_tax_document"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_tax_document"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_tax_document"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}'.sub('{' + 'tax_document_guid' + '}', CGI.escape(tax_document_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'TaxDocumentResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_tax_document",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_tax_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
