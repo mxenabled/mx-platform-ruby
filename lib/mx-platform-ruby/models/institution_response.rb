@@ -17,6 +17,10 @@ module MxPlatformRuby
   class InstitutionResponse
     attr_accessor :code
 
+    attr_accessor :forgot_password_url
+
+    attr_accessor :forgot_username_url
+
     attr_accessor :instructional_text
 
     attr_accessor :medium_logo_url
@@ -35,12 +39,16 @@ module MxPlatformRuby
 
     attr_accessor :supports_transaction_history
 
+    attr_accessor :trouble_signing_in_url
+
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'code' => :'code',
+        :'forgot_password_url' => :'forgot_password_url',
+        :'forgot_username_url' => :'forgot_username_url',
         :'instructional_text' => :'instructional_text',
         :'medium_logo_url' => :'medium_logo_url',
         :'name' => :'name',
@@ -50,6 +58,7 @@ module MxPlatformRuby
         :'supports_account_verification' => :'supports_account_verification',
         :'supports_oauth' => :'supports_oauth',
         :'supports_transaction_history' => :'supports_transaction_history',
+        :'trouble_signing_in_url' => :'trouble_signing_in_url',
         :'url' => :'url'
       }
     end
@@ -63,6 +72,8 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'code' => :'String',
+        :'forgot_password_url' => :'String',
+        :'forgot_username_url' => :'String',
         :'instructional_text' => :'String',
         :'medium_logo_url' => :'String',
         :'name' => :'String',
@@ -72,6 +83,7 @@ module MxPlatformRuby
         :'supports_account_verification' => :'Boolean',
         :'supports_oauth' => :'Boolean',
         :'supports_transaction_history' => :'Boolean',
+        :'trouble_signing_in_url' => :'String',
         :'url' => :'String'
       }
     end
@@ -80,6 +92,8 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'code',
+        :'forgot_password_url',
+        :'forgot_username_url',
         :'instructional_text',
         :'medium_logo_url',
         :'name',
@@ -89,6 +103,7 @@ module MxPlatformRuby
         :'supports_account_verification',
         :'supports_oauth',
         :'supports_transaction_history',
+        :'trouble_signing_in_url',
         :'url'
       ])
     end
@@ -110,6 +125,14 @@ module MxPlatformRuby
 
       if attributes.key?(:'code')
         self.code = attributes[:'code']
+      end
+
+      if attributes.key?(:'forgot_password_url')
+        self.forgot_password_url = attributes[:'forgot_password_url']
+      end
+
+      if attributes.key?(:'forgot_username_url')
+        self.forgot_username_url = attributes[:'forgot_username_url']
       end
 
       if attributes.key?(:'instructional_text')
@@ -148,6 +171,10 @@ module MxPlatformRuby
         self.supports_transaction_history = attributes[:'supports_transaction_history']
       end
 
+      if attributes.key?(:'trouble_signing_in_url')
+        self.trouble_signing_in_url = attributes[:'trouble_signing_in_url']
+      end
+
       if attributes.key?(:'url')
         self.url = attributes[:'url']
       end
@@ -172,6 +199,8 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           code == o.code &&
+          forgot_password_url == o.forgot_password_url &&
+          forgot_username_url == o.forgot_username_url &&
           instructional_text == o.instructional_text &&
           medium_logo_url == o.medium_logo_url &&
           name == o.name &&
@@ -181,6 +210,7 @@ module MxPlatformRuby
           supports_account_verification == o.supports_account_verification &&
           supports_oauth == o.supports_oauth &&
           supports_transaction_history == o.supports_transaction_history &&
+          trouble_signing_in_url == o.trouble_signing_in_url &&
           url == o.url
     end
 
@@ -193,7 +223,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, instructional_text, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_transaction_history, url].hash
+      [code, forgot_password_url, forgot_username_url, instructional_text, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_transaction_history, trouble_signing_in_url, url].hash
     end
 
     # Builds the object from hash
