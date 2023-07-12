@@ -113,6 +113,19 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for create_manual_account
+  # Create manual account
+  # This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param account_create_request_body Manual account object to be created.
+  # @param [Hash] opts the optional parameters
+  # @return [AccountResponseBody]
+  describe 'create_manual_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_member
   # Create member
   # This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the &#x60;/institutions/{institution_code}/credentials&#x60; endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
@@ -227,6 +240,19 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_managed_transaction test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_manual_account
+  # Delete manual account
+  # This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+  # @param account_guid The unique id for an &#x60;account&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_manual_account test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

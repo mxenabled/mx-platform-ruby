@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module MxPlatformRuby
-  class AccountResponse
+  class AccountCreateRequest
     attr_accessor :account_number
 
     attr_accessor :apr
@@ -27,11 +27,7 @@ module MxPlatformRuby
 
     attr_accessor :balance
 
-    attr_accessor :cash_balance
-
     attr_accessor :cash_surrender_value
-
-    attr_accessor :created_at
 
     attr_accessor :credit_limit
 
@@ -41,27 +37,13 @@ module MxPlatformRuby
 
     attr_accessor :death_benefit
 
-    attr_accessor :guid
-
-    attr_accessor :holdings_value
-
     attr_accessor :id
 
-    attr_accessor :imported_at
-
-    attr_accessor :institution_code
-
-    attr_accessor :insured_name
-
     attr_accessor :interest_rate
-
-    attr_accessor :is_business
 
     attr_accessor :is_closed
 
     attr_accessor :is_hidden
-
-    attr_accessor :is_manual
 
     attr_accessor :last_payment
 
@@ -70,12 +52,6 @@ module MxPlatformRuby
     attr_accessor :loan_amount
 
     attr_accessor :matures_on
-
-    attr_accessor :member_guid
-
-    attr_accessor :member_id
-
-    attr_accessor :member_is_managed_by_user
 
     attr_accessor :metadata
 
@@ -89,15 +65,9 @@ module MxPlatformRuby
 
     attr_accessor :original_balance
 
-    attr_accessor :pay_out_amount
-
     attr_accessor :payment_due_at
 
     attr_accessor :payoff_balance
-
-    attr_accessor :premium_amount
-
-    attr_accessor :property_type
 
     attr_accessor :routing_number
 
@@ -105,15 +75,7 @@ module MxPlatformRuby
 
     attr_accessor :subtype
 
-    attr_accessor :total_account_value
-
     attr_accessor :type
-
-    attr_accessor :updated_at
-
-    attr_accessor :user_guid
-
-    attr_accessor :user_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -124,50 +86,31 @@ module MxPlatformRuby
         :'available_balance' => :'available_balance',
         :'available_credit' => :'available_credit',
         :'balance' => :'balance',
-        :'cash_balance' => :'cash_balance',
         :'cash_surrender_value' => :'cash_surrender_value',
-        :'created_at' => :'created_at',
         :'credit_limit' => :'credit_limit',
         :'currency_code' => :'currency_code',
         :'day_payment_is_due' => :'day_payment_is_due',
         :'death_benefit' => :'death_benefit',
-        :'guid' => :'guid',
-        :'holdings_value' => :'holdings_value',
         :'id' => :'id',
-        :'imported_at' => :'imported_at',
-        :'institution_code' => :'institution_code',
-        :'insured_name' => :'insured_name',
         :'interest_rate' => :'interest_rate',
-        :'is_business' => :'is_business',
         :'is_closed' => :'is_closed',
         :'is_hidden' => :'is_hidden',
-        :'is_manual' => :'is_manual',
         :'last_payment' => :'last_payment',
         :'last_payment_at' => :'last_payment_at',
         :'loan_amount' => :'loan_amount',
         :'matures_on' => :'matures_on',
-        :'member_guid' => :'member_guid',
-        :'member_id' => :'member_id',
-        :'member_is_managed_by_user' => :'member_is_managed_by_user',
         :'metadata' => :'metadata',
         :'minimum_balance' => :'minimum_balance',
         :'minimum_payment' => :'minimum_payment',
         :'name' => :'name',
         :'nickname' => :'nickname',
         :'original_balance' => :'original_balance',
-        :'pay_out_amount' => :'pay_out_amount',
         :'payment_due_at' => :'payment_due_at',
         :'payoff_balance' => :'payoff_balance',
-        :'premium_amount' => :'premium_amount',
-        :'property_type' => :'property_type',
         :'routing_number' => :'routing_number',
         :'started_on' => :'started_on',
         :'subtype' => :'subtype',
-        :'total_account_value' => :'total_account_value',
-        :'type' => :'type',
-        :'updated_at' => :'updated_at',
-        :'user_guid' => :'user_guid',
-        :'user_id' => :'user_id'
+        :'type' => :'type'
       }
     end
 
@@ -185,106 +128,37 @@ module MxPlatformRuby
         :'available_balance' => :'Float',
         :'available_credit' => :'Float',
         :'balance' => :'Float',
-        :'cash_balance' => :'Float',
         :'cash_surrender_value' => :'Float',
-        :'created_at' => :'String',
         :'credit_limit' => :'Float',
         :'currency_code' => :'String',
         :'day_payment_is_due' => :'Integer',
         :'death_benefit' => :'Integer',
-        :'guid' => :'String',
-        :'holdings_value' => :'Float',
         :'id' => :'String',
-        :'imported_at' => :'String',
-        :'institution_code' => :'String',
-        :'insured_name' => :'String',
         :'interest_rate' => :'Float',
-        :'is_business' => :'Boolean',
         :'is_closed' => :'Boolean',
         :'is_hidden' => :'Boolean',
-        :'is_manual' => :'Boolean',
         :'last_payment' => :'Float',
         :'last_payment_at' => :'String',
         :'loan_amount' => :'Float',
         :'matures_on' => :'String',
-        :'member_guid' => :'String',
-        :'member_id' => :'String',
-        :'member_is_managed_by_user' => :'Boolean',
         :'metadata' => :'String',
         :'minimum_balance' => :'Float',
         :'minimum_payment' => :'Float',
         :'name' => :'String',
         :'nickname' => :'String',
         :'original_balance' => :'Float',
-        :'pay_out_amount' => :'Float',
         :'payment_due_at' => :'String',
         :'payoff_balance' => :'Float',
-        :'premium_amount' => :'Float',
-        :'property_type' => :'String',
         :'routing_number' => :'String',
         :'started_on' => :'String',
         :'subtype' => :'String',
-        :'total_account_value' => :'Float',
-        :'type' => :'String',
-        :'updated_at' => :'String',
-        :'user_guid' => :'String',
-        :'user_id' => :'String'
+        :'type' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'account_number',
-        :'apr',
-        :'apy',
-        :'available_balance',
-        :'available_credit',
-        :'balance',
-        :'cash_balance',
-        :'cash_surrender_value',
-        :'created_at',
-        :'credit_limit',
-        :'currency_code',
-        :'day_payment_is_due',
-        :'death_benefit',
-        :'guid',
-        :'holdings_value',
-        :'id',
-        :'imported_at',
-        :'institution_code',
-        :'insured_name',
-        :'interest_rate',
-        :'is_business',
-        :'is_closed',
-        :'is_hidden',
-        :'is_manual',
-        :'last_payment',
-        :'last_payment_at',
-        :'loan_amount',
-        :'matures_on',
-        :'member_guid',
-        :'member_id',
-        :'member_is_managed_by_user',
-        :'metadata',
-        :'minimum_balance',
-        :'minimum_payment',
-        :'name',
-        :'nickname',
-        :'original_balance',
-        :'pay_out_amount',
-        :'payment_due_at',
-        :'payoff_balance',
-        :'premium_amount',
-        :'property_type',
-        :'routing_number',
-        :'started_on',
-        :'subtype',
-        :'total_account_value',
-        :'type',
-        :'updated_at',
-        :'user_guid',
-        :'user_id'
       ])
     end
 
@@ -292,13 +166,13 @@ module MxPlatformRuby
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::AccountResponse` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `MxPlatformRuby::AccountCreateRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::AccountResponse`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `MxPlatformRuby::AccountCreateRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -327,16 +201,8 @@ module MxPlatformRuby
         self.balance = attributes[:'balance']
       end
 
-      if attributes.key?(:'cash_balance')
-        self.cash_balance = attributes[:'cash_balance']
-      end
-
       if attributes.key?(:'cash_surrender_value')
         self.cash_surrender_value = attributes[:'cash_surrender_value']
-      end
-
-      if attributes.key?(:'created_at')
-        self.created_at = attributes[:'created_at']
       end
 
       if attributes.key?(:'credit_limit')
@@ -355,36 +221,12 @@ module MxPlatformRuby
         self.death_benefit = attributes[:'death_benefit']
       end
 
-      if attributes.key?(:'guid')
-        self.guid = attributes[:'guid']
-      end
-
-      if attributes.key?(:'holdings_value')
-        self.holdings_value = attributes[:'holdings_value']
-      end
-
       if attributes.key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'imported_at')
-        self.imported_at = attributes[:'imported_at']
-      end
-
-      if attributes.key?(:'institution_code')
-        self.institution_code = attributes[:'institution_code']
-      end
-
-      if attributes.key?(:'insured_name')
-        self.insured_name = attributes[:'insured_name']
-      end
-
       if attributes.key?(:'interest_rate')
         self.interest_rate = attributes[:'interest_rate']
-      end
-
-      if attributes.key?(:'is_business')
-        self.is_business = attributes[:'is_business']
       end
 
       if attributes.key?(:'is_closed')
@@ -393,10 +235,6 @@ module MxPlatformRuby
 
       if attributes.key?(:'is_hidden')
         self.is_hidden = attributes[:'is_hidden']
-      end
-
-      if attributes.key?(:'is_manual')
-        self.is_manual = attributes[:'is_manual']
       end
 
       if attributes.key?(:'last_payment')
@@ -413,18 +251,6 @@ module MxPlatformRuby
 
       if attributes.key?(:'matures_on')
         self.matures_on = attributes[:'matures_on']
-      end
-
-      if attributes.key?(:'member_guid')
-        self.member_guid = attributes[:'member_guid']
-      end
-
-      if attributes.key?(:'member_id')
-        self.member_id = attributes[:'member_id']
-      end
-
-      if attributes.key?(:'member_is_managed_by_user')
-        self.member_is_managed_by_user = attributes[:'member_is_managed_by_user']
       end
 
       if attributes.key?(:'metadata')
@@ -451,24 +277,12 @@ module MxPlatformRuby
         self.original_balance = attributes[:'original_balance']
       end
 
-      if attributes.key?(:'pay_out_amount')
-        self.pay_out_amount = attributes[:'pay_out_amount']
-      end
-
       if attributes.key?(:'payment_due_at')
         self.payment_due_at = attributes[:'payment_due_at']
       end
 
       if attributes.key?(:'payoff_balance')
         self.payoff_balance = attributes[:'payoff_balance']
-      end
-
-      if attributes.key?(:'premium_amount')
-        self.premium_amount = attributes[:'premium_amount']
-      end
-
-      if attributes.key?(:'property_type')
-        self.property_type = attributes[:'property_type']
       end
 
       if attributes.key?(:'routing_number')
@@ -483,24 +297,8 @@ module MxPlatformRuby
         self.subtype = attributes[:'subtype']
       end
 
-      if attributes.key?(:'total_account_value')
-        self.total_account_value = attributes[:'total_account_value']
-      end
-
       if attributes.key?(:'type')
         self.type = attributes[:'type']
-      end
-
-      if attributes.key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.key?(:'user_guid')
-        self.user_guid = attributes[:'user_guid']
-      end
-
-      if attributes.key?(:'user_id')
-        self.user_id = attributes[:'user_id']
       end
     end
 
@@ -508,12 +306,27 @@ module MxPlatformRuby
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @balance.nil?
+        invalid_properties.push('invalid value for "balance", balance cannot be nil.')
+      end
+
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @balance.nil?
+      return false if @name.nil?
+      return false if @type.nil?
       true
     end
 
@@ -528,50 +341,31 @@ module MxPlatformRuby
           available_balance == o.available_balance &&
           available_credit == o.available_credit &&
           balance == o.balance &&
-          cash_balance == o.cash_balance &&
           cash_surrender_value == o.cash_surrender_value &&
-          created_at == o.created_at &&
           credit_limit == o.credit_limit &&
           currency_code == o.currency_code &&
           day_payment_is_due == o.day_payment_is_due &&
           death_benefit == o.death_benefit &&
-          guid == o.guid &&
-          holdings_value == o.holdings_value &&
           id == o.id &&
-          imported_at == o.imported_at &&
-          institution_code == o.institution_code &&
-          insured_name == o.insured_name &&
           interest_rate == o.interest_rate &&
-          is_business == o.is_business &&
           is_closed == o.is_closed &&
           is_hidden == o.is_hidden &&
-          is_manual == o.is_manual &&
           last_payment == o.last_payment &&
           last_payment_at == o.last_payment_at &&
           loan_amount == o.loan_amount &&
           matures_on == o.matures_on &&
-          member_guid == o.member_guid &&
-          member_id == o.member_id &&
-          member_is_managed_by_user == o.member_is_managed_by_user &&
           metadata == o.metadata &&
           minimum_balance == o.minimum_balance &&
           minimum_payment == o.minimum_payment &&
           name == o.name &&
           nickname == o.nickname &&
           original_balance == o.original_balance &&
-          pay_out_amount == o.pay_out_amount &&
           payment_due_at == o.payment_due_at &&
           payoff_balance == o.payoff_balance &&
-          premium_amount == o.premium_amount &&
-          property_type == o.property_type &&
           routing_number == o.routing_number &&
           started_on == o.started_on &&
           subtype == o.subtype &&
-          total_account_value == o.total_account_value &&
-          type == o.type &&
-          updated_at == o.updated_at &&
-          user_guid == o.user_guid &&
-          user_id == o.user_id
+          type == o.type
     end
 
     # @see the `==` method
@@ -583,7 +377,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_business, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, total_account_value, type, updated_at, user_guid, user_id].hash
+      [account_number, apr, apy, available_balance, available_credit, balance, cash_surrender_value, credit_limit, currency_code, day_payment_is_due, death_benefit, id, interest_rate, is_closed, is_hidden, last_payment, last_payment_at, loan_amount, matures_on, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, payment_due_at, payoff_balance, routing_number, started_on, subtype, type].hash
     end
 
     # Builds the object from hash

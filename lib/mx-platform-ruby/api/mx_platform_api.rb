@@ -471,6 +471,80 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Create manual account
+    # This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_create_request_body [AccountCreateRequestBody] Manual account object to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [AccountResponseBody]
+    def create_manual_account(user_guid, account_create_request_body, opts = {})
+      data, _status_code, _headers = create_manual_account_with_http_info(user_guid, account_create_request_body, opts)
+      data
+    end
+
+    # Create manual account
+    # This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param account_create_request_body [AccountCreateRequestBody] Manual account object to be created.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
+    def create_manual_account_with_http_info(user_guid, account_create_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.create_manual_account ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.create_manual_account"
+      end
+      # verify the required parameter 'account_create_request_body' is set
+      if @api_client.config.client_side_validation && account_create_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'account_create_request_body' when calling MxPlatformApi.create_manual_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/accounts'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(account_create_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AccountResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.create_manual_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#create_manual_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Create member
     # This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the `/institutions/{institution_code}/credentials` endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
@@ -1117,6 +1191,73 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#delete_managed_transaction\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete manual account
+    # This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of `204 No Content`.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def delete_manual_account(account_guid, user_guid, opts = {})
+      delete_manual_account_with_http_info(account_guid, user_guid, opts)
+      nil
+    end
+
+    # Delete manual account
+    # This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+    # @param account_guid [String] The unique id for an &#x60;account&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def delete_manual_account_with_http_info(account_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.delete_manual_account ...'
+      end
+      # verify the required parameter 'account_guid' is set
+      if @api_client.config.client_side_validation && account_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'account_guid' when calling MxPlatformApi.delete_manual_account"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.delete_manual_account"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/accounts/{account_guid}'.sub('{' + 'account_guid' + '}', CGI.escape(account_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.delete_manual_account",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#delete_manual_account\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

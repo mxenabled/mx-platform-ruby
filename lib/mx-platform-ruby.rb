@@ -17,6 +17,8 @@ require 'mx-platform-ruby/version'
 require 'mx-platform-ruby/configuration'
 
 # Models
+require 'mx-platform-ruby/models/account_create_request'
+require 'mx-platform-ruby/models/account_create_request_body'
 require 'mx-platform-ruby/models/account_number_response'
 require 'mx-platform-ruby/models/account_numbers_response_body'
 require 'mx-platform-ruby/models/account_owner_response'

@@ -10,6 +10,7 @@ All URIs are relative to *https://api.mx.com*
 | [**create_managed_account**](MxPlatformApi.md#create_managed_account) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account |
 | [**create_managed_member**](MxPlatformApi.md#create_managed_member) | **POST** /users/{user_guid}/managed_members | Create managed member |
 | [**create_managed_transaction**](MxPlatformApi.md#create_managed_transaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction |
+| [**create_manual_account**](MxPlatformApi.md#create_manual_account) | **POST** /users/{user_guid}/accounts | Create manual account |
 | [**create_member**](MxPlatformApi.md#create_member) | **POST** /users/{user_guid}/members | Create member |
 | [**create_tag**](MxPlatformApi.md#create_tag) | **POST** /users/{user_guid}/tags | Create tag |
 | [**create_tagging**](MxPlatformApi.md#create_tagging) | **POST** /users/{user_guid}/taggings | Create tagging |
@@ -19,6 +20,7 @@ All URIs are relative to *https://api.mx.com*
 | [**delete_managed_account**](MxPlatformApi.md#delete_managed_account) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account |
 | [**delete_managed_member**](MxPlatformApi.md#delete_managed_member) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member |
 | [**delete_managed_transaction**](MxPlatformApi.md#delete_managed_transaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction |
+| [**delete_manual_account**](MxPlatformApi.md#delete_manual_account) | **DELETE** /users/{user_guid}/accounts/{account_guid} | Delete manual account |
 | [**delete_member**](MxPlatformApi.md#delete_member) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member |
 | [**delete_tag**](MxPlatformApi.md#delete_tag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag |
 | [**delete_tagging**](MxPlatformApi.md#delete_tagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging |
@@ -530,6 +532,78 @@ end
 ### Return type
 
 [**TransactionResponseBody**](TransactionResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## create_manual_account
+
+> <AccountResponseBody> create_manual_account(user_guid, account_create_request_body)
+
+Create manual account
+
+This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+account_create_request_body = MxPlatformRuby::AccountCreateRequestBody.new # AccountCreateRequestBody | Manual account object to be created.
+
+begin
+  # Create manual account
+  result = api_instance.create_manual_account(user_guid, account_create_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->create_manual_account: #{e}"
+end
+```
+
+#### Using the create_manual_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountResponseBody>, Integer, Hash)> create_manual_account_with_http_info(user_guid, account_create_request_body)
+
+```ruby
+begin
+  # Create manual account
+  data, status_code, headers = api_instance.create_manual_account_with_http_info(user_guid, account_create_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->create_manual_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **account_create_request_body** | [**AccountCreateRequestBody**](AccountCreateRequestBody.md) | Manual account object to be created. |  |
+
+### Return type
+
+[**AccountResponseBody**](AccountResponseBody.md)
 
 ### Authorization
 
@@ -1173,6 +1247,77 @@ end
 | **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **transaction_guid** | **String** | The unique id for a &#x60;transaction&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## delete_manual_account
+
+> delete_manual_account(account_guid, user_guid)
+
+Delete manual account
+
+This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of `204 No Content`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+
+begin
+  # Delete manual account
+  api_instance.delete_manual_account(account_guid, user_guid)
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->delete_manual_account: #{e}"
+end
+```
+
+#### Using the delete_manual_account_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> delete_manual_account_with_http_info(account_guid, user_guid)
+
+```ruby
+begin
+  # Delete manual account
+  data, status_code, headers = api_instance.delete_manual_account_with_http_info(account_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->delete_manual_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 
 ### Return type
