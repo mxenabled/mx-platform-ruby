@@ -5,6 +5,10 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_number** | **String** |  | [optional] |
+| **account_ownership** | **String** |  | [optional] |
+| **annuity_policy_to_date** | **String** |  | [optional] |
+| **annuity_provider** | **String** |  | [optional] |
+| **annuity_term_year** | **Float** |  | [optional] |
 | **apr** | **Float** |  | [optional] |
 | **apy** | **Float** |  | [optional] |
 | **available_balance** | **Float** |  | [optional] |
@@ -21,16 +25,16 @@
 | **holdings_value** | **Float** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **imported_at** | **String** |  | [optional] |
+| **interest_rate** | **Float** |  | [optional] |
 | **institution_code** | **String** |  | [optional] |
 | **insured_name** | **String** |  | [optional] |
-| **interest_rate** | **Float** |  | [optional] |
-| **is_business** | **Boolean** |  | [optional] |
 | **is_closed** | **Boolean** |  | [optional] |
 | **is_hidden** | **Boolean** |  | [optional] |
 | **is_manual** | **Boolean** |  | [optional] |
 | **last_payment** | **Float** |  | [optional] |
 | **last_payment_at** | **String** |  | [optional] |
 | **loan_amount** | **Float** |  | [optional] |
+| **margin_balance** | **Float** |  | [optional] |
 | **matures_on** | **String** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
 | **member_id** | **String** |  | [optional] |
@@ -45,10 +49,11 @@
 | **payment_due_at** | **String** |  | [optional] |
 | **payoff_balance** | **Float** |  | [optional] |
 | **premium_amount** | **Float** |  | [optional] |
-| **property_type** | **String** |  | [optional] |
 | **routing_number** | **String** |  | [optional] |
 | **started_on** | **String** |  | [optional] |
 | **subtype** | **String** |  | [optional] |
+| **today_ugl_amount** | **Float** |  | [optional] |
+| **today_ugl_percentage** | **Float** |  | [optional] |
 | **total_account_value** | **Float** |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **updated_at** | **String** |  | [optional] |
@@ -62,14 +67,18 @@ require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::AccountResponse.new(
   account_number: 5366,
+  account_ownership: INDIVIDUAL,
+  annuity_policy_to_date: 2016-10-13T17:57:37.000Z,
+  annuity_provider: Metlife,
+  annuity_term_year: 2048,
   apr: 1.0,
   apy: 1.0,
   available_balance: 1000.0,
   available_credit: 1000.0,
-  balance: 1000.0,
+  balance: 10000.0,
   cash_balance: 1000.0,
   cash_surrender_value: 1000.0,
-  created_at: 2016-10-13T17:57:37.000Z,
+  created_at: 2023-07-25T17:14:46Z,
   credit_limit: 100.0,
   currency_code: USD,
   day_payment_is_due: 20,
@@ -78,16 +87,16 @@ instance = MxPlatformRuby::AccountResponse.new(
   holdings_value: 1000.0,
   id: 1040434698,
   imported_at: 2015-10-13T17:57:37.000Z,
-  institution_code: chase,
-  insured_name: Frodo Baggins,
   interest_rate: 1.0,
-  is_business: false,
+  institution_code: 3af3685e-05d9-7060-359f-008d0755e993,
+  insured_name: Tommy Shelby,
   is_closed: false,
   is_hidden: false,
   is_manual: false,
   last_payment: 100.0,
-  last_payment_at: 2015-10-13T17:57:37.000Z,
+  last_payment_at: 2023-07-25T17:14:46Z,
   loan_amount: 1000.0,
+  margin_balance: 1000.0,
   matures_on: 2015-10-13T17:57:37.000Z,
   member_guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
   member_id: member123,
@@ -102,10 +111,11 @@ instance = MxPlatformRuby::AccountResponse.new(
   payment_due_at: 2015-10-13T17:57:37.000Z,
   payoff_balance: 10.0,
   premium_amount: 1.0,
-  property_type: 1,
   routing_number: 68899990000000,
   started_on: 2015-10-13T17:57:37.000Z,
   subtype: NONE,
+  today_ugl_amount: 1000.5,
+  today_ugl_percentage: 6.9,
   total_account_value: 1.0,
   type: SAVINGS,
   updated_at: 2016-10-13T18:08:00.000Z,

@@ -17,6 +17,14 @@ module MxPlatformRuby
   class AccountResponse
     attr_accessor :account_number
 
+    attr_accessor :account_ownership
+
+    attr_accessor :annuity_policy_to_date
+
+    attr_accessor :annuity_provider
+
+    attr_accessor :annuity_term_year
+
     attr_accessor :apr
 
     attr_accessor :apy
@@ -49,13 +57,11 @@ module MxPlatformRuby
 
     attr_accessor :imported_at
 
+    attr_accessor :interest_rate
+
     attr_accessor :institution_code
 
     attr_accessor :insured_name
-
-    attr_accessor :interest_rate
-
-    attr_accessor :is_business
 
     attr_accessor :is_closed
 
@@ -68,6 +74,8 @@ module MxPlatformRuby
     attr_accessor :last_payment_at
 
     attr_accessor :loan_amount
+
+    attr_accessor :margin_balance
 
     attr_accessor :matures_on
 
@@ -97,13 +105,15 @@ module MxPlatformRuby
 
     attr_accessor :premium_amount
 
-    attr_accessor :property_type
-
     attr_accessor :routing_number
 
     attr_accessor :started_on
 
     attr_accessor :subtype
+
+    attr_accessor :today_ugl_amount
+
+    attr_accessor :today_ugl_percentage
 
     attr_accessor :total_account_value
 
@@ -119,6 +129,10 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'account_number' => :'account_number',
+        :'account_ownership' => :'account_ownership',
+        :'annuity_policy_to_date' => :'annuity_policy_to_date',
+        :'annuity_provider' => :'annuity_provider',
+        :'annuity_term_year' => :'annuity_term_year',
         :'apr' => :'apr',
         :'apy' => :'apy',
         :'available_balance' => :'available_balance',
@@ -135,16 +149,16 @@ module MxPlatformRuby
         :'holdings_value' => :'holdings_value',
         :'id' => :'id',
         :'imported_at' => :'imported_at',
+        :'interest_rate' => :'interest_rate',
         :'institution_code' => :'institution_code',
         :'insured_name' => :'insured_name',
-        :'interest_rate' => :'interest_rate',
-        :'is_business' => :'is_business',
         :'is_closed' => :'is_closed',
         :'is_hidden' => :'is_hidden',
         :'is_manual' => :'is_manual',
         :'last_payment' => :'last_payment',
         :'last_payment_at' => :'last_payment_at',
         :'loan_amount' => :'loan_amount',
+        :'margin_balance' => :'margin_balance',
         :'matures_on' => :'matures_on',
         :'member_guid' => :'member_guid',
         :'member_id' => :'member_id',
@@ -159,10 +173,11 @@ module MxPlatformRuby
         :'payment_due_at' => :'payment_due_at',
         :'payoff_balance' => :'payoff_balance',
         :'premium_amount' => :'premium_amount',
-        :'property_type' => :'property_type',
         :'routing_number' => :'routing_number',
         :'started_on' => :'started_on',
         :'subtype' => :'subtype',
+        :'today_ugl_amount' => :'today_ugl_amount',
+        :'today_ugl_percentage' => :'today_ugl_percentage',
         :'total_account_value' => :'total_account_value',
         :'type' => :'type',
         :'updated_at' => :'updated_at',
@@ -180,6 +195,10 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'account_number' => :'String',
+        :'account_ownership' => :'String',
+        :'annuity_policy_to_date' => :'String',
+        :'annuity_provider' => :'String',
+        :'annuity_term_year' => :'Float',
         :'apr' => :'Float',
         :'apy' => :'Float',
         :'available_balance' => :'Float',
@@ -196,16 +215,16 @@ module MxPlatformRuby
         :'holdings_value' => :'Float',
         :'id' => :'String',
         :'imported_at' => :'String',
+        :'interest_rate' => :'Float',
         :'institution_code' => :'String',
         :'insured_name' => :'String',
-        :'interest_rate' => :'Float',
-        :'is_business' => :'Boolean',
         :'is_closed' => :'Boolean',
         :'is_hidden' => :'Boolean',
         :'is_manual' => :'Boolean',
         :'last_payment' => :'Float',
         :'last_payment_at' => :'String',
         :'loan_amount' => :'Float',
+        :'margin_balance' => :'Float',
         :'matures_on' => :'String',
         :'member_guid' => :'String',
         :'member_id' => :'String',
@@ -220,10 +239,11 @@ module MxPlatformRuby
         :'payment_due_at' => :'String',
         :'payoff_balance' => :'Float',
         :'premium_amount' => :'Float',
-        :'property_type' => :'String',
         :'routing_number' => :'String',
         :'started_on' => :'String',
         :'subtype' => :'String',
+        :'today_ugl_amount' => :'Float',
+        :'today_ugl_percentage' => :'Float',
         :'total_account_value' => :'Float',
         :'type' => :'String',
         :'updated_at' => :'String',
@@ -236,6 +256,10 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'account_number',
+        :'account_ownership',
+        :'annuity_policy_to_date',
+        :'annuity_provider',
+        :'annuity_term_year',
         :'apr',
         :'apy',
         :'available_balance',
@@ -243,7 +267,6 @@ module MxPlatformRuby
         :'balance',
         :'cash_balance',
         :'cash_surrender_value',
-        :'created_at',
         :'credit_limit',
         :'currency_code',
         :'day_payment_is_due',
@@ -252,16 +275,16 @@ module MxPlatformRuby
         :'holdings_value',
         :'id',
         :'imported_at',
+        :'interest_rate',
         :'institution_code',
         :'insured_name',
-        :'interest_rate',
-        :'is_business',
         :'is_closed',
         :'is_hidden',
         :'is_manual',
         :'last_payment',
         :'last_payment_at',
         :'loan_amount',
+        :'margin_balance',
         :'matures_on',
         :'member_guid',
         :'member_id',
@@ -276,10 +299,11 @@ module MxPlatformRuby
         :'payment_due_at',
         :'payoff_balance',
         :'premium_amount',
-        :'property_type',
         :'routing_number',
         :'started_on',
         :'subtype',
+        :'today_ugl_amount',
+        :'today_ugl_percentage',
         :'total_account_value',
         :'type',
         :'updated_at',
@@ -305,6 +329,22 @@ module MxPlatformRuby
 
       if attributes.key?(:'account_number')
         self.account_number = attributes[:'account_number']
+      end
+
+      if attributes.key?(:'account_ownership')
+        self.account_ownership = attributes[:'account_ownership']
+      end
+
+      if attributes.key?(:'annuity_policy_to_date')
+        self.annuity_policy_to_date = attributes[:'annuity_policy_to_date']
+      end
+
+      if attributes.key?(:'annuity_provider')
+        self.annuity_provider = attributes[:'annuity_provider']
+      end
+
+      if attributes.key?(:'annuity_term_year')
+        self.annuity_term_year = attributes[:'annuity_term_year']
       end
 
       if attributes.key?(:'apr')
@@ -371,20 +411,16 @@ module MxPlatformRuby
         self.imported_at = attributes[:'imported_at']
       end
 
+      if attributes.key?(:'interest_rate')
+        self.interest_rate = attributes[:'interest_rate']
+      end
+
       if attributes.key?(:'institution_code')
         self.institution_code = attributes[:'institution_code']
       end
 
       if attributes.key?(:'insured_name')
         self.insured_name = attributes[:'insured_name']
-      end
-
-      if attributes.key?(:'interest_rate')
-        self.interest_rate = attributes[:'interest_rate']
-      end
-
-      if attributes.key?(:'is_business')
-        self.is_business = attributes[:'is_business']
       end
 
       if attributes.key?(:'is_closed')
@@ -409,6 +445,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'loan_amount')
         self.loan_amount = attributes[:'loan_amount']
+      end
+
+      if attributes.key?(:'margin_balance')
+        self.margin_balance = attributes[:'margin_balance']
       end
 
       if attributes.key?(:'matures_on')
@@ -467,10 +507,6 @@ module MxPlatformRuby
         self.premium_amount = attributes[:'premium_amount']
       end
 
-      if attributes.key?(:'property_type')
-        self.property_type = attributes[:'property_type']
-      end
-
       if attributes.key?(:'routing_number')
         self.routing_number = attributes[:'routing_number']
       end
@@ -481,6 +517,14 @@ module MxPlatformRuby
 
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
+      end
+
+      if attributes.key?(:'today_ugl_amount')
+        self.today_ugl_amount = attributes[:'today_ugl_amount']
+      end
+
+      if attributes.key?(:'today_ugl_percentage')
+        self.today_ugl_percentage = attributes[:'today_ugl_percentage']
       end
 
       if attributes.key?(:'total_account_value')
@@ -523,6 +567,10 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           account_number == o.account_number &&
+          account_ownership == o.account_ownership &&
+          annuity_policy_to_date == o.annuity_policy_to_date &&
+          annuity_provider == o.annuity_provider &&
+          annuity_term_year == o.annuity_term_year &&
           apr == o.apr &&
           apy == o.apy &&
           available_balance == o.available_balance &&
@@ -539,16 +587,16 @@ module MxPlatformRuby
           holdings_value == o.holdings_value &&
           id == o.id &&
           imported_at == o.imported_at &&
+          interest_rate == o.interest_rate &&
           institution_code == o.institution_code &&
           insured_name == o.insured_name &&
-          interest_rate == o.interest_rate &&
-          is_business == o.is_business &&
           is_closed == o.is_closed &&
           is_hidden == o.is_hidden &&
           is_manual == o.is_manual &&
           last_payment == o.last_payment &&
           last_payment_at == o.last_payment_at &&
           loan_amount == o.loan_amount &&
+          margin_balance == o.margin_balance &&
           matures_on == o.matures_on &&
           member_guid == o.member_guid &&
           member_id == o.member_id &&
@@ -563,10 +611,11 @@ module MxPlatformRuby
           payment_due_at == o.payment_due_at &&
           payoff_balance == o.payoff_balance &&
           premium_amount == o.premium_amount &&
-          property_type == o.property_type &&
           routing_number == o.routing_number &&
           started_on == o.started_on &&
           subtype == o.subtype &&
+          today_ugl_amount == o.today_ugl_amount &&
+          today_ugl_percentage == o.today_ugl_percentage &&
           total_account_value == o.total_account_value &&
           type == o.type &&
           updated_at == o.updated_at &&
@@ -583,7 +632,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_business, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, total_account_value, type, updated_at, user_guid, user_id].hash
+      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, interest_rate, institution_code, insured_name, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, type, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash
