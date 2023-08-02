@@ -4,7 +4,6 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **skip_webhook** | **Boolean** |  | [optional] |
 | **account** | [**AccountCreateRequest**](AccountCreateRequest.md) |  | [optional] |
 
 ## Example
@@ -13,7 +12,6 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::AccountCreateRequestBody.new(
-  skip_webhook: true,
   account: null
 )
 ```

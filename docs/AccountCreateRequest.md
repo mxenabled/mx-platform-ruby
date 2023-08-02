@@ -33,7 +33,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::AccountCreateRequest.new(
-  account_subtype_name: SAVINGS,
+  account_subtype_name: PERSONAL,
   account_type: 2,
   apr: 1.0,
   apy: 1.0,

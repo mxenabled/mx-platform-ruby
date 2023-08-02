@@ -15,14 +15,11 @@ require 'time'
 
 module MxPlatformRuby
   class AccountCreateRequestBody
-    attr_accessor :skip_webhook
-
     attr_accessor :account
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'skip_webhook' => :'skip_webhook',
         :'account' => :'account'
       }
     end
@@ -35,7 +32,6 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'skip_webhook' => :'Boolean',
         :'account' => :'AccountCreateRequest'
       }
     end
@@ -43,7 +39,6 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'skip_webhook',
       ])
     end
 
@@ -61,10 +56,6 @@ module MxPlatformRuby
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'skip_webhook')
-        self.skip_webhook = attributes[:'skip_webhook']
-      end
 
       if attributes.key?(:'account')
         self.account = attributes[:'account']
@@ -89,7 +80,6 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          skip_webhook == o.skip_webhook &&
           account == o.account
     end
 
@@ -102,7 +92,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [skip_webhook, account].hash
+      [account].hash
     end
 
     # Builds the object from hash
