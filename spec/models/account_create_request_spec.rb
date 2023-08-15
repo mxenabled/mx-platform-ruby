@@ -25,7 +25,7 @@ describe MxPlatformRuby::AccountCreateRequest do
       expect(instance).to be_instance_of(MxPlatformRuby::AccountCreateRequest)
     end
   end
-  describe 'test attribute "account_subtype_name"' do
+  describe 'test attribute "account_subtype"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -140,12 +140,6 @@ describe MxPlatformRuby::AccountCreateRequest do
   end
 
   describe 'test attribute "property_type"' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "property_type_name"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -15,7 +15,7 @@ require 'time'
 
 module MxPlatformRuby
   class AccountCreateRequest
-    attr_accessor :account_subtype_name
+    attr_accessor :account_subtype
 
     attr_accessor :account_type
 
@@ -55,14 +55,12 @@ module MxPlatformRuby
 
     attr_accessor :property_type
 
-    attr_accessor :property_type_name
-
     attr_accessor :skip_webhook
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'account_subtype_name' => :'account_subtype_name',
+        :'account_subtype' => :'account_subtype',
         :'account_type' => :'account_type',
         :'apr' => :'apr',
         :'apy' => :'apy',
@@ -82,7 +80,6 @@ module MxPlatformRuby
         :'nickname' => :'nickname',
         :'original_balance' => :'original_balance',
         :'property_type' => :'property_type',
-        :'property_type_name' => :'property_type_name',
         :'skip_webhook' => :'skip_webhook'
       }
     end
@@ -95,8 +92,8 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'account_subtype_name' => :'String',
-        :'account_type' => :'Integer',
+        :'account_subtype' => :'String',
+        :'account_type' => :'String',
         :'apr' => :'Float',
         :'apy' => :'Float',
         :'available_balance' => :'Float',
@@ -114,8 +111,7 @@ module MxPlatformRuby
         :'name' => :'String',
         :'nickname' => :'String',
         :'original_balance' => :'Float',
-        :'property_type' => :'Integer',
-        :'property_type_name' => :'String',
+        :'property_type' => :'String',
         :'skip_webhook' => :'Boolean'
       }
     end
@@ -141,8 +137,8 @@ module MxPlatformRuby
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'account_subtype_name')
-        self.account_subtype_name = attributes[:'account_subtype_name']
+      if attributes.key?(:'account_subtype')
+        self.account_subtype = attributes[:'account_subtype']
       end
 
       if attributes.key?(:'account_type')
@@ -221,10 +217,6 @@ module MxPlatformRuby
         self.property_type = attributes[:'property_type']
       end
 
-      if attributes.key?(:'property_type_name')
-        self.property_type_name = attributes[:'property_type_name']
-      end
-
       if attributes.key?(:'skip_webhook')
         self.skip_webhook = attributes[:'skip_webhook']
       end
@@ -258,7 +250,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          account_subtype_name == o.account_subtype_name &&
+          account_subtype == o.account_subtype &&
           account_type == o.account_type &&
           apr == o.apr &&
           apy == o.apy &&
@@ -278,7 +270,6 @@ module MxPlatformRuby
           nickname == o.nickname &&
           original_balance == o.original_balance &&
           property_type == o.property_type &&
-          property_type_name == o.property_type_name &&
           skip_webhook == o.skip_webhook
     end
 
@@ -291,7 +282,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_subtype_name, account_type, apr, apy, available_balance, balance, cash_surrender_value, credit_limit, currency_code, death_benefit, interest_rate, is_business, is_closed, is_hidden, loan_amount, metadata, name, nickname, original_balance, property_type, property_type_name, skip_webhook].hash
+      [account_subtype, account_type, apr, apy, available_balance, balance, cash_surrender_value, credit_limit, currency_code, death_benefit, interest_rate, is_business, is_closed, is_hidden, loan_amount, metadata, name, nickname, original_balance, property_type, skip_webhook].hash
     end
 
     # Builds the object from hash

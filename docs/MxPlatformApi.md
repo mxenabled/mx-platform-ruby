@@ -4630,6 +4630,7 @@ user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id 
 opts = {
   member_is_managed_by_user: true, # Boolean | List only accounts whose member is managed by the user.
   page: 1, # Integer | Specify current page.
+  is_manual: true, # Boolean | List only accounts that were manually created.
   records_per_page: 10 # Integer | Specify records per page.
 }
 
@@ -4667,6 +4668,7 @@ end
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **member_is_managed_by_user** | **Boolean** | List only accounts whose member is managed by the user. | [optional] |
 | **page** | **Integer** | Specify current page. | [optional] |
+| **is_manual** | **Boolean** | List only accounts that were manually created. | [optional] |
 | **records_per_page** | **Integer** | Specify records per page. | [optional] |
 
 ### Return type

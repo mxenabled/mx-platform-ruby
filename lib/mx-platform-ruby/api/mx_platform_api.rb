@@ -4355,6 +4355,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
     # @option opts [Integer] :page Specify current page.
+    # @option opts [Boolean] :is_manual List only accounts that were manually created.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [AccountsResponseBody]
     def list_user_accounts(user_guid, opts = {})
@@ -4368,6 +4369,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
     # @option opts [Integer] :page Specify current page.
+    # @option opts [Boolean] :is_manual List only accounts that were manually created.
     # @option opts [Integer] :records_per_page Specify records per page.
     # @return [Array<(AccountsResponseBody, Integer, Hash)>] AccountsResponseBody data, response status code and response headers
     def list_user_accounts_with_http_info(user_guid, opts = {})
@@ -4385,6 +4387,7 @@ module MxPlatformRuby
       query_params = opts[:query_params] || {}
       query_params[:'member_is_managed_by_user'] = opts[:'member_is_managed_by_user'] if !opts[:'member_is_managed_by_user'].nil?
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
+      query_params[:'is_manual'] = opts[:'is_manual'] if !opts[:'is_manual'].nil?
       query_params[:'records_per_page'] = opts[:'records_per_page'] if !opts[:'records_per_page'].nil?
 
       # header parameters

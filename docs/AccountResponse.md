@@ -49,8 +49,7 @@
 | **payment_due_at** | **String** |  | [optional] |
 | **payoff_balance** | **Float** |  | [optional] |
 | **premium_amount** | **Float** |  | [optional] |
-| **property_type** | **Integer** |  | [optional] |
-| **property_type_name** | **String** |  | [optional] |
+| **property_type** | **String** |  | [optional] |
 | **routing_number** | **String** |  | [optional] |
 | **started_on** | **String** |  | [optional] |
 | **subtype** | **String** |  | [optional] |
@@ -113,8 +112,7 @@ instance = MxPlatformRuby::AccountResponse.new(
   payment_due_at: 2015-10-13T17:57:37.000Z,
   payoff_balance: 10.0,
   premium_amount: 1.0,
-  property_type: 1,
-  property_type_name: VEHICLE,
+  property_type: VEHICLE,
   routing_number: 68899990000000,
   started_on: 2015-10-13T17:57:37.000Z,
   subtype: NONE,

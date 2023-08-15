@@ -884,6 +884,7 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Boolean] :member_is_managed_by_user List only accounts whose member is managed by the user.
   # @option opts [Integer] :page Specify current page.
+  # @option opts [Boolean] :is_manual List only accounts that were manually created.
   # @option opts [Integer] :records_per_page Specify records per page.
   # @return [AccountsResponseBody]
   describe 'list_user_accounts test' do

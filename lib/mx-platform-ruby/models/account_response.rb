@@ -107,8 +107,6 @@ module MxPlatformRuby
 
     attr_accessor :property_type
 
-    attr_accessor :property_type_name
-
     attr_accessor :routing_number
 
     attr_accessor :started_on
@@ -178,7 +176,6 @@ module MxPlatformRuby
         :'payoff_balance' => :'payoff_balance',
         :'premium_amount' => :'premium_amount',
         :'property_type' => :'property_type',
-        :'property_type_name' => :'property_type_name',
         :'routing_number' => :'routing_number',
         :'started_on' => :'started_on',
         :'subtype' => :'subtype',
@@ -245,8 +242,7 @@ module MxPlatformRuby
         :'payment_due_at' => :'String',
         :'payoff_balance' => :'Float',
         :'premium_amount' => :'Float',
-        :'property_type' => :'Integer',
-        :'property_type_name' => :'String',
+        :'property_type' => :'String',
         :'routing_number' => :'String',
         :'started_on' => :'String',
         :'subtype' => :'String',
@@ -308,7 +304,6 @@ module MxPlatformRuby
         :'payoff_balance',
         :'premium_amount',
         :'property_type',
-        :'property_type_name',
         :'routing_number',
         :'started_on',
         :'subtype',
@@ -521,10 +516,6 @@ module MxPlatformRuby
         self.property_type = attributes[:'property_type']
       end
 
-      if attributes.key?(:'property_type_name')
-        self.property_type_name = attributes[:'property_type_name']
-      end
-
       if attributes.key?(:'routing_number')
         self.routing_number = attributes[:'routing_number']
       end
@@ -630,7 +621,6 @@ module MxPlatformRuby
           payoff_balance == o.payoff_balance &&
           premium_amount == o.premium_amount &&
           property_type == o.property_type &&
-          property_type_name == o.property_type_name &&
           routing_number == o.routing_number &&
           started_on == o.started_on &&
           subtype == o.subtype &&
@@ -652,7 +642,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, interest_rate, institution_code, insured_name, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, property_type_name, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, type, updated_at, user_guid, user_id].hash
+      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, interest_rate, institution_code, insured_name, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, type, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash

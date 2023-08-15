@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **account_subtype_name** | **String** |  | [optional] |
-| **account_type** | **Integer** |  |  |
+| **account_subtype** | **String** |  | [optional] |
+| **account_type** | **String** |  |  |
 | **apr** | **Float** |  | [optional] |
 | **apy** | **Float** |  | [optional] |
 | **available_balance** | **Float** |  | [optional] |
@@ -23,8 +23,7 @@
 | **name** | **String** |  |  |
 | **nickname** | **String** |  | [optional] |
 | **original_balance** | **Float** |  | [optional] |
-| **property_type** | **Integer** |  | [optional] |
-| **property_type_name** | **String** |  | [optional] |
+| **property_type** | **String** |  | [optional] |
 | **skip_webhook** | **Boolean** |  | [optional] |
 
 ## Example
@@ -33,8 +32,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::AccountCreateRequest.new(
-  account_subtype_name: PERSONAL,
-  account_type: 2,
+  account_subtype: PERSONAL,
+  account_type: SAVINGS,
   apr: 1.0,
   apy: 1.0,
   available_balance: 1000.0,
@@ -52,9 +51,8 @@ instance = MxPlatformRuby::AccountCreateRequest.new(
   name: Test account 2,
   nickname: Swiss Account,
   original_balance: 10.0,
-  property_type: 1,
-  property_type_name: VEHICLE,
-  skip_webhook: false
+  property_type: VEHICLE,
+  skip_webhook: true
 )
 ```
 
