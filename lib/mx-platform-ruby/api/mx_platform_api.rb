@@ -6030,6 +6030,7 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :client_redirect_url A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;.
+    # @option opts [String] :enable_app2app This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to &#x60;true&#x60;. This setting is not persistent.
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
     # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
     # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;.
@@ -6045,6 +6046,7 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :client_redirect_url A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;.
+    # @option opts [String] :enable_app2app This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to &#x60;true&#x60;. This setting is not persistent.
     # @option opts [String] :referral_source Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;.
     # @option opts [Boolean] :skip_aggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page.
     # @option opts [String] :ui_message_webview_url_scheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;.
@@ -6067,6 +6069,7 @@ module MxPlatformRuby
       # query parameters
       query_params = opts[:query_params] || {}
       query_params[:'client_redirect_url'] = opts[:'client_redirect_url'] if !opts[:'client_redirect_url'].nil?
+      query_params[:'enable_app2app'] = opts[:'enable_app2app'] if !opts[:'enable_app2app'].nil?
       query_params[:'referral_source'] = opts[:'referral_source'] if !opts[:'referral_source'].nil?
       query_params[:'skip_aggregation'] = opts[:'skip_aggregation'] if !opts[:'skip_aggregation'].nil?
       query_params[:'ui_message_webview_url_scheme'] = opts[:'ui_message_webview_url_scheme'] if !opts[:'ui_message_webview_url_scheme'].nil?

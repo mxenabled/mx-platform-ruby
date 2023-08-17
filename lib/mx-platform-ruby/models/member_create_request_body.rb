@@ -17,6 +17,8 @@ module MxPlatformRuby
   class MemberCreateRequestBody
     attr_accessor :client_redirect_url
 
+    attr_accessor :enable_app2app
+
     attr_accessor :member
 
     attr_accessor :referral_source
@@ -27,6 +29,7 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'client_redirect_url' => :'client_redirect_url',
+        :'enable_app2app' => :'enable_app2app',
         :'member' => :'member',
         :'referral_source' => :'referral_source',
         :'ui_message_webview_url_scheme' => :'ui_message_webview_url_scheme'
@@ -42,6 +45,7 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'client_redirect_url' => :'String',
+        :'enable_app2app' => :'Boolean',
         :'member' => :'MemberCreateRequest',
         :'referral_source' => :'String',
         :'ui_message_webview_url_scheme' => :'String'
@@ -71,6 +75,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'client_redirect_url')
         self.client_redirect_url = attributes[:'client_redirect_url']
+      end
+
+      if attributes.key?(:'enable_app2app')
+        self.enable_app2app = attributes[:'enable_app2app']
       end
 
       if attributes.key?(:'member')
@@ -105,6 +113,7 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           client_redirect_url == o.client_redirect_url &&
+          enable_app2app == o.enable_app2app &&
           member == o.member &&
           referral_source == o.referral_source &&
           ui_message_webview_url_scheme == o.ui_message_webview_url_scheme
@@ -119,7 +128,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_redirect_url, member, referral_source, ui_message_webview_url_scheme].hash
+      [client_redirect_url, enable_app2app, member, referral_source, ui_message_webview_url_scheme].hash
     end
 
     # Builds the object from hash
