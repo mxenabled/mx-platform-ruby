@@ -139,6 +139,32 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for create_spending_plan
+  # Create spending plan
+  # This endpoint creates a new &#x60;spending_plan&#x60; for the user.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [SpendingPlanResponse]
+  describe 'create_spending_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for create_spending_plan_iteration_item
+  # Create spending plan iteration item
+  # This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_iteration_item_create_request_body Iteration item to be created with required parameters (planned_amount)
+  # @param [Hash] opts the optional parameters
+  # @return [SpendingPlanIterationItemResponse]
+  describe 'create_spending_plan_iteration_item test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for create_tag
   # Create tag
   # Use this endpoint to create a new custom tag.
@@ -266,6 +292,47 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [nil]
   describe 'delete_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_spending_plan
+  # Delete spending plan
+  # Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
+  # @param user_guid The unique ID for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_spending_plan test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_spending_plan_account
+  # Delete spending plan account
+  # Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
+  # @param user_guid The unique ID for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param spending_plan_account_guid The unique ID for the specified account.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_spending_plan_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_spending_plan_iteration_item
+  # Delete spending plan iteration item
+  # Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
+  # @param user_guid The unique ID for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param iteration_item_guid The unique ID for the &#x60;iteration_item&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_spending_plan_iteration_item test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -738,6 +805,65 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_spending_plan_accounts
+  # List spending plan accounts
+  # Use this endpoint to list all the spending plan accounts associated with the spending plan.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanAccountsResponse]
+  describe 'list_spending_plan_accounts test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_spending_plan_iteration_items
+  # List spending plan iteration items
+  # Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanIterationItemsResponseBody]
+  describe 'list_spending_plan_iteration_items test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_spending_plan_iterations
+  # List spending plan iterations
+  # Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanIterationsResponse]
+  describe 'list_spending_plan_iterations test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_spending_plans
+  # List spending plans
+  # Use this endpoint to list all the spending plans associated with the user.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlansResponseBody]
+  describe 'list_spending_plans test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_statements_by_member
   # List statements by member
   # Use this endpoint to get an array of available statements.
@@ -1078,6 +1204,69 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for read_spending_plan_account
+  # Read spending plan account
+  # Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param spending_plan_account_guid The unique ID for the specified account.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanAccountResponse]
+  describe 'read_spending_plan_account test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_spending_plan_iteration
+  # Read a spending plan iteration
+  # Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param iteration_number The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanIterationResponse]
+  describe 'read_spending_plan_iteration test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_spending_plan_iteration_item
+  # Read a spending plan iteration item
+  # Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param iteration_item_guid The unique ID for the &#x60;iteration_item&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanIterationItemResponse]
+  describe 'read_spending_plan_iteration_item test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for read_spending_plan_user
+  # Read a spending plan for a user
+  # Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :page Specify current page.
+  # @option opts [Integer] :records_per_page Specify records per page.
+  # @return [SpendingPlanResponse]
+  describe 'read_spending_plan_user test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for read_statement_by_member
   # Read statement by member
   # Use this endpoint to read a JSON representation of the statement.
@@ -1324,6 +1513,21 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [MemberResponseBody]
   describe 'update_member test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for update_spending_plan_iteration_item
+  # Update a spending plan iteration item
+  # Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
+  # @param iteration_item_guid The unique ID for the &#x60;iteration_item&#x60;.
+  # @param spending_plan_iteration_item_create_request_body Iteration item object to be updated with required parameter (iteration_item_guid)
+  # @param [Hash] opts the optional parameters
+  # @return [SpendingPlanIterationItemResponse]
+  describe 'update_spending_plan_iteration_item test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

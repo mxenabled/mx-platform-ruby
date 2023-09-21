@@ -6,6 +6,6 @@ gemHomepage: https://github.com/mxenabled/mx-platform-ruby
 gemLicense: MIT
 gemName: mx-platform-ruby
 gemRequiredRubyVersion: ">= 2.6"
-gemVersion: 0.21.0
+gemVersion: 0.22.0
 library: faraday
 moduleName: MxPlatformRuby
