@@ -150,6 +150,7 @@ require 'mx-platform-ruby/models/widget_response_body'
 
 # APIs
 require 'mx-platform-ruby/api/mx_platform_api'
+require 'mx-platform-ruby/api/spending_plan_api'
 
 module MxPlatformRuby
   class << self

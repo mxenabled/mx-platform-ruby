@@ -85,6 +85,7 @@ docs/PaymentProcessorAuthorizationCodeResponse.md
 docs/PaymentProcessorAuthorizationCodeResponseBody.md
 docs/SpendingPlanAccountResponse.md
 docs/SpendingPlanAccountsResponse.md
+docs/SpendingPlanApi.md
 docs/SpendingPlanIterationItemCreateRequestBody.md
 docs/SpendingPlanIterationItemResponse.md
 docs/SpendingPlanIterationItemsResponseBody.md
@@ -137,6 +138,7 @@ docs/WidgetResponse.md
 docs/WidgetResponseBody.md
 lib/mx-platform-ruby.rb
 lib/mx-platform-ruby/api/mx_platform_api.rb
+lib/mx-platform-ruby/api/spending_plan_api.rb
 lib/mx-platform-ruby/api_client.rb
 lib/mx-platform-ruby/api_error.rb
 lib/mx-platform-ruby/configuration.rb
@@ -273,6 +275,7 @@ lib/mx-platform-ruby/models/widget_response_body.rb
 lib/mx-platform-ruby/version.rb
 mx-platform-ruby.gemspec
 spec/api/mx_platform_api_spec.rb
+spec/api/spending_plan_api_spec.rb
 spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/account_create_request_body_spec.rb
