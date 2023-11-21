@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **iteration_items** | [**Array&lt;SpendingPlanResponse&gt;**](SpendingPlanResponse.md) |  | [optional] |
+| **spending_plans** | [**Array&lt;SpendingPlanResponse&gt;**](SpendingPlanResponse.md) |  | [optional] |
 | **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
@@ -13,7 +13,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::SpendingPlansResponseBody.new(
-  iteration_items: null,
+  spending_plans: null,
   pagination: null
 )
 ```

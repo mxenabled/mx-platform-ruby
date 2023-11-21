@@ -15,14 +15,14 @@ require 'time'
 
 module MxPlatformRuby
   class SpendingPlansResponseBody
-    attr_accessor :iteration_items
+    attr_accessor :spending_plans
 
     attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'iteration_items' => :'iteration_items',
+        :'spending_plans' => :'spending_plans',
         :'pagination' => :'pagination'
       }
     end
@@ -35,7 +35,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'iteration_items' => :'Array<SpendingPlanResponse>',
+        :'spending_plans' => :'Array<SpendingPlanResponse>',
         :'pagination' => :'PaginationResponse'
       }
     end
@@ -61,9 +61,9 @@ module MxPlatformRuby
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'iteration_items')
-        if (value = attributes[:'iteration_items']).is_a?(Array)
-          self.iteration_items = value
+      if attributes.key?(:'spending_plans')
+        if (value = attributes[:'spending_plans']).is_a?(Array)
+          self.spending_plans = value
         end
       end
 
@@ -92,7 +92,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          iteration_items == o.iteration_items &&
+          spending_plans == o.spending_plans &&
           pagination == o.pagination
     end
 
@@ -105,7 +105,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [iteration_items, pagination].hash
+      [spending_plans, pagination].hash
     end
 
     # Builds the object from hash
