@@ -113,7 +113,7 @@ end
 api_instance = MxPlatformRuby::SpendingPlanApi.new
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameters (planned_amount)
+spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameter (planned_amount)
 
 begin
   # Create spending plan iteration item
@@ -148,7 +148,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item to be created with required parameters (planned_amount) |  |
+| **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item to be created with required parameter (planned_amount) |  |
 
 ### Return type
 
@@ -1033,7 +1033,7 @@ api_instance = MxPlatformRuby::SpendingPlanApi.new
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 iteration_item_guid = 'SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3' # String | The unique ID for the `iteration_item`.
-spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item object to be updated with required parameter (iteration_item_guid)
+spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item to be updated with required parameter (planned_amount)
 
 begin
   # Update a spending plan iteration item
@@ -1069,7 +1069,7 @@ end
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **iteration_item_guid** | **String** | The unique ID for the &#x60;iteration_item&#x60;. |  |
-| **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item object to be updated with required parameter (iteration_item_guid) |  |
+| **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item to be updated with required parameter (planned_amount) |  |
 
 ### Return type
 

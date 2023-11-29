@@ -49,7 +49,7 @@ describe 'SpendingPlanApi' do
   # This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
   # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param spending_plan_iteration_item_create_request_body Iteration item to be created with required parameters (planned_amount)
+  # @param spending_plan_iteration_item_create_request_body Iteration item to be created with required parameter (planned_amount)
   # @param [Hash] opts the optional parameters
   # @return [SpendingPlanIterationItemResponse]
   describe 'create_spending_plan_iteration_item test' do
@@ -227,7 +227,7 @@ describe 'SpendingPlanApi' do
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param spending_plan_guid The unique ID for the &#x60;spending_plan&#x60;.
   # @param iteration_item_guid The unique ID for the &#x60;iteration_item&#x60;.
-  # @param spending_plan_iteration_item_create_request_body Iteration item object to be updated with required parameter (iteration_item_guid)
+  # @param spending_plan_iteration_item_create_request_body Iteration item to be updated with required parameter (planned_amount)
   # @param [Hash] opts the optional parameters
   # @return [SpendingPlanIterationItemResponse]
   describe 'update_spending_plan_iteration_item test' do

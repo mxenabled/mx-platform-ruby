@@ -86,7 +86,7 @@ module MxPlatformRuby
     # This endpoint creates a new `spending_plan_iteration_item`.
     # @param spending_plan_guid [String] The unique ID for the &#x60;spending_plan&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be created with required parameters (planned_amount)
+    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be created with required parameter (planned_amount)
     # @param [Hash] opts the optional parameters
     # @return [SpendingPlanIterationItemResponse]
     def create_spending_plan_iteration_item(spending_plan_guid, user_guid, spending_plan_iteration_item_create_request_body, opts = {})
@@ -98,7 +98,7 @@ module MxPlatformRuby
     # This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
     # @param spending_plan_guid [String] The unique ID for the &#x60;spending_plan&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be created with required parameters (planned_amount)
+    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be created with required parameter (planned_amount)
     # @param [Hash] opts the optional parameters
     # @return [Array<(SpendingPlanIterationItemResponse, Integer, Hash)>] SpendingPlanIterationItemResponse data, response status code and response headers
     def create_spending_plan_iteration_item_with_http_info(spending_plan_guid, user_guid, spending_plan_iteration_item_create_request_body, opts = {})
@@ -992,7 +992,7 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param spending_plan_guid [String] The unique ID for the &#x60;spending_plan&#x60;.
     # @param iteration_item_guid [String] The unique ID for the &#x60;iteration_item&#x60;.
-    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item object to be updated with required parameter (iteration_item_guid)
+    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be updated with required parameter (planned_amount)
     # @param [Hash] opts the optional parameters
     # @return [SpendingPlanIterationItemResponse]
     def update_spending_plan_iteration_item(user_guid, spending_plan_guid, iteration_item_guid, spending_plan_iteration_item_create_request_body, opts = {})
@@ -1005,7 +1005,7 @@ module MxPlatformRuby
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param spending_plan_guid [String] The unique ID for the &#x60;spending_plan&#x60;.
     # @param iteration_item_guid [String] The unique ID for the &#x60;iteration_item&#x60;.
-    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item object to be updated with required parameter (iteration_item_guid)
+    # @param spending_plan_iteration_item_create_request_body [SpendingPlanIterationItemCreateRequestBody] Iteration item to be updated with required parameter (planned_amount)
     # @param [Hash] opts the optional parameters
     # @return [Array<(SpendingPlanIterationItemResponse, Integer, Hash)>] SpendingPlanIterationItemResponse data, response status code and response headers
     def update_spending_plan_iteration_item_with_http_info(user_guid, spending_plan_guid, iteration_item_guid, spending_plan_iteration_item_create_request_body, opts = {})
