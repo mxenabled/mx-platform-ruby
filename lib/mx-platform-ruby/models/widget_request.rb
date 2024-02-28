@@ -35,6 +35,8 @@ module MxPlatformRuby
 
     attr_accessor :is_mobile_webview
 
+    attr_accessor :microwidget_instance_id
+
     attr_accessor :mode
 
     attr_accessor :oauth_referral_source
@@ -60,6 +62,7 @@ module MxPlatformRuby
         :'include_identity' => :'include_identity',
         :'include_transactions' => :'include_transactions',
         :'is_mobile_webview' => :'is_mobile_webview',
+        :'microwidget_instance_id' => :'microwidget_instance_id',
         :'mode' => :'mode',
         :'oauth_referral_source' => :'oauth_referral_source',
         :'ui_message_version' => :'ui_message_version',
@@ -87,6 +90,7 @@ module MxPlatformRuby
         :'include_identity' => :'Boolean',
         :'include_transactions' => :'Boolean',
         :'is_mobile_webview' => :'Boolean',
+        :'microwidget_instance_id' => :'String',
         :'mode' => :'String',
         :'oauth_referral_source' => :'String',
         :'ui_message_version' => :'Integer',
@@ -157,6 +161,10 @@ module MxPlatformRuby
         self.is_mobile_webview = attributes[:'is_mobile_webview']
       end
 
+      if attributes.key?(:'microwidget_instance_id')
+        self.microwidget_instance_id = attributes[:'microwidget_instance_id']
+      end
+
       if attributes.key?(:'mode')
         self.mode = attributes[:'mode']
       end
@@ -219,6 +227,7 @@ module MxPlatformRuby
           include_identity == o.include_identity &&
           include_transactions == o.include_transactions &&
           is_mobile_webview == o.is_mobile_webview &&
+          microwidget_instance_id == o.microwidget_instance_id &&
           mode == o.mode &&
           oauth_referral_source == o.oauth_referral_source &&
           ui_message_version == o.ui_message_version &&
@@ -236,7 +245,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_redirect_url, color_scheme, current_institution_code, current_institution_guid, current_member_guid, disable_background_agg, disable_institution_search, include_identity, include_transactions, is_mobile_webview, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, widget_type].hash
+      [client_redirect_url, color_scheme, current_institution_code, current_institution_guid, current_member_guid, disable_background_agg, disable_institution_search, include_identity, include_transactions, is_mobile_webview, microwidget_instance_id, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, widget_type].hash
     end
 
     # Builds the object from hash

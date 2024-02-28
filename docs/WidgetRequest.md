@@ -14,6 +14,7 @@
 | **include_identity** | **Boolean** |  | [optional] |
 | **include_transactions** | **Boolean** |  | [optional] |
 | **is_mobile_webview** | **Boolean** |  | [optional] |
+| **microwidget_instance_id** | **String** |  | [optional] |
 | **mode** | **String** |  | [optional] |
 | **oauth_referral_source** | **String** |  | [optional] |
 | **ui_message_version** | **Integer** |  | [optional] |
@@ -37,6 +38,7 @@ instance = MxPlatformRuby::WidgetRequest.new(
   include_identity: false,
   include_transactions: true,
   is_mobile_webview: false,
+  microwidget_instance_id: false,
   mode: aggregation,
   oauth_referral_source: BROWSER,
   ui_message_version: 4,
