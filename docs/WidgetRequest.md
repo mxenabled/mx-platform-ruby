@@ -13,6 +13,7 @@
 | **disable_institution_search** | **Boolean** |  | [optional] |
 | **include_identity** | **Boolean** |  | [optional] |
 | **include_transactions** | **Boolean** |  | [optional] |
+| **insight_guid** | **String** |  | [optional] |
 | **is_mobile_webview** | **Boolean** |  | [optional] |
 | **microwidget_instance_id** | **String** |  | [optional] |
 | **mode** | **String** |  | [optional] |
@@ -37,8 +38,9 @@ instance = MxPlatformRuby::WidgetRequest.new(
   disable_institution_search: false,
   include_identity: false,
   include_transactions: true,
+  insight_guid: BET-1234,
   is_mobile_webview: false,
-  microwidget_instance_id: false,
+  microwidget_instance_id: accounts_page,
   mode: aggregation,
   oauth_referral_source: BROWSER,
   ui_message_version: 4,
