@@ -25,9 +25,9 @@
 | **holdings_value** | **Float** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **imported_at** | **String** |  | [optional] |
-| **interest_rate** | **Float** |  | [optional] |
 | **institution_code** | **String** |  | [optional] |
 | **insured_name** | **String** |  | [optional] |
+| **interest_rate** | **Float** |  | [optional] |
 | **is_closed** | **Boolean** |  | [optional] |
 | **is_hidden** | **Boolean** |  | [optional] |
 | **is_manual** | **Boolean** |  | [optional] |
@@ -88,9 +88,9 @@ instance = MxPlatformRuby::AccountResponse.new(
   holdings_value: 1000.0,
   id: 1040434698,
   imported_at: 2015-10-13T17:57:37.000Z,
-  interest_rate: 1.0,
   institution_code: 3af3685e-05d9-7060-359f-008d0755e993,
   insured_name: Tommy Shelby,
+  interest_rate: 1.0,
   is_closed: false,
   is_hidden: false,
   is_manual: false,

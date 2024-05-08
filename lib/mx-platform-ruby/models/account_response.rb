@@ -57,11 +57,11 @@ module MxPlatformRuby
 
     attr_accessor :imported_at
 
-    attr_accessor :interest_rate
-
     attr_accessor :institution_code
 
     attr_accessor :insured_name
+
+    attr_accessor :interest_rate
 
     attr_accessor :is_closed
 
@@ -151,9 +151,9 @@ module MxPlatformRuby
         :'holdings_value' => :'holdings_value',
         :'id' => :'id',
         :'imported_at' => :'imported_at',
-        :'interest_rate' => :'interest_rate',
         :'institution_code' => :'institution_code',
         :'insured_name' => :'insured_name',
+        :'interest_rate' => :'interest_rate',
         :'is_closed' => :'is_closed',
         :'is_hidden' => :'is_hidden',
         :'is_manual' => :'is_manual',
@@ -218,9 +218,9 @@ module MxPlatformRuby
         :'holdings_value' => :'Float',
         :'id' => :'String',
         :'imported_at' => :'String',
-        :'interest_rate' => :'Float',
         :'institution_code' => :'String',
         :'insured_name' => :'String',
+        :'interest_rate' => :'Float',
         :'is_closed' => :'Boolean',
         :'is_hidden' => :'Boolean',
         :'is_manual' => :'Boolean',
@@ -279,9 +279,9 @@ module MxPlatformRuby
         :'holdings_value',
         :'id',
         :'imported_at',
-        :'interest_rate',
         :'institution_code',
         :'insured_name',
+        :'interest_rate',
         :'is_closed',
         :'is_hidden',
         :'is_manual',
@@ -416,16 +416,16 @@ module MxPlatformRuby
         self.imported_at = attributes[:'imported_at']
       end
 
-      if attributes.key?(:'interest_rate')
-        self.interest_rate = attributes[:'interest_rate']
-      end
-
       if attributes.key?(:'institution_code')
         self.institution_code = attributes[:'institution_code']
       end
 
       if attributes.key?(:'insured_name')
         self.insured_name = attributes[:'insured_name']
+      end
+
+      if attributes.key?(:'interest_rate')
+        self.interest_rate = attributes[:'interest_rate']
       end
 
       if attributes.key?(:'is_closed')
@@ -598,9 +598,9 @@ module MxPlatformRuby
           holdings_value == o.holdings_value &&
           id == o.id &&
           imported_at == o.imported_at &&
-          interest_rate == o.interest_rate &&
           institution_code == o.institution_code &&
           insured_name == o.insured_name &&
+          interest_rate == o.interest_rate &&
           is_closed == o.is_closed &&
           is_hidden == o.is_hidden &&
           is_manual == o.is_manual &&
@@ -644,7 +644,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, interest_rate, institution_code, insured_name, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, type, updated_at, user_guid, user_id].hash
+      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, type, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash

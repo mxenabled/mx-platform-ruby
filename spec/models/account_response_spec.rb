@@ -151,12 +151,6 @@ describe MxPlatformRuby::AccountResponse do
     end
   end
 
-  describe 'test attribute "interest_rate"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "institution_code"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -164,6 +158,12 @@ describe MxPlatformRuby::AccountResponse do
   end
 
   describe 'test attribute "insured_name"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "interest_rate"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

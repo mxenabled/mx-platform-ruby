@@ -38,7 +38,7 @@ instance = MxPlatformRuby::WidgetRequest.new(
   disable_institution_search: false,
   include_identity: false,
   include_transactions: true,
-  insight_guid: BET-1234,
+  insight_guid: BET-123,
   is_mobile_webview: false,
   microwidget_instance_id: accounts_page,
   mode: aggregation,
