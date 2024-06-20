@@ -25,6 +25,8 @@ module MxPlatformRuby
 
     attr_accessor :has_processed_accounts
 
+    attr_accessor :has_processed_account_numbers
+
     attr_accessor :has_processed_transactions
 
     attr_accessor :is_authenticated
@@ -41,6 +43,7 @@ module MxPlatformRuby
         :'connection_status' => :'connection_status',
         :'guid' => :'guid',
         :'has_processed_accounts' => :'has_processed_accounts',
+        :'has_processed_account_numbers' => :'has_processed_account_numbers',
         :'has_processed_transactions' => :'has_processed_transactions',
         :'is_authenticated' => :'is_authenticated',
         :'is_being_aggregated' => :'is_being_aggregated',
@@ -61,6 +64,7 @@ module MxPlatformRuby
         :'connection_status' => :'String',
         :'guid' => :'String',
         :'has_processed_accounts' => :'Boolean',
+        :'has_processed_account_numbers' => :'Boolean',
         :'has_processed_transactions' => :'Boolean',
         :'is_authenticated' => :'Boolean',
         :'is_being_aggregated' => :'Boolean',
@@ -75,6 +79,7 @@ module MxPlatformRuby
         :'connection_status',
         :'guid',
         :'has_processed_accounts',
+        :'has_processed_account_numbers',
         :'has_processed_transactions',
         :'is_authenticated',
         :'is_being_aggregated',
@@ -119,6 +124,10 @@ module MxPlatformRuby
         self.has_processed_accounts = attributes[:'has_processed_accounts']
       end
 
+      if attributes.key?(:'has_processed_account_numbers')
+        self.has_processed_account_numbers = attributes[:'has_processed_account_numbers']
+      end
+
       if attributes.key?(:'has_processed_transactions')
         self.has_processed_transactions = attributes[:'has_processed_transactions']
       end
@@ -161,6 +170,7 @@ module MxPlatformRuby
           connection_status == o.connection_status &&
           guid == o.guid &&
           has_processed_accounts == o.has_processed_accounts &&
+          has_processed_account_numbers == o.has_processed_account_numbers &&
           has_processed_transactions == o.has_processed_transactions &&
           is_authenticated == o.is_authenticated &&
           is_being_aggregated == o.is_being_aggregated &&
@@ -176,7 +186,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, challenges, connection_status, guid, has_processed_accounts, has_processed_transactions, is_authenticated, is_being_aggregated, successfully_aggregated_at].hash
+      [aggregated_at, challenges, connection_status, guid, has_processed_accounts, has_processed_account_numbers, has_processed_transactions, is_authenticated, is_being_aggregated, successfully_aggregated_at].hash
     end
 
     # Builds the object from hash
