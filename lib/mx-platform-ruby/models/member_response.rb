@@ -31,9 +31,15 @@ module MxPlatformRuby
 
     attr_accessor :is_managed_by_user
 
+    attr_accessor :is_manual
+
     attr_accessor :is_oauth
 
     attr_accessor :metadata
+
+    attr_accessor :most_recent_job_detail_code
+
+    attr_accessor :most_recent_job_detail_text
 
     attr_accessor :name
 
@@ -56,8 +62,11 @@ module MxPlatformRuby
         :'institution_code' => :'institution_code',
         :'is_being_aggregated' => :'is_being_aggregated',
         :'is_managed_by_user' => :'is_managed_by_user',
+        :'is_manual' => :'is_manual',
         :'is_oauth' => :'is_oauth',
         :'metadata' => :'metadata',
+        :'most_recent_job_detail_code' => :'most_recent_job_detail_code',
+        :'most_recent_job_detail_text' => :'most_recent_job_detail_text',
         :'name' => :'name',
         :'oauth_window_uri' => :'oauth_window_uri',
         :'successfully_aggregated_at' => :'successfully_aggregated_at',
@@ -82,8 +91,11 @@ module MxPlatformRuby
         :'institution_code' => :'String',
         :'is_being_aggregated' => :'Boolean',
         :'is_managed_by_user' => :'Boolean',
+        :'is_manual' => :'Boolean',
         :'is_oauth' => :'Boolean',
         :'metadata' => :'String',
+        :'most_recent_job_detail_code' => :'String',
+        :'most_recent_job_detail_text' => :'String',
         :'name' => :'String',
         :'oauth_window_uri' => :'String',
         :'successfully_aggregated_at' => :'String',
@@ -102,8 +114,11 @@ module MxPlatformRuby
         :'institution_code',
         :'is_being_aggregated',
         :'is_managed_by_user',
+        :'is_manual',
         :'is_oauth',
         :'metadata',
+        :'most_recent_job_detail_code',
+        :'most_recent_job_detail_text',
         :'name',
         :'oauth_window_uri',
         :'successfully_aggregated_at',
@@ -159,12 +174,24 @@ module MxPlatformRuby
         self.is_managed_by_user = attributes[:'is_managed_by_user']
       end
 
+      if attributes.key?(:'is_manual')
+        self.is_manual = attributes[:'is_manual']
+      end
+
       if attributes.key?(:'is_oauth')
         self.is_oauth = attributes[:'is_oauth']
       end
 
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
+      end
+
+      if attributes.key?(:'most_recent_job_detail_code')
+        self.most_recent_job_detail_code = attributes[:'most_recent_job_detail_code']
+      end
+
+      if attributes.key?(:'most_recent_job_detail_text')
+        self.most_recent_job_detail_text = attributes[:'most_recent_job_detail_text']
       end
 
       if attributes.key?(:'name')
@@ -216,8 +243,11 @@ module MxPlatformRuby
           institution_code == o.institution_code &&
           is_being_aggregated == o.is_being_aggregated &&
           is_managed_by_user == o.is_managed_by_user &&
+          is_manual == o.is_manual &&
           is_oauth == o.is_oauth &&
           metadata == o.metadata &&
+          most_recent_job_detail_code == o.most_recent_job_detail_code &&
+          most_recent_job_detail_text == o.most_recent_job_detail_text &&
           name == o.name &&
           oauth_window_uri == o.oauth_window_uri &&
           successfully_aggregated_at == o.successfully_aggregated_at &&
@@ -234,7 +264,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_oauth, metadata, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
+      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash
