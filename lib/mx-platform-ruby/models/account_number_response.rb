@@ -21,6 +21,8 @@ module MxPlatformRuby
 
     attr_accessor :guid
 
+    attr_accessor :loan_guarantor
+
     attr_accessor :institution_number
 
     attr_accessor :member_guid
@@ -39,6 +41,7 @@ module MxPlatformRuby
         :'account_guid' => :'account_guid',
         :'account_number' => :'account_number',
         :'guid' => :'guid',
+        :'loan_guarantor' => :'loan_guarantor',
         :'institution_number' => :'institution_number',
         :'member_guid' => :'member_guid',
         :'passed_validation' => :'passed_validation',
@@ -59,6 +62,7 @@ module MxPlatformRuby
         :'account_guid' => :'String',
         :'account_number' => :'String',
         :'guid' => :'String',
+        :'loan_guarantor' => :'String',
         :'institution_number' => :'String',
         :'member_guid' => :'String',
         :'passed_validation' => :'Boolean',
@@ -74,6 +78,7 @@ module MxPlatformRuby
         :'account_guid',
         :'account_number',
         :'guid',
+        :'loan_guarantor',
         :'institution_number',
         :'member_guid',
         :'passed_validation',
@@ -108,6 +113,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'guid')
         self.guid = attributes[:'guid']
+      end
+
+      if attributes.key?(:'loan_guarantor')
+        self.loan_guarantor = attributes[:'loan_guarantor']
       end
 
       if attributes.key?(:'institution_number')
@@ -158,6 +167,7 @@ module MxPlatformRuby
           account_guid == o.account_guid &&
           account_number == o.account_number &&
           guid == o.guid &&
+          loan_guarantor == o.loan_guarantor &&
           institution_number == o.institution_number &&
           member_guid == o.member_guid &&
           passed_validation == o.passed_validation &&
@@ -175,7 +185,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, account_number, guid, institution_number, member_guid, passed_validation, routing_number, transit_number, user_guid].hash
+      [account_guid, account_number, guid, loan_guarantor, institution_number, member_guid, passed_validation, routing_number, transit_number, user_guid].hash
     end
 
     # Builds the object from hash
