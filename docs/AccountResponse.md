@@ -56,6 +56,7 @@
 | **today_ugl_amount** | **Float** |  | [optional] |
 | **today_ugl_percentage** | **Float** |  | [optional] |
 | **total_account_value** | **Float** |  | [optional] |
+| **total_account_value_ugl** | **Float** |  | [optional] |
 | **type** | **String** |  | [optional] |
 | **updated_at** | **String** |  | [optional] |
 | **user_guid** | **String** |  | [optional] |
@@ -119,6 +120,7 @@ instance = MxPlatformRuby::AccountResponse.new(
   today_ugl_amount: 1000.5,
   today_ugl_percentage: 6.9,
   total_account_value: 1.0,
+  total_account_value_ugl: 1.1,
   type: SAVINGS,
   updated_at: 2016-10-13T18:08:00.000Z,
   user_guid: USR-fa7537f3-48aa-a683-a02a-b18940482f54,
