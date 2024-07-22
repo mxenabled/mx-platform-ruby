@@ -23,6 +23,8 @@ module MxPlatformRuby
 
     attr_accessor :loan_guarantor
 
+    attr_accessor :loan_reference_number
+
     attr_accessor :institution_number
 
     attr_accessor :member_guid
@@ -30,6 +32,8 @@ module MxPlatformRuby
     attr_accessor :passed_validation
 
     attr_accessor :routing_number
+
+    attr_accessor :sequence_number
 
     attr_accessor :transit_number
 
@@ -42,10 +46,12 @@ module MxPlatformRuby
         :'account_number' => :'account_number',
         :'guid' => :'guid',
         :'loan_guarantor' => :'loan_guarantor',
+        :'loan_reference_number' => :'loan_reference_number',
         :'institution_number' => :'institution_number',
         :'member_guid' => :'member_guid',
         :'passed_validation' => :'passed_validation',
         :'routing_number' => :'routing_number',
+        :'sequence_number' => :'sequence_number',
         :'transit_number' => :'transit_number',
         :'user_guid' => :'user_guid'
       }
@@ -63,10 +69,12 @@ module MxPlatformRuby
         :'account_number' => :'String',
         :'guid' => :'String',
         :'loan_guarantor' => :'String',
+        :'loan_reference_number' => :'String',
         :'institution_number' => :'String',
         :'member_guid' => :'String',
         :'passed_validation' => :'Boolean',
         :'routing_number' => :'String',
+        :'sequence_number' => :'String',
         :'transit_number' => :'String',
         :'user_guid' => :'String'
       }
@@ -79,10 +87,12 @@ module MxPlatformRuby
         :'account_number',
         :'guid',
         :'loan_guarantor',
+        :'loan_reference_number',
         :'institution_number',
         :'member_guid',
         :'passed_validation',
         :'routing_number',
+        :'sequence_number',
         :'transit_number',
         :'user_guid'
       ])
@@ -119,6 +129,10 @@ module MxPlatformRuby
         self.loan_guarantor = attributes[:'loan_guarantor']
       end
 
+      if attributes.key?(:'loan_reference_number')
+        self.loan_reference_number = attributes[:'loan_reference_number']
+      end
+
       if attributes.key?(:'institution_number')
         self.institution_number = attributes[:'institution_number']
       end
@@ -133,6 +147,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'routing_number')
         self.routing_number = attributes[:'routing_number']
+      end
+
+      if attributes.key?(:'sequence_number')
+        self.sequence_number = attributes[:'sequence_number']
       end
 
       if attributes.key?(:'transit_number')
@@ -168,10 +186,12 @@ module MxPlatformRuby
           account_number == o.account_number &&
           guid == o.guid &&
           loan_guarantor == o.loan_guarantor &&
+          loan_reference_number == o.loan_reference_number &&
           institution_number == o.institution_number &&
           member_guid == o.member_guid &&
           passed_validation == o.passed_validation &&
           routing_number == o.routing_number &&
+          sequence_number == o.sequence_number &&
           transit_number == o.transit_number &&
           user_guid == o.user_guid
     end
@@ -185,7 +205,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, account_number, guid, loan_guarantor, institution_number, member_guid, passed_validation, routing_number, transit_number, user_guid].hash
+      [account_guid, account_number, guid, loan_guarantor, loan_reference_number, institution_number, member_guid, passed_validation, routing_number, sequence_number, transit_number, user_guid].hash
     end
 
     # Builds the object from hash
