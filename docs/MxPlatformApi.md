@@ -16,6 +16,7 @@ All URIs are relative to *https://api.mx.com*
 | [**create_tagging**](MxPlatformApi.md#create_tagging) | **POST** /users/{user_guid}/taggings | Create tagging |
 | [**create_transaction_rule**](MxPlatformApi.md#create_transaction_rule) | **POST** /users/{user_guid}/transaction_rules | Create transaction rule |
 | [**create_user**](MxPlatformApi.md#create_user) | **POST** /users | Create user |
+| [**credit_card**](MxPlatformApi.md#credit_card) | **GET** /credit_card_products/{credit_card_product_guid} | Read a Credit Card Product |
 | [**delete_category**](MxPlatformApi.md#delete_category) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category |
 | [**delete_managed_account**](MxPlatformApi.md#delete_managed_account) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account |
 | [**delete_managed_member**](MxPlatformApi.md#delete_managed_member) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member |
@@ -31,6 +32,7 @@ All URIs are relative to *https://api.mx.com*
 | [**download_tax_document**](MxPlatformApi.md#download_tax_document) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF |
 | [**enhance_transactions**](MxPlatformApi.md#enhance_transactions) | **POST** /transactions/enhance | Enhance transactions |
 | [**extend_history**](MxPlatformApi.md#extend_history) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
+| [**fetch_rewards**](MxPlatformApi.md#fetch_rewards) | **POST** /users/{user_guid}/members/{member_guid}/fetch_rewards | Fetch Rewards |
 | [**fetch_statements**](MxPlatformApi.md#fetch_statements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements |
 | [**fetch_tax_documents**](MxPlatformApi.md#fetch_tax_documents) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents |
 | [**identify_member**](MxPlatformApi.md#identify_member) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member |
@@ -55,6 +57,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_member_credentials**](MxPlatformApi.md#list_member_credentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
 | [**list_members**](MxPlatformApi.md#list_members) | **GET** /users/{user_guid}/members | List members |
 | [**list_merchants**](MxPlatformApi.md#list_merchants) | **GET** /merchants | List merchants |
+| [**list_rewards**](MxPlatformApi.md#list_rewards) | **GET** /users/{user_guid}/members/{member_guid}/rewards | List Rewards |
 | [**list_statements_by_member**](MxPlatformApi.md#list_statements_by_member) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member |
 | [**list_taggings**](MxPlatformApi.md#list_taggings) | **GET** /users/{user_guid}/taggings | List taggings |
 | [**list_tags**](MxPlatformApi.md#list_tags) | **GET** /users/{user_guid}/tags | List tags |
@@ -79,6 +82,7 @@ All URIs are relative to *https://api.mx.com*
 | [**read_member_status**](MxPlatformApi.md#read_member_status) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status |
 | [**read_merchant**](MxPlatformApi.md#read_merchant) | **GET** /merchants/{merchant_guid} | Read merchant |
 | [**read_merchant_location**](MxPlatformApi.md#read_merchant_location) | **GET** /merchant_locations/{merchant_location_guid} | Read merchant location |
+| [**read_rewards**](MxPlatformApi.md#read_rewards) | **GET** /users/{user_guid}/members/{member_guid}/rewards/{reward_guid} | Read Reward |
 | [**read_statement_by_member**](MxPlatformApi.md#read_statement_by_member) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member |
 | [**read_tag**](MxPlatformApi.md#read_tag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag |
 | [**read_tagging**](MxPlatformApi.md#read_tagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging |
@@ -970,6 +974,76 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## credit_card
+
+> <CreditCardProductResponse> credit_card(credit_card_product_guid)
+
+Read a Credit Card Product
+
+This endpoint returns the specified `credit_card_product` according to the unique GUID.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+credit_card_product_guid = 'credit_card_product_guid' # String | The required `credit_card_product_guid` can be found on the `account` object.
+
+begin
+  # Read a Credit Card Product
+  result = api_instance.credit_card(credit_card_product_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->credit_card: #{e}"
+end
+```
+
+#### Using the credit_card_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreditCardProductResponse>, Integer, Hash)> credit_card_with_http_info(credit_card_product_guid)
+
+```ruby
+begin
+  # Read a Credit Card Product
+  data, status_code, headers = api_instance.credit_card_with_http_info(credit_card_product_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreditCardProductResponse>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->credit_card_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **credit_card_product_guid** | **String** | The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. |  |
+
+### Return type
+
+[**CreditCardProductResponse**](CreditCardProductResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/vnd.mx.api.v1+json
 
 
@@ -2032,6 +2106,78 @@ end
 | ---- | ---- | ----------- | ----- |
 | **member_guid** | **String** | The unique identifier for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;. |  |
+
+### Return type
+
+[**MemberResponseBody**](MemberResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## fetch_rewards
+
+> <MemberResponseBody> fetch_rewards(user_guid, member_guid)
+
+Fetch Rewards
+
+Calling this endpoint initiates an aggregation-type event which will gather the member's rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+member_guid = 'MBR-fa7537f3-48aa-a683-a02a-b18345562f54' # String | The unique identifier for the member. Defined by MX.
+
+begin
+  # Fetch Rewards
+  result = api_instance.fetch_rewards(user_guid, member_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->fetch_rewards: #{e}"
+end
+```
+
+#### Using the fetch_rewards_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MemberResponseBody>, Integer, Hash)> fetch_rewards_with_http_info(user_guid, member_guid)
+
+```ruby
+begin
+  # Fetch Rewards
+  data, status_code, headers = api_instance.fetch_rewards_with_http_info(user_guid, member_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MemberResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->fetch_rewards_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **member_guid** | **String** | The unique identifier for the member. Defined by MX. |  |
 
 ### Return type
 
@@ -3895,6 +4041,78 @@ end
 - **Accept**: application/vnd.mx.api.v1+json
 
 
+## list_rewards
+
+> <RewardsResponseBody> list_rewards(user_guid, member_guid)
+
+List Rewards
+
+Use this endpoint to list all the `rewards` associated with a specified `member`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+member_guid = 'MBR-fa7537f3-48aa-a683-a02a-b18345562f54' # String | The unique identifier for the member. Defined by MX.
+
+begin
+  # List Rewards
+  result = api_instance.list_rewards(user_guid, member_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_rewards: #{e}"
+end
+```
+
+#### Using the list_rewards_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RewardsResponseBody>, Integer, Hash)> list_rewards_with_http_info(user_guid, member_guid)
+
+```ruby
+begin
+  # List Rewards
+  data, status_code, headers = api_instance.list_rewards_with_http_info(user_guid, member_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RewardsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->list_rewards_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **member_guid** | **String** | The unique identifier for the member. Defined by MX. |  |
+
+### Return type
+
+[**RewardsResponseBody**](RewardsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
 ## list_statements_by_member
 
 > <StatementsResponseBody> list_statements_by_member(member_guid, user_guid, opts)
@@ -5690,6 +5908,80 @@ end
 ### Return type
 
 [**MerchantLocationResponseBody**](MerchantLocationResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_rewards
+
+> <RewardResponseBody> read_rewards(user_guid, member_guid, reward_guid)
+
+Read Reward
+
+Use this endpoint to read a specific `reward` based on its unique GUID..
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+member_guid = 'MBR-fa7537f3-48aa-a683-a02a-b18345562f54' # String | The unique identifier for the member. Defined by MX.
+reward_guid = 'RWD-fa7537f3-48aa-a683-a02a-b324322f54' # String | The unique identifier for the rewards. Defined by MX.
+
+begin
+  # Read Reward
+  result = api_instance.read_rewards(user_guid, member_guid, reward_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_rewards: #{e}"
+end
+```
+
+#### Using the read_rewards_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RewardResponseBody>, Integer, Hash)> read_rewards_with_http_info(user_guid, member_guid, reward_guid)
+
+```ruby
+begin
+  # Read Reward
+  data, status_code, headers = api_instance.read_rewards_with_http_info(user_guid, member_guid, reward_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RewardResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->read_rewards_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **member_guid** | **String** | The unique identifier for the member. Defined by MX. |  |
+| **reward_guid** | **String** | The unique identifier for the rewards. Defined by MX. |  |
+
+### Return type
+
+[**RewardResponseBody**](RewardResponseBody.md)
 
 ### Authorization
 

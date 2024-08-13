@@ -35,6 +35,8 @@ docs/ConnectWidgetResponseBody.md
 docs/CredentialRequest.md
 docs/CredentialResponse.md
 docs/CredentialsResponseBody.md
+docs/CreditCardProduct.md
+docs/CreditCardProductResponse.md
 docs/EnhanceTransactionResponse.md
 docs/EnhanceTransactionsRequest.md
 docs/EnhanceTransactionsRequestBody.md
@@ -88,6 +90,10 @@ docs/PaymentProcessorAuthorizationCodeRequest.md
 docs/PaymentProcessorAuthorizationCodeRequestBody.md
 docs/PaymentProcessorAuthorizationCodeResponse.md
 docs/PaymentProcessorAuthorizationCodeResponseBody.md
+docs/RewardResponse.md
+docs/RewardResponseBody.md
+docs/RewardsResponse.md
+docs/RewardsResponseBody.md
 docs/ScheduledPaymentResponse.md
 docs/ScheduledPaymentsResponseBody.md
 docs/SpendingPlanAccountResponse.md
@@ -181,6 +187,8 @@ lib/mx-platform-ruby/models/connect_widget_response_body.rb
 lib/mx-platform-ruby/models/credential_request.rb
 lib/mx-platform-ruby/models/credential_response.rb
 lib/mx-platform-ruby/models/credentials_response_body.rb
+lib/mx-platform-ruby/models/credit_card_product.rb
+lib/mx-platform-ruby/models/credit_card_product_response.rb
 lib/mx-platform-ruby/models/enhance_transaction_response.rb
 lib/mx-platform-ruby/models/enhance_transactions_request.rb
 lib/mx-platform-ruby/models/enhance_transactions_request_body.rb
@@ -232,6 +240,10 @@ lib/mx-platform-ruby/models/payment_processor_authorization_code_request.rb
 lib/mx-platform-ruby/models/payment_processor_authorization_code_request_body.rb
 lib/mx-platform-ruby/models/payment_processor_authorization_code_response.rb
 lib/mx-platform-ruby/models/payment_processor_authorization_code_response_body.rb
+lib/mx-platform-ruby/models/reward_response.rb
+lib/mx-platform-ruby/models/reward_response_body.rb
+lib/mx-platform-ruby/models/rewards_response.rb
+lib/mx-platform-ruby/models/rewards_response_body.rb
 lib/mx-platform-ruby/models/scheduled_payment_response.rb
 lib/mx-platform-ruby/models/scheduled_payments_response_body.rb
 lib/mx-platform-ruby/models/spending_plan_account_response.rb
@@ -324,6 +336,8 @@ spec/models/connect_widget_response_spec.rb
 spec/models/credential_request_spec.rb
 spec/models/credential_response_spec.rb
 spec/models/credentials_response_body_spec.rb
+spec/models/credit_card_product_response_spec.rb
+spec/models/credit_card_product_spec.rb
 spec/models/enhance_transaction_response_spec.rb
 spec/models/enhance_transactions_request_body_spec.rb
 spec/models/enhance_transactions_request_spec.rb
@@ -375,6 +389,10 @@ spec/models/payment_processor_authorization_code_request_body_spec.rb
 spec/models/payment_processor_authorization_code_request_spec.rb
 spec/models/payment_processor_authorization_code_response_body_spec.rb
 spec/models/payment_processor_authorization_code_response_spec.rb
+spec/models/reward_response_body_spec.rb
+spec/models/reward_response_spec.rb
+spec/models/rewards_response_body_spec.rb
+spec/models/rewards_response_spec.rb
 spec/models/scheduled_payment_response_spec.rb
 spec/models/scheduled_payments_response_body_spec.rb
 spec/models/spending_plan_account_response_spec.rb
