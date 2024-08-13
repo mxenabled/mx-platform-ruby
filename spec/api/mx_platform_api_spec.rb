@@ -190,6 +190,18 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for credit_card
+  # Read a Credit Card Product
+  # This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+  # @param credit_card_product_guid The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object.
+  # @param [Hash] opts the optional parameters
+  # @return [CreditCardProductResponse]
+  describe 'credit_card test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for delete_category
   # Delete category
   # Use this endpoint to delete a specific custom category according to its unique GUID. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
@@ -382,6 +394,19 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [MemberResponseBody]
   describe 'extend_history test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for fetch_rewards
+  # Fetch Rewards
+  # Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique identifier for the member. Defined by MX.
+  # @param [Hash] opts the optional parameters
+  # @return [MemberResponseBody]
+  describe 'fetch_rewards test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -738,6 +763,19 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for list_rewards
+  # List Rewards
+  # Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique identifier for the member. Defined by MX.
+  # @param [Hash] opts the optional parameters
+  # @return [RewardsResponseBody]
+  describe 'list_rewards test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for list_statements_by_member
   # List statements by member
   # Use this endpoint to get an array of available statements.
@@ -1073,6 +1111,20 @@ describe 'MxPlatformApi' do
   # @param [Hash] opts the optional parameters
   # @return [MerchantLocationResponseBody]
   describe 'read_merchant_location test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for read_rewards
+  # Read Reward
+  # Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param member_guid The unique identifier for the member. Defined by MX.
+  # @param reward_guid The unique identifier for the rewards. Defined by MX.
+  # @param [Hash] opts the optional parameters
+  # @return [RewardResponseBody]
+  describe 'read_rewards test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

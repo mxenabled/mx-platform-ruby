@@ -909,6 +909,69 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Read a Credit Card Product
+    # This endpoint returns the specified `credit_card_product` according to the unique GUID.
+    # @param credit_card_product_guid [String] The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object.
+    # @param [Hash] opts the optional parameters
+    # @return [CreditCardProductResponse]
+    def credit_card(credit_card_product_guid, opts = {})
+      data, _status_code, _headers = credit_card_with_http_info(credit_card_product_guid, opts)
+      data
+    end
+
+    # Read a Credit Card Product
+    # This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+    # @param credit_card_product_guid [String] The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CreditCardProductResponse, Integer, Hash)>] CreditCardProductResponse data, response status code and response headers
+    def credit_card_with_http_info(credit_card_product_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.credit_card ...'
+      end
+      # verify the required parameter 'credit_card_product_guid' is set
+      if @api_client.config.client_side_validation && credit_card_product_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'credit_card_product_guid' when calling MxPlatformApi.credit_card"
+      end
+      # resource path
+      local_var_path = '/credit_card_products/{credit_card_product_guid}'.sub('{' + 'credit_card_product_guid' + '}', CGI.escape(credit_card_product_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CreditCardProductResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.credit_card",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#credit_card\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete category
     # Use this endpoint to delete a specific custom category according to its unique GUID. The API will respond with an empty object and a status of `204 No Content`.
     # @param category_guid [String] The unique id for a &#x60;category&#x60;.
@@ -1942,6 +2005,75 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#extend_history\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Fetch Rewards
+    # Calling this endpoint initiates an aggregation-type event which will gather the member's rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [MemberResponseBody]
+    def fetch_rewards(user_guid, member_guid, opts = {})
+      data, _status_code, _headers = fetch_rewards_with_http_info(user_guid, member_guid, opts)
+      data
+    end
+
+    # Fetch Rewards
+    # Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
+    def fetch_rewards_with_http_info(user_guid, member_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.fetch_rewards ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.fetch_rewards"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.fetch_rewards"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/fetch_rewards'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MemberResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.fetch_rewards",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#fetch_rewards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3674,6 +3806,75 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # List Rewards
+    # Use this endpoint to list all the `rewards` associated with a specified `member`.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [RewardsResponseBody]
+    def list_rewards(user_guid, member_guid, opts = {})
+      data, _status_code, _headers = list_rewards_with_http_info(user_guid, member_guid, opts)
+      data
+    end
+
+    # List Rewards
+    # Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RewardsResponseBody, Integer, Hash)>] RewardsResponseBody data, response status code and response headers
+    def list_rewards_with_http_info(user_guid, member_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.list_rewards ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.list_rewards"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.list_rewards"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/rewards'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RewardsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.list_rewards",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#list_rewards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List statements by member
     # Use this endpoint to get an array of available statements.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
@@ -5389,6 +5590,81 @@ module MxPlatformRuby
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MxPlatformApi#read_merchant_location\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Read Reward
+    # Use this endpoint to read a specific `reward` based on its unique GUID..
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param reward_guid [String] The unique identifier for the rewards. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [RewardResponseBody]
+    def read_rewards(user_guid, member_guid, reward_guid, opts = {})
+      data, _status_code, _headers = read_rewards_with_http_info(user_guid, member_guid, reward_guid, opts)
+      data
+    end
+
+    # Read Reward
+    # Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param member_guid [String] The unique identifier for the member. Defined by MX.
+    # @param reward_guid [String] The unique identifier for the rewards. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(RewardResponseBody, Integer, Hash)>] RewardResponseBody data, response status code and response headers
+    def read_rewards_with_http_info(user_guid, member_guid, reward_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.read_rewards ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.read_rewards"
+      end
+      # verify the required parameter 'member_guid' is set
+      if @api_client.config.client_side_validation && member_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'member_guid' when calling MxPlatformApi.read_rewards"
+      end
+      # verify the required parameter 'reward_guid' is set
+      if @api_client.config.client_side_validation && reward_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'reward_guid' when calling MxPlatformApi.read_rewards"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/members/{member_guid}/rewards/{reward_guid}'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'member_guid' + '}', CGI.escape(member_guid.to_s)).sub('{' + 'reward_guid' + '}', CGI.escape(reward_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'RewardResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.read_rewards",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#read_rewards\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
