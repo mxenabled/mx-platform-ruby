@@ -52,6 +52,7 @@
 | **property_type** | **String** |  | [optional] |
 | **routing_number** | **String** |  | [optional] |
 | **started_on** | **String** |  | [optional] |
+| **statement_balance** | **Float** |  | [optional] |
 | **subtype** | **String** |  | [optional] |
 | **today_ugl_amount** | **Float** |  | [optional] |
 | **today_ugl_percentage** | **Float** |  | [optional] |
@@ -116,6 +117,7 @@ instance = MxPlatformRuby::AccountResponse.new(
   property_type: VEHICLE,
   routing_number: 68899990000000,
   started_on: 2015-10-13T17:57:37.000Z,
+  statement_balance: 100.1,
   subtype: NONE,
   today_ugl_amount: 1000.5,
   today_ugl_percentage: 6.9,
