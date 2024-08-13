@@ -313,6 +313,12 @@ describe MxPlatformRuby::AccountResponse do
     end
   end
 
+  describe 'test attribute "statement_balance"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "subtype"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

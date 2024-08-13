@@ -111,6 +111,8 @@ module MxPlatformRuby
 
     attr_accessor :started_on
 
+    attr_accessor :statement_balance
+
     attr_accessor :subtype
 
     attr_accessor :today_ugl_amount
@@ -180,6 +182,7 @@ module MxPlatformRuby
         :'property_type' => :'property_type',
         :'routing_number' => :'routing_number',
         :'started_on' => :'started_on',
+        :'statement_balance' => :'statement_balance',
         :'subtype' => :'subtype',
         :'today_ugl_amount' => :'today_ugl_amount',
         :'today_ugl_percentage' => :'today_ugl_percentage',
@@ -248,6 +251,7 @@ module MxPlatformRuby
         :'property_type' => :'String',
         :'routing_number' => :'String',
         :'started_on' => :'String',
+        :'statement_balance' => :'Float',
         :'subtype' => :'String',
         :'today_ugl_amount' => :'Float',
         :'today_ugl_percentage' => :'Float',
@@ -310,6 +314,7 @@ module MxPlatformRuby
         :'property_type',
         :'routing_number',
         :'started_on',
+        :'statement_balance',
         :'subtype',
         :'today_ugl_amount',
         :'today_ugl_percentage',
@@ -529,6 +534,10 @@ module MxPlatformRuby
         self.started_on = attributes[:'started_on']
       end
 
+      if attributes.key?(:'statement_balance')
+        self.statement_balance = attributes[:'statement_balance']
+      end
+
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
       end
@@ -634,6 +643,7 @@ module MxPlatformRuby
           property_type == o.property_type &&
           routing_number == o.routing_number &&
           started_on == o.started_on &&
+          statement_balance == o.statement_balance &&
           subtype == o.subtype &&
           today_ugl_amount == o.today_ugl_amount &&
           today_ugl_percentage == o.today_ugl_percentage &&
@@ -654,7 +664,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, total_account_value_ugl, type, updated_at, user_guid, user_id].hash
+      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, statement_balance, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, total_account_value_ugl, type, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash
