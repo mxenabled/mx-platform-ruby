@@ -33,6 +33,8 @@ module MxPlatformRuby
 
     attr_accessor :unit_type
 
+    attr_accessor :updated_at
+
     attr_accessor :user_guid
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -47,6 +49,7 @@ module MxPlatformRuby
         :'guid' => :'guid',
         :'member_guid' => :'member_guid',
         :'unit_type' => :'unit_type',
+        :'updated_at' => :'updated_at',
         :'user_guid' => :'user_guid'
       }
     end
@@ -68,6 +71,7 @@ module MxPlatformRuby
         :'guid' => :'String',
         :'member_guid' => :'String',
         :'unit_type' => :'String',
+        :'updated_at' => :'String',
         :'user_guid' => :'String'
       }
     end
@@ -129,6 +133,10 @@ module MxPlatformRuby
         self.unit_type = attributes[:'unit_type']
       end
 
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      end
+
       if attributes.key?(:'user_guid')
         self.user_guid = attributes[:'user_guid']
       end
@@ -163,6 +171,7 @@ module MxPlatformRuby
           guid == o.guid &&
           member_guid == o.member_guid &&
           unit_type == o.unit_type &&
+          updated_at == o.updated_at &&
           user_guid == o.user_guid
     end
 
@@ -175,7 +184,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_guid, balance_type, balance, created_at, description, expires_on, guid, member_guid, unit_type, user_guid].hash
+      [account_guid, balance_type, balance, created_at, description, expires_on, guid, member_guid, unit_type, updated_at, user_guid].hash
     end
 
     # Builds the object from hash

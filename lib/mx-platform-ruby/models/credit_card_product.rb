@@ -35,9 +35,9 @@ module MxPlatformRuby
 
     attr_accessor :has_zero_percent_introductory_rate_on_balance_transfer
 
-    attr_accessor :financial_institution
+    attr_accessor :is_accepting_applicants
 
-    attr_accessor :is_accepting_applications
+    attr_accessor :is_active_credit_card_product
 
     attr_accessor :is_small_business_card
 
@@ -56,8 +56,8 @@ module MxPlatformRuby
         :'has_zero_introductory_annual_fee' => :'has_zero_introductory_annual_fee',
         :'has_zero_percent_introductory_rate' => :'has_zero_percent_introductory_rate',
         :'has_zero_percent_introductory_rate_on_balance_transfer' => :'has_zero_percent_introductory_rate_on_balance_transfer',
-        :'financial_institution' => :'financial_institution',
-        :'is_accepting_applications' => :'is_accepting_applications',
+        :'is_accepting_applicants' => :'is_accepting_applicants',
+        :'is_active_credit_card_product' => :'is_active_credit_card_product',
         :'is_small_business_card' => :'is_small_business_card',
         :'name' => :'name'
       }
@@ -71,18 +71,18 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'annual_fee' => :'Object',
-        :'duration_of_introductory_rate_on_balance_transfer' => :'Object',
-        :'duration_of_introductory_rate_on_purchases' => :'Object',
-        :'guid' => :'Object',
+        :'annual_fee' => :'Float',
+        :'duration_of_introductory_rate_on_balance_transfer' => :'Integer',
+        :'duration_of_introductory_rate_on_purchases' => :'Integer',
+        :'guid' => :'String',
         :'has_cashback_rewards' => :'Boolean',
         :'has_other_rewards' => :'Boolean',
         :'has_travel_rewards' => :'Boolean',
         :'has_zero_introductory_annual_fee' => :'Boolean',
         :'has_zero_percent_introductory_rate' => :'Boolean',
         :'has_zero_percent_introductory_rate_on_balance_transfer' => :'Boolean',
-        :'financial_institution' => :'Boolean',
-        :'is_accepting_applications' => :'Boolean',
+        :'is_accepting_applicants' => :'Boolean',
+        :'is_active_credit_card_product' => :'Boolean',
         :'is_small_business_card' => :'Boolean',
         :'name' => :'String'
       }
@@ -91,10 +91,6 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'annual_fee',
-        :'duration_of_introductory_rate_on_balance_transfer',
-        :'duration_of_introductory_rate_on_purchases',
-        :'guid',
       ])
     end
 
@@ -153,12 +149,12 @@ module MxPlatformRuby
         self.has_zero_percent_introductory_rate_on_balance_transfer = attributes[:'has_zero_percent_introductory_rate_on_balance_transfer']
       end
 
-      if attributes.key?(:'financial_institution')
-        self.financial_institution = attributes[:'financial_institution']
+      if attributes.key?(:'is_accepting_applicants')
+        self.is_accepting_applicants = attributes[:'is_accepting_applicants']
       end
 
-      if attributes.key?(:'is_accepting_applications')
-        self.is_accepting_applications = attributes[:'is_accepting_applications']
+      if attributes.key?(:'is_active_credit_card_product')
+        self.is_active_credit_card_product = attributes[:'is_active_credit_card_product']
       end
 
       if attributes.key?(:'is_small_business_card')
@@ -200,8 +196,8 @@ module MxPlatformRuby
           has_zero_introductory_annual_fee == o.has_zero_introductory_annual_fee &&
           has_zero_percent_introductory_rate == o.has_zero_percent_introductory_rate &&
           has_zero_percent_introductory_rate_on_balance_transfer == o.has_zero_percent_introductory_rate_on_balance_transfer &&
-          financial_institution == o.financial_institution &&
-          is_accepting_applications == o.is_accepting_applications &&
+          is_accepting_applicants == o.is_accepting_applicants &&
+          is_active_credit_card_product == o.is_active_credit_card_product &&
           is_small_business_card == o.is_small_business_card &&
           name == o.name
     end
@@ -215,7 +211,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [annual_fee, duration_of_introductory_rate_on_balance_transfer, duration_of_introductory_rate_on_purchases, guid, has_cashback_rewards, has_other_rewards, has_travel_rewards, has_zero_introductory_annual_fee, has_zero_percent_introductory_rate, has_zero_percent_introductory_rate_on_balance_transfer, financial_institution, is_accepting_applications, is_small_business_card, name].hash
+      [annual_fee, duration_of_introductory_rate_on_balance_transfer, duration_of_introductory_rate_on_purchases, guid, has_cashback_rewards, has_other_rewards, has_travel_rewards, has_zero_introductory_annual_fee, has_zero_percent_introductory_rate, has_zero_percent_introductory_rate_on_balance_transfer, is_accepting_applicants, is_active_credit_card_product, is_small_business_card, name].hash
     end
 
     # Builds the object from hash

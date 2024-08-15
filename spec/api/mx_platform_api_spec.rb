@@ -1450,6 +1450,57 @@ describe 'MxPlatformApi' do
     end
   end
 
+  # unit tests for users_user_guid_monthly_cash_flow_profile_get
+  # Read monthly cash flow profile
+  # @param user_guid The unique identifier for the user.
+  # @param [Hash] opts the optional parameters
+  # @return [MonthlyCashFlowResponseBody]
+  describe 'users_user_guid_monthly_cash_flow_profile_get test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for users_user_guid_monthly_cash_flow_profile_put
+  # Update monthly cash flow profile
+  # Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+  # @param user_guid The unique identifier for the user.
+  # @param monthly_cash_flow_profile_request_body 
+  # @param [Hash] opts the optional parameters
+  # @return [MonthlyCashFlowResponseBody]
+  describe 'users_user_guid_monthly_cash_flow_profile_put test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for users_user_guid_transactions_transaction_guid_split_delete
+  # Delete split transactions
+  # This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+  # @param transaction_guid The unique id for a &#x60;transaction&#x60;.
+  # @param user_guid The unique id for a &#x60;user&#x60;.
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'users_user_guid_transactions_transaction_guid_split_delete test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for users_user_guid_transactions_transaction_guid_split_post
+  # Create split transactions
+  # This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+  # @param user_guid The unique identifier for the user. Defined by MX.
+  # @param transaction_guid The unique identifier for the transaction. Defined by MX.
+  # @param [Hash] opts the optional parameters
+  # @option opts [SplitTransactionRequestBody] :split_transaction_request_body 
+  # @return [SplitTransactionsResponseBody]
+  describe 'users_user_guid_transactions_transaction_guid_split_post test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for verify_member
   # Verify member
   # The verify endpoint begins a verification process for a member.

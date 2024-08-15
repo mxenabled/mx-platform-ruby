@@ -85,13 +85,13 @@ describe MxPlatformRuby::CreditCardProduct do
     end
   end
 
-  describe 'test attribute "financial_institution"' do
+  describe 'test attribute "is_accepting_applicants"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
   end
 
-  describe 'test attribute "is_accepting_applications"' do
+  describe 'test attribute "is_active_credit_card_product"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

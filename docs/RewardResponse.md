@@ -13,6 +13,7 @@
 | **guid** | **String** |  | [optional] |
 | **member_guid** | **String** |  | [optional] |
 | **unit_type** | **String** |  | [optional] |
+| **updated_at** | **String** |  | [optional] |
 | **user_guid** | **String** |  | [optional] |
 
 ## Example
@@ -30,6 +31,7 @@ instance = MxPlatformRuby::RewardResponse.new(
   guid: RWD-1234,
   member_guid: MBR-4567,
   unit_type: POINTS,
+  updated_at: 2023-06-01T19:18:06Z,
   user_guid: USR-1234
 )
 ```

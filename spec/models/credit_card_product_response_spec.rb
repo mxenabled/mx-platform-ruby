@@ -25,7 +25,7 @@ describe MxPlatformRuby::CreditCardProductResponse do
       expect(instance).to be_instance_of(MxPlatformRuby::CreditCardProductResponse)
     end
   end
-  describe 'test attribute "reward"' do
+  describe 'test attribute "credit_card_product"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
