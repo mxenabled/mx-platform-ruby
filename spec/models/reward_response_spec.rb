@@ -79,6 +79,12 @@ describe MxPlatformRuby::RewardResponse do
     end
   end
 
+  describe 'test attribute "updated_at"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "user_guid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

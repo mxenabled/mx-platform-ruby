@@ -7439,6 +7439,284 @@ module MxPlatformRuby
       return data, status_code, headers
     end
 
+    # Read monthly cash flow profile
+    # @param user_guid [String] The unique identifier for the user.
+    # @param [Hash] opts the optional parameters
+    # @return [MonthlyCashFlowResponseBody]
+    def users_user_guid_monthly_cash_flow_profile_get(user_guid, opts = {})
+      data, _status_code, _headers = users_user_guid_monthly_cash_flow_profile_get_with_http_info(user_guid, opts)
+      data
+    end
+
+    # Read monthly cash flow profile
+    # @param user_guid [String] The unique identifier for the user.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MonthlyCashFlowResponseBody, Integer, Hash)>] MonthlyCashFlowResponseBody data, response status code and response headers
+    def users_user_guid_monthly_cash_flow_profile_get_with_http_info(user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.users_user_guid_monthly_cash_flow_profile_get ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.users_user_guid_monthly_cash_flow_profile_get"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/monthly_cash_flow_profile'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonthlyCashFlowResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.users_user_guid_monthly_cash_flow_profile_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#users_user_guid_monthly_cash_flow_profile_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update monthly cash flow profile
+    # Use this endpoint to update the attributes of a `monthly_cash_flow_profile`.
+    # @param user_guid [String] The unique identifier for the user.
+    # @param monthly_cash_flow_profile_request_body [MonthlyCashFlowProfileRequestBody] 
+    # @param [Hash] opts the optional parameters
+    # @return [MonthlyCashFlowResponseBody]
+    def users_user_guid_monthly_cash_flow_profile_put(user_guid, monthly_cash_flow_profile_request_body, opts = {})
+      data, _status_code, _headers = users_user_guid_monthly_cash_flow_profile_put_with_http_info(user_guid, monthly_cash_flow_profile_request_body, opts)
+      data
+    end
+
+    # Update monthly cash flow profile
+    # Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+    # @param user_guid [String] The unique identifier for the user.
+    # @param monthly_cash_flow_profile_request_body [MonthlyCashFlowProfileRequestBody] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(MonthlyCashFlowResponseBody, Integer, Hash)>] MonthlyCashFlowResponseBody data, response status code and response headers
+    def users_user_guid_monthly_cash_flow_profile_put_with_http_info(user_guid, monthly_cash_flow_profile_request_body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.users_user_guid_monthly_cash_flow_profile_put ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.users_user_guid_monthly_cash_flow_profile_put"
+      end
+      # verify the required parameter 'monthly_cash_flow_profile_request_body' is set
+      if @api_client.config.client_side_validation && monthly_cash_flow_profile_request_body.nil?
+        fail ArgumentError, "Missing the required parameter 'monthly_cash_flow_profile_request_body' when calling MxPlatformApi.users_user_guid_monthly_cash_flow_profile_put"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/monthly_cash_flow_profile'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(monthly_cash_flow_profile_request_body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'MonthlyCashFlowResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.users_user_guid_monthly_cash_flow_profile_put",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#users_user_guid_monthly_cash_flow_profile_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete split transactions
+    # This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction's has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def users_user_guid_transactions_transaction_guid_split_delete(transaction_guid, user_guid, opts = {})
+      users_user_guid_transactions_transaction_guid_split_delete_with_http_info(transaction_guid, user_guid, opts)
+      nil
+    end
+
+    # Delete split transactions
+    # This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+    # @param transaction_guid [String] The unique id for a &#x60;transaction&#x60;.
+    # @param user_guid [String] The unique id for a &#x60;user&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def users_user_guid_transactions_transaction_guid_split_delete_with_http_info(transaction_guid, user_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.users_user_guid_transactions_transaction_guid_split_delete ...'
+      end
+      # verify the required parameter 'transaction_guid' is set
+      if @api_client.config.client_side_validation && transaction_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.users_user_guid_transactions_transaction_guid_split_delete"
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.users_user_guid_transactions_transaction_guid_split_delete"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/transactions/{transaction_guid}/split'.sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s)).sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.users_user_guid_transactions_transaction_guid_split_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#users_user_guid_transactions_transaction_guid_split_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create split transactions
+    # This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction's `has_been_split` field will automatically be updated to true and the child transactions' `parent_guid` will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can't be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction's `has_been_split` field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+    # @param user_guid [String] The unique identifier for the user. Defined by MX.
+    # @param transaction_guid [String] The unique identifier for the transaction. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @option opts [SplitTransactionRequestBody] :split_transaction_request_body 
+    # @return [SplitTransactionsResponseBody]
+    def users_user_guid_transactions_transaction_guid_split_post(user_guid, transaction_guid, opts = {})
+      data, _status_code, _headers = users_user_guid_transactions_transaction_guid_split_post_with_http_info(user_guid, transaction_guid, opts)
+      data
+    end
+
+    # Create split transactions
+    # This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+    # @param user_guid [String] The unique identifier for the user. Defined by MX.
+    # @param transaction_guid [String] The unique identifier for the transaction. Defined by MX.
+    # @param [Hash] opts the optional parameters
+    # @option opts [SplitTransactionRequestBody] :split_transaction_request_body 
+    # @return [Array<(SplitTransactionsResponseBody, Integer, Hash)>] SplitTransactionsResponseBody data, response status code and response headers
+    def users_user_guid_transactions_transaction_guid_split_post_with_http_info(user_guid, transaction_guid, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MxPlatformApi.users_user_guid_transactions_transaction_guid_split_post ...'
+      end
+      # verify the required parameter 'user_guid' is set
+      if @api_client.config.client_side_validation && user_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'user_guid' when calling MxPlatformApi.users_user_guid_transactions_transaction_guid_split_post"
+      end
+      # verify the required parameter 'transaction_guid' is set
+      if @api_client.config.client_side_validation && transaction_guid.nil?
+        fail ArgumentError, "Missing the required parameter 'transaction_guid' when calling MxPlatformApi.users_user_guid_transactions_transaction_guid_split_post"
+      end
+      # resource path
+      local_var_path = '/users/{user_guid}/transactions/{transaction_guid}/split'.sub('{' + 'user_guid' + '}', CGI.escape(user_guid.to_s)).sub('{' + 'transaction_guid' + '}', CGI.escape(transaction_guid.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/vnd.mx.api.v1+json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'split_transaction_request_body'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SplitTransactionsResponseBody'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['basicAuth']
+
+      new_options = opts.merge(
+        :operation => :"MxPlatformApi.users_user_guid_transactions_transaction_guid_split_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MxPlatformApi#users_user_guid_transactions_transaction_guid_split_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Verify member
     # The verify endpoint begins a verification process for a member.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.

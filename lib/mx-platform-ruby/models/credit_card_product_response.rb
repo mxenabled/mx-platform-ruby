@@ -15,12 +15,12 @@ require 'time'
 
 module MxPlatformRuby
   class CreditCardProductResponse
-    attr_accessor :reward
+    attr_accessor :credit_card_product
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'reward' => :'reward'
+        :'credit_card_product' => :'credit_card_product'
       }
     end
 
@@ -32,7 +32,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'reward' => :'CreditCardProduct'
+        :'credit_card_product' => :'CreditCardProduct'
       }
     end
 
@@ -57,8 +57,8 @@ module MxPlatformRuby
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'reward')
-        self.reward = attributes[:'reward']
+      if attributes.key?(:'credit_card_product')
+        self.credit_card_product = attributes[:'credit_card_product']
       end
     end
 
@@ -82,7 +82,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          reward == o.reward
+          credit_card_product == o.credit_card_product
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [reward].hash
+      [credit_card_product].hash
     end
 
     # Builds the object from hash

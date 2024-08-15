@@ -106,6 +106,10 @@ All URIs are relative to *https://api.mx.com*
 | [**update_transaction**](MxPlatformApi.md#update_transaction) | **PUT** /users/{user_guid}/transactions/{transaction_guid} | Update transaction |
 | [**update_transaction_rule**](MxPlatformApi.md#update_transaction_rule) | **PUT** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Update transaction_rule |
 | [**update_user**](MxPlatformApi.md#update_user) | **PUT** /users/{user_guid} | Update user |
+| [**users_user_guid_monthly_cash_flow_profile_get**](MxPlatformApi.md#users_user_guid_monthly_cash_flow_profile_get) | **GET** /users/{user_guid}/monthly_cash_flow_profile | Read monthly cash flow profile |
+| [**users_user_guid_monthly_cash_flow_profile_put**](MxPlatformApi.md#users_user_guid_monthly_cash_flow_profile_put) | **PUT** /users/{user_guid}/monthly_cash_flow_profile | Update monthly cash flow profile |
+| [**users_user_guid_transactions_transaction_guid_split_delete**](MxPlatformApi.md#users_user_guid_transactions_transaction_guid_split_delete) | **DELETE** /users/{user_guid}/transactions/{transaction_guid}/split | Delete split transactions |
+| [**users_user_guid_transactions_transaction_guid_split_post**](MxPlatformApi.md#users_user_guid_transactions_transaction_guid_split_post) | **POST** /users/{user_guid}/transactions/{transaction_guid}/split | Create split transactions |
 | [**verify_member**](MxPlatformApi.md#verify_member) | **POST** /users/{user_guid}/members/{member_guid}/verify | Verify member |
 
 
@@ -7684,6 +7688,293 @@ end
 ### Return type
 
 [**UserResponseBody**](UserResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## users_user_guid_monthly_cash_flow_profile_get
+
+> <MonthlyCashFlowResponseBody> users_user_guid_monthly_cash_flow_profile_get(user_guid)
+
+Read monthly cash flow profile
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'user_guid_example' # String | The unique identifier for the user.
+
+begin
+  # Read monthly cash flow profile
+  result = api_instance.users_user_guid_monthly_cash_flow_profile_get(user_guid)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_monthly_cash_flow_profile_get: #{e}"
+end
+```
+
+#### Using the users_user_guid_monthly_cash_flow_profile_get_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MonthlyCashFlowResponseBody>, Integer, Hash)> users_user_guid_monthly_cash_flow_profile_get_with_http_info(user_guid)
+
+```ruby
+begin
+  # Read monthly cash flow profile
+  data, status_code, headers = api_instance.users_user_guid_monthly_cash_flow_profile_get_with_http_info(user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MonthlyCashFlowResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_monthly_cash_flow_profile_get_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique identifier for the user. |  |
+
+### Return type
+
+[**MonthlyCashFlowResponseBody**](MonthlyCashFlowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## users_user_guid_monthly_cash_flow_profile_put
+
+> <MonthlyCashFlowResponseBody> users_user_guid_monthly_cash_flow_profile_put(user_guid, monthly_cash_flow_profile_request_body)
+
+Update monthly cash flow profile
+
+Use this endpoint to update the attributes of a `monthly_cash_flow_profile`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'user_guid_example' # String | The unique identifier for the user.
+monthly_cash_flow_profile_request_body = MxPlatformRuby::MonthlyCashFlowProfileRequestBody.new # MonthlyCashFlowProfileRequestBody | 
+
+begin
+  # Update monthly cash flow profile
+  result = api_instance.users_user_guid_monthly_cash_flow_profile_put(user_guid, monthly_cash_flow_profile_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_monthly_cash_flow_profile_put: #{e}"
+end
+```
+
+#### Using the users_user_guid_monthly_cash_flow_profile_put_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<MonthlyCashFlowResponseBody>, Integer, Hash)> users_user_guid_monthly_cash_flow_profile_put_with_http_info(user_guid, monthly_cash_flow_profile_request_body)
+
+```ruby
+begin
+  # Update monthly cash flow profile
+  data, status_code, headers = api_instance.users_user_guid_monthly_cash_flow_profile_put_with_http_info(user_guid, monthly_cash_flow_profile_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <MonthlyCashFlowResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_monthly_cash_flow_profile_put_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique identifier for the user. |  |
+| **monthly_cash_flow_profile_request_body** | [**MonthlyCashFlowProfileRequestBody**](MonthlyCashFlowProfileRequestBody.md) |  |  |
+
+### Return type
+
+[**MonthlyCashFlowResponseBody**](MonthlyCashFlowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## users_user_guid_transactions_transaction_guid_split_delete
+
+> users_user_guid_transactions_transaction_guid_split_delete(transaction_guid, user_guid)
+
+Delete split transactions
+
+This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction's has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+transaction_guid = 'TRN-810828b0-5210-4878-9bd3-f4ce514f90c4' # String | The unique id for a `transaction`.
+user_guid = 'USR-85628b0-5210-4878-9bd3-f4ce154f90c4' # String | The unique id for a `user`.
+
+begin
+  # Delete split transactions
+  api_instance.users_user_guid_transactions_transaction_guid_split_delete(transaction_guid, user_guid)
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_transactions_transaction_guid_split_delete: #{e}"
+end
+```
+
+#### Using the users_user_guid_transactions_transaction_guid_split_delete_with_http_info variant
+
+This returns an Array which contains the response data (`nil` in this case), status code and headers.
+
+> <Array(nil, Integer, Hash)> users_user_guid_transactions_transaction_guid_split_delete_with_http_info(transaction_guid, user_guid)
+
+```ruby
+begin
+  # Delete split transactions
+  data, status_code, headers = api_instance.users_user_guid_transactions_transaction_guid_split_delete_with_http_info(transaction_guid, user_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => nil
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_transactions_transaction_guid_split_delete_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **transaction_guid** | **String** | The unique id for a &#x60;transaction&#x60;. |  |
+| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+
+## users_user_guid_transactions_transaction_guid_split_post
+
+> <SplitTransactionsResponseBody> users_user_guid_transactions_transaction_guid_split_post(user_guid, transaction_guid, opts)
+
+Create split transactions
+
+This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction's `has_been_split` field will automatically be updated to true and the child transactions' `parent_guid` will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can't be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction's `has_been_split` field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::MxPlatformApi.new
+user_guid = 'user_guid_example' # String | The unique identifier for the user. Defined by MX.
+transaction_guid = 'transaction_guid_example' # String | The unique identifier for the transaction. Defined by MX.
+opts = {
+  split_transaction_request_body: MxPlatformRuby::SplitTransactionRequestBody.new({transactions: MxPlatformRuby::SplitTransactionRequest.new({amount: 54.19})}) # SplitTransactionRequestBody | 
+}
+
+begin
+  # Create split transactions
+  result = api_instance.users_user_guid_transactions_transaction_guid_split_post(user_guid, transaction_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_transactions_transaction_guid_split_post: #{e}"
+end
+```
+
+#### Using the users_user_guid_transactions_transaction_guid_split_post_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SplitTransactionsResponseBody>, Integer, Hash)> users_user_guid_transactions_transaction_guid_split_post_with_http_info(user_guid, transaction_guid, opts)
+
+```ruby
+begin
+  # Create split transactions
+  data, status_code, headers = api_instance.users_user_guid_transactions_transaction_guid_split_post_with_http_info(user_guid, transaction_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SplitTransactionsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling MxPlatformApi->users_user_guid_transactions_transaction_guid_split_post_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique identifier for the user. Defined by MX. |  |
+| **transaction_guid** | **String** | The unique identifier for the transaction. Defined by MX. |  |
+| **split_transaction_request_body** | [**SplitTransactionRequestBody**](SplitTransactionRequestBody.md) |  | [optional] |
+
+### Return type
+
+[**SplitTransactionsResponseBody**](SplitTransactionsResponseBody.md)
 
 ### Authorization
 
