@@ -6542,11 +6542,11 @@ module MxPlatformRuby
     end
 
     # Update account by member
-    # This endpoint allows you to update certain attributes of an `account` resource.
+    # This endpoint allows you to update certain attributes of an `account` resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update `is_business`, `is_hidden` and `metadata`.
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_update_request_body [AccountUpdateRequestBody] Account object to be created with optional parameters (is_hidden)
+    # @param account_update_request_body [AccountUpdateRequestBody] 
     # @param [Hash] opts the optional parameters
     # @return [AccountResponseBody]
     def update_account_by_member(account_guid, member_guid, user_guid, account_update_request_body, opts = {})
@@ -6555,11 +6555,11 @@ module MxPlatformRuby
     end
 
     # Update account by member
-    # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+    # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
-    # @param account_update_request_body [AccountUpdateRequestBody] Account object to be created with optional parameters (is_hidden)
+    # @param account_update_request_body [AccountUpdateRequestBody] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(AccountResponseBody, Integer, Hash)>] AccountResponseBody data, response status code and response headers
     def update_account_by_member_with_http_info(account_guid, member_guid, user_guid, account_update_request_body, opts = {})

@@ -1295,11 +1295,11 @@ describe 'MxPlatformApi' do
 
   # unit tests for update_account_by_member
   # Update account by member
-  # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+  # This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
   # @param account_guid The unique id for an &#x60;account&#x60;.
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
-  # @param account_update_request_body Account object to be created with optional parameters (is_hidden)
+  # @param account_update_request_body 
   # @param [Hash] opts the optional parameters
   # @return [AccountResponseBody]
   describe 'update_account_by_member test' do

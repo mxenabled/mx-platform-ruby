@@ -6885,7 +6885,7 @@ end
 
 Update account by member
 
-This endpoint allows you to update certain attributes of an `account` resource.
+This endpoint allows you to update certain attributes of an `account` resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update `is_business`, `is_hidden` and `metadata`.
 
 ### Examples
 
@@ -6903,7 +6903,7 @@ api_instance = MxPlatformRuby::MxPlatformApi.new
 account_guid = 'ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1' # String | The unique id for an `account`.
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
-account_update_request_body = MxPlatformRuby::AccountUpdateRequestBody.new # AccountUpdateRequestBody | Account object to be created with optional parameters (is_hidden)
+account_update_request_body = MxPlatformRuby::AccountUpdateRequestBody.new # AccountUpdateRequestBody | 
 
 begin
   # Update account by member
@@ -6939,7 +6939,7 @@ end
 | **account_guid** | **String** | The unique id for an &#x60;account&#x60;. |  |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **account_update_request_body** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md) | Account object to be created with optional parameters (is_hidden) |  |
+| **account_update_request_body** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md) |  |  |
 
 ### Return type
 
