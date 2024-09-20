@@ -383,8 +383,6 @@ spec/api/microdeposits_api_spec.rb
 spec/api/mx_platform_api_spec.rb
 spec/api/spending_plan_api_spec.rb
 spec/api/transactions_api_spec.rb
-spec/api_client_spec.rb
-spec/configuration_spec.rb
 spec/models/account_create_request_body_spec.rb
 spec/models/account_create_request_spec.rb
 spec/models/account_number_response_spec.rb
