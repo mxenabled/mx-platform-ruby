@@ -93,6 +93,12 @@ describe MxPlatformRuby::InstitutionResponse do
     end
   end
 
+  describe 'test attribute "supports_tax_document"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "supports_transaction_history"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

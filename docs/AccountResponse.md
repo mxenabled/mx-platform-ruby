@@ -21,6 +21,7 @@
 | **currency_code** | **String** |  | [optional] |
 | **day_payment_is_due** | **Integer** |  | [optional] |
 | **death_benefit** | **Integer** |  | [optional] |
+| **federal_insurance_status** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **holdings_value** | **Float** |  | [optional] |
 | **id** | **String** |  | [optional] |
@@ -86,6 +87,7 @@ instance = MxPlatformRuby::AccountResponse.new(
   currency_code: USD,
   day_payment_is_due: 20,
   death_benefit: 1000,
+  federal_insurance_status: INSURED,
   guid: ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1,
   holdings_value: 1000.0,
   id: 1040434698,

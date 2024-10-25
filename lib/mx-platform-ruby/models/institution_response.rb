@@ -37,6 +37,8 @@ module MxPlatformRuby
 
     attr_accessor :supports_oauth
 
+    attr_accessor :supports_tax_document
+
     attr_accessor :supports_transaction_history
 
     attr_accessor :trouble_signing_in_url
@@ -57,6 +59,7 @@ module MxPlatformRuby
         :'supports_account_statement' => :'supports_account_statement',
         :'supports_account_verification' => :'supports_account_verification',
         :'supports_oauth' => :'supports_oauth',
+        :'supports_tax_document' => :'supports_tax_document',
         :'supports_transaction_history' => :'supports_transaction_history',
         :'trouble_signing_in_url' => :'trouble_signing_in_url',
         :'url' => :'url'
@@ -82,6 +85,7 @@ module MxPlatformRuby
         :'supports_account_statement' => :'Boolean',
         :'supports_account_verification' => :'Boolean',
         :'supports_oauth' => :'Boolean',
+        :'supports_tax_document' => :'Boolean',
         :'supports_transaction_history' => :'Boolean',
         :'trouble_signing_in_url' => :'String',
         :'url' => :'String'
@@ -102,6 +106,7 @@ module MxPlatformRuby
         :'supports_account_statement',
         :'supports_account_verification',
         :'supports_oauth',
+        :'supports_tax_document',
         :'supports_transaction_history',
         :'trouble_signing_in_url',
         :'url'
@@ -167,6 +172,10 @@ module MxPlatformRuby
         self.supports_oauth = attributes[:'supports_oauth']
       end
 
+      if attributes.key?(:'supports_tax_document')
+        self.supports_tax_document = attributes[:'supports_tax_document']
+      end
+
       if attributes.key?(:'supports_transaction_history')
         self.supports_transaction_history = attributes[:'supports_transaction_history']
       end
@@ -211,6 +220,7 @@ module MxPlatformRuby
           supports_account_statement == o.supports_account_statement &&
           supports_account_verification == o.supports_account_verification &&
           supports_oauth == o.supports_oauth &&
+          supports_tax_document == o.supports_tax_document &&
           supports_transaction_history == o.supports_transaction_history &&
           trouble_signing_in_url == o.trouble_signing_in_url &&
           url == o.url
@@ -225,7 +235,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [code, forgot_password_url, forgot_username_url, instructional_text, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_transaction_history, trouble_signing_in_url, url].hash
+      [code, forgot_password_url, forgot_username_url, instructional_text, medium_logo_url, name, small_logo_url, supports_account_identification, supports_account_statement, supports_account_verification, supports_oauth, supports_tax_document, supports_transaction_history, trouble_signing_in_url, url].hash
     end
 
     # Builds the object from hash

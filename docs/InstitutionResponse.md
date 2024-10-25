@@ -15,6 +15,7 @@
 | **supports_account_statement** | **Boolean** |  | [optional] |
 | **supports_account_verification** | **Boolean** |  | [optional] |
 | **supports_oauth** | **Boolean** |  | [optional] |
+| **supports_tax_document** | **Boolean** |  | [optional] |
 | **supports_transaction_history** | **Boolean** |  | [optional] |
 | **trouble_signing_in_url** | **String** |  | [optional] |
 | **url** | **String** |  | [optional] |
@@ -36,6 +37,7 @@ instance = MxPlatformRuby::InstitutionResponse.new(
   supports_account_statement: true,
   supports_account_verification: true,
   supports_oauth: true,
+  supports_tax_document: true,
   supports_transaction_history: true,
   trouble_signing_in_url: https://example.url.chase.com/login-trouble,
   url: https://www.chase.com
