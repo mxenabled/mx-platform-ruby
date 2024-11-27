@@ -47,6 +47,8 @@ module MxPlatformRuby
 
     attr_accessor :successfully_aggregated_at
 
+    attr_accessor :use_cases
+
     attr_accessor :user_guid
 
     attr_accessor :user_id
@@ -70,6 +72,7 @@ module MxPlatformRuby
         :'name' => :'name',
         :'oauth_window_uri' => :'oauth_window_uri',
         :'successfully_aggregated_at' => :'successfully_aggregated_at',
+        :'use_cases' => :'use_cases',
         :'user_guid' => :'user_guid',
         :'user_id' => :'user_id'
       }
@@ -99,6 +102,7 @@ module MxPlatformRuby
         :'name' => :'String',
         :'oauth_window_uri' => :'String',
         :'successfully_aggregated_at' => :'String',
+        :'use_cases' => :'Array<String>',
         :'user_guid' => :'String',
         :'user_id' => :'String'
       }
@@ -122,6 +126,7 @@ module MxPlatformRuby
         :'name',
         :'oauth_window_uri',
         :'successfully_aggregated_at',
+        :'use_cases',
         :'user_guid',
         :'user_id'
       ])
@@ -206,6 +211,12 @@ module MxPlatformRuby
         self.successfully_aggregated_at = attributes[:'successfully_aggregated_at']
       end
 
+      if attributes.key?(:'use_cases')
+        if (value = attributes[:'use_cases']).is_a?(Array)
+          self.use_cases = value
+        end
+      end
+
       if attributes.key?(:'user_guid')
         self.user_guid = attributes[:'user_guid']
       end
@@ -251,6 +262,7 @@ module MxPlatformRuby
           name == o.name &&
           oauth_window_uri == o.oauth_window_uri &&
           successfully_aggregated_at == o.successfully_aggregated_at &&
+          use_cases == o.use_cases &&
           user_guid == o.user_guid &&
           user_id == o.user_id
     end
@@ -264,7 +276,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, user_guid, user_id].hash
+      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, use_cases, user_guid, user_id].hash
     end
 
     # Builds the object from hash

@@ -20,6 +20,7 @@
 | **name** | **String** |  | [optional] |
 | **oauth_window_uri** | **String** |  | [optional] |
 | **successfully_aggregated_at** | **String** |  | [optional] |
+| **use_cases** | **Array&lt;String&gt;** |  | [optional] |
 | **user_guid** | **String** |  | [optional] |
 | **user_id** | **String** |  | [optional] |
 
@@ -45,6 +46,7 @@ instance = MxPlatformRuby::MemberResponse.new(
   name: Chase Bank,
   oauth_window_uri: https://mxbank.mx.com/oauth/authorize?client_id&#x3D;b8OikQ4Ep3NuSUrQ13DdvFuwpNx-qqoAsJDVAQCyLkQ&amp;redirect_uri&#x3D;https%3A%2F%2Fint-app.moneydesktop.com%2Foauth%2Fredirect_from&amp;response_type&#x3D;code&amp;scope&#x3D;openid&amp;state&#x3D;d745bd4ee6f0f9c184757f574bcc2df2,
   successfully_aggregated_at: 2016-10-13T17:57:38.000Z,
+  use_cases: [&quot;PFM&quot;,&quot;IAV&quot;],
   user_guid: USR-fa7537f3-48aa-a683-a02a-b18940482f54,
   user_id: user123
 )
