@@ -15,6 +15,8 @@ require 'time'
 
 module MxPlatformRuby
   class MemberResponse
+    attr_accessor :actionable_error
+
     attr_accessor :aggregated_at
 
     attr_accessor :background_aggregation_is_disabled
@@ -56,6 +58,7 @@ module MxPlatformRuby
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'actionable_error' => :'actionable_error',
         :'aggregated_at' => :'aggregated_at',
         :'background_aggregation_is_disabled' => :'background_aggregation_is_disabled',
         :'connection_status' => :'connection_status',
@@ -86,6 +89,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'actionable_error' => :'String',
         :'aggregated_at' => :'String',
         :'background_aggregation_is_disabled' => :'Boolean',
         :'connection_status' => :'String',
@@ -111,6 +115,7 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'actionable_error',
         :'aggregated_at',
         :'connection_status',
         :'guid',
@@ -146,6 +151,10 @@ module MxPlatformRuby
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'actionable_error')
+        self.actionable_error = attributes[:'actionable_error']
+      end
 
       if attributes.key?(:'aggregated_at')
         self.aggregated_at = attributes[:'aggregated_at']
@@ -246,6 +255,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          actionable_error == o.actionable_error &&
           aggregated_at == o.aggregated_at &&
           background_aggregation_is_disabled == o.background_aggregation_is_disabled &&
           connection_status == o.connection_status &&
@@ -276,7 +286,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, use_cases, user_guid, user_id].hash
+      [actionable_error, aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, use_cases, user_guid, user_id].hash
     end
 
     # Builds the object from hash

@@ -11,5 +11,5 @@ Generator version: 7.8.0
 =end
 
 module MxPlatformRuby
-  VERSION = '1.1.0'
+  VERSION = '1.2.0'
 end

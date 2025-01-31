@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **actionable_error** | **String** |  | [optional] |
 | **aggregated_at** | **String** |  | [optional] |
 | **background_aggregation_is_disabled** | **Boolean** |  | [optional] |
 | **connection_status** | **String** |  | [optional] |
@@ -30,6 +31,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::MemberResponse.new(
+  actionable_error: {\&quot;error_type\&quot;: \&quot;MEMBER\&quot;, \&quot;error_code\&quot;: 1000, \&quot;error_message\&quot;: \&quot;This Member has no eligible checking, savings, or money market accounts.\&quot;, \&quot;user_message\&quot;: \&quot;We could not find any accounts eligible for transfers. Please link a checking or savings account.\&quot;, \&quot;locale\&quot;: \&quot;en\&quot;},
   aggregated_at: 2016-10-13T18:07:57.000Z,
   background_aggregation_is_disabled: false,
   connection_status: CONNECTED,
