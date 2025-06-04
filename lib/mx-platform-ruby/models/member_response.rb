@@ -15,19 +15,23 @@ require 'time'
 
 module MxPlatformRuby
   class MemberResponse
-    attr_accessor :actionable_error
-
     attr_accessor :aggregated_at
 
     attr_accessor :background_aggregation_is_disabled
 
     attr_accessor :connection_status
 
+    attr_accessor :connection_status_message
+
+    attr_accessor :error
+
     attr_accessor :guid
 
     attr_accessor :id
 
     attr_accessor :institution_code
+
+    attr_accessor :institution_guid
 
     attr_accessor :is_being_aggregated
 
@@ -43,28 +47,57 @@ module MxPlatformRuby
 
     attr_accessor :most_recent_job_detail_text
 
+    attr_accessor :most_recent_job_guid
+
     attr_accessor :name
+
+    attr_accessor :needs_updated_credentials
 
     attr_accessor :oauth_window_uri
 
     attr_accessor :successfully_aggregated_at
 
+    # The use case associated with the member. Valid values are `PFM` and/or `MONEY_MOVEMENT`. Only set this if you've met with MX and have opted in to using this field.
     attr_accessor :use_cases
 
     attr_accessor :user_guid
 
     attr_accessor :user_id
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'actionable_error' => :'actionable_error',
         :'aggregated_at' => :'aggregated_at',
         :'background_aggregation_is_disabled' => :'background_aggregation_is_disabled',
         :'connection_status' => :'connection_status',
+        :'connection_status_message' => :'connection_status_message',
+        :'error' => :'error',
         :'guid' => :'guid',
         :'id' => :'id',
         :'institution_code' => :'institution_code',
+        :'institution_guid' => :'institution_guid',
         :'is_being_aggregated' => :'is_being_aggregated',
         :'is_managed_by_user' => :'is_managed_by_user',
         :'is_manual' => :'is_manual',
@@ -72,7 +105,9 @@ module MxPlatformRuby
         :'metadata' => :'metadata',
         :'most_recent_job_detail_code' => :'most_recent_job_detail_code',
         :'most_recent_job_detail_text' => :'most_recent_job_detail_text',
+        :'most_recent_job_guid' => :'most_recent_job_guid',
         :'name' => :'name',
+        :'needs_updated_credentials' => :'needs_updated_credentials',
         :'oauth_window_uri' => :'oauth_window_uri',
         :'successfully_aggregated_at' => :'successfully_aggregated_at',
         :'use_cases' => :'use_cases',
@@ -89,21 +124,25 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'actionable_error' => :'String',
         :'aggregated_at' => :'String',
         :'background_aggregation_is_disabled' => :'Boolean',
         :'connection_status' => :'String',
+        :'connection_status_message' => :'String',
+        :'error' => :'String',
         :'guid' => :'String',
         :'id' => :'String',
         :'institution_code' => :'String',
+        :'institution_guid' => :'String',
         :'is_being_aggregated' => :'Boolean',
         :'is_managed_by_user' => :'Boolean',
         :'is_manual' => :'Boolean',
         :'is_oauth' => :'Boolean',
         :'metadata' => :'String',
-        :'most_recent_job_detail_code' => :'String',
-        :'most_recent_job_detail_text' => :'String',
+        :'most_recent_job_detail_code' => :'Integer',
+        :'most_recent_job_detail_text' => :'Boolean',
+        :'most_recent_job_guid' => :'Boolean',
         :'name' => :'String',
+        :'needs_updated_credentials' => :'Boolean',
         :'oauth_window_uri' => :'String',
         :'successfully_aggregated_at' => :'String',
         :'use_cases' => :'Array<String>',
@@ -115,9 +154,10 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'actionable_error',
         :'aggregated_at',
         :'connection_status',
+        :'connection_status_message',
+        :'error',
         :'guid',
         :'id',
         :'institution_code',
@@ -128,10 +168,11 @@ module MxPlatformRuby
         :'metadata',
         :'most_recent_job_detail_code',
         :'most_recent_job_detail_text',
+        :'most_recent_job_guid',
         :'name',
+        :'needs_updated_credentials',
         :'oauth_window_uri',
         :'successfully_aggregated_at',
-        :'use_cases',
         :'user_guid',
         :'user_id'
       ])
@@ -152,10 +193,6 @@ module MxPlatformRuby
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'actionable_error')
-        self.actionable_error = attributes[:'actionable_error']
-      end
-
       if attributes.key?(:'aggregated_at')
         self.aggregated_at = attributes[:'aggregated_at']
       end
@@ -168,6 +205,14 @@ module MxPlatformRuby
         self.connection_status = attributes[:'connection_status']
       end
 
+      if attributes.key?(:'connection_status_message')
+        self.connection_status_message = attributes[:'connection_status_message']
+      end
+
+      if attributes.key?(:'error')
+        self.error = attributes[:'error']
+      end
+
       if attributes.key?(:'guid')
         self.guid = attributes[:'guid']
       end
@@ -178,6 +223,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'institution_code')
         self.institution_code = attributes[:'institution_code']
+      end
+
+      if attributes.key?(:'institution_guid')
+        self.institution_guid = attributes[:'institution_guid']
       end
 
       if attributes.key?(:'is_being_aggregated')
@@ -208,8 +257,16 @@ module MxPlatformRuby
         self.most_recent_job_detail_text = attributes[:'most_recent_job_detail_text']
       end
 
+      if attributes.key?(:'most_recent_job_guid')
+        self.most_recent_job_guid = attributes[:'most_recent_job_guid']
+      end
+
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'needs_updated_credentials')
+        self.needs_updated_credentials = attributes[:'needs_updated_credentials']
       end
 
       if attributes.key?(:'oauth_window_uri')
@@ -255,13 +312,15 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          actionable_error == o.actionable_error &&
           aggregated_at == o.aggregated_at &&
           background_aggregation_is_disabled == o.background_aggregation_is_disabled &&
           connection_status == o.connection_status &&
+          connection_status_message == o.connection_status_message &&
+          error == o.error &&
           guid == o.guid &&
           id == o.id &&
           institution_code == o.institution_code &&
+          institution_guid == o.institution_guid &&
           is_being_aggregated == o.is_being_aggregated &&
           is_managed_by_user == o.is_managed_by_user &&
           is_manual == o.is_manual &&
@@ -269,7 +328,9 @@ module MxPlatformRuby
           metadata == o.metadata &&
           most_recent_job_detail_code == o.most_recent_job_detail_code &&
           most_recent_job_detail_text == o.most_recent_job_detail_text &&
+          most_recent_job_guid == o.most_recent_job_guid &&
           name == o.name &&
+          needs_updated_credentials == o.needs_updated_credentials &&
           oauth_window_uri == o.oauth_window_uri &&
           successfully_aggregated_at == o.successfully_aggregated_at &&
           use_cases == o.use_cases &&
@@ -286,7 +347,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actionable_error, aggregated_at, background_aggregation_is_disabled, connection_status, guid, id, institution_code, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, name, oauth_window_uri, successfully_aggregated_at, use_cases, user_guid, user_id].hash
+      [aggregated_at, background_aggregation_is_disabled, connection_status, connection_status_message, error, guid, id, institution_code, institution_guid, is_being_aggregated, is_managed_by_user, is_manual, is_oauth, metadata, most_recent_job_detail_code, most_recent_job_detail_text, most_recent_job_guid, name, needs_updated_credentials, oauth_window_uri, successfully_aggregated_at, use_cases, user_guid, user_id].hash
     end
 
     # Builds the object from hash

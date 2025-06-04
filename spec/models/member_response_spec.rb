@@ -27,12 +27,6 @@ describe MxPlatformRuby::MemberResponse do
     end
   end
 
-  describe 'test attribute "actionable_error"' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   describe 'test attribute "aggregated_at"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -51,6 +45,18 @@ describe MxPlatformRuby::MemberResponse do
     end
   end
 
+  describe 'test attribute "connection_status_message"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "error"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "guid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
@@ -64,6 +70,12 @@ describe MxPlatformRuby::MemberResponse do
   end
 
   describe 'test attribute "institution_code"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "institution_guid"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -111,7 +123,19 @@ describe MxPlatformRuby::MemberResponse do
     end
   end
 
+  describe 'test attribute "most_recent_job_guid"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "name"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "needs_updated_credentials"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -132,6 +156,10 @@ describe MxPlatformRuby::MemberResponse do
   describe 'test attribute "use_cases"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('Array<String>', ["MONEY_MOVEMENT", "PFM"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.use_cases = value }.not_to raise_error
+      # end
     end
   end
 
