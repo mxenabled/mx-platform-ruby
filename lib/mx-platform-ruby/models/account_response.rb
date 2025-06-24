@@ -17,6 +17,8 @@ module MxPlatformRuby
   class AccountResponse
     attr_accessor :account_number
 
+    attr_accessor :account_number_set_by
+
     attr_accessor :account_ownership
 
     attr_accessor :annuity_policy_to_date
@@ -27,33 +29,121 @@ module MxPlatformRuby
 
     attr_accessor :apr
 
+    attr_accessor :apr_set_by
+
     attr_accessor :apy
+
+    attr_accessor :apy_set_by
 
     attr_accessor :available_balance
 
+    attr_accessor :available_balance_set_by
+
     attr_accessor :available_credit
+
+    attr_accessor :available_credit_set_by
 
     attr_accessor :balance
 
+    attr_accessor :balance_set_by
+
+    attr_accessor :calculated_apr
+
     attr_accessor :cash_balance
 
+    attr_accessor :cash_balance_set_by
+
     attr_accessor :cash_surrender_value
+
+    attr_accessor :cash_surrender_value_set_by
 
     attr_accessor :created_at
 
     attr_accessor :credit_limit
 
+    attr_accessor :credit_limit_set_by
+
     attr_accessor :currency_code
+
+    attr_accessor :currency_code_set_by
 
     attr_accessor :day_payment_is_due
 
+    attr_accessor :day_payment_is_due_set_by
+
     attr_accessor :death_benefit
 
+    attr_accessor :death_benefit_set_by
+
     attr_accessor :federal_insurance_status
+
+    attr_accessor :feed_account_number
+
+    attr_accessor :feed_account_subtype
+
+    attr_accessor :feed_account_type
+
+    attr_accessor :feed_apr
+
+    attr_accessor :feed_apy
+
+    attr_accessor :feed_available_balance
+
+    attr_accessor :feed_balance
+
+    attr_accessor :feed_cash_balance
+
+    attr_accessor :feed_cash_surrender_value
+
+    attr_accessor :feed_credit_limit
+
+    attr_accessor :feed_currency_code
+
+    attr_accessor :feed_day_payment_is_due
+
+    attr_accessor :feed_death_benefit
+
+    attr_accessor :feed_holdings_value
+
+    attr_accessor :feed_interest_rate
+
+    attr_accessor :feed_is_closed
+
+    attr_accessor :feed_last_payment
+
+    attr_accessor :feed_last_payment_at
+
+    attr_accessor :feed_loan_amount
+
+    attr_accessor :feed_matures_on
+
+    attr_accessor :feed_minimum_balance
+
+    attr_accessor :feed_minimum_payment
+
+    attr_accessor :feed_name
+
+    attr_accessor :feed_nickname
+
+    attr_accessor :feed_original_balance
+
+    attr_accessor :feed_payment_due_at
+
+    attr_accessor :feed_payoff_balance
+
+    attr_accessor :feed_routing_number
+
+    attr_accessor :feed_started_on
+
+    attr_accessor :feed_statement_balance
+
+    attr_accessor :feed_total_account_value
 
     attr_accessor :guid
 
     attr_accessor :holdings_value
+
+    attr_accessor :holdings_value_set_by
 
     attr_accessor :id
 
@@ -61,11 +151,17 @@ module MxPlatformRuby
 
     attr_accessor :institution_code
 
+    attr_accessor :institution_guid
+
     attr_accessor :insured_name
 
     attr_accessor :interest_rate
 
+    attr_accessor :interest_rate_set_by
+
     attr_accessor :is_closed
+
+    attr_accessor :is_closed_set_by
 
     attr_accessor :is_hidden
 
@@ -73,13 +169,21 @@ module MxPlatformRuby
 
     attr_accessor :last_payment
 
+    attr_accessor :last_payment_set_by
+
     attr_accessor :last_payment_at
 
+    attr_accessor :last_payment_at_set_by
+
     attr_accessor :loan_amount
+
+    attr_accessor :loan_amount_set_by
 
     attr_accessor :margin_balance
 
     attr_accessor :matures_on
+
+    attr_accessor :matures_on_set_by
 
     attr_accessor :member_guid
 
@@ -91,19 +195,33 @@ module MxPlatformRuby
 
     attr_accessor :minimum_balance
 
+    attr_accessor :minimum_balance_set_by
+
     attr_accessor :minimum_payment
+
+    attr_accessor :minimum_payment_set_by
 
     attr_accessor :name
 
+    attr_accessor :name_set_by
+
     attr_accessor :nickname
 
+    attr_accessor :nickname_set_by
+
     attr_accessor :original_balance
+
+    attr_accessor :original_balance_set_by
 
     attr_accessor :pay_out_amount
 
     attr_accessor :payment_due_at
 
+    attr_accessor :payment_due_at_set_by
+
     attr_accessor :payoff_balance
+
+    attr_accessor :payoff_balance_set_by
 
     attr_accessor :premium_amount
 
@@ -113,9 +231,15 @@ module MxPlatformRuby
 
     attr_accessor :started_on
 
+    attr_accessor :started_on_set_by
+
     attr_accessor :statement_balance
 
+    attr_accessor :statement_balance_set_by
+
     attr_accessor :subtype
+
+    attr_accessor :subtype_set_by
 
     attr_accessor :today_ugl_amount
 
@@ -123,9 +247,13 @@ module MxPlatformRuby
 
     attr_accessor :total_account_value
 
+    attr_accessor :total_account_value_set_by
+
     attr_accessor :total_account_value_ugl
 
     attr_accessor :type
+
+    attr_accessor :type_set_by
 
     attr_accessor :updated_at
 
@@ -137,61 +265,125 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'account_number' => :'account_number',
+        :'account_number_set_by' => :'account_number_set_by',
         :'account_ownership' => :'account_ownership',
         :'annuity_policy_to_date' => :'annuity_policy_to_date',
         :'annuity_provider' => :'annuity_provider',
         :'annuity_term_year' => :'annuity_term_year',
         :'apr' => :'apr',
+        :'apr_set_by' => :'apr_set_by',
         :'apy' => :'apy',
+        :'apy_set_by' => :'apy_set_by',
         :'available_balance' => :'available_balance',
+        :'available_balance_set_by' => :'available_balance_set_by',
         :'available_credit' => :'available_credit',
+        :'available_credit_set_by' => :'available_credit_set_by',
         :'balance' => :'balance',
+        :'balance_set_by' => :'balance_set_by',
+        :'calculated_apr' => :'calculated_apr',
         :'cash_balance' => :'cash_balance',
+        :'cash_balance_set_by' => :'cash_balance_set_by',
         :'cash_surrender_value' => :'cash_surrender_value',
+        :'cash_surrender_value_set_by' => :'cash_surrender_value_set_by',
         :'created_at' => :'created_at',
         :'credit_limit' => :'credit_limit',
+        :'credit_limit_set_by' => :'credit_limit_set_by',
         :'currency_code' => :'currency_code',
+        :'currency_code_set_by' => :'currency_code_set_by',
         :'day_payment_is_due' => :'day_payment_is_due',
+        :'day_payment_is_due_set_by' => :'day_payment_is_due_set_by',
         :'death_benefit' => :'death_benefit',
+        :'death_benefit_set_by' => :'death_benefit_set_by',
         :'federal_insurance_status' => :'federal_insurance_status',
+        :'feed_account_number' => :'feed_account_number',
+        :'feed_account_subtype' => :'feed_account_subtype',
+        :'feed_account_type' => :'feed_account_type',
+        :'feed_apr' => :'feed_apr',
+        :'feed_apy' => :'feed_apy',
+        :'feed_available_balance' => :'feed_available_balance',
+        :'feed_balance' => :'feed_balance',
+        :'feed_cash_balance' => :'feed_cash_balance',
+        :'feed_cash_surrender_value' => :'feed_cash_surrender_value',
+        :'feed_credit_limit' => :'feed_credit_limit',
+        :'feed_currency_code' => :'feed_currency_code',
+        :'feed_day_payment_is_due' => :'feed_day_payment_is_due',
+        :'feed_death_benefit' => :'feed_death_benefit',
+        :'feed_holdings_value' => :'feed_holdings_value',
+        :'feed_interest_rate' => :'feed_interest_rate',
+        :'feed_is_closed' => :'feed_is_closed',
+        :'feed_last_payment' => :'feed_last_payment',
+        :'feed_last_payment_at' => :'feed_last_payment_at',
+        :'feed_loan_amount' => :'feed_loan_amount',
+        :'feed_matures_on' => :'feed_matures_on',
+        :'feed_minimum_balance' => :'feed_minimum_balance',
+        :'feed_minimum_payment' => :'feed_minimum_payment',
+        :'feed_name' => :'feed_name',
+        :'feed_nickname' => :'feed_nickname',
+        :'feed_original_balance' => :'feed_original_balance',
+        :'feed_payment_due_at' => :'feed_payment_due_at',
+        :'feed_payoff_balance' => :'feed_payoff_balance',
+        :'feed_routing_number' => :'feed_routing_number',
+        :'feed_started_on' => :'feed_started_on',
+        :'feed_statement_balance' => :'feed_statement_balance',
+        :'feed_total_account_value' => :'feed_total_account_value',
         :'guid' => :'guid',
         :'holdings_value' => :'holdings_value',
+        :'holdings_value_set_by' => :'holdings_value_set_by',
         :'id' => :'id',
         :'imported_at' => :'imported_at',
         :'institution_code' => :'institution_code',
+        :'institution_guid' => :'institution_guid',
         :'insured_name' => :'insured_name',
         :'interest_rate' => :'interest_rate',
+        :'interest_rate_set_by' => :'interest_rate_set_by',
         :'is_closed' => :'is_closed',
+        :'is_closed_set_by' => :'is_closed_set_by',
         :'is_hidden' => :'is_hidden',
         :'is_manual' => :'is_manual',
         :'last_payment' => :'last_payment',
+        :'last_payment_set_by' => :'last_payment_set_by',
         :'last_payment_at' => :'last_payment_at',
+        :'last_payment_at_set_by' => :'last_payment_at_set_by',
         :'loan_amount' => :'loan_amount',
+        :'loan_amount_set_by' => :'loan_amount_set_by',
         :'margin_balance' => :'margin_balance',
         :'matures_on' => :'matures_on',
+        :'matures_on_set_by' => :'matures_on_set_by',
         :'member_guid' => :'member_guid',
         :'member_id' => :'member_id',
         :'member_is_managed_by_user' => :'member_is_managed_by_user',
         :'metadata' => :'metadata',
         :'minimum_balance' => :'minimum_balance',
+        :'minimum_balance_set_by' => :'minimum_balance_set_by',
         :'minimum_payment' => :'minimum_payment',
+        :'minimum_payment_set_by' => :'minimum_payment_set_by',
         :'name' => :'name',
+        :'name_set_by' => :'name_set_by',
         :'nickname' => :'nickname',
+        :'nickname_set_by' => :'nickname_set_by',
         :'original_balance' => :'original_balance',
+        :'original_balance_set_by' => :'original_balance_set_by',
         :'pay_out_amount' => :'pay_out_amount',
         :'payment_due_at' => :'payment_due_at',
+        :'payment_due_at_set_by' => :'payment_due_at_set_by',
         :'payoff_balance' => :'payoff_balance',
+        :'payoff_balance_set_by' => :'payoff_balance_set_by',
         :'premium_amount' => :'premium_amount',
         :'property_type' => :'property_type',
         :'routing_number' => :'routing_number',
         :'started_on' => :'started_on',
+        :'started_on_set_by' => :'started_on_set_by',
         :'statement_balance' => :'statement_balance',
+        :'statement_balance_set_by' => :'statement_balance_set_by',
         :'subtype' => :'subtype',
+        :'subtype_set_by' => :'subtype_set_by',
         :'today_ugl_amount' => :'today_ugl_amount',
         :'today_ugl_percentage' => :'today_ugl_percentage',
         :'total_account_value' => :'total_account_value',
+        :'total_account_value_set_by' => :'total_account_value_set_by',
         :'total_account_value_ugl' => :'total_account_value_ugl',
         :'type' => :'type',
+        :'type_set_by' => :'type_set_by',
         :'updated_at' => :'updated_at',
         :'user_guid' => :'user_guid',
         :'user_id' => :'user_id'
@@ -207,61 +399,125 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'account_number' => :'String',
+        :'account_number_set_by' => :'Integer',
         :'account_ownership' => :'String',
         :'annuity_policy_to_date' => :'String',
         :'annuity_provider' => :'String',
-        :'annuity_term_year' => :'Float',
+        :'annuity_term_year' => :'Integer',
         :'apr' => :'Float',
+        :'apr_set_by' => :'Integer',
         :'apy' => :'Float',
+        :'apy_set_by' => :'Integer',
         :'available_balance' => :'Float',
+        :'available_balance_set_by' => :'Integer',
         :'available_credit' => :'Float',
+        :'available_credit_set_by' => :'Integer',
         :'balance' => :'Float',
+        :'balance_set_by' => :'Integer',
+        :'calculated_apr' => :'Float',
         :'cash_balance' => :'Float',
+        :'cash_balance_set_by' => :'Integer',
         :'cash_surrender_value' => :'Float',
+        :'cash_surrender_value_set_by' => :'Integer',
         :'created_at' => :'String',
         :'credit_limit' => :'Float',
+        :'credit_limit_set_by' => :'Integer',
         :'currency_code' => :'String',
+        :'currency_code_set_by' => :'Integer',
         :'day_payment_is_due' => :'Integer',
+        :'day_payment_is_due_set_by' => :'Integer',
         :'death_benefit' => :'Integer',
+        :'death_benefit_set_by' => :'Integer',
         :'federal_insurance_status' => :'String',
+        :'feed_account_number' => :'String',
+        :'feed_account_subtype' => :'Integer',
+        :'feed_account_type' => :'Integer',
+        :'feed_apr' => :'Float',
+        :'feed_apy' => :'Float',
+        :'feed_available_balance' => :'Float',
+        :'feed_balance' => :'Float',
+        :'feed_cash_balance' => :'Float',
+        :'feed_cash_surrender_value' => :'Float',
+        :'feed_credit_limit' => :'Float',
+        :'feed_currency_code' => :'String',
+        :'feed_day_payment_is_due' => :'Integer',
+        :'feed_death_benefit' => :'Integer',
+        :'feed_holdings_value' => :'Float',
+        :'feed_interest_rate' => :'Float',
+        :'feed_is_closed' => :'Boolean',
+        :'feed_last_payment' => :'Float',
+        :'feed_last_payment_at' => :'String',
+        :'feed_loan_amount' => :'Float',
+        :'feed_matures_on' => :'String',
+        :'feed_minimum_balance' => :'Float',
+        :'feed_minimum_payment' => :'Float',
+        :'feed_name' => :'String',
+        :'feed_nickname' => :'String',
+        :'feed_original_balance' => :'Float',
+        :'feed_payment_due_at' => :'String',
+        :'feed_payoff_balance' => :'Float',
+        :'feed_routing_number' => :'String',
+        :'feed_started_on' => :'String',
+        :'feed_statement_balance' => :'Float',
+        :'feed_total_account_value' => :'Float',
         :'guid' => :'String',
         :'holdings_value' => :'Float',
+        :'holdings_value_set_by' => :'Integer',
         :'id' => :'String',
         :'imported_at' => :'String',
         :'institution_code' => :'String',
+        :'institution_guid' => :'String',
         :'insured_name' => :'String',
         :'interest_rate' => :'Float',
+        :'interest_rate_set_by' => :'Integer',
         :'is_closed' => :'Boolean',
+        :'is_closed_set_by' => :'Integer',
         :'is_hidden' => :'Boolean',
         :'is_manual' => :'Boolean',
         :'last_payment' => :'Float',
+        :'last_payment_set_by' => :'Integer',
         :'last_payment_at' => :'String',
+        :'last_payment_at_set_by' => :'Integer',
         :'loan_amount' => :'Float',
+        :'loan_amount_set_by' => :'Integer',
         :'margin_balance' => :'Float',
         :'matures_on' => :'String',
+        :'matures_on_set_by' => :'Integer',
         :'member_guid' => :'String',
         :'member_id' => :'String',
         :'member_is_managed_by_user' => :'Boolean',
         :'metadata' => :'String',
         :'minimum_balance' => :'Float',
+        :'minimum_balance_set_by' => :'Integer',
         :'minimum_payment' => :'Float',
+        :'minimum_payment_set_by' => :'Integer',
         :'name' => :'String',
+        :'name_set_by' => :'Integer',
         :'nickname' => :'String',
+        :'nickname_set_by' => :'Integer',
         :'original_balance' => :'Float',
+        :'original_balance_set_by' => :'Integer',
         :'pay_out_amount' => :'Float',
         :'payment_due_at' => :'String',
+        :'payment_due_at_set_by' => :'Integer',
         :'payoff_balance' => :'Float',
-        :'premium_amount' => :'Float',
-        :'property_type' => :'String',
+        :'payoff_balance_set_by' => :'Integer',
+        :'premium_amount' => :'String',
+        :'property_type' => :'Integer',
         :'routing_number' => :'String',
         :'started_on' => :'String',
+        :'started_on_set_by' => :'Integer',
         :'statement_balance' => :'Float',
+        :'statement_balance_set_by' => :'Integer',
         :'subtype' => :'String',
+        :'subtype_set_by' => :'Integer',
         :'today_ugl_amount' => :'Float',
         :'today_ugl_percentage' => :'Float',
         :'total_account_value' => :'Float',
+        :'total_account_value_set_by' => :'Integer',
         :'total_account_value_ugl' => :'Float',
         :'type' => :'String',
+        :'type_set_by' => :'Integer',
         :'updated_at' => :'String',
         :'user_guid' => :'String',
         :'user_id' => :'String'
@@ -272,60 +528,124 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'account_number',
+        :'account_number_set_by',
         :'account_ownership',
         :'annuity_policy_to_date',
         :'annuity_provider',
         :'annuity_term_year',
         :'apr',
+        :'apr_set_by',
         :'apy',
+        :'apy_set_by',
         :'available_balance',
+        :'available_balance_set_by',
         :'available_credit',
+        :'available_credit_set_by',
         :'balance',
+        :'balance_set_by',
+        :'calculated_apr',
         :'cash_balance',
+        :'cash_balance_set_by',
         :'cash_surrender_value',
+        :'cash_surrender_value_set_by',
         :'credit_limit',
+        :'credit_limit_set_by',
         :'currency_code',
+        :'currency_code_set_by',
         :'day_payment_is_due',
+        :'day_payment_is_due_set_by',
         :'death_benefit',
+        :'death_benefit_set_by',
         :'federal_insurance_status',
+        :'feed_account_number',
+        :'feed_account_subtype',
+        :'feed_account_type',
+        :'feed_apr',
+        :'feed_apy',
+        :'feed_available_balance',
+        :'feed_balance',
+        :'feed_cash_balance',
+        :'feed_cash_surrender_value',
+        :'feed_credit_limit',
+        :'feed_currency_code',
+        :'feed_day_payment_is_due',
+        :'feed_death_benefit',
+        :'feed_holdings_value',
+        :'feed_interest_rate',
+        :'feed_is_closed',
+        :'feed_last_payment',
+        :'feed_last_payment_at',
+        :'feed_loan_amount',
+        :'feed_matures_on',
+        :'feed_minimum_balance',
+        :'feed_minimum_payment',
+        :'feed_name',
+        :'feed_nickname',
+        :'feed_original_balance',
+        :'feed_payment_due_at',
+        :'feed_payoff_balance',
+        :'feed_routing_number',
+        :'feed_started_on',
+        :'feed_statement_balance',
+        :'feed_total_account_value',
         :'guid',
         :'holdings_value',
+        :'holdings_value_set_by',
         :'id',
         :'imported_at',
         :'institution_code',
+        :'institution_guid',
         :'insured_name',
         :'interest_rate',
+        :'interest_rate_set_by',
         :'is_closed',
+        :'is_closed_set_by',
         :'is_hidden',
         :'is_manual',
         :'last_payment',
+        :'last_payment_set_by',
         :'last_payment_at',
+        :'last_payment_at_set_by',
         :'loan_amount',
+        :'loan_amount_set_by',
         :'margin_balance',
         :'matures_on',
+        :'matures_on_set_by',
         :'member_guid',
         :'member_id',
         :'member_is_managed_by_user',
         :'metadata',
         :'minimum_balance',
+        :'minimum_balance_set_by',
         :'minimum_payment',
+        :'minimum_payment_set_by',
         :'name',
+        :'name_set_by',
         :'nickname',
+        :'nickname_set_by',
         :'original_balance',
+        :'original_balance_set_by',
         :'pay_out_amount',
         :'payment_due_at',
+        :'payment_due_at_set_by',
         :'payoff_balance',
+        :'payoff_balance_set_by',
         :'premium_amount',
         :'property_type',
         :'routing_number',
         :'started_on',
+        :'started_on_set_by',
         :'statement_balance',
+        :'statement_balance_set_by',
         :'subtype',
+        :'subtype_set_by',
         :'today_ugl_amount',
         :'today_ugl_percentage',
         :'total_account_value',
+        :'total_account_value_set_by',
         :'total_account_value_ugl',
         :'type',
+        :'type_set_by',
         :'updated_at',
         :'user_guid',
         :'user_id'
@@ -351,6 +671,10 @@ module MxPlatformRuby
         self.account_number = attributes[:'account_number']
       end
 
+      if attributes.key?(:'account_number_set_by')
+        self.account_number_set_by = attributes[:'account_number_set_by']
+      end
+
       if attributes.key?(:'account_ownership')
         self.account_ownership = attributes[:'account_ownership']
       end
@@ -371,28 +695,60 @@ module MxPlatformRuby
         self.apr = attributes[:'apr']
       end
 
+      if attributes.key?(:'apr_set_by')
+        self.apr_set_by = attributes[:'apr_set_by']
+      end
+
       if attributes.key?(:'apy')
         self.apy = attributes[:'apy']
+      end
+
+      if attributes.key?(:'apy_set_by')
+        self.apy_set_by = attributes[:'apy_set_by']
       end
 
       if attributes.key?(:'available_balance')
         self.available_balance = attributes[:'available_balance']
       end
 
+      if attributes.key?(:'available_balance_set_by')
+        self.available_balance_set_by = attributes[:'available_balance_set_by']
+      end
+
       if attributes.key?(:'available_credit')
         self.available_credit = attributes[:'available_credit']
+      end
+
+      if attributes.key?(:'available_credit_set_by')
+        self.available_credit_set_by = attributes[:'available_credit_set_by']
       end
 
       if attributes.key?(:'balance')
         self.balance = attributes[:'balance']
       end
 
+      if attributes.key?(:'balance_set_by')
+        self.balance_set_by = attributes[:'balance_set_by']
+      end
+
+      if attributes.key?(:'calculated_apr')
+        self.calculated_apr = attributes[:'calculated_apr']
+      end
+
       if attributes.key?(:'cash_balance')
         self.cash_balance = attributes[:'cash_balance']
       end
 
+      if attributes.key?(:'cash_balance_set_by')
+        self.cash_balance_set_by = attributes[:'cash_balance_set_by']
+      end
+
       if attributes.key?(:'cash_surrender_value')
         self.cash_surrender_value = attributes[:'cash_surrender_value']
+      end
+
+      if attributes.key?(:'cash_surrender_value_set_by')
+        self.cash_surrender_value_set_by = attributes[:'cash_surrender_value_set_by']
       end
 
       if attributes.key?(:'created_at')
@@ -403,20 +759,160 @@ module MxPlatformRuby
         self.credit_limit = attributes[:'credit_limit']
       end
 
+      if attributes.key?(:'credit_limit_set_by')
+        self.credit_limit_set_by = attributes[:'credit_limit_set_by']
+      end
+
       if attributes.key?(:'currency_code')
         self.currency_code = attributes[:'currency_code']
+      end
+
+      if attributes.key?(:'currency_code_set_by')
+        self.currency_code_set_by = attributes[:'currency_code_set_by']
       end
 
       if attributes.key?(:'day_payment_is_due')
         self.day_payment_is_due = attributes[:'day_payment_is_due']
       end
 
+      if attributes.key?(:'day_payment_is_due_set_by')
+        self.day_payment_is_due_set_by = attributes[:'day_payment_is_due_set_by']
+      end
+
       if attributes.key?(:'death_benefit')
         self.death_benefit = attributes[:'death_benefit']
       end
 
+      if attributes.key?(:'death_benefit_set_by')
+        self.death_benefit_set_by = attributes[:'death_benefit_set_by']
+      end
+
       if attributes.key?(:'federal_insurance_status')
         self.federal_insurance_status = attributes[:'federal_insurance_status']
+      end
+
+      if attributes.key?(:'feed_account_number')
+        self.feed_account_number = attributes[:'feed_account_number']
+      end
+
+      if attributes.key?(:'feed_account_subtype')
+        self.feed_account_subtype = attributes[:'feed_account_subtype']
+      end
+
+      if attributes.key?(:'feed_account_type')
+        self.feed_account_type = attributes[:'feed_account_type']
+      end
+
+      if attributes.key?(:'feed_apr')
+        self.feed_apr = attributes[:'feed_apr']
+      end
+
+      if attributes.key?(:'feed_apy')
+        self.feed_apy = attributes[:'feed_apy']
+      end
+
+      if attributes.key?(:'feed_available_balance')
+        self.feed_available_balance = attributes[:'feed_available_balance']
+      end
+
+      if attributes.key?(:'feed_balance')
+        self.feed_balance = attributes[:'feed_balance']
+      end
+
+      if attributes.key?(:'feed_cash_balance')
+        self.feed_cash_balance = attributes[:'feed_cash_balance']
+      end
+
+      if attributes.key?(:'feed_cash_surrender_value')
+        self.feed_cash_surrender_value = attributes[:'feed_cash_surrender_value']
+      end
+
+      if attributes.key?(:'feed_credit_limit')
+        self.feed_credit_limit = attributes[:'feed_credit_limit']
+      end
+
+      if attributes.key?(:'feed_currency_code')
+        self.feed_currency_code = attributes[:'feed_currency_code']
+      end
+
+      if attributes.key?(:'feed_day_payment_is_due')
+        self.feed_day_payment_is_due = attributes[:'feed_day_payment_is_due']
+      end
+
+      if attributes.key?(:'feed_death_benefit')
+        self.feed_death_benefit = attributes[:'feed_death_benefit']
+      end
+
+      if attributes.key?(:'feed_holdings_value')
+        self.feed_holdings_value = attributes[:'feed_holdings_value']
+      end
+
+      if attributes.key?(:'feed_interest_rate')
+        self.feed_interest_rate = attributes[:'feed_interest_rate']
+      end
+
+      if attributes.key?(:'feed_is_closed')
+        self.feed_is_closed = attributes[:'feed_is_closed']
+      end
+
+      if attributes.key?(:'feed_last_payment')
+        self.feed_last_payment = attributes[:'feed_last_payment']
+      end
+
+      if attributes.key?(:'feed_last_payment_at')
+        self.feed_last_payment_at = attributes[:'feed_last_payment_at']
+      end
+
+      if attributes.key?(:'feed_loan_amount')
+        self.feed_loan_amount = attributes[:'feed_loan_amount']
+      end
+
+      if attributes.key?(:'feed_matures_on')
+        self.feed_matures_on = attributes[:'feed_matures_on']
+      end
+
+      if attributes.key?(:'feed_minimum_balance')
+        self.feed_minimum_balance = attributes[:'feed_minimum_balance']
+      end
+
+      if attributes.key?(:'feed_minimum_payment')
+        self.feed_minimum_payment = attributes[:'feed_minimum_payment']
+      end
+
+      if attributes.key?(:'feed_name')
+        self.feed_name = attributes[:'feed_name']
+      end
+
+      if attributes.key?(:'feed_nickname')
+        self.feed_nickname = attributes[:'feed_nickname']
+      end
+
+      if attributes.key?(:'feed_original_balance')
+        self.feed_original_balance = attributes[:'feed_original_balance']
+      end
+
+      if attributes.key?(:'feed_payment_due_at')
+        self.feed_payment_due_at = attributes[:'feed_payment_due_at']
+      end
+
+      if attributes.key?(:'feed_payoff_balance')
+        self.feed_payoff_balance = attributes[:'feed_payoff_balance']
+      end
+
+      if attributes.key?(:'feed_routing_number')
+        self.feed_routing_number = attributes[:'feed_routing_number']
+      end
+
+      if attributes.key?(:'feed_started_on')
+        self.feed_started_on = attributes[:'feed_started_on']
+      end
+
+      if attributes.key?(:'feed_statement_balance')
+        self.feed_statement_balance = attributes[:'feed_statement_balance']
+      end
+
+      if attributes.key?(:'feed_total_account_value')
+        self.feed_total_account_value = attributes[:'feed_total_account_value']
       end
 
       if attributes.key?(:'guid')
@@ -425,6 +921,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'holdings_value')
         self.holdings_value = attributes[:'holdings_value']
+      end
+
+      if attributes.key?(:'holdings_value_set_by')
+        self.holdings_value_set_by = attributes[:'holdings_value_set_by']
       end
 
       if attributes.key?(:'id')
@@ -439,6 +939,10 @@ module MxPlatformRuby
         self.institution_code = attributes[:'institution_code']
       end
 
+      if attributes.key?(:'institution_guid')
+        self.institution_guid = attributes[:'institution_guid']
+      end
+
       if attributes.key?(:'insured_name')
         self.insured_name = attributes[:'insured_name']
       end
@@ -447,8 +951,16 @@ module MxPlatformRuby
         self.interest_rate = attributes[:'interest_rate']
       end
 
+      if attributes.key?(:'interest_rate_set_by')
+        self.interest_rate_set_by = attributes[:'interest_rate_set_by']
+      end
+
       if attributes.key?(:'is_closed')
         self.is_closed = attributes[:'is_closed']
+      end
+
+      if attributes.key?(:'is_closed_set_by')
+        self.is_closed_set_by = attributes[:'is_closed_set_by']
       end
 
       if attributes.key?(:'is_hidden')
@@ -463,12 +975,24 @@ module MxPlatformRuby
         self.last_payment = attributes[:'last_payment']
       end
 
+      if attributes.key?(:'last_payment_set_by')
+        self.last_payment_set_by = attributes[:'last_payment_set_by']
+      end
+
       if attributes.key?(:'last_payment_at')
         self.last_payment_at = attributes[:'last_payment_at']
       end
 
+      if attributes.key?(:'last_payment_at_set_by')
+        self.last_payment_at_set_by = attributes[:'last_payment_at_set_by']
+      end
+
       if attributes.key?(:'loan_amount')
         self.loan_amount = attributes[:'loan_amount']
+      end
+
+      if attributes.key?(:'loan_amount_set_by')
+        self.loan_amount_set_by = attributes[:'loan_amount_set_by']
       end
 
       if attributes.key?(:'margin_balance')
@@ -477,6 +1001,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'matures_on')
         self.matures_on = attributes[:'matures_on']
+      end
+
+      if attributes.key?(:'matures_on_set_by')
+        self.matures_on_set_by = attributes[:'matures_on_set_by']
       end
 
       if attributes.key?(:'member_guid')
@@ -499,20 +1027,40 @@ module MxPlatformRuby
         self.minimum_balance = attributes[:'minimum_balance']
       end
 
+      if attributes.key?(:'minimum_balance_set_by')
+        self.minimum_balance_set_by = attributes[:'minimum_balance_set_by']
+      end
+
       if attributes.key?(:'minimum_payment')
         self.minimum_payment = attributes[:'minimum_payment']
+      end
+
+      if attributes.key?(:'minimum_payment_set_by')
+        self.minimum_payment_set_by = attributes[:'minimum_payment_set_by']
       end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'name_set_by')
+        self.name_set_by = attributes[:'name_set_by']
+      end
+
       if attributes.key?(:'nickname')
         self.nickname = attributes[:'nickname']
       end
 
+      if attributes.key?(:'nickname_set_by')
+        self.nickname_set_by = attributes[:'nickname_set_by']
+      end
+
       if attributes.key?(:'original_balance')
         self.original_balance = attributes[:'original_balance']
+      end
+
+      if attributes.key?(:'original_balance_set_by')
+        self.original_balance_set_by = attributes[:'original_balance_set_by']
       end
 
       if attributes.key?(:'pay_out_amount')
@@ -523,8 +1071,16 @@ module MxPlatformRuby
         self.payment_due_at = attributes[:'payment_due_at']
       end
 
+      if attributes.key?(:'payment_due_at_set_by')
+        self.payment_due_at_set_by = attributes[:'payment_due_at_set_by']
+      end
+
       if attributes.key?(:'payoff_balance')
         self.payoff_balance = attributes[:'payoff_balance']
+      end
+
+      if attributes.key?(:'payoff_balance_set_by')
+        self.payoff_balance_set_by = attributes[:'payoff_balance_set_by']
       end
 
       if attributes.key?(:'premium_amount')
@@ -543,12 +1099,24 @@ module MxPlatformRuby
         self.started_on = attributes[:'started_on']
       end
 
+      if attributes.key?(:'started_on_set_by')
+        self.started_on_set_by = attributes[:'started_on_set_by']
+      end
+
       if attributes.key?(:'statement_balance')
         self.statement_balance = attributes[:'statement_balance']
       end
 
+      if attributes.key?(:'statement_balance_set_by')
+        self.statement_balance_set_by = attributes[:'statement_balance_set_by']
+      end
+
       if attributes.key?(:'subtype')
         self.subtype = attributes[:'subtype']
+      end
+
+      if attributes.key?(:'subtype_set_by')
+        self.subtype_set_by = attributes[:'subtype_set_by']
       end
 
       if attributes.key?(:'today_ugl_amount')
@@ -563,12 +1131,20 @@ module MxPlatformRuby
         self.total_account_value = attributes[:'total_account_value']
       end
 
+      if attributes.key?(:'total_account_value_set_by')
+        self.total_account_value_set_by = attributes[:'total_account_value_set_by']
+      end
+
       if attributes.key?(:'total_account_value_ugl')
         self.total_account_value_ugl = attributes[:'total_account_value_ugl']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'type_set_by')
+        self.type_set_by = attributes[:'type_set_by']
       end
 
       if attributes.key?(:'updated_at')
@@ -605,61 +1181,125 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           account_number == o.account_number &&
+          account_number_set_by == o.account_number_set_by &&
           account_ownership == o.account_ownership &&
           annuity_policy_to_date == o.annuity_policy_to_date &&
           annuity_provider == o.annuity_provider &&
           annuity_term_year == o.annuity_term_year &&
           apr == o.apr &&
+          apr_set_by == o.apr_set_by &&
           apy == o.apy &&
+          apy_set_by == o.apy_set_by &&
           available_balance == o.available_balance &&
+          available_balance_set_by == o.available_balance_set_by &&
           available_credit == o.available_credit &&
+          available_credit_set_by == o.available_credit_set_by &&
           balance == o.balance &&
+          balance_set_by == o.balance_set_by &&
+          calculated_apr == o.calculated_apr &&
           cash_balance == o.cash_balance &&
+          cash_balance_set_by == o.cash_balance_set_by &&
           cash_surrender_value == o.cash_surrender_value &&
+          cash_surrender_value_set_by == o.cash_surrender_value_set_by &&
           created_at == o.created_at &&
           credit_limit == o.credit_limit &&
+          credit_limit_set_by == o.credit_limit_set_by &&
           currency_code == o.currency_code &&
+          currency_code_set_by == o.currency_code_set_by &&
           day_payment_is_due == o.day_payment_is_due &&
+          day_payment_is_due_set_by == o.day_payment_is_due_set_by &&
           death_benefit == o.death_benefit &&
+          death_benefit_set_by == o.death_benefit_set_by &&
           federal_insurance_status == o.federal_insurance_status &&
+          feed_account_number == o.feed_account_number &&
+          feed_account_subtype == o.feed_account_subtype &&
+          feed_account_type == o.feed_account_type &&
+          feed_apr == o.feed_apr &&
+          feed_apy == o.feed_apy &&
+          feed_available_balance == o.feed_available_balance &&
+          feed_balance == o.feed_balance &&
+          feed_cash_balance == o.feed_cash_balance &&
+          feed_cash_surrender_value == o.feed_cash_surrender_value &&
+          feed_credit_limit == o.feed_credit_limit &&
+          feed_currency_code == o.feed_currency_code &&
+          feed_day_payment_is_due == o.feed_day_payment_is_due &&
+          feed_death_benefit == o.feed_death_benefit &&
+          feed_holdings_value == o.feed_holdings_value &&
+          feed_interest_rate == o.feed_interest_rate &&
+          feed_is_closed == o.feed_is_closed &&
+          feed_last_payment == o.feed_last_payment &&
+          feed_last_payment_at == o.feed_last_payment_at &&
+          feed_loan_amount == o.feed_loan_amount &&
+          feed_matures_on == o.feed_matures_on &&
+          feed_minimum_balance == o.feed_minimum_balance &&
+          feed_minimum_payment == o.feed_minimum_payment &&
+          feed_name == o.feed_name &&
+          feed_nickname == o.feed_nickname &&
+          feed_original_balance == o.feed_original_balance &&
+          feed_payment_due_at == o.feed_payment_due_at &&
+          feed_payoff_balance == o.feed_payoff_balance &&
+          feed_routing_number == o.feed_routing_number &&
+          feed_started_on == o.feed_started_on &&
+          feed_statement_balance == o.feed_statement_balance &&
+          feed_total_account_value == o.feed_total_account_value &&
           guid == o.guid &&
           holdings_value == o.holdings_value &&
+          holdings_value_set_by == o.holdings_value_set_by &&
           id == o.id &&
           imported_at == o.imported_at &&
           institution_code == o.institution_code &&
+          institution_guid == o.institution_guid &&
           insured_name == o.insured_name &&
           interest_rate == o.interest_rate &&
+          interest_rate_set_by == o.interest_rate_set_by &&
           is_closed == o.is_closed &&
+          is_closed_set_by == o.is_closed_set_by &&
           is_hidden == o.is_hidden &&
           is_manual == o.is_manual &&
           last_payment == o.last_payment &&
+          last_payment_set_by == o.last_payment_set_by &&
           last_payment_at == o.last_payment_at &&
+          last_payment_at_set_by == o.last_payment_at_set_by &&
           loan_amount == o.loan_amount &&
+          loan_amount_set_by == o.loan_amount_set_by &&
           margin_balance == o.margin_balance &&
           matures_on == o.matures_on &&
+          matures_on_set_by == o.matures_on_set_by &&
           member_guid == o.member_guid &&
           member_id == o.member_id &&
           member_is_managed_by_user == o.member_is_managed_by_user &&
           metadata == o.metadata &&
           minimum_balance == o.minimum_balance &&
+          minimum_balance_set_by == o.minimum_balance_set_by &&
           minimum_payment == o.minimum_payment &&
+          minimum_payment_set_by == o.minimum_payment_set_by &&
           name == o.name &&
+          name_set_by == o.name_set_by &&
           nickname == o.nickname &&
+          nickname_set_by == o.nickname_set_by &&
           original_balance == o.original_balance &&
+          original_balance_set_by == o.original_balance_set_by &&
           pay_out_amount == o.pay_out_amount &&
           payment_due_at == o.payment_due_at &&
+          payment_due_at_set_by == o.payment_due_at_set_by &&
           payoff_balance == o.payoff_balance &&
+          payoff_balance_set_by == o.payoff_balance_set_by &&
           premium_amount == o.premium_amount &&
           property_type == o.property_type &&
           routing_number == o.routing_number &&
           started_on == o.started_on &&
+          started_on_set_by == o.started_on_set_by &&
           statement_balance == o.statement_balance &&
+          statement_balance_set_by == o.statement_balance_set_by &&
           subtype == o.subtype &&
+          subtype_set_by == o.subtype_set_by &&
           today_ugl_amount == o.today_ugl_amount &&
           today_ugl_percentage == o.today_ugl_percentage &&
           total_account_value == o.total_account_value &&
+          total_account_value_set_by == o.total_account_value_set_by &&
           total_account_value_ugl == o.total_account_value_ugl &&
           type == o.type &&
+          type_set_by == o.type_set_by &&
           updated_at == o.updated_at &&
           user_guid == o.user_guid &&
           user_id == o.user_id
@@ -674,7 +1314,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [account_number, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apy, available_balance, available_credit, balance, cash_balance, cash_surrender_value, created_at, credit_limit, currency_code, day_payment_is_due, death_benefit, federal_insurance_status, guid, holdings_value, id, imported_at, institution_code, insured_name, interest_rate, is_closed, is_hidden, is_manual, last_payment, last_payment_at, loan_amount, margin_balance, matures_on, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_payment, name, nickname, original_balance, pay_out_amount, payment_due_at, payoff_balance, premium_amount, property_type, routing_number, started_on, statement_balance, subtype, today_ugl_amount, today_ugl_percentage, total_account_value, total_account_value_ugl, type, updated_at, user_guid, user_id].hash
+      [account_number, account_number_set_by, account_ownership, annuity_policy_to_date, annuity_provider, annuity_term_year, apr, apr_set_by, apy, apy_set_by, available_balance, available_balance_set_by, available_credit, available_credit_set_by, balance, balance_set_by, calculated_apr, cash_balance, cash_balance_set_by, cash_surrender_value, cash_surrender_value_set_by, created_at, credit_limit, credit_limit_set_by, currency_code, currency_code_set_by, day_payment_is_due, day_payment_is_due_set_by, death_benefit, death_benefit_set_by, federal_insurance_status, feed_account_number, feed_account_subtype, feed_account_type, feed_apr, feed_apy, feed_available_balance, feed_balance, feed_cash_balance, feed_cash_surrender_value, feed_credit_limit, feed_currency_code, feed_day_payment_is_due, feed_death_benefit, feed_holdings_value, feed_interest_rate, feed_is_closed, feed_last_payment, feed_last_payment_at, feed_loan_amount, feed_matures_on, feed_minimum_balance, feed_minimum_payment, feed_name, feed_nickname, feed_original_balance, feed_payment_due_at, feed_payoff_balance, feed_routing_number, feed_started_on, feed_statement_balance, feed_total_account_value, guid, holdings_value, holdings_value_set_by, id, imported_at, institution_code, institution_guid, insured_name, interest_rate, interest_rate_set_by, is_closed, is_closed_set_by, is_hidden, is_manual, last_payment, last_payment_set_by, last_payment_at, last_payment_at_set_by, loan_amount, loan_amount_set_by, margin_balance, matures_on, matures_on_set_by, member_guid, member_id, member_is_managed_by_user, metadata, minimum_balance, minimum_balance_set_by, minimum_payment, minimum_payment_set_by, name, name_set_by, nickname, nickname_set_by, original_balance, original_balance_set_by, pay_out_amount, payment_due_at, payment_due_at_set_by, payoff_balance, payoff_balance_set_by, premium_amount, property_type, routing_number, started_on, started_on_set_by, statement_balance, statement_balance_set_by, subtype, subtype_set_by, today_ugl_amount, today_ugl_percentage, total_account_value, total_account_value_set_by, total_account_value_ugl, type, type_set_by, updated_at, user_guid, user_id].hash
     end
 
     # Builds the object from hash
