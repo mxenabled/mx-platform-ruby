@@ -24,6 +24,8 @@ module MxPlatformRuby
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_holdings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;.
+    # @option opts [Boolean] :include_transactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;.
     # @return [MemberResponseBody]
     def aggregate_member(member_guid, user_guid, opts = {})
       data, _status_code, _headers = aggregate_member_with_http_info(member_guid, user_guid, opts)
@@ -35,6 +37,8 @@ module MxPlatformRuby
     # @param member_guid [String] The unique id for a &#x60;member&#x60;.
     # @param user_guid [String] The unique id for a &#x60;user&#x60;.
     # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :include_holdings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;.
+    # @option opts [Boolean] :include_transactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;.
     # @return [Array<(MemberResponseBody, Integer, Hash)>] MemberResponseBody data, response status code and response headers
     def aggregate_member_with_http_info(member_guid, user_guid, opts = {})
       if @api_client.config.debugging
@@ -53,6 +57,8 @@ module MxPlatformRuby
 
       # query parameters
       query_params = opts[:query_params] || {}
+      query_params[:'include_holdings'] = opts[:'include_holdings'] if !opts[:'include_holdings'].nil?
+      query_params[:'include_transactions'] = opts[:'include_transactions'] if !opts[:'include_transactions'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -38,6 +38,8 @@ describe 'MxPlatformApi' do
   # @param member_guid The unique id for a &#x60;member&#x60;.
   # @param user_guid The unique id for a &#x60;user&#x60;.
   # @param [Hash] opts the optional parameters
+  # @option opts [Boolean] :include_holdings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;.
+  # @option opts [Boolean] :include_transactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;.
   # @return [MemberResponseBody]
   describe 'aggregate_member test' do
     it 'should work' do

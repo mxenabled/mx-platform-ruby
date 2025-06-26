@@ -115,7 +115,7 @@ All URIs are relative to *https://api.mx.com*
 
 ## aggregate_member
 
-> <MemberResponseBody> aggregate_member(member_guid, user_guid)
+> <MemberResponseBody> aggregate_member(member_guid, user_guid, opts)
 
 Aggregate member
 
@@ -136,10 +136,14 @@ end
 api_instance = MxPlatformRuby::MxPlatformApi.new
 member_guid = 'MBR-7c6f361b-e582-15b6-60c0-358f12466b4b' # String | The unique id for a `member`.
 user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+opts = {
+  include_holdings: false, # Boolean | When set to `false`, the aggregation will not gather holdings data. Defaults to `true`.
+  include_transactions: false # Boolean | When set to `false`, the aggregation will not gather transactions data. Defaults to `true`.
+}
 
 begin
   # Aggregate member
-  result = api_instance.aggregate_member(member_guid, user_guid)
+  result = api_instance.aggregate_member(member_guid, user_guid, opts)
   p result
 rescue MxPlatformRuby::ApiError => e
   puts "Error when calling MxPlatformApi->aggregate_member: #{e}"
@@ -150,12 +154,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MemberResponseBody>, Integer, Hash)> aggregate_member_with_http_info(member_guid, user_guid)
+> <Array(<MemberResponseBody>, Integer, Hash)> aggregate_member_with_http_info(member_guid, user_guid, opts)
 
 ```ruby
 begin
   # Aggregate member
-  data, status_code, headers = api_instance.aggregate_member_with_http_info(member_guid, user_guid)
+  data, status_code, headers = api_instance.aggregate_member_with_http_info(member_guid, user_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MemberResponseBody>
@@ -170,6 +174,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **member_guid** | **String** | The unique id for a &#x60;member&#x60;. |  |
 | **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **include_holdings** | **Boolean** | When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. | [optional] |
+| **include_transactions** | **Boolean** | When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. | [optional] |
 
 ### Return type
 
