@@ -17,6 +17,8 @@ module MxPlatformRuby
   class ImageOptionResponse
     attr_accessor :data_uri
 
+    attr_accessor :guid
+
     attr_accessor :label
 
     attr_accessor :value
@@ -25,6 +27,7 @@ module MxPlatformRuby
     def self.attribute_map
       {
         :'data_uri' => :'data_uri',
+        :'guid' => :'guid',
         :'label' => :'label',
         :'value' => :'value'
       }
@@ -39,6 +42,7 @@ module MxPlatformRuby
     def self.openapi_types
       {
         :'data_uri' => :'String',
+        :'guid' => :'String',
         :'label' => :'String',
         :'value' => :'String'
       }
@@ -48,6 +52,7 @@ module MxPlatformRuby
     def self.openapi_nullable
       Set.new([
         :'data_uri',
+        :'guid',
         :'label',
         :'value'
       ])
@@ -70,6 +75,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'data_uri')
         self.data_uri = attributes[:'data_uri']
+      end
+
+      if attributes.key?(:'guid')
+        self.guid = attributes[:'guid']
       end
 
       if attributes.key?(:'label')
@@ -102,6 +111,7 @@ module MxPlatformRuby
       return true if self.equal?(o)
       self.class == o.class &&
           data_uri == o.data_uri &&
+          guid == o.guid &&
           label == o.label &&
           value == o.value
     end
@@ -115,7 +125,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [data_uri, label, value].hash
+      [data_uri, guid, label, value].hash
     end
 
     # Builds the object from hash

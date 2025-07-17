@@ -27,6 +27,12 @@ describe MxPlatformRuby::OptionResponse do
     end
   end
 
+  describe 'test attribute "guid"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "label"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

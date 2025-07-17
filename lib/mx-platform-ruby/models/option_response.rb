@@ -15,6 +15,8 @@ require 'time'
 
 module MxPlatformRuby
   class OptionResponse
+    attr_accessor :guid
+
     attr_accessor :label
 
     attr_accessor :value
@@ -22,6 +24,7 @@ module MxPlatformRuby
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'guid' => :'guid',
         :'label' => :'label',
         :'value' => :'value'
       }
@@ -35,6 +38,7 @@ module MxPlatformRuby
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'guid' => :'String',
         :'label' => :'String',
         :'value' => :'String'
       }
@@ -43,6 +47,7 @@ module MxPlatformRuby
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'guid',
         :'label',
         :'value'
       ])
@@ -62,6 +67,10 @@ module MxPlatformRuby
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'guid')
+        self.guid = attributes[:'guid']
+      end
 
       if attributes.key?(:'label')
         self.label = attributes[:'label']
@@ -92,6 +101,7 @@ module MxPlatformRuby
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          guid == o.guid &&
           label == o.label &&
           value == o.value
     end
@@ -105,7 +115,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [label, value].hash
+      [guid, label, value].hash
     end
 
     # Builds the object from hash
