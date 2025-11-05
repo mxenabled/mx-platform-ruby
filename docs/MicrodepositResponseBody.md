@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **micro_deposit** | [**MicrodepositResponse**](MicrodepositResponse.md) |  | [optional] |
+| **micro_deposit** | [**Array&lt;MicrodepositResponseBodyMicroDepositInner&gt;**](MicrodepositResponseBodyMicroDepositInner.md) |  | [optional] |
 
 ## Example
 

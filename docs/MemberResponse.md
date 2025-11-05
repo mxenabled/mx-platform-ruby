@@ -8,7 +8,6 @@
 | **background_aggregation_is_disabled** | **Boolean** |  | [optional] |
 | **connection_status** | **String** |  | [optional] |
 | **connection_status_message** | **String** |  | [optional] |
-| **error** | **String** |  | [optional] |
 | **guid** | **String** |  | [optional] |
 | **id** | **String** |  | [optional] |
 | **institution_code** | **String** |  | [optional] |
@@ -39,11 +38,10 @@ instance = MxPlatformRuby::MemberResponse.new(
   background_aggregation_is_disabled: false,
   connection_status: CONNECTED,
   connection_status_message: Connected to MX Bank,
-  error: {\&quot;error_type\&quot;: \&quot;MEMBER\&quot;, \&quot;error_code\&quot;: 1000, \&quot;error_message\&quot;: \&quot;This Member has no eligible checking, savings, or money market accounts.\&quot;, \&quot;user_message\&quot;: \&quot;We could not find any accounts eligible for transfers. Please link a checking or savings account.\&quot;, \&quot;locale\&quot;: \&quot;en\&quot;},
   guid: MBR-7c6f361b-e582-15b6-60c0-358f12466b4b,
   id: unique_id,
   institution_code: mxbank,
-  institution_guid: INS-12345678-90ab-cdef-1234-567890abcdef,
+  institution_guid: INST-12345678-90ab-cdef-1234-567890abcdef,
   is_being_aggregated: false,
   is_managed_by_user: false,
   is_manual: false,

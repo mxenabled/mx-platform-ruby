@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **rewards** | [**Array&lt;RewardsResponse&gt;**](RewardsResponse.md) |  | [optional] |
+| **rewards** | [**Array&lt;RewardsResponseBodyRewardsInner&gt;**](RewardsResponseBodyRewardsInner.md) |  | [optional] |
 | **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example

@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **metadata** | **String** |  | [optional] |
 | **name** | **String** |  |  |
-| **parent_guid** | **String** |  | [optional] |
+| **parent_guid** | **String** |  |  |
 
 ## Example
 

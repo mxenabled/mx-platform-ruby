@@ -1,24 +1,24 @@
 # MxPlatformRuby::GoalsApi
 
-All URIs are relative to *https://api.mx.com*
+All URIs are relative to *https://int-api.mx.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**users_user_guid_goals_get**](GoalsApi.md#users_user_guid_goals_get) | **GET** /users/{user_guid}/goals | List goals |
-| [**users_user_guid_goals_goal_guid_delete**](GoalsApi.md#users_user_guid_goals_goal_guid_delete) | **DELETE** /users/{user_guid}/goals/{goal_guid} | Delete a goal |
-| [**users_user_guid_goals_goal_guid_get**](GoalsApi.md#users_user_guid_goals_goal_guid_get) | **GET** /users/{user_guid}/goals/{goal_guid} | Read a goal |
-| [**users_user_guid_goals_goal_guid_put**](GoalsApi.md#users_user_guid_goals_goal_guid_put) | **PUT** /users/{user_guid}/goals/{goal_guid} | Update a goal |
-| [**users_user_guid_goals_post**](GoalsApi.md#users_user_guid_goals_post) | **POST** /users/{user_guid}/goals | Create a goal |
-| [**users_user_guid_goals_reposition_put**](GoalsApi.md#users_user_guid_goals_reposition_put) | **PUT** /users/{user_guid}/goals/reposition | Reposition goals |
+| [**create_goal**](GoalsApi.md#create_goal) | **POST** /users/{user_guid}/goals | Create a goal |
+| [**delete_goal**](GoalsApi.md#delete_goal) | **DELETE** /users/{user_guid}/goals/{goal_guid} | Delete a goal |
+| [**list_goals**](GoalsApi.md#list_goals) | **GET** /users/{user_guid}/goals | List goals |
+| [**read_goal**](GoalsApi.md#read_goal) | **GET** /users/{user_guid}/goals/{goal_guid} | Read a goal |
+| [**reposition_goals**](GoalsApi.md#reposition_goals) | **PUT** /users/{user_guid}/goals/reposition | Reposition goals |
+| [**update_goal**](GoalsApi.md#update_goal) | **PUT** /users/{user_guid}/goals/{goal_guid} | Update a goal |
 
 
-## users_user_guid_goals_get
+## create_goal
 
-> <GoalsResponseBody> users_user_guid_goals_get(user_guid, opts)
+> <GoalResponseBody> create_goal(user_guid, goal_request_body)
 
-List goals
+Create a goal
 
-List all goals a user can set.
+Create a goal. This endpoint accepts the optional `MX-Skip-Webhook` header and `skip_webhook` parameter.
 
 ### Examples
 
@@ -33,36 +33,33 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::GoalsApi.new
-user_guid = 'user_guid_example' # String | The unique identifier for the user.
-opts = {
-  page: 'page_example', # String | Results are returned in paginated sets, this is the page of the results you would like to view. Defaults to page 1 if no page is specified.
-  records_per_age: 'records_per_age_example' # String | The supported range is from 10 to 1000. If the records_per_page parameter is not specified or is outside this range, a default of 25 records per page will be used.
-}
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+goal_request_body = MxPlatformRuby::GoalRequestBody.new # GoalRequestBody | 
 
 begin
-  # List goals
-  result = api_instance.users_user_guid_goals_get(user_guid, opts)
+  # Create a goal
+  result = api_instance.create_goal(user_guid, goal_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_get: #{e}"
+  puts "Error when calling GoalsApi->create_goal: #{e}"
 end
 ```
 
-#### Using the users_user_guid_goals_get_with_http_info variant
+#### Using the create_goal_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GoalsResponseBody>, Integer, Hash)> users_user_guid_goals_get_with_http_info(user_guid, opts)
+> <Array(<GoalResponseBody>, Integer, Hash)> create_goal_with_http_info(user_guid, goal_request_body)
 
 ```ruby
 begin
-  # List goals
-  data, status_code, headers = api_instance.users_user_guid_goals_get_with_http_info(user_guid, opts)
+  # Create a goal
+  data, status_code, headers = api_instance.create_goal_with_http_info(user_guid, goal_request_body)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <GoalsResponseBody>
+  p data # => <GoalResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_get_with_http_info: #{e}"
+  puts "Error when calling GoalsApi->create_goal_with_http_info: #{e}"
 end
 ```
 
@@ -70,13 +67,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique identifier for the user. |  |
-| **page** | **String** | Results are returned in paginated sets, this is the page of the results you would like to view. Defaults to page 1 if no page is specified. | [optional] |
-| **records_per_age** | **String** | The supported range is from 10 to 1000. If the records_per_page parameter is not specified or is outside this range, a default of 25 records per page will be used. | [optional] |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **goal_request_body** | [**GoalRequestBody**](GoalRequestBody.md) |  |  |
 
 ### Return type
 
-[**GoalsResponseBody**](GoalsResponseBody.md)
+[**GoalResponseBody**](GoalResponseBody.md)
 
 ### Authorization
 
@@ -84,13 +80,13 @@ end
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/vnd.mx.api.v1+json
 - **Accept**: application/json
 
 
-## users_user_guid_goals_goal_guid_delete
+## delete_goal
 
-> users_user_guid_goals_goal_guid_delete(goal_guid, user_guid)
+> delete_goal(goal_guid, user_guid, accept)
 
 Delete a goal
 
@@ -110,31 +106,32 @@ end
 
 api_instance = MxPlatformRuby::GoalsApi.new
 goal_guid = 'goal_guid_example' # String | The unique identifier for a goal. Defined by MX.
-user_guid = 'user_guid_example' # String | The unique identifier for a user.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+accept = 'application/vnd.mx.api.v1+json' # String | Specifies the media type expected in the response.
 
 begin
   # Delete a goal
-  api_instance.users_user_guid_goals_goal_guid_delete(goal_guid, user_guid)
+  api_instance.delete_goal(goal_guid, user_guid, accept)
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_delete: #{e}"
+  puts "Error when calling GoalsApi->delete_goal: #{e}"
 end
 ```
 
-#### Using the users_user_guid_goals_goal_guid_delete_with_http_info variant
+#### Using the delete_goal_with_http_info variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> users_user_guid_goals_goal_guid_delete_with_http_info(goal_guid, user_guid)
+> <Array(nil, Integer, Hash)> delete_goal_with_http_info(goal_guid, user_guid, accept)
 
 ```ruby
 begin
   # Delete a goal
-  data, status_code, headers = api_instance.users_user_guid_goals_goal_guid_delete_with_http_info(goal_guid, user_guid)
+  data, status_code, headers = api_instance.delete_goal_with_http_info(goal_guid, user_guid, accept)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_delete_with_http_info: #{e}"
+  puts "Error when calling GoalsApi->delete_goal_with_http_info: #{e}"
 end
 ```
 
@@ -143,7 +140,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **goal_guid** | **String** | The unique identifier for a goal. Defined by MX. |  |
-| **user_guid** | **String** | The unique identifier for a user. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **accept** | **String** | Specifies the media type expected in the response. |  |
 
 ### Return type
 
@@ -159,9 +157,87 @@ nil (empty response body)
 - **Accept**: Not defined
 
 
-## users_user_guid_goals_goal_guid_get
+## list_goals
 
-> <GoalResponseBody> users_user_guid_goals_goal_guid_get(goal_guid, user_guid)
+> <GoalsResponseBody> list_goals(accept, user_guid, opts)
+
+List goals
+
+List all goals a user can set.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::GoalsApi.new
+accept = 'application/vnd.mx.api.v1+json' # String | Specifies the media type expected in the response.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+opts = {
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
+}
+
+begin
+  # List goals
+  result = api_instance.list_goals(accept, user_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling GoalsApi->list_goals: #{e}"
+end
+```
+
+#### Using the list_goals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GoalsResponseBody>, Integer, Hash)> list_goals_with_http_info(accept, user_guid, opts)
+
+```ruby
+begin
+  # List goals
+  data, status_code, headers = api_instance.list_goals_with_http_info(accept, user_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GoalsResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling GoalsApi->list_goals_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **accept** | **String** | Specifies the media type expected in the response. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+
+### Return type
+
+[**GoalsResponseBody**](GoalsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_goal
+
+> <GoalResponseBody> read_goal(goal_guid, user_guid)
 
 Read a goal
 
@@ -181,32 +257,32 @@ end
 
 api_instance = MxPlatformRuby::GoalsApi.new
 goal_guid = 'goal_guid_example' # String | The unique identifier for a goal. Defined by MX.
-user_guid = 'user_guid_example' # String | The unique identifier for a user.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 
 begin
   # Read a goal
-  result = api_instance.users_user_guid_goals_goal_guid_get(goal_guid, user_guid)
+  result = api_instance.read_goal(goal_guid, user_guid)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_get: #{e}"
+  puts "Error when calling GoalsApi->read_goal: #{e}"
 end
 ```
 
-#### Using the users_user_guid_goals_goal_guid_get_with_http_info variant
+#### Using the read_goal_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GoalResponseBody>, Integer, Hash)> users_user_guid_goals_goal_guid_get_with_http_info(goal_guid, user_guid)
+> <Array(<GoalResponseBody>, Integer, Hash)> read_goal_with_http_info(goal_guid, user_guid)
 
 ```ruby
 begin
   # Read a goal
-  data, status_code, headers = api_instance.users_user_guid_goals_goal_guid_get_with_http_info(goal_guid, user_guid)
+  data, status_code, headers = api_instance.read_goal_with_http_info(goal_guid, user_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GoalResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_get_with_http_info: #{e}"
+  puts "Error when calling GoalsApi->read_goal_with_http_info: #{e}"
 end
 ```
 
@@ -215,7 +291,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **goal_guid** | **String** | The unique identifier for a goal. Defined by MX. |  |
-| **user_guid** | **String** | The unique identifier for a user. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 
 ### Return type
 
@@ -231,9 +307,81 @@ end
 - **Accept**: application/json
 
 
-## users_user_guid_goals_goal_guid_put
+## reposition_goals
 
-> <GoalResponseBody> users_user_guid_goals_goal_guid_put(goal_guid, user_guid, update_goal_request_body)
+> <RepositionResponseBody> reposition_goals(user_guid, reposition_request_body)
+
+Reposition goals
+
+This endpoint repositions goal priority levels. If one goal is set to a lower priority, then any other goals need to be adjusted accordingly.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::GoalsApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+reposition_request_body = MxPlatformRuby::RepositionRequestBody.new # RepositionRequestBody | 
+
+begin
+  # Reposition goals
+  result = api_instance.reposition_goals(user_guid, reposition_request_body)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling GoalsApi->reposition_goals: #{e}"
+end
+```
+
+#### Using the reposition_goals_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<RepositionResponseBody>, Integer, Hash)> reposition_goals_with_http_info(user_guid, reposition_request_body)
+
+```ruby
+begin
+  # Reposition goals
+  data, status_code, headers = api_instance.reposition_goals_with_http_info(user_guid, reposition_request_body)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <RepositionResponseBody>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling GoalsApi->reposition_goals_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **reposition_request_body** | [**RepositionRequestBody**](RepositionRequestBody.md) |  |  |
+
+### Return type
+
+[**RepositionResponseBody**](RepositionResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/vnd.mx.api.v1+json
+- **Accept**: application/json
+
+
+## update_goal
+
+> <GoalResponseBody> update_goal(goal_guid, user_guid, update_goal_request_body)
 
 Update a goal
 
@@ -253,33 +401,33 @@ end
 
 api_instance = MxPlatformRuby::GoalsApi.new
 goal_guid = 'goal_guid_example' # String | The unique identifier for a goal. Defined by MX.
-user_guid = 'user_guid_example' # String | The unique identifier for a user.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 update_goal_request_body = MxPlatformRuby::UpdateGoalRequestBody.new # UpdateGoalRequestBody | 
 
 begin
   # Update a goal
-  result = api_instance.users_user_guid_goals_goal_guid_put(goal_guid, user_guid, update_goal_request_body)
+  result = api_instance.update_goal(goal_guid, user_guid, update_goal_request_body)
   p result
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_put: #{e}"
+  puts "Error when calling GoalsApi->update_goal: #{e}"
 end
 ```
 
-#### Using the users_user_guid_goals_goal_guid_put_with_http_info variant
+#### Using the update_goal_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<GoalResponseBody>, Integer, Hash)> users_user_guid_goals_goal_guid_put_with_http_info(goal_guid, user_guid, update_goal_request_body)
+> <Array(<GoalResponseBody>, Integer, Hash)> update_goal_with_http_info(goal_guid, user_guid, update_goal_request_body)
 
 ```ruby
 begin
   # Update a goal
-  data, status_code, headers = api_instance.users_user_guid_goals_goal_guid_put_with_http_info(goal_guid, user_guid, update_goal_request_body)
+  data, status_code, headers = api_instance.update_goal_with_http_info(goal_guid, user_guid, update_goal_request_body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <GoalResponseBody>
 rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_goal_guid_put_with_http_info: #{e}"
+  puts "Error when calling GoalsApi->update_goal_with_http_info: #{e}"
 end
 ```
 
@@ -288,156 +436,12 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **goal_guid** | **String** | The unique identifier for a goal. Defined by MX. |  |
-| **user_guid** | **String** | The unique identifier for a user. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **update_goal_request_body** | [**UpdateGoalRequestBody**](UpdateGoalRequestBody.md) |  |  |
 
 ### Return type
 
 [**GoalResponseBody**](GoalResponseBody.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## users_user_guid_goals_post
-
-> <GoalResponseBody> users_user_guid_goals_post(user_guid, goal_request_body)
-
-Create a goal
-
-Create a goal. This endpoint accepts the optional `MX-Skip-Webhook` header and `skip_webhook` parameter.
-
-### Examples
-
-```ruby
-require 'time'
-require 'mx-platform-ruby'
-# setup authorization
-MxPlatformRuby.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = MxPlatformRuby::GoalsApi.new
-user_guid = 'user_guid_example' # String | The unique identifier for the user.
-goal_request_body = MxPlatformRuby::GoalRequestBody.new # GoalRequestBody | 
-
-begin
-  # Create a goal
-  result = api_instance.users_user_guid_goals_post(user_guid, goal_request_body)
-  p result
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_post: #{e}"
-end
-```
-
-#### Using the users_user_guid_goals_post_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<GoalResponseBody>, Integer, Hash)> users_user_guid_goals_post_with_http_info(user_guid, goal_request_body)
-
-```ruby
-begin
-  # Create a goal
-  data, status_code, headers = api_instance.users_user_guid_goals_post_with_http_info(user_guid, goal_request_body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <GoalResponseBody>
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_post_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique identifier for the user. |  |
-| **goal_request_body** | [**GoalRequestBody**](GoalRequestBody.md) |  |  |
-
-### Return type
-
-[**GoalResponseBody**](GoalResponseBody.md)
-
-### Authorization
-
-[basicAuth](../README.md#basicAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## users_user_guid_goals_reposition_put
-
-> <RepositionResponseBody> users_user_guid_goals_reposition_put(user_guid, reposition_request_body)
-
-Reposition goals
-
-This endpoint repositions goal priority levels. If one goal is set to a lower priority, then any other goals need to be adjusted accordingly.
-
-### Examples
-
-```ruby
-require 'time'
-require 'mx-platform-ruby'
-# setup authorization
-MxPlatformRuby.configure do |config|
-  # Configure HTTP basic authorization: basicAuth
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
-end
-
-api_instance = MxPlatformRuby::GoalsApi.new
-user_guid = 'user_guid_example' # String | The unique identifier for the user.
-reposition_request_body = MxPlatformRuby::RepositionRequestBody.new # RepositionRequestBody | 
-
-begin
-  # Reposition goals
-  result = api_instance.users_user_guid_goals_reposition_put(user_guid, reposition_request_body)
-  p result
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_reposition_put: #{e}"
-end
-```
-
-#### Using the users_user_guid_goals_reposition_put_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<RepositionResponseBody>, Integer, Hash)> users_user_guid_goals_reposition_put_with_http_info(user_guid, reposition_request_body)
-
-```ruby
-begin
-  # Reposition goals
-  data, status_code, headers = api_instance.users_user_guid_goals_reposition_put_with_http_info(user_guid, reposition_request_body)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <RepositionResponseBody>
-rescue MxPlatformRuby::ApiError => e
-  puts "Error when calling GoalsApi->users_user_guid_goals_reposition_put_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique identifier for the user. |  |
-| **reposition_request_body** | [**RepositionRequestBody**](RepositionRequestBody.md) |  |  |
-
-### Return type
-
-[**RepositionResponseBody**](RepositionResponseBody.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **created_at** | **String** |  | [optional] |
+| **created_at** | **String** | Category creation date-time. | [optional] |
 | **guid** | **String** |  | [optional] |
 | **is_default** | **Boolean** |  | [optional] |
 | **is_income** | **Boolean** |  | [optional] |

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 | **scheduled_payments** | [**Array&lt;ScheduledPaymentResponse&gt;**](ScheduledPaymentResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::ScheduledPaymentsResponseBody.new(
-  pagination: null,
-  scheduled_payments: null
+  scheduled_payments: null,
+  pagination: null
 )
 ```
 

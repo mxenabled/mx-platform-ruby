@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **insight** | [**Array&lt;InsightResponse&gt;**](InsightResponse.md) |  | [optional] |
+| **insight** | [**InsightResponse**](InsightResponse.md) |  | [optional] |
 
 ## Example
 

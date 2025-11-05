@@ -4,7 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **description** | **String** |  |  |
+| **date** | **String** |  | [optional] |
+| **memo** | **String** |  | [optional] |
+| **category_guid** | **String** |  | [optional] |
+| **description** | **String** |  | [optional] |
 
 ## Example
 
@@ -12,6 +15,9 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::TransactionUpdateRequest.new(
+  date: null,
+  memo: null,
+  category_guid: null,
   description: new description
 )
 ```
