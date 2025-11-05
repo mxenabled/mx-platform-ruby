@@ -1,6 +1,6 @@
 # MxPlatformRuby::SpendingPlanApi
 
-All URIs are relative to *https://api.mx.com*
+All URIs are relative to *https://int-api.mx.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -13,6 +13,7 @@ All URIs are relative to *https://api.mx.com*
 | [**list_spending_plan_iteration_items**](SpendingPlanApi.md#list_spending_plan_iteration_items) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | List spending plan iteration items |
 | [**list_spending_plan_iterations**](SpendingPlanApi.md#list_spending_plan_iterations) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations | List spending plan iterations |
 | [**list_spending_plans**](SpendingPlanApi.md#list_spending_plans) | **GET** /users/{user_guid}/spending_plans | List spending plans |
+| [**read_current_spending_plan_iteration**](SpendingPlanApi.md#read_current_spending_plan_iteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current | Read current spending plan iteration |
 | [**read_spending_plan_account**](SpendingPlanApi.md#read_spending_plan_account) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Read spending plan account |
 | [**read_spending_plan_iteration**](SpendingPlanApi.md#read_spending_plan_iteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number} | Read a spending plan iteration |
 | [**read_spending_plan_iteration_item**](SpendingPlanApi.md#read_spending_plan_iteration_item) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Read a spending plan iteration item |
@@ -41,7 +42,7 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 
 begin
   # Create spending plan
@@ -74,7 +75,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 
 ### Return type
 
@@ -112,7 +113,7 @@ end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameter (planned_amount)
 
 begin
@@ -147,7 +148,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item to be created with required parameter (planned_amount) |  |
 
 ### Return type
@@ -185,7 +186,7 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique ID for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 
 begin
@@ -218,7 +219,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique ID for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 
 ### Return type
@@ -256,7 +257,7 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique ID for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 spending_plan_account_guid = 'ACT-e9f80fee-84da-7s7r-9a5e-0346g4279b4c' # String | The unique ID for the specified account.
 
@@ -290,7 +291,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique ID for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **spending_plan_account_guid** | **String** | The unique ID for the specified account. |  |
 
@@ -329,7 +330,7 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique ID for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 iteration_item_guid = 'SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3' # String | The unique ID for the `iteration_item`.
 
@@ -363,7 +364,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique ID for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **iteration_item_guid** | **String** | The unique ID for the &#x60;iteration_item&#x60;. |  |
 
@@ -402,11 +403,11 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -440,10 +441,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -480,11 +481,11 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -518,10 +519,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -558,11 +559,11 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -596,10 +597,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -636,10 +637,10 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -673,13 +674,91 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
 [**SpendingPlansResponseBody**](SpendingPlansResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.mx.api.v1+json
+
+
+## read_current_spending_plan_iteration
+
+> <SpendingPlanIterationResponse> read_current_spending_plan_iteration(user_guid, spending_plan_guid, opts)
+
+Read current spending plan iteration
+
+Use this endpoint to read the attributes of the current spending plan `iteration`.
+
+### Examples
+
+```ruby
+require 'time'
+require 'mx-platform-ruby'
+# setup authorization
+MxPlatformRuby.configure do |config|
+  # Configure HTTP basic authorization: basicAuth
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = MxPlatformRuby::SpendingPlanApi.new
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
+opts = {
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
+}
+
+begin
+  # Read current spending plan iteration
+  result = api_instance.read_current_spending_plan_iteration(user_guid, spending_plan_guid, opts)
+  p result
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling SpendingPlanApi->read_current_spending_plan_iteration: #{e}"
+end
+```
+
+#### Using the read_current_spending_plan_iteration_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SpendingPlanIterationResponse>, Integer, Hash)> read_current_spending_plan_iteration_with_http_info(user_guid, spending_plan_guid, opts)
+
+```ruby
+begin
+  # Read current spending plan iteration
+  data, status_code, headers = api_instance.read_current_spending_plan_iteration_with_http_info(user_guid, spending_plan_guid, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SpendingPlanIterationResponse>
+rescue MxPlatformRuby::ApiError => e
+  puts "Error when calling SpendingPlanApi->read_current_spending_plan_iteration_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
+| **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+
+### Return type
+
+[**SpendingPlanIterationResponse**](SpendingPlanIterationResponse.md)
 
 ### Authorization
 
@@ -712,12 +791,12 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 spending_plan_account_guid = 'ACT-e9f80fee-84da-7s7r-9a5e-0346g4279b4c' # String | The unique ID for the specified account.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -751,11 +830,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **spending_plan_account_guid** | **String** | The unique ID for the specified account. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -792,12 +871,12 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
-iteration_number = 1 # Integer | The current iteration number for the spending plan `iteration``.
+iteration_number = 1 # Integer | The current iteration number for the spending plan `iteration`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -831,11 +910,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **iteration_number** | **Integer** | The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **iteration_number** | **Integer** | The current iteration number for the spending plan &#x60;iteration&#x60;. |  |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -872,12 +951,12 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 iteration_item_guid = 'SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3' # String | The unique ID for the `iteration_item`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -911,11 +990,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **iteration_item_guid** | **String** | The unique ID for the &#x60;iteration_item&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -952,11 +1031,11 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 opts = {
-  page: 1, # Integer | Specify current page.
-  records_per_page: 10 # Integer | Specify records per page.
+  page: 1, # Integer | Results are paginated. Specify current page.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -990,10 +1069,10 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
-| **page** | **Integer** | Specify current page. | [optional] |
-| **records_per_page** | **Integer** | Specify records per page. | [optional] |
+| **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -1030,7 +1109,7 @@ MxPlatformRuby.configure do |config|
 end
 
 api_instance = MxPlatformRuby::SpendingPlanApi.new
-user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique id for a `user`.
+user_guid = 'USR-fa7537f3-48aa-a683-a02a-b18940482f54' # String | The unique identifier for a `user`, beginning with the prefix `USR-`.
 spending_plan_guid = 'SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262' # String | The unique ID for the `spending_plan`.
 iteration_item_guid = 'SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3' # String | The unique ID for the `iteration_item`.
 spending_plan_iteration_item_create_request_body = MxPlatformRuby::SpendingPlanIterationItemCreateRequestBody.new({planned_amount: 110}) # SpendingPlanIterationItemCreateRequestBody | Iteration item to be updated with required parameter (planned_amount)
@@ -1066,7 +1145,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_guid** | **String** | The unique id for a &#x60;user&#x60;. |  |
+| **user_guid** | **String** | The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. |  |
 | **spending_plan_guid** | **String** | The unique ID for the &#x60;spending_plan&#x60;. |  |
 | **iteration_item_guid** | **String** | The unique ID for the &#x60;iteration_item&#x60;. |  |
 | **spending_plan_iteration_item_create_request_body** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md) | Iteration item to be updated with required parameter (planned_amount) |  |

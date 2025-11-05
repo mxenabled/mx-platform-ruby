@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **account_guid** | **String** |  | [optional] |
-| **member_guid** | **String** |  | [optional] |
-| **user_guid** | **String** |  | [optional] |
+| **account_guid** | **String** |  |  |
+| **member_guid** | **String** |  |  |
+| **user_guid** | **String** |  |  |
 
 ## Example
 

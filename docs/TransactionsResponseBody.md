@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 | **transactions** | [**Array&lt;TransactionResponse&gt;**](TransactionResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::TransactionsResponseBody.new(
-  pagination: null,
-  transactions: null
+  transactions: null,
+  pagination: null
 )
 ```
 

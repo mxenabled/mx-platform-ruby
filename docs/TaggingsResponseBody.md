@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 | **taggings** | [**Array&lt;TaggingResponse&gt;**](TaggingResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::TaggingsResponseBody.new(
-  pagination: null,
-  taggings: null
+  taggings: null,
+  pagination: null
 )
 ```
 

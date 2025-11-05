@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 | **transaction_rules** | [**Array&lt;TransactionRuleResponse&gt;**](TransactionRuleResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::TransactionRulesResponseBody.new(
-  pagination: null,
-  transaction_rules: null
+  transaction_rules: null,
+  pagination: null
 )
 ```
 

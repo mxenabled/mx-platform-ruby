@@ -20,7 +20,7 @@
 | **merchant_guid** | **String** |  | [optional] |
 | **merchant_location_guid** | **String** |  | [optional] |
 | **metadata** | **String** |  | [optional] |
-| **posted_at** | **String** |  | [optional] |
+| **posted_at** | **String** |  |  |
 | **status** | **String** |  |  |
 | **transacted_at** | **String** |  |  |
 | **type** | **String** |  |  |

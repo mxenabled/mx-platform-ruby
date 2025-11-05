@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 | **statements** | [**Array&lt;StatementResponse&gt;**](StatementResponse.md) |  | [optional] |
+| **pagination** | [**PaginationResponse**](PaginationResponse.md) |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::StatementsResponseBody.new(
-  pagination: null,
-  statements: null
+  statements: null,
+  pagination: null
 )
 ```
 

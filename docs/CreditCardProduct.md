@@ -25,7 +25,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::CreditCardProduct.new(
-  annual_fee: 45.0,
+  annual_fee: 45,
   duration_of_introductory_rate_on_balance_transfer: null,
   duration_of_introductory_rate_on_purchases: null,
   guid: CCA-b5bcd822-6d01-4e23-b8d6-846a225e714a,

@@ -27,7 +27,7 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::BudgetResponse.new(
-  amount: 153.0,
+  amount: 153,
   category_guid: CAT-bd56d35a-a9a7-6e10-66c1-5b9cc1b6c81a,
   created_at: 2018-10-18T19:51:26+00:00,
   guid: BGT-6ca0e3ef-c65e-4655-8b5a-275a3c19c21d,

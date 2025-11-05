@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **authorization_code** | [**Array&lt;AuthorizationCodeResponse&gt;**](AuthorizationCodeResponse.md) |  | [optional] |
+| **authorization_code** | [**AuthorizationCodeResponse**](AuthorizationCodeResponse.md) |  | [optional] |
 
 ## Example
 

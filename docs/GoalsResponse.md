@@ -28,7 +28,7 @@ require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::GoalsResponse.new(
   account_guid: ACT-4e431124-4a29-abf9-f059-ab232ac14dbf,
-  amount: 4500.0,
+  amount: 4500,
   current_amount: 1651.27,
   guid: GOL-524ca5db-a2d5-44f3-b048-16de16059024,
   goal_type_name: PAYOFF,

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **deposit_amount_1** | **Integer** |  | [optional] |
-| **deposit_amount_2** | **Integer** |  | [optional] |
+| **deposit_amount_1** | **Float** |  | [optional] |
+| **deposit_amount_2** | **Float** |  | [optional] |
 
 ## Example
 
@@ -13,8 +13,8 @@
 require 'mx-platform-ruby'
 
 instance = MxPlatformRuby::MicrodepositVerifyRequest.new(
-  deposit_amount_1: null,
-  deposit_amount_2: null
+  deposit_amount_1: 0.09,
+  deposit_amount_2: 0.09
 )
 ```
 
