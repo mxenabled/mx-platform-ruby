@@ -619,7 +619,7 @@ module MxPlatformRuby
     end
 
     # List transactions by account
-    # Requests to this endpoint return a list of transactions associated with the specified account. <br /><br />Enhanced transaction data may be requested using the `includes` parameter.  To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter). 
+    # Requests to this endpoint return a list of transactions associated with the specified account. <br /><br />Enhanced transaction data may be requested using the `includes` parameter. To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param user_guid [String] The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;.
     # @param [Hash] opts the optional parameters
@@ -643,7 +643,7 @@ module MxPlatformRuby
     end
 
     # List transactions by account
-    # Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter.  To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter). 
+    # Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
     # @param account_guid [String] The unique id for an &#x60;account&#x60;.
     # @param user_guid [String] The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;.
     # @param [Hash] opts the optional parameters

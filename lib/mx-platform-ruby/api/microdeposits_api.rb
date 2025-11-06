@@ -287,7 +287,7 @@ module MxPlatformRuby
     end
 
     # Read a microdeposit for a user
-    # Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. <br></br> Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint. 
+    # Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. <br /><br /> Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
     # @param micro_deposit_guid [String] The unique identifier for the microdeposit. Defined by MX.
     # @param user_guid [String] The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;.
     # @param [Hash] opts the optional parameters
@@ -298,7 +298,7 @@ module MxPlatformRuby
     end
 
     # Read a microdeposit for a user
-    # Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br&gt;&lt;/br&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint. 
+    # Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br /&gt;&lt;br /&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
     # @param micro_deposit_guid [String] The unique identifier for the microdeposit. Defined by MX.
     # @param user_guid [String] The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;.
     # @param [Hash] opts the optional parameters

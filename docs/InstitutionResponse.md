@@ -32,9 +32,7 @@ instance = MxPlatformRuby::InstitutionResponse.new(
   code: mxbank,
   forgot_password_url: https://example.url.mxbank.com/forgot-password,
   forgot_username_url: https://example.url.mxbank.com/forgot-username,
-  instructional_text: Some instructional text &lt;a href&#x3D;&quot;https://example.url.mxbank.com/instructions&quot;
-id&#x3D;&quot;instructional_text&quot;&gt;for end users&lt;/a&gt;.
-,
+  instructional_text: Some instructional text &lt;a href&#x3D;&quot;https://example.url.mxbank.com/instructions&quot; id&#x3D;&quot;instructional_text&quot;&gt;for end users&lt;/a&gt;.,
   instructional_text_steps: [&quot;Step 1: Do this.&quot;,&quot;Step 2: Do that.&quot;],
   is_disabled_by_client: false,
   iso_country_code: US,
