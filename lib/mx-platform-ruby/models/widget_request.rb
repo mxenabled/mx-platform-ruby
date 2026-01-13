@@ -33,6 +33,9 @@ module MxPlatformRuby
     # Only use this option if the `widget_type` is set to `connect_widget`. Load the widget into a specific member that contains an error or requires multifactor authentication. The widget will determine the best view to load based on the member's current state. `current_member_guid` takes precedence over `current_institution_code` and `current_institution_guid`. 
     attr_accessor :current_member_guid
 
+    # Only use this option if the `widget_type` is set to `connect_widget`. Load the widget into a specific microdeposit verification flow.
+    attr_accessor :current_microdeposit_guid
+
     # Only use this option if the `widget_type` is set to `connect_widget`. This determines whether background aggregation is enabled or disabled for the member created by the Connect Widget. Defaults to `false` in `aggregation` mode and `true` in `verification` mode. A global default for all members can be set by reaching out to MX. 
     attr_accessor :disable_background_agg
 
@@ -112,6 +115,7 @@ module MxPlatformRuby
         :'current_institution_code' => :'current_institution_code',
         :'current_institution_guid' => :'current_institution_guid',
         :'current_member_guid' => :'current_member_guid',
+        :'current_microdeposit_guid' => :'current_microdeposit_guid',
         :'disable_background_agg' => :'disable_background_agg',
         :'disable_institution_search' => :'disable_institution_search',
         :'enable_app2app' => :'enable_app2app',
@@ -145,6 +149,7 @@ module MxPlatformRuby
         :'current_institution_code' => :'String',
         :'current_institution_guid' => :'String',
         :'current_member_guid' => :'String',
+        :'current_microdeposit_guid' => :'String',
         :'disable_background_agg' => :'Boolean',
         :'disable_institution_search' => :'Boolean',
         :'enable_app2app' => :'Boolean',
@@ -209,6 +214,10 @@ module MxPlatformRuby
 
       if attributes.key?(:'current_member_guid')
         self.current_member_guid = attributes[:'current_member_guid']
+      end
+
+      if attributes.key?(:'current_microdeposit_guid')
+        self.current_microdeposit_guid = attributes[:'current_microdeposit_guid']
       end
 
       if attributes.key?(:'disable_background_agg')
@@ -313,6 +322,7 @@ module MxPlatformRuby
           current_institution_code == o.current_institution_code &&
           current_institution_guid == o.current_institution_guid &&
           current_member_guid == o.current_member_guid &&
+          current_microdeposit_guid == o.current_microdeposit_guid &&
           disable_background_agg == o.disable_background_agg &&
           disable_institution_search == o.disable_institution_search &&
           enable_app2app == o.enable_app2app &&
@@ -340,7 +350,7 @@ module MxPlatformRuby
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [client_redirect_url, color_scheme, connections_use_case_filter, current_institution_code, current_institution_guid, current_member_guid, disable_background_agg, disable_institution_search, enable_app2app, include_identity, include_transactions, insight_guid, iso_country_code, is_mobile_webview, microwidget_instance_id, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, use_cases, widget_type].hash
+      [client_redirect_url, color_scheme, connections_use_case_filter, current_institution_code, current_institution_guid, current_member_guid, current_microdeposit_guid, disable_background_agg, disable_institution_search, enable_app2app, include_identity, include_transactions, insight_guid, iso_country_code, is_mobile_webview, microwidget_instance_id, mode, oauth_referral_source, ui_message_version, ui_message_webview_url_scheme, update_credentials, use_cases, widget_type].hash
     end
 
     # Builds the object from hash
