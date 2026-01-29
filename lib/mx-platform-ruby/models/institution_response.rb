@@ -21,6 +21,7 @@ module MxPlatformRuby
 
     attr_accessor :forgot_username_url
 
+    # Render this text when end users are asked for their credentials, as it helps end users provide the correct credentials when creating a new member. May contain `<a></a>` tags to link to explanatory material.
     attr_accessor :instructional_text
 
     # An array of instructional steps that may contain html elements.

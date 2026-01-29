@@ -34,7 +34,7 @@ api_instance = MxPlatformRuby::InstitutionsApi.new
 opts = {
   iso_country_code: ['inner_example'], # Array<String> | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include `US`, `CA`, and `MX` (Mexico).
   page: 1, # Integer | Results are paginated. Specify current page.
-  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `100`. If the value exceeds `100`, the default value of `25` will be used instead.
+  records_per_page: 10 # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
 }
 
 begin
@@ -70,7 +70,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **iso_country_code** | [**Array&lt;String&gt;**](String.md) | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). | [optional] |
 | **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
-| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -187,7 +187,7 @@ opts = {
   name: 'mxbank', # String | This will list only institutions in which the appended string appears.
   iso_country_code: ['inner_example'], # Array<String> | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include `US`, `CA`, and `MX` (Mexico).
   page: 1, # Integer | Results are paginated. Specify current page.
-  records_per_page: 10, # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `100`. If the value exceeds `100`, the default value of `25` will be used instead.
+  records_per_page: 10, # Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
   supports_account_identification: true, # Boolean | Filter only institutions which support account identification.
   supports_account_statement: true, # Boolean | Filter only institutions which support account statements.
   supports_account_verification: true, # Boolean | Filter only institutions which support account verification.
@@ -228,7 +228,7 @@ end
 | **name** | **String** | This will list only institutions in which the appended string appears. | [optional] |
 | **iso_country_code** | [**Array&lt;String&gt;**](String.md) | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). | [optional] |
 | **page** | **Integer** | Results are paginated. Specify current page. | [optional] |
-| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+| **records_per_page** | **Integer** | This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 | **supports_account_identification** | **Boolean** | Filter only institutions which support account identification. | [optional] |
 | **supports_account_statement** | **Boolean** | Filter only institutions which support account statements. | [optional] |
 | **supports_account_verification** | **Boolean** | Filter only institutions which support account verification. | [optional] |

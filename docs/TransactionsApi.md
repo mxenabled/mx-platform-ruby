@@ -633,7 +633,7 @@ end
 
 List transactions by account
 
-Requests to this endpoint return a list of transactions associated with the specified account. <br /><br />Enhanced transaction data may be requested using the `includes` parameter. To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+Requests to this endpoint return a list of transactions associated with the specified account. <br /><br /> Enhanced transaction data may be requested using the `includes` parameter. To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
 
 ### Examples
 
@@ -935,7 +935,7 @@ end
 
 Read transaction
 
-Requests to this endpoint will return the attributes of the specified `transaction`. To read a manual transaction, use the manual transaction guid in the path as the `transactionGuid`. <br /><br />Enhanced transaction data may be requested using the `includes` parameter. To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+Requests to this endpoint will return the attributes of the specified `transaction`. To read a manual transaction, use the manual transaction guid in the path as the `transactionGuid`. <br /><br /> Enhanced transaction data may be requested using the `includes` parameter. To use this optional parameter, the value should include the optional metadata requested such as `repeating_transactions`, `merchants`, `classifications`, `geolocations`. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
 
 ### Examples
 
@@ -1011,7 +1011,7 @@ end
 
 List Repeating Transactions
 
-Retrieve a list of all recurring transactions for a user. <br /><br />For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx).
+Retrieve a list of all recurring transactions for a user. <br /><br />For more see the [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions).
 
 ### Examples
 
@@ -1081,7 +1081,7 @@ end
 
 Get a Repeating Transaction
 
-Get a Specific Repeating Transaction. <br /><br />List For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx)
+Get a Specific Repeating Transaction. <br /><br />List For more see the  [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions)
 
 ### Examples
 

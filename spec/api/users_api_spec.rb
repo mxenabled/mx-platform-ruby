@@ -46,7 +46,7 @@ describe 'UsersApi' do
 
   # unit tests for delete_user
   # Delete user
-  # Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](https://docs.mx.com/api-reference/platform-api/overview/deleting-objects). ::: 
+  # Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](/api-reference/platform-api/overview/deleting-objects). ::: 
   # @param accept Specifies the media type expected in the response.
   # @param user_guid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;.
   # @param [Hash] opts the optional parameters

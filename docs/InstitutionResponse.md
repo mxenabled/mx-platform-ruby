@@ -7,7 +7,7 @@
 | **code** | **String** |  | [optional] |
 | **forgot_password_url** | **String** |  | [optional] |
 | **forgot_username_url** | **String** |  | [optional] |
-| **instructional_text** | **String** |  | [optional] |
+| **instructional_text** | **String** | Render this text when end users are asked for their credentials, as it helps end users provide the correct credentials when creating a new member. May contain &#x60;&lt;a&gt;&lt;/a&gt;&#x60; tags to link to explanatory material. | [optional] |
 | **instructional_text_steps** | **Array&lt;String&gt;** | An array of instructional steps that may contain html elements. | [optional] |
 | **is_disabled_by_client** | **Boolean** |  | [optional] |
 | **iso_country_code** | **String** |  | [optional] |

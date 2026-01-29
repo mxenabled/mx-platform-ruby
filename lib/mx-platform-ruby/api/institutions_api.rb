@@ -24,7 +24,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :iso_country_code An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico).
     # @option opts [Integer] :page Results are paginated. Specify current page.
-    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead.
+    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead.
     # @return [InstitutionsResponseBody]
     def list_favorite_institutions(opts = {})
       data, _status_code, _headers = list_favorite_institutions_with_http_info(opts)
@@ -36,7 +36,7 @@ module MxPlatformRuby
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :iso_country_code An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico).
     # @option opts [Integer] :page Results are paginated. Specify current page.
-    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead.
+    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead.
     # @return [Array<(InstitutionsResponseBody, Integer, Hash)>] InstitutionsResponseBody data, response status code and response headers
     def list_favorite_institutions_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -160,7 +160,7 @@ module MxPlatformRuby
     # @option opts [String] :name This will list only institutions in which the appended string appears.
     # @option opts [Array<String>] :iso_country_code An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico).
     # @option opts [Integer] :page Results are paginated. Specify current page.
-    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead.
+    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead.
     # @option opts [Boolean] :supports_account_identification Filter only institutions which support account identification.
     # @option opts [Boolean] :supports_account_statement Filter only institutions which support account statements.
     # @option opts [Boolean] :supports_account_verification Filter only institutions which support account verification.
@@ -177,7 +177,7 @@ module MxPlatformRuby
     # @option opts [String] :name This will list only institutions in which the appended string appears.
     # @option opts [Array<String>] :iso_country_code An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico).
     # @option opts [Integer] :page Results are paginated. Specify current page.
-    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead.
+    # @option opts [Integer] :records_per_page This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead.
     # @option opts [Boolean] :supports_account_identification Filter only institutions which support account identification.
     # @option opts [Boolean] :supports_account_statement Filter only institutions which support account statements.
     # @option opts [Boolean] :supports_account_verification Filter only institutions which support account verification.

@@ -87,7 +87,7 @@ end
 
 Delete user
 
-Use this endpoint to delete the specified `user`. The response will have a status of `204 No Content` without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](https://docs.mx.com/api-reference/platform-api/overview/deleting-objects). ::: 
+Use this endpoint to delete the specified `user`. The response will have a status of `204 No Content` without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](/api-reference/platform-api/overview/deleting-objects). ::: 
 
 ### Examples
 
